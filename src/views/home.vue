@@ -2,6 +2,9 @@
   <div class="home">
       
         <carouselWidget></carouselWidget>
+        <div class="container-fluid">
+          <CategorySlide></CategorySlide>
+        </div>
         <homeList></homeList>
         <div class="container-fluid">
           <!-- <BestSell></BestSell> -->
@@ -26,6 +29,8 @@ import ProdsByTax1 from '../components/lists/ProdsByTax1List.vue';
 import ProdsByTax2 from '../components/lists/ProdsByTax2List.vue';
 import ProdsByTax3 from '../components/lists/ProdsByTax3List.vue';
 // import BestSell from '../components/lists/BestSellList.vue';
+import CategorySlide from '../components/widgets/Category.vue';
+
 export default {
     name:'home',
     components:{
@@ -37,6 +42,7 @@ export default {
       ProdsByTax2,
       ProdsByTax3,
       ProdByBoxList,
+      CategorySlide
       
 
     }
