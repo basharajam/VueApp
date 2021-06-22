@@ -1,7 +1,7 @@
 <template>
   <div class="">
       <div class="TitleList">
-        <h3 class="text-center" >أحبال زينة العيد الوطني</h3>
+        <h3 class="text-right" >أحبال زينة العيد الوطني</h3>
       </div>
 
       <div class="ProdList">

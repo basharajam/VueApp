@@ -8,8 +8,8 @@
       <input class="form-control w-50 mr-sm-2 SearchInput" type="search" placeholder="          Search"  aria-label="Search">
     </nav>
     <div class="CatNavLinks scrollmenu">
-        <a href="https://alyaman.com/shop/">الكل</a>
-        <a v-for="Category in Categories" v-bind:key="Category.id" :href="'https://alyaman.com/product-category/'+Category.slug" >{{ Category.name }}</a>
+        <a href="https://alyaman.com/shop/"> الكل </a>
+        <a v-for="Category in Categories" v-bind:key="Category.id" :href="'https://alyaman.com/product-category/'+Category.slug" > {{ Category.name }} </a>
   </div>
   </div>
 </template>

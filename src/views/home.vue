@@ -10,8 +10,14 @@
           <!-- <BestSell></BestSell> -->
           <prodsByTax0></prodsByTax0>
           <ProdByBoxList></ProdByBoxList>
+          <Banner></Banner>
           <ProdsByTax1></ProdsByTax1>
           <ProdsByTax2></ProdsByTax2>
+        </div>
+        <!-- <div class="container">
+           <CatGridList class="d-block d-sm-none" ></CatGridList>
+        </div> -->
+        <div class="contaner-fluid">
           <ProdsByTax3></ProdsByTax3>
         </div>
 
@@ -30,6 +36,8 @@ import ProdsByTax2 from '../components/lists/ProdsByTax2List.vue';
 import ProdsByTax3 from '../components/lists/ProdsByTax3List.vue';
 // import BestSell from '../components/lists/BestSellList.vue';
 import CategorySlide from '../components/widgets/Category.vue';
+// import CatGridList from '../components/lists/CatGridList.vue';
+import Banner from '../components/widgets/Banner.vue';
 
 export default {
     name:'home',
@@ -42,7 +50,9 @@ export default {
       ProdsByTax2,
       ProdsByTax3,
       ProdByBoxList,
-      CategorySlide
+      CategorySlide,
+      // CatGridList,
+      Banner
       
 
     }

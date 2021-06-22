@@ -2,7 +2,7 @@ module.exports = {
     
 
     filenameHashing:false,
-    assetsDir:'/wp-content/themes/flatsome-child/finally/dist/img'
+    // assetsDir:'/wp-content/themes/flatsome-child/finally/dist/img'
     
 
 

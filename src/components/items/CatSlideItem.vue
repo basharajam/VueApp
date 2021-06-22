@@ -1,6 +1,6 @@
 <template>
     <div class="Cat-Slide-item">
-              <a href="#" class="flex  justify-center">
+              <a :href="'https://alyaman.com/product-category/'+Category.slug" class="flex  justify-center">
                   <img :src="Category.image.src" class="Cat-Slide-item-img" alt="">
                   <span>{{Category.name}}</span>
               </a>
@@ -31,6 +31,10 @@ export default {
 .Cat-Slide-item-img{
     max-width: 115px;
     height: auto;
+}
+
+.Cat-Slide-item a span {
+    white-space: nowrap;
 }
 
 

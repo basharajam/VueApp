@@ -1,9 +1,13 @@
 <template>
   <div >
+    <div class="TitleList">
+      <h3 class="text-right" >تسوق حسب الفئة</h3>
+    </div>
 
-
-    <div class="category-carousel" >
-      <CatSlideItem v-for="Category in Categories" v-bind:key='Category.id' v-bind:Category='Category' class="carousel-cell"></CatSlideItem>
+    <div class="container">
+      <div class="category-carousel" >
+        <CatSlideItem v-for="Category in Categories" v-bind:key='Category.id' v-bind:Category='Category' class="carousel-cell"></CatSlideItem>
+      </div>
     </div>
 
   </div>

@@ -2,7 +2,7 @@
   
   <div>
       <div class="TitleList">
-        <h3 class="text-center" >تغريسات العيد الوطني السعودي</h3>
+        <h3 class="text-right" >تغريسات العيد الوطني السعودي</h3>
       </div>
 
       <div class="ProdList">

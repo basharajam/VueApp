@@ -1,7 +1,7 @@
 <template>
     <div >
       <div class="TitleList">
-        <h3 class="text-center">تاغات العيد الوطني السعودي</h3>
+        <h3 class="text-right">تاغات العيد الوطني السعودي</h3>
       </div>
       <div class="ProdList">
 

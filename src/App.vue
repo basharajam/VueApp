@@ -27,24 +27,27 @@ export default {
 
   console.log(navigator.userAgent)
 
-    //get Categories 
-     this.getCategories();
 
-    //get ProdsByBox
-    this.getProdByBox();
+    //State Actions 
 
-    //get ProdDecRope
-    this.getProdDecRope();
 
-    //get prodDecSticker
-    this.getProdDecSticker();
+      //get ProdsByBox
+      this.getProdByBox();
 
-    //get getProdDecIns
-    this.getProdDecIns();
+      //get ProdDecRope
+      this.getProdDecRope();
 
-    //get getProdDecTag
-    this.getProdDecTag();
+      //get prodDecSticker
+      this.getProdDecSticker();
 
+      //get getProdDecIns
+      this.getProdDecIns();
+
+      //get getProdDecTag
+      this.getProdDecTag();
+
+      //get Categories 
+      this.getCategories();
   }
 
 }
@@ -53,7 +56,7 @@ export default {
 <style>
 
 .TitleList{
-      margin: 15px 4px;
+   margin: 75px 0 12px 0px;
 }
 
 .scrollmenu {
@@ -94,7 +97,7 @@ export default {
 
   .HomeListLogo{
 
-    max-width: 100px !important;
+    max-width: 65px!important;
 
   }
   .scrollmenu {
@@ -104,6 +107,12 @@ export default {
 }
 .navbar-light .navbar-brand {
     margin-left: 640px;
+}
+
+
+.Cart-Slide-item {
+      margin: 0 50px;
+
 }
 
 }

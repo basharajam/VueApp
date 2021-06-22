@@ -1,7 +1,7 @@
 <template>
     <div >
       <div class="TitleList">
-        <h3 class="text-center">ستيكر العيد الوطني</h3>
+        <h3 class="text-right">ستيكر العيد الوطني</h3>
       </div>
       <div class="ProdList">
 

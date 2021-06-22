@@ -25,7 +25,7 @@ const actions = {
 
 
         //Do Requset 
-        var SetUrl = 'https://alyaman.com/wp-json/wc/v3/products?tag=696';
+        var SetUrl = 'https://alyaman.com/wp-json/wc/v3/products?tag=696&per_page=4';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
