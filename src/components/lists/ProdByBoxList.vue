@@ -7,21 +7,21 @@
       <div class="ProdList">
 
         <div class="scrollmenu">
-            <ProdBox v-for="Product in ProdByBox" v-bind:key="Product.id" v-bind:Product="Product" ></ProdBox>
+            <ProdGridBox v-for="Product in ProdByBox" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3" ></ProdGridBox>
           </div>
       </div>
   </div>
 </template>
 
 <script>
-
-import ProdBox from '../items/ProdBox.vue';
+import ProdGridBox from '../items/ProdGridBox.vue';
+// import ProdBox from '../items/ProdBox.vue';
 import { mapGetters } from 'vuex';
 
 export default {
     name:'ProdByBox',
     components:{
-    ProdBox
+    ProdGridBox
     },
     computed:{
 

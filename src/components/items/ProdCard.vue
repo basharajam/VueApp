@@ -6,7 +6,7 @@
                 <a :href="Product.permalink" class="image">
                     <img class="pic-1" :src="Product.images[0].src">
                 </a>
-                <!-- <span class="product-discount-label">-33%</span> -->
+                <span v-if="Product.sale_price" class="product-discount-label">% {{ discountPrice(Product)  }}</span>
                 <ul class="product-links">
                     <!-- <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
                     
@@ -15,7 +15,7 @@
             </div>
             <div class="product-content">
                 <h3 class="title"><a :href="Product.permalink">{{Product.name}}</a></h3>
-                <div class="price"><span>ر.س</span> {{ Product.regular_price }}</div>
+                <div class="price"><span>ر.س</span> {{ parseFloat(Product.regular_price).toFixed(2) }}</div>
                 <ul class="rating">
                     <li class="fas fa-star"></li>
                     <li class="fas fa-star"></li>
@@ -23,7 +23,7 @@
                     <li class="far fa-star"></li>
                     <li class="far fa-star"></li>
                 </ul>
-                <!-- <a class="add-to-cart" href="#">add to cart</a> -->
+                <a class="add-to-cart" href="#">اضافة الى السلة</a>
             </div>
          </div>
         </div>
@@ -33,7 +33,16 @@
 export default {
 
 
-props:['Product']
+        props:['Product'],
+        methods:{
+            discountPrice(Product){
+
+                var stp1 = Product.regular_price-Product.sale_price;
+                var stp2 = stp1/Product.regular_price;
+                var stp3 = stp2 *100;
+                return  parseFloat(stp3).toFixed(0);
+            }
+        }
 
 
 }
@@ -177,30 +186,37 @@ props:['Product']
     font-weight: 500;
   
 }
-.product-grid:hover 
+/* .product-grid:hover  */
 /* .price{ opacity: 0; } */
-.product-grid .add-to-cart{
+.product-content .add-to-cart{
     color: #fff;
+    display: block;
     background-color: #fe6a00;
     font-size: 16px;
     font-weight: 500;
     text-transform: uppercase;
     line-height: 40px;
     width: 140px;
-    height: 40px;
     border-radius: 50px;
-    opacity: 0;
-    transform: translateX(-50%);
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transition: all .4s ease-out;
+    padding: 6px;
+    margin: 14px auto;
+    transition: all 0.4s ease-out;
+    /* height: 40px; */
+    /* bottom: 50px; */
+    /* left: 50%; */
+    /* opacity: 0; */
+    /* transform: translateX(-50%); */
+    /* position: absolute; */
 }
-.product-grid .add-to-cart:hover{ background-color: #2f2f2f; }
-.product-grid:hover .add-to-cart{
+.product-content .add-to-cart:hover{
+    transform: scale(1.1);
+     /* background-color: #2f2f2f; */
+     
+}
+/* .product-grid:hover .add-to-cart{
     opacity: 1;
     bottom: 8px;
-}
+} */
 
 .rating li {
     display: inline-block;

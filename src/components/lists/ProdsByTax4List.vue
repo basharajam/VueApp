@@ -1,14 +1,14 @@
 <template>
     <div >
       <div class="TitleList">
-        <h3 class="text-right">زينة أطفال</h3>
+        <h3 class="text-right">تغريسات العيد الوطني السعودي</h3>
       </div>
-      <div class="ProdList">
+       <div class="ProdList">
         <div class="scrollmenu d-sm-none d-none">
-            <ProdCard v-for="Product in ProdByTax1" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+            <ProdCard v-for="Product in ProdByTax4" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
         </div>
         <div class="row">          
-              <ProdGridBox v-for="Product in ProdByTax1" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3"></ProdGridBox>                
+              <ProdGridBox v-for="Product in ProdByTax4" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3"></ProdGridBox>                
         </div>
       </div>
   </div>
@@ -19,15 +19,16 @@ import { mapGetters } from 'vuex';
 
 import ProdCard from '../items/ProdCard.vue';
 import ProdGridBox from '../items/ProdGridBox.vue';
+
 export default {
 
-  name:'ProdsByTax1',
+  name:'ProdsByTax3',
   components:{
     ProdCard,
     ProdGridBox
   },
   computed:{
-    ...mapGetters(['ProdByTax1'])
+    ...mapGetters(['ProdByTax4'])
   }
 
 }

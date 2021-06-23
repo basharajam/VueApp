@@ -1,11 +1,25 @@
 <template>
   <div class="alheader">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand w-30 " href="https://alyaman.com">
-        <img src="icon.png" alt="" style="max-width: 175px;">
-      </a>
-      <i class="fas fa-search SearchIcon"></i>
-      <input class="form-control w-50 mr-sm-2 SearchInput" type="search" placeholder="          Search"  aria-label="Search">
+      
+
+        <a class="navbar-brand "  href="https://alyaman.com">
+          <img  src="icon.png" alt="" style="max-width: 175px;">
+        </a>
+        
+          <div class="SearchSection">
+            <i class="fas fa-search SearchIcon"></i>
+            <input class="form-control mr-sm-2 SearchInput" type="search" placeholder="          Search"  aria-label="Search">
+          </div>
+
+            <div class="HeaderIcons d-none d-sm-inline-block col-sm-2 pull-left">
+              <a href="#"><i class="fas fa-user"></i></a>
+              <a href="#"> <i class="fas fa-shopping-cart"></i></a>
+              <a href="#"> <i class="fa fa-globe" ></i></a>
+            </div>
+      
+      
+
     </nav>
     <div class="CatNavLinks scrollmenu">
         <a href="https://alyaman.com/shop/"> الكل </a>
@@ -60,9 +74,23 @@ export default {
   .SearchInput{
         border-radius: 25px;
   }
+  .SearchInput:focus{
+    border-color:#fe6a0036 !important ;
+    box-shadow: 0 0 0 0.2rem #fe6a0036;
+  }
   .SearchIcon{
     position: relative;
-    right: 40px;
+    right: 25px;
+    top: 32px;
+  }
+
+  .HeaderIcons a{
+    margin: 0px 12px;
+    color: black;
+    font-size: 26px;
+  }
+  .HeaderIcons a:hover{
+    color: #fe6a00;
   }
 
 </style>

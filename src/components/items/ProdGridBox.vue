@@ -3,13 +3,15 @@
         <div class="ProdCard">
         <div class="card-grid">
              <div class="card-image">
-                <a href="#" class="image">
-                    <img class="pic-1" src="https://alyaman.com/wp-content/uploads/2021/04/IMG_9564-600x600-1.jpg">
+                <a :href="Product.permalink" class="image">
+                    <img class="pic-1" :src="Product.images[0].src">
                 </a>
+                <span v-if="Product.sale_price" class="card-discount-label">% {{ discountPrice(Product)  }}</span>
             </div>
             <div class="card-content">
-                <h3 class="title"><a href="#">xxxxxxxxx</a></h3>
-                <!-- <a class="add-to-cart" href="#">add to cart</a> -->
+                <h3 class="title"><a href="#">{{Product.name}}</a></h3>
+                <div class="price"><span>ر.س</span> {{ parseFloat(Product.price).toFixed(2) }}</div>
+                <a class="add-to-cart" href="#">اضافة الى السلة</a>
             </div>
          </div>
         </div>
@@ -19,7 +21,16 @@
 export default {
 
 
-props:['Product']
+        props:['Product'],
+        methods:{
+            discountPrice(Product){
+
+                var stp1 = Product.regular_price-Product.sale_price;
+                var stp2 = stp1/Product.regular_price;
+                var stp3 = stp2 *100;
+                return  parseFloat(stp3).toFixed(0);
+            }
+        }
 
 
 }
@@ -87,7 +98,7 @@ props:['Product']
 .card-grid .card-links li a{
     color: #2c2c2c;
     background: #fff;
-    font-size: 16px;
+    font-size: 12px;
     line-height: 42px;
     width: 40px;
     height: 40px;
@@ -167,26 +178,28 @@ props:['Product']
     font-weight: 500;
   
 }
-.card-grid:hover 
-/* .price{ opacity: 0; } */
-.card-grid .add-to-cart{
+
+.card-content .add-to-cart{
     color: #fff;
+    display: block;
     background-color: #fe6a00;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
     line-height: 40px;
-    width: 140px;
-    height: 40px;
+    width: 100px;
     border-radius: 50px;
-    opacity: 0;
-    transform: translateX(-50%);
-    position: absolute;
-    bottom: 50px;
-    left: 50%;
-    transition: all .4s ease-out;
+    padding: 6px;
+    margin: 14px auto;
+    transition: all 0.4s ease-out;
+    /* height: 40px; */
+    /* bottom: 50px; */
+    /* left: 50%; */
+    /* opacity: 0; */
+    /* transform: translateX(-50%); */
+    /* position: absolute; */
 }
-.card-grid .add-to-cart:hover{ background-color: #2f2f2f; }
+/* .card-grid .add-to-cart:hover{ background-color: #2f2f2f; } */
 .card-grid:hover .add-to-cart{
     opacity: 1;
     bottom: 8px;

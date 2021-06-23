@@ -21,33 +21,67 @@ export default {
     Footer
   },
   methods:{
-    ...mapActions(['getCategories','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns']),
+    ...mapActions(['getCategories','getProdByTax','getProdByTax0','getProdByTax1','getProdByTax2','getProdByTax3','getProdByTax4','getRecentProd','getProdOffers','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns']),
   },
   mounted(){
-
-  console.log(navigator.userAgent)
-
 
     //State Actions 
 
 
-      //get ProdsByBox
-      this.getProdByBox();
+ 
 
-      //get ProdDecRope
-      this.getProdDecRope();
+      // //get ProdDecRope
+      // this.getProdDecRope();
 
-      //get prodDecSticker
-      this.getProdDecSticker();
+      // //get prodDecSticker
+      // this.getProdDecSticker();
 
-      //get getProdDecIns
-      this.getProdDecIns();
+      // //get getProdDecIns
+      // this.getProdDecIns();
 
-      //get getProdDecTag
-      this.getProdDecTag();
+      // //get getProdDecTag
+      // this.getProdDecTag();
+
+
+
+
 
       //get Categories 
       this.getCategories();
+
+      //get getRecentProd
+      this.getRecentProd();
+
+      //get Offers Prods
+      this.getProdOffers();
+
+
+      //get Products By Tax
+      this.getProdByTax();
+
+      //get Products By Tax
+      this.getProdByTax0();
+
+       //get ProdsByBox
+       this.getProdByBox();
+
+       //get Products Best Sell
+       this.getProdBestSell();
+
+        //get Products By Tax 1
+       this.getProdByTax1();
+
+        //get Products By Tax 2
+       this.getProdByTax2();
+
+       //get Products By Tax 3
+       this.getProdByTax3();
+
+       //get Products By Tax 4
+       this.getProdByTax4();
+
+
+
   }
 
 }
@@ -55,8 +89,14 @@ export default {
 
 <style>
 
+
 .TitleList{
    margin: 75px 0 12px 0px;
+}
+
+.SearchSection{
+position: relative;
+    bottom: 10px;
 }
 
 .scrollmenu {
@@ -67,6 +107,7 @@ export default {
 
 .ProdList{
   margin-bottom: 34px;
+  
 }
 
 .scrollmenu .ProdCard {
@@ -119,9 +160,13 @@ export default {
 
 @media only screen and (max-width: 425px) {
 
+  .navbar-brand img {
+        max-width: 124px !important;
+  }
+
   .HomeListLogo{
 
-    max-width: 60px !important ;
+        max-width: 40px !important;
   }
   .product-grid .product-image img {
     height: 297px !important;
@@ -131,6 +176,14 @@ export default {
       -ms-overflow-style: none;  /* IE and Edge */
       scrollbar-width: none;  /* Firefox */
   }
+  .SearchSection{
+    max-width: 165px;
+    position: relative;
+    bottom: 10px;
+  }
+
+
+
 }
 
 </style>

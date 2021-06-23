@@ -69,7 +69,7 @@ export default {
     padding: 0px;
     width: min-content;
     overflow: hidden;
-    margin: 10px 13px;
+    margin: 10px 8px;
     float: right;
     
 }
