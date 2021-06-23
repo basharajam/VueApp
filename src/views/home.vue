@@ -16,12 +16,17 @@
             <prodsByTax0></prodsByTax0>
           </div>
           <div class="container-fluid">
-           <Banner></Banner>
+           
            <BestSell></BestSell>
           </div>
           <div class="container">
             <ProdsByTax1></ProdsByTax1>
             <ProdsByTax2></ProdsByTax2>
+          </div>
+          <div class="container-fluid">
+            <Banner></Banner>
+          </div>
+          <div class="container">
             <ProdsByTax3></ProdsByTax3>
             <ProdsByTax4></ProdsByTax4>
           </div>
