@@ -1,10 +1,10 @@
 <template>
-  <div class="">
+  <div class="container-fluid">
       <div class="TitleList">
         <h3 class="text-right" >توزيعات زجاجية</h3>
       </div>
 
-      <div class="ProdList">
+      <div class="ProdList container">
         <div class="scrollmenu d-sm-none d-none">
             <ProdCard v-for="Product in ProdByTax0" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
         </div>

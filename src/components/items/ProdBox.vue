@@ -15,13 +15,13 @@
             <div class="product-content">
                 <h3 class="title"><a :href="Product.permalink">{{ Product.name }}</a></h3>
                 <div class="price"><span>ر.س</span> {{ Product.regular_price }} </div>
-                <ul class="rating">
+                <!-- <ul class="rating">
                     <li class="fas fa-star"></li>
                     <li class="fas fa-star"></li>
                     <li class="fas fa-star"></li>
                     <li class="far fa-star"></li>
                     <li class="far fa-star"></li>
-                </ul>
+                </ul> -->
                 <!-- <a class="add-to-cart" href="#">add to cart</a> -->
             </div>
          </div>

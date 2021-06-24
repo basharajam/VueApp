@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  <div class="container-fluid">
       <div class="TitleList">
         <h3 class="text-right" >عروض خاصة</h3>
       </div>

@@ -13,16 +13,20 @@
                     <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li> -->
                 </ul>
             </div>
-            <div class="product-content">
+            <div class="product-data">
                 <h3 class="title"><a :href="Product.permalink">{{Product.name}}</a></h3>
                 <div class="price"><span>ر.س</span> {{ parseFloat(Product.regular_price).toFixed(2) }}</div>
-                <ul class="rating">
+                <div class="descrition"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam rem culpa alias quidem atque et  </div>
+            </div>
+            <div class="product-content">
+                <!-- <ul class="rating">
+                    <span>{{ Product.average_rating }}</span>
                     <li class="fas fa-star"></li>
                     <li class="fas fa-star"></li>
                     <li class="fas fa-star"></li>
                     <li class="far fa-star"></li>
                     <li class="far fa-star"></li>
-                </ul>
+                </ul> -->
                 <a class="add-to-cart" href="#">اضافة الى السلة</a>
             </div>
          </div>
@@ -74,7 +78,7 @@ export default {
 .product-grid .product-discount-label{
     color: #fff;
     background: #fe6a00;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 400;
     text-transform: uppercase;
     padding: 2px 8px;
@@ -168,12 +172,13 @@ export default {
     font-weight: 600;
     text-transform: uppercase;
     margin: 0 0 15px;
+    transition: all 0.4s ease-in-out;
 }
 .product-grid .title a{
     color: #2c2c2c;
     transition: all 0.3s ease 0s;
 }
-.product-grid .title a:hover{ color: #fe6a00; }
+.product-grid .product-data .title a:hover{ color: #fe6a00; }
 .product-grid .price{
     color: #fe6a00;
     font-size: 17px;
@@ -181,7 +186,7 @@ export default {
     display: block;
     transition: all 0.4s ease-in-out;
 }
-.product-grid .price span{
+.product-grid .product-data .price span{
     color: #999;
     font-weight: 500;
   
@@ -217,6 +222,52 @@ export default {
     opacity: 1;
     bottom: 8px;
 } */
+
+.product-data{
+    background-color: white;
+    transition: all 0.4s ease-out;
+    padding: 8px 0;
+    z-index: 666;
+    position: relative;
+}
+
+.product-data .descrition {
+
+display: none;
+position: absolute;
+background-color: white;
+transition: all 0.4s ease-out;
+}
+
+
+/*  Dsecription Animation When Hover On Img  */
+
+
+.product-grid .product-image:hover >a >img {
+
+}
+
+.product-grid .product-image:hover + .product-data .descrition {
+display: block;
+transition: all 0.4s ease-out;
+    /* 
+    position: relative; */
+
+}
+
+.product-grid .product-image:hover + .product-data {
+
+    
+    transform: translateY(-200%);
+    /* color:white !important; */
+
+}
+
+
+
+
+
+
 
 .rating li {
     display: inline-block;

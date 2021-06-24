@@ -66,7 +66,7 @@ export default {
 .card-grid .card-discount-label{
     color: #fff;
     background: #fe6a00;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 400;
     text-transform: uppercase;
     padding: 2px 8px;

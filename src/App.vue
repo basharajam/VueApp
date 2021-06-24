@@ -1,6 +1,7 @@
 <template>
   <div id="app">
 
+    <Spinner v-if="spinner" />
     <Header />
     <router-view />
     <Footer  />
@@ -12,16 +13,27 @@
 
 import Header from './components/layouts/header.vue';
 import Footer from './components/layouts/footer.vue';
+import Spinner from './components/layouts/spinner.vue';
 import { mapActions } from 'vuex';
 
 export default {
   name: 'App',
   components: {
     Header,
-    Footer
+    Footer,
+    Spinner
   },
   methods:{
     ...mapActions(['getCategories','getProdByTax','getProdByTax0','getProdByTax1','getProdByTax2','getProdByTax3','getProdByTax4','getRecentProd','getProdOffers','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns']),
+
+    hideSpinner(){
+      return this.spinner = false;
+    }
+  },
+data: function() {
+    return {
+      spinner:true
+    };
   },
   mounted(){
 
@@ -80,6 +92,11 @@ export default {
        //get Products By Tax 4
        this.getProdByTax4();
 
+      //Disable Spinner
+      setTimeout(() => {
+         this.spinner=false
+      }, 25500);
+
 
 
   }
@@ -91,7 +108,8 @@ export default {
 
 
 .TitleList{
-   margin: 75px 0 12px 0px;
+    margin-bottom: 40px;
+    padding-top: 40px;
 }
 
 .SearchSection{
@@ -145,6 +163,7 @@ position: relative;
     overflow: hidden;
     white-space: break-spaces;
     float: right;
+    margin-bottom: 50px;
 }
 .navbar-light .navbar-brand {
     margin-left: 640px;
@@ -182,7 +201,24 @@ position: relative;
     bottom: 10px;
   }
 
+  .homeListItem .content{
 
+    font-size: 10px;
+
+  }
+
+  .card-discount-label{
+      font-size: 12px !important;
+  }
+
+
+.product-grid .product-image:hover + .product-data {
+
+    
+    transform: translateY(-115%) !important;
+    /* color:white !important; */
+
+}
 
 }
 

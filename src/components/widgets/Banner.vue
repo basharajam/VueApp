@@ -1,5 +1,5 @@
 <template>
-   <div class="">
+   <div class="container-fluid">
 
        <div class=" col-sm-12 col-12 d-block d-sm-none" >
           <a href="#">

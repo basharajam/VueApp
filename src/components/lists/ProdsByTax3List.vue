@@ -1,9 +1,9 @@
 <template>
-    <div >
+    <div class="container-fluid" >
       <div class="TitleList">
         <h3 class="text-right">تاغات العيد الوطني السعودي</h3>
       </div>
-       <div class="ProdList">
+       <div class="ProdList container">
         <div class="scrollmenu d-sm-none d-none">
             <ProdCard v-for="Product in ProdByTax3" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
         </div>

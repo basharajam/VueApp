@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="container-fluid">
       <div class="TitleList">
         <h3 class="text-right" >منتجات يمكنك طلب 5 كرتون منها او اقل</h3>
       </div>
 
-      <div class="ProdList">
+      <div class="ProdList container-fluid">
 
         <div class="scrollmenu">
             <ProdGridBox v-for="Product in ProdByBox" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3" ></ProdGridBox>
