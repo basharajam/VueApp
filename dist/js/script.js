@@ -8,7 +8,7 @@ $(document).ready(function(){
             // options
             "groupCells": 4  
           });
-    },20000)
+    },25000)
 
 })
 
