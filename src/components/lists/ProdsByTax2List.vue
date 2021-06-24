@@ -5,7 +5,7 @@
         <h3 class="text-right" >توزيعات عيد ميلاد</h3>
       </div>
 
-      <div class="ProdList container">
+      <div class="ProdList ">
         <div class="scrollmenu d-sm-none d-none">
             <ProdCard v-for="Product in ProdByTax2" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
         </div>

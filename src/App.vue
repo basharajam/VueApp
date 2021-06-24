@@ -220,6 +220,17 @@ position: relative;
 
 }
 
+
+.Cat-Slide-item{
+  margin:0 !important;
+}
+
+.spinner{
+
+  right: 42% !important;
+
+}
+
 }
 
 </style>

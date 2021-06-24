@@ -20,6 +20,7 @@ export default {
 
 .Cat-Slide-item{
         bottom: 0 !important;
+        margin:0 24px;
 }
 
 .Cat-Slide-item a {

@@ -6,7 +6,8 @@ $(document).ready(function(){
         // eslint-disable-next-line no-undef
         $('.category-carousel').flickity({
             // options
-            "groupCells": 4  
+            "groupCells": '30%',
+            pageDots: false  
           });
     },25000)
 

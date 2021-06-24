@@ -226,7 +226,7 @@ export default {
 .product-data{
     background-color: white;
     transition: all 0.4s ease-out;
-    padding: 8px 0;
+    padding: 6px 0;
     z-index: 666;
     position: relative;
 }
@@ -243,16 +243,27 @@ transition: all 0.4s ease-out;
 /*  Dsecription Animation When Hover On Img  */
 
 
-.product-grid .product-image:hover >a >img {
-
-}
-
 .product-grid .product-image:hover + .product-data .descrition {
 display: block;
 transition: all 0.4s ease-out;
     /* 
     position: relative; */
 
+}
+
+
+.product-grid .product-image img{
+
+  vertical-align: top;
+  transition: opacity 0.3s;
+  -webkit-transition: opacity 0.3s;
+  
+}
+
+.product-grid .product-image:hover > a > img {
+
+    opacity: 0.2;
+   
 }
 
 .product-grid .product-image:hover + .product-data {

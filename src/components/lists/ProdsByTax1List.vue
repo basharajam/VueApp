@@ -3,7 +3,7 @@
       <div class="TitleList">
         <h3 class="text-right">زينة أطفال</h3>
       </div>
-      <div class="ProdList container">
+      <div class="ProdList ">
         <div class="scrollmenu d-sm-none d-none">
             <ProdCard v-for="Product in ProdByTax1" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
         </div>

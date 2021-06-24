@@ -47,7 +47,7 @@ const actions = {
     getRecentProd({commit}){
         
         
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?featured = true& per_page=8';
+        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?featured = true&per_page=8';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -122,7 +122,7 @@ const actions = {
 
     getProdBestSell({commit}){
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?featured = true&?per_page=8';
+        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?featured = true&per_page=8';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
