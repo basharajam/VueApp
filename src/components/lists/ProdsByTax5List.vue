@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid" >
+    <div class="" >
       <div class="TitleList">
         <h3 class="text-right">نقترح لك </h3>
       </div>

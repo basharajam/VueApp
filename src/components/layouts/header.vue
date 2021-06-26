@@ -49,8 +49,8 @@ export default {
 <style lang="css" scoped>
 
   .CatNavLinks{
-    padding: 12px 0;
-    font-size: 20px;
+    padding: 10px 0;
+    font-size: 14px;
     background: white;
     min-width: 100%;
   }
@@ -59,7 +59,7 @@ export default {
   }
   .CatNavLinks a {
       padding: 4px;
-      margin: 0 6px;
+      margin: 0 2px;
       color: #808080;
   }
   .CatNavLinks a:active {

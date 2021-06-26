@@ -20,7 +20,6 @@ export default {
 
 .Cat-Slide-item{
         bottom: 0 !important;
-        margin:10px 34px;
         display: inline-block;
 }
 
@@ -29,10 +28,11 @@ export default {
     align-items: center;
     flex-direction: column;
     color: #808080 !important;
+    font-size: 10px;
 }
 
 .Cat-Slide-item-img{
-    max-width: 115px;
+    max-width: 90px;
     height: auto;
 }
 

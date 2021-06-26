@@ -48,7 +48,7 @@ export default {
 .homeList{
 
 background-color: white;
-margin-top: 14px;
+margin-top: 2px;
 margin-bottom: -10px;
 padding: 8px 0;
 

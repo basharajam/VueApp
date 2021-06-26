@@ -32,7 +32,7 @@ export default {
   },
 data: function() {
     return {
-      spinner:false
+      spinner:true
     };
   },
   mounted(){
@@ -131,14 +131,23 @@ body{
 .TitleList{  
     /* padding: 12px 0; */
     padding-top: 6px;
-    padding-bottom:2px ;
-    margin: 6px 0;
+    padding-bottom:10px ;
+    margin: 4px 0;
     margin-top: 0;
     background-color: white;
     padding-right:4px ;
     padding-left: 4px;
     min-height: 100% impr !important;
+    
 }
+
+.TitleList h3 {
+
+  font-size:18px ;
+  padding-top: 6px;
+}
+
+.TitleList
 
 .SearchSection{
 position: relative;
@@ -152,14 +161,16 @@ position: relative;
 }
 
 .ProdList{
-  margin-bottom: 34px;
+  margin-bottom: 2px;
   
 }
 
 .scrollmenu .ProdCard {
   display: inline-block;
   text-align: center;
-  padding: 14px;
+  padding-top:4px;
+  padding-right: 4px;
+  padding-left: 4px;
   text-decoration: none;
 }
 
@@ -172,9 +183,9 @@ position: relative;
 .scrollmenu::-webkit-scrollbar {
   display: none;
 }
-.product-grid .product-image img[data-v-3afc3ba6] {
+/* .product-grid .product-image img[data-v-3afc3ba6] {
     max-height: 500px;
-}
+} */
 
  a, a:hover, a:focus, a:active {
       text-decoration: none;
@@ -183,9 +194,11 @@ position: relative;
 
 .ShowMoreBtn{
 
-    padding: 6px;
+    padding: 3px;
     border:1px #fe6a00 solid;
     border-radius: 5px;
+    margin-top: 4px;
+
     
 }
 
@@ -225,6 +238,10 @@ position: relative;
 
 @media only screen and (max-width: 425px) {
 
+
+  .Cat-Slide-item{
+        margin: 10px 31px;
+  }
   .navbar-brand img {
         max-width: 124px !important;
   }
@@ -233,16 +250,16 @@ position: relative;
 
         max-width: 40px !important;
   }
-  .product-grid .product-image img {
+  /* .product-grid .product-image img {
     height: 297px !important;
-}
+} */
   .CatNavLinks{
     overflow-y: scroll;
       -ms-overflow-style: none;  /* IE and Edge */
       scrollbar-width: none;  /* Firefox */
   }
   .SearchSection{
-    max-width: 210px;
+    max-width: 120px;
     position: relative;
     bottom: 10px;
   }
@@ -267,7 +284,7 @@ position: relative;
 }
 
 .Cat-Slide-item-img {
-    max-width: 80px !important;
+    max-width: 42px !important;
         margin: 0 10px !important;
 }
 
@@ -284,11 +301,39 @@ min-height: 300px !important;
 }
 
 .GridItem{
-    padding-right: 5px;
-    padding-left: 5px;
+    padding-right: 1px;
+    padding-left: 1px;
 }
 
 
 }
+
+@media only screen and (max-width: 320px){
+
+
+.Cat-Slide-item{
+
+  margin: 6px 26px !important;
+
+}
+
+}
+
+
+@media only screen and (min-width: 375px) {
+  .Cat-Slide-item{
+
+   margin: 6px 34px !important;
+
+  }
+
+  .al_footer-item{
+
+          margin: 2% 4.5% !important;
+
+  }
+
+}
+
 
 </style>

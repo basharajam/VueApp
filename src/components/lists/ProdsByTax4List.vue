@@ -1,8 +1,8 @@
 <template>
-    <div class="container-fluid " >
+    <div class="" >
       <div class="TitleList">
         <div class="float-left ShowMoreBtn" >
-          <a href="#" class="pull-left">عرض المزيد</a>
+          <a href="https://alyaman.com/product-tag/ksa_topper_group/" class="pull-left">عرض المزيد</a>
         </div>
         <h3 class="text-right">تغريسات العيد الوطني السعودي</h3>
       </div>
@@ -10,8 +10,10 @@
         <div class="scrollmenu d-sm-none d-none">
             <ProdCard v-for="Product in ProdByTax4" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
         </div>
-        <div class="row">          
-              <ProdGridBox v-for="Product in ProdByTax4" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3"></ProdGridBox>                
+        <div class="container">
+          <div class="row">
+              <ProdGridBox v-for="Product in ProdByTax4" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem"></ProdGridBox>                
+          </div>
         </div>
       </div>
   </div>

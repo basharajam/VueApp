@@ -52,11 +52,12 @@ export default {
     overflow: hidden;
     transition: all 0.4s ease-out;
     background: white;
+    
 }
 .card-grid:hover{ 
     
     box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.1);
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
  }
 .card-grid .card-image{ position: relative; }
 .card-grid .card-image a.image{ display: block; }
@@ -210,7 +211,7 @@ export default {
     display: inline-block;
 }
 @media screen and (max-width:1200px){
-    .card-grid{ margin: 0 0 30px; }
+    .card-grid{ margin:2px; }
 }
 
 

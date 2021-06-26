@@ -1,11 +1,6 @@
 <template>
   <div class="">
-      <div class="TitleList">
-      <div class="float-left ShowMoreBtn" >
-          <a href="#" class="pull-left">عرض المزيد</a>
-      </div>
-        <h3 class="text-right" >عروض خاصة</h3>
-      </div>
+
 
       <div class="ProdList">
 

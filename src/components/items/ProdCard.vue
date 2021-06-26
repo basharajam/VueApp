@@ -1,6 +1,6 @@
 <template>
 
-        <div class="ProdCard col-sm-3 col-8">
+        <div class="ProdCard col-sm-3 col-6">
         <div class="product-grid">
              <div class="product-image">
                 <a :href="Product.permalink" class="image">
@@ -68,6 +68,9 @@ export default {
     overflow: hidden;
     transition: all 0.4s ease-out;
     background: white;
+    /* width: 70%; */
+    height:auto;
+
 }
 .product-grid:hover{ box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.1); }
 .product-grid .product-image{ position: relative; }
@@ -156,7 +159,7 @@ export default {
     display: block;
 }
 .product-grid .product-content{
-    padding: 12px 12px 15px;
+    padding: 0px 12px 2px;
     position: relative;
 }
 .product-grid .rating{
@@ -216,7 +219,7 @@ export default {
     /* position: absolute; */
 }
 .product-content .add-to-cart:hover{
-    transform: scale(1.1);
+    /* transform: scale(1.1); */
      /* background-color: #2f2f2f; */
      
 }
@@ -229,6 +232,7 @@ export default {
     background-color: white;
     transition: all 0.4s ease-out;
     padding: 6px 0;
+    padding-bottom: 0px !important;
     z-index: 666;
     position: relative;
 }
@@ -286,7 +290,7 @@ transition: all 0.4s ease-out;
     display: inline-block;
 }
 @media screen and (max-width:1200px){
-    .product-grid{ margin: 0 0 30px; }
+    .product-grid{ margin: 0 0 2px; }
 }
 
 

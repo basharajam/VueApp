@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div class="">
       <div class="TitleList">
         <div class="float-left ShowMoreBtn" >
           <a href="#" class="pull-left">عرض المزيد</a>

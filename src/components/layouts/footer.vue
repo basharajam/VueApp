@@ -55,7 +55,6 @@ export default {
     bottom: 0;
     width: 100%;
     height: 54px;
-    /* padding: 0 12px; */
     background-color: #FFF;
     z-index: 990;
     box-shadow: 0 1px 3px 0;
@@ -69,7 +68,8 @@ export default {
     padding: 0px;
     width: min-content;
     overflow: hidden;
-    margin: 10px 5px;
+    margin: 2% 3.7%;
+
     float: right;
     
 }

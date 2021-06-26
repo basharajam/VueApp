@@ -207,7 +207,7 @@ export default {
     display: inline-block;
 }
 @media screen and (max-width:1200px){
-    .product-grid{ margin: 0 0 30px; }
+    .product-grid{ margin: 0 0 6px; }
 }
 
 </style>

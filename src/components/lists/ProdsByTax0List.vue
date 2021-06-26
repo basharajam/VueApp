@@ -1,8 +1,8 @@
 <template>
-  <div class="container-fluid ">
+  <div class="">
       <div class="TitleList">
         <div class="float-left ShowMoreBtn" >
-          <a href="#" class="pull-left">عرض المزيد</a>
+          <a href="https://alyaman.com/%d9%85%d8%ac%d9%85%d9%88%d8%b9%d8%a9-%d8%aa%d9%88%d8%b2%d9%8a%d8%b9%d8%a7%d8%aa-%d8%b2%d8%ac%d8%a7%d8%ac%d9%8a%d8%a9-%d8%a3%d8%b9%d8%b1%d8%a7%d8%b3/" class="pull-left">عرض المزيد</a>
         </div>
         <h3 class="text-right" >توزيعات زجاجية</h3>
       </div>
@@ -11,8 +11,10 @@
         <div class="scrollmenu d-sm-none d-none">
             <ProdCard v-for="Product in ProdByTax0" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
         </div>
-        <div class="row">          
-              <ProdGridBox v-for="Product in ProdByTax0" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3"></ProdGridBox>                
+        <div class="container">
+          <div class="row">
+              <ProdGridBox v-for="Product in ProdByTax0" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-3 GridItem"></ProdGridBox>                
+          </div>
         </div>
       </div>
   </div>

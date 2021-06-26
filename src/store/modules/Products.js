@@ -70,7 +70,7 @@ const actions = {
     getProdByTax({commit}){
         
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=714&per_page=8';
+        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=714&per_page=4';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -87,7 +87,7 @@ const actions = {
     },
     getProdByTax0({commit}){
 
-        var SetUrl = 'https://alyaman.com/wp-json/wc/v3/products?tag=677&per_page=4';
+        var SetUrl = 'https://alyaman.com/wp-json/wc/v3/products?tag=677&per_page=9';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
