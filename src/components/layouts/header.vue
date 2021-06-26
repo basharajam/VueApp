@@ -12,6 +12,8 @@
             <input class="form-control mr-sm-2 SearchInput" type="search" placeholder="          Search"  aria-label="Search">
           </div>
 
+          <a href="#" class="d-inline-block d-sm-none" style="margin: 0 12px;font-size: 24px;"> <i class="fa fa-globe" ></i></a>
+
             <div class="HeaderIcons d-none d-sm-inline-block col-sm-2 pull-left">
               <a href="#"><i class="fas fa-user"></i></a>
               <a href="#"> <i class="fas fa-shopping-cart"></i></a>
@@ -47,8 +49,10 @@ export default {
 <style lang="css" scoped>
 
   .CatNavLinks{
-      margin: 15px 0;
-      font-size: 20px;
+    padding: 12px 0;
+    font-size: 20px;
+    background: white;
+    min-width: 100%;
   }
   .CatNavLinks::-webkit-scrollbar {
       display: none;
@@ -56,9 +60,9 @@ export default {
   .CatNavLinks a {
       padding: 4px;
       margin: 0 6px;
-      color: black;
+      color: #808080;
   }
-  .CatNavLinks a:hover {
+  .CatNavLinks a:active {
        color: #fe6a00;
        border-bottom: 12px #fe6a00 solid;
   }

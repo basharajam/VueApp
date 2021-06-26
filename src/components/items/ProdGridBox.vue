@@ -9,9 +9,9 @@
                 <span v-if="Product.sale_price" class="card-discount-label">% {{ discountPrice(Product)  }}</span>
             </div>
             <div class="card-content">
-                <h3 class="title"><a href="#">{{Product.name}}</a></h3>
+                <!-- <h3 class="title"><a href="#">{{Product.name}}</a></h3> -->
                 <div class="price"><span>ر.س</span> {{ parseFloat(Product.price).toFixed(2) }}</div>
-                <a class="add-to-cart" href="#">اضافة الى السلة</a>
+                <!-- <a class="add-to-cart" href="#">اضافة الى السلة</a> -->
             </div>
          </div>
         </div>
@@ -51,6 +51,7 @@ export default {
     border: 1px solid #e7e7e7;
     overflow: hidden;
     transition: all 0.4s ease-out;
+    background: white;
 }
 .card-grid:hover{ 
     
@@ -64,8 +65,8 @@ export default {
     height: auto;
 }
 .card-grid .card-discount-label{
-    color: #fff;
-    background: #fe6a00;
+    color: #fe6a00;
+    border:1px #fe6a00 solid;
     font-size: 20px;
     font-weight: 400;
     text-transform: uppercase;

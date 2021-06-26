@@ -1,6 +1,9 @@
 <template>
-    <div class="container-fluid" >
+    <div class="container-fluid " >
       <div class="TitleList">
+        <div class="float-left ShowMoreBtn" >
+          <a href="#" class="pull-left">عرض المزيد</a>
+        </div>
         <h3 class="text-right">زينة أطفال</h3>
       </div>
       <div class="ProdList ">
@@ -9,7 +12,7 @@
         </div>
         <div class="row">          
               <ProdGridBox v-for="Product in ProdByTax1" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3"></ProdGridBox>                
-        </div>
+        </div>        
       </div>
   </div>
 </template>

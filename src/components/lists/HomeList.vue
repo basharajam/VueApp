@@ -47,13 +47,16 @@ export default {
 
 .homeList{
 
-margin: 46px 0;
+background-color: white;
+margin-top: 14px;
+margin-bottom: -10px;
+padding: 8px 0;
 
 }
 
 .HomeListLogo{
 
-    margin-bottom: 25px;
+    margin-bottom: 10px;
  
 }
 .homeListItem{
@@ -62,7 +65,7 @@ margin: 46px 0;
 
 .content {
     display: block;
-    color: black;
+    color: #808080 !important;
     font-weight: 700;
 }
 

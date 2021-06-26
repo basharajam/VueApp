@@ -54,6 +54,7 @@ export default {
     border: 1px solid #e7e7e7;
     overflow: hidden;
     transition: all 0.4s ease-out;
+    background: white;
 }
 .product-grid:hover{ box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.1); }
 .product-grid .product-image-box{ position: relative; }
@@ -63,8 +64,8 @@ export default {
     height: auto;
 }
 .product-grid .product-discount-label{
-    color: #fff;
-    background: #fe6a00;
+    color: #fe6a00;
+    border:1px #fe6a00 solid;
     font-size: 14px;
     font-weight: 400;
     text-transform: uppercase;

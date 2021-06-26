@@ -24,7 +24,7 @@ export default {
     Spinner
   },
   methods:{
-    ...mapActions(['getCategories','getProdByTax','getProdByTax0','getProdByTax1','getProdByTax2','getProdByTax3','getProdByTax4','getRecentProd','getProdOffers','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns']),
+    ...mapActions(['getCategories','getProdByTax','getProdByTax0','getProdByTax1','getProdByTax2','getProdByTax3','getProdByTax4','getProdByTax5','getProdByTax6','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns']),
 
     hideSpinner(){
       return this.spinner = false;
@@ -32,7 +32,7 @@ export default {
   },
 data: function() {
     return {
-      spinner:true
+      spinner:false
     };
   },
   mounted(){
@@ -80,6 +80,9 @@ data: function() {
        //get Products Best Sell
        this.getProdBestSell();
 
+        //get Product Most Popular
+       this.getProdMostPopular();
+
         //get Products By Tax 1
        this.getProdByTax1();
 
@@ -91,6 +94,12 @@ data: function() {
 
        //get Products By Tax 4
        this.getProdByTax4();
+
+       //get Products By Tax 5
+       this.getProdByTax5();
+
+      //get Products By Tax 6
+       this.getProdByTax6();
 
       //Disable Spinner
       setTimeout(() => {
@@ -107,9 +116,28 @@ data: function() {
 <style>
 
 
-.TitleList{
-    margin-bottom: 40px;
-    padding-top: 40px;
+body{
+
+  background-color: #ecececec;
+
+}
+
+.Section{
+
+  padding: 8px 0;
+
+}
+
+.TitleList{  
+    /* padding: 12px 0; */
+    padding-top: 6px;
+    padding-bottom:2px ;
+    margin: 6px 0;
+    margin-top: 0;
+    background-color: white;
+    padding-right:4px ;
+    padding-left: 4px;
+    min-height: 100% impr !important;
 }
 
 .SearchSection{
@@ -138,6 +166,7 @@ position: relative;
 .scrollmenu {
           -ms-overflow-style: none;  /* IE and Edge */
           scrollbar-width: none;  /* Firefox */
+          width:100%;
 }
 
 .scrollmenu::-webkit-scrollbar {
@@ -151,6 +180,19 @@ position: relative;
       text-decoration: none;
       color: #fe6a00;
  }
+
+.ShowMoreBtn{
+
+    padding: 6px;
+    border:1px #fe6a00 solid;
+    border-radius: 5px;
+    
+}
+
+.ShowMoreBtn a {
+ color:#fe6a00 ;
+}
+
 
 @media only screen and (min-width: 768px) {
 
@@ -175,6 +217,10 @@ position: relative;
 
 }
 
+.GridItem{
+      margin: 23px 0 !important;
+}
+
 }
 
 @media only screen and (max-width: 425px) {
@@ -196,7 +242,7 @@ position: relative;
       scrollbar-width: none;  /* Firefox */
   }
   .SearchSection{
-    max-width: 165px;
+    max-width: 210px;
     position: relative;
     bottom: 10px;
   }
@@ -220,9 +266,15 @@ position: relative;
 
 }
 
+.Cat-Slide-item-img {
+    max-width: 80px !important;
+        margin: 0 10px !important;
+}
 
-.Cat-Slide-item{
-  margin:0 !important;
+.mobileBanner{
+
+min-height: 300px !important;
+
 }
 
 .spinner{
@@ -230,6 +282,12 @@ position: relative;
   right: 42% !important;
 
 }
+
+.GridItem{
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
 
 }
 
