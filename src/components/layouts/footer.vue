@@ -15,7 +15,7 @@
           </div>
           <div class="al_footer-item al_footer-item-cart">
               <a href="#" class="flex  justify-center">
-                  <i class="fa fa-shopping-cart" ></i>
+                  <i class="fal fa-shopping-cart" ></i>
                   <span>السلة</span>
               </a>
           </div>

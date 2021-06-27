@@ -86,8 +86,8 @@ export default {
     font-size: 20px;
     font-weight: 400;
     text-transform: uppercase;
-    padding: 2px 8px;
-    border-radius: 5px;
+    padding: 10px 6px;
+    border-radius: 50%;
     position: absolute;
     top: 12px;
     left: 12px;
@@ -199,9 +199,10 @@ export default {
 /* .product-grid:hover  */
 /* .price{ opacity: 0; } */
 .product-content .add-to-cart{
-    color: #fff;
+    color: #fe6a00;
     display: block;
-    background-color: #fe6a00;
+    background-color:white;
+    border: 1px #fe6a00 solid;
     font-size: 16px;
     font-weight: 500;
     text-transform: uppercase;
@@ -218,11 +219,12 @@ export default {
     /* transform: translateX(-50%); */
     /* position: absolute; */
 }
-.product-content .add-to-cart:hover{
+
+
+/* .product-content .add-to-cart:hover{
     /* transform: scale(1.1); */
      /* background-color: #2f2f2f; */
      
-}
 /* .product-grid:hover .add-to-cart{
     opacity: 1;
     bottom: 8px;

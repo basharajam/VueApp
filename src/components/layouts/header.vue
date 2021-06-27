@@ -16,7 +16,7 @@
 
             <div class="HeaderIcons d-none d-sm-inline-block col-sm-2 pull-left">
               <a href="#"><i class="fas fa-user"></i></a>
-              <a href="#"> <i class="fas fa-shopping-cart"></i></a>
+              <a href="#"> <i class="fal fa-shopping-cart"></i></a>
               <a href="#"> <i class="fa fa-globe" ></i></a>
             </div>
       
