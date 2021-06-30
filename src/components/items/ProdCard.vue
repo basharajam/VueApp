@@ -27,7 +27,8 @@
                     <li class="far fa-star"></li>
                     <li class="far fa-star"></li>
                 </ul> -->
-                <a class="add-to-cart" href="#">اضافة الى السلة</a>
+                <!-- addToCart(Product.ID,Product.meta._wc_min_qty_product,Product.meta.al_carton_qty) -->
+                <a class="add-to-cart" :href="Product.permalink"  target="_blank" >عرض تفاصيل المنتج</a>
             </div>
          </div>
         </div>
@@ -45,7 +46,28 @@ export default {
                 var stp2 = stp1/Product.regular_price;
                 var stp3 = stp2 *100;
                 return  parseFloat(stp3).toFixed(0);
-            }
+            },
+            // AddtoCart(Product){
+
+            //     var meta = Product.meta;
+            //     //find _wc_min_qty_product 
+            //     var minQty = meta.filter(obj => {
+            //         return obj.key === '_wc_min_qty_product'
+            //     })
+
+            //     //al_carton_qty
+            //     var CartoonQty = meta.filter(obj => {
+            //         return obj.key === 'al_carton_qty'
+            //     })
+
+            //     //Set Quantity
+            //     var minQty1=minQty[0].value;
+            //     var CartoonQty1=CartoonQty[0].value;
+            //     var Qty= minQty1*CartoonQty1;
+            //     var url= "https://alyaman.com/?add-to-cart="+ID+"&quantity="+Qty;
+            //     return url;
+            // }
+
         }
 
 

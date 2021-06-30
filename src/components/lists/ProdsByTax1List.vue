@@ -4,7 +4,7 @@
         <div class="float-left ShowMoreBtn" >
           <a href="https://alyaman.com/product-category/%d9%85%d9%88%d8%a7%d9%84%d9%8a%d8%af/" class="pull-left">عرض المزيد</a>
         </div>
-        <h3 class="text-right">زينة أطفال</h3>
+        <h3 class="text-right">زينة منوعة</h3>
       </div>
       <div class="ProdList ">
         <div class="scrollmenu d-sm-none d-none">

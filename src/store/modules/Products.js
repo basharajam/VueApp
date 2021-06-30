@@ -14,6 +14,7 @@ const state  = {
     ProdByTax4:[],
     ProdByTax5:[],
     ProdByTax6:[],
+    ProdByTax7:[],
 
     ProdByBox:[],
     ProdDecRope:[],
@@ -36,6 +37,7 @@ const getters = {
     ProdByTax4:state=>state.ProdByTax4,
     ProdByTax5:state=>state.ProdByTax5,
     ProdByTax6:state=>state.ProdByTax6,
+    ProdByTax7:state=>state.ProdByTax7,
 
     ProdByBox:state=>state.ProdByBox,
     ProdDecRope:state=>state.ProdDecRope,
@@ -87,7 +89,7 @@ const actions = {
     },
     getProdByTax0({commit}){
 
-        var SetUrl = 'https://alyaman.com/wp-json/wc/v3/products?tag=677&per_page=9';
+        var SetUrl = 'https://alyaman.com/wp-json/wc/v3/products?tag=717&per_page=9';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -108,7 +110,7 @@ const actions = {
 
     getProdOffers({commit}){
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=695&per_page=8';
+        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=715&per_page=8';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -145,7 +147,7 @@ const actions = {
 
     getProdMostPopular({commit}){
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=704&per_page=8';
+        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=718&per_page=8';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -164,7 +166,7 @@ const actions = {
 
     getProdByTax1({commit}){
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=681&per_page=4';
+        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=719&per_page=4';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -258,7 +260,7 @@ const actions = {
 
     getProdByTax6({commit}){
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=678&per_page=9';
+        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=716&per_page=9';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -268,6 +270,24 @@ const actions = {
             else{
           
                 commit('ProdByTax6',response.data)
+
+            }
+
+        })
+
+    },
+    getProdByTax7({commit}){
+
+        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=720&per_page=9';
+        axios.get(SetUrl).then(function(response){
+
+            if(response.status != 200){
+           
+                console.log('Badddddddddddddddddddd')
+            }
+            else{
+          
+                commit('ProdByTax7',response.data)
 
             }
 
@@ -416,7 +436,9 @@ const mutations = {
     ProdByTax3:(state,ProdByTax3)=>(state.ProdByTax3=ProdByTax3),
     ProdByTax4:(state,ProdByTax4)=>(state.ProdByTax4=ProdByTax4),
     ProdByTax5:(state,ProdByTax5)=>(state.ProdByTax5=ProdByTax5),
-    ProdByTax6:(state,ProdByTax6)=>(state.ProdByTax6=ProdByTax6)
+    ProdByTax6:(state,ProdByTax6)=>(state.ProdByTax6=ProdByTax6),
+    ProdByTax7:(state,ProdByTax7)=>(state.ProdByTax7=ProdByTax7)
+    
 }
 
 export default {
