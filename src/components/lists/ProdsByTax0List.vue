@@ -11,9 +11,9 @@
         <div class="scrollmenu d-sm-none d-none">
             <ProdCard v-for="Product in ProdByTax0" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
         </div>
-        <div class="container">
+        <div class="container-fluid">
           <div class="row">
-              <ProdGridBox v-for="Product in ProdByTax0" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-3 GridItem"></ProdGridBox>                
+              <ProdGridBox v-for="Product in ProdByTax0" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-3 GridItem grid-discount"></ProdGridBox>                
           </div>
         </div>
       </div>

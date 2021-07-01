@@ -6,7 +6,7 @@
                 <a :href="Product.permalink" class="image">
                     <img class="pic-1" :src="Product.images[0].src">
                 </a>
-                <span v-if="Product.sale_price" class="card-discount-label">% {{ discountPrice(Product)  }}</span>
+                <span v-if="Product.sale_price" class="discount-lab">% {{ discountPrice(Product)  }}</span>
             </div>
             <div class="card-content">
                 <!-- <h3 class="title"><a href="#">{{Product.name}}</a></h3> -->
@@ -67,15 +67,21 @@ export default {
 }
 .card-grid .card-discount-label{
     color: #fe6a00;
-    border:1px #fe6a00 solid;
-    font-size: 20px;
+    border: 1px #fe6a00 solid;
+    font-size: 12px;
     font-weight: 400;
     text-transform: uppercase;
     padding: 2px 8px;
-    border-radius: 5px;
     position: absolute;
     top: 12px;
     left: 12px;
+    max-width: 25%;
+    max-height: 25%;
+    padding: 7% 0;
+    border-radius: 50%;
+    max-width: 16%;
+    max-height: 16%;
+    padding: 5% 0;
 }
 .card-grid .card-links{
     width: 145px;
@@ -210,6 +216,7 @@ export default {
 .rating li {
     display: inline-block;
 }
+
 @media screen and (max-width:1200px){
     .card-grid{ margin:2px; }
 }

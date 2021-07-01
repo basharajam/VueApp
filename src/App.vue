@@ -119,8 +119,15 @@ data: function() {
 <style>
 
 
-body{
+@font-face{
+    font-family:"font";
+    src:url("./assets/fonts/font.ttf");
+ }
 
+
+body{
+ font-family: 'font';
+ text-align: right;
   background-color: #f5f5f5ec;
   /* background-image: url('./assets/patt.png');
   background-repeat: repeat;
@@ -192,6 +199,9 @@ position: relative;
     transition: transform .6s ease;
     transition: transform .6s ease,-webkit-transform .6s ease;
 } 
+
+
+
 .carousel-control-next-icon, .carousel-control-prev-icon{
       background-color: #fd6906;
 }
@@ -220,6 +230,21 @@ position: relative;
 
 .ShowMoreBtn a {
  color:#fe6a00 ;
+}
+
+.discount-lab{
+    color: #fd6906;
+    position: absolute;
+    top: 16px;
+    left: 14px;
+    width: 18%;
+    height: 18%;
+    max-width: 25%;
+    text-align: center;
+    max-height: 25%;
+    border: 1px #fd6906 solid;
+    padding: 16px 0;
+    border-radius: 999px;
 }
 
 
@@ -288,10 +313,55 @@ position: relative;
   .navbar-brand{
     margin-left: 148px;
   }
+
+  .product-content .add-to-cart {
+    font-size: 12px;
+  }
+
+  .discount-lab{
+    color: #fd6906;
+    position: absolute;
+    top: 16px;
+    left: 14px;
+    width: 35%;
+    height: 35%;
+    max-width: 35%;
+    text-align: center;
+    max-height: 35%;
+    border: 1px #fd6906 solid;
+    padding: 20px 0;
+    border-radius: 999px;
+  }
+
 } 
 
 @media only screen and (max-width: 425px) {
 
+.grid-discount .card-grid .card-image .card-discount-label{
+    padding: 12px 0px !important;
+    max-width: 35% !important;
+    max-height: 35% !important; 
+  }
+
+  .GridItem .card-grid .card-image .card-discount-label{
+
+      padding: 15px 0px;
+
+  }
+  .discount-lab{
+    color: #fd6906;
+    position: absolute;
+    top: 16px;
+    left: 14px;
+    width: 35%;
+    height: 35%;
+    max-width: 35%;
+    text-align: center;
+    max-height: 35%;
+    border: 1px #fd6906 solid;
+    padding: 20px 0;
+    border-radius: 999px;
+  }
 
   /* .Cat-Slide-item{
         margin: 10px 31px;
@@ -324,9 +394,9 @@ position: relative;
 
   }
 
-  .card-discount-label{
+  /* .card-discount-label{
       font-size: 12px !important;
-  }
+  } */
 
 
 .product-grid .product-image:hover + .product-data {
@@ -393,47 +463,13 @@ min-height: 300px !important;
 
 }
 
-@media only screen and (max-width: 320px){
 
-
-/* .Cat-Slide-item{
-
-  margin: 6px 26px !important;
-
-} */
-.SearchSection{
-  max-width: 115px;
-}
-
-.Product-content a{
-      width: 126px;
-   
-    padding: 0px;
-}
-
-.LinksLists {
-  flex-direction: column !important;
-}
-
-  .SearchResult{
-    width: 100% !important;
-    left: 0 !important;
-    margin: 10px 0px  !important;
-    padding: 5px !important; 
-  }
-  .HeaderIcons {
-  display: none !important;
-  }
-
-}
-
-
-@media only screen and (min-width: 375px) and (max-width:425px) {
+@media only screen and (max-width:425px) {
 
 
   .al_footer-item{
 
-          margin: 2% 4.5% !important;
+          margin:2% 2.9% !important
 
   }
 
@@ -466,7 +502,107 @@ min-height: 300px !important;
   .HeaderIcons {
         display: flex!important;
   }
+  .discount-lab{
+        color: #fd6906;
+    position: absolute;
+    top: 16px;
+    left: 14px;
+    width: 35%;
+    height: 35%;
+    max-width: 30%;
+    text-align: center;
+    max-height: 30%;
+    border: 1px #fd6906 solid;
+    padding: 26px 0;
+    border-radius: 999px;
+  }
   
+}
+
+
+@media only screen and (max-width: 375px){
+
+
+  .al_footer-item{
+
+          margin:2% 2.5% !important
+  }
+
+  .discount-lab{
+    color: #fd6906;
+    position: absolute;
+    top: 16px;
+    left: 14px;
+    width: 35%;
+    height: 35%;
+    max-width: 35%;
+    text-align: center;
+    max-height: 35%;
+    border: 1px #fd6906 solid;
+    padding: 16px 0;
+    border-radius: 999px;
+  }
+
+
+}
+
+@media only screen and (max-width:320px){
+
+
+/* .Cat-Slide-item{
+
+  margin: 6px 26px !important;
+
+} */
+.SearchSection{
+  max-width: 115px;
+}
+
+.Product-content a{
+      width: 126px;
+   
+    padding: 0px;
+}
+
+.LinksLists {
+  flex-direction: column !important;
+}
+
+  .SearchResult{
+    width: 100% !important;
+    left: 0 !important;
+    margin: 10px 0px  !important;
+    padding: 5px !important; 
+  }
+  .HeaderIcons {
+  display: none !important;
+  }
+
+
+.al_footer-item{
+    margin: 2% 1.2% !important;
+}
+
+.discount-lab{
+      color: #fd6906;
+    position: absolute;
+    top: 16px;
+    left: 14px;
+    width: 35%;
+    height: 35%;
+    max-width: 35%;
+    text-align: center;
+    max-height: 35%;
+    border: 1px #fd6906 solid;
+    padding: 10px 0;
+    border-radius: 999px;
+}
+
+.product-content .add-to-cart{
+  width: 100px !important;
+  font-size: 10px !important;
+}
+
 }
 
 

@@ -14,7 +14,7 @@
         </div>
 
         <div class="d-sm-none d-block">
-        <div class="container">
+        <div class="container-fluid">
           <div class="row">
               <ProdGridBox v-for="Product in ProdByTax" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem"></ProdGridBox>                
           </div>

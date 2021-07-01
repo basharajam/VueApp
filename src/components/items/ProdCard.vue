@@ -6,7 +6,7 @@
                 <a :href="Product.permalink" class="image">
                     <img class="pic-1" :src="Product.images[0].src">
                 </a>
-                <span v-if="Product.sale_price" class="product-discount-label">% {{ discountPrice(Product)  }}</span>
+                <span v-if="Product.sale_price" class="discount-lab">% {{ discountPrice(Product)  }}</span>
                 <ul class="product-links">
                     <!-- <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
                     
@@ -105,14 +105,17 @@ export default {
 
     color: #fe6a00;
     border:1px #fe6a00 solid;
-    font-size: 20px;
+    font-size: 12px;
     font-weight: 400;
     text-transform: uppercase;
-    padding: 10px 6px;
-    border-radius: 50%;
+    padding: 2px 8px;
     position: absolute;
     top: 12px;
     left: 12px;
+    max-width: 40%;
+    max-height: 40%;
+    padding: 5%;
+    border-radius: 50%;
 }
 .product-grid .product-links{
     width: 145px;
@@ -223,15 +226,15 @@ export default {
 .product-content .add-to-cart{
     color: #fe6a00;
     display: block;
-    background-color:white;
+    background-color: white;
     border: 1px #fe6a00 solid;
-    font-size: 16px;
+    font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
     line-height: 40px;
-    width: 140px;
+    width: 128px;
     border-radius: 50px;
-    padding: 6px;
+    padding: 2px;
     margin: 14px auto;
     transition: all 0.4s ease-out;
     /* height: 40px; */

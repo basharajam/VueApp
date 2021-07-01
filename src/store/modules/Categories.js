@@ -13,7 +13,7 @@ const actions = {
         //Get Categories
         getCategories({commit}){
 
-            const SetUrl = 'https://alyaman.com/wp-json/wc/v3/products/categories?per_page=12';
+            const SetUrl = process.env.VUE_APP_BASEURL+'products/categories?per_page=12';
             axios.get(SetUrl).then(function(response){
 
                 if(response.status != 200){

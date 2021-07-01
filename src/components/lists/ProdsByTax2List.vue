@@ -12,9 +12,9 @@
         <div class="scrollmenu d-sm-none d-none">
             <ProdCard v-for="Product in ProdByTax2" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
         </div>
-        <div class="container">
+        <div class="container-fluid">
           <div class="row">
-              <ProdGridBox v-for="Product in ProdByTax2" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem"></ProdGridBox>                
+              <ProdGridBox v-for="Product in ProdByTax2" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem "></ProdGridBox>                
           </div>
         </div>
       </div>
@@ -46,17 +46,6 @@ export default {
 </script>
 
 <style>
-
-
-
-/* .ProdList .row{
-
- 
-  overflow-x: auto;
-  -ms-overflow-style: none;  /* IE and Edge */
-  
-
-/* } */ 
 
 
 </style>

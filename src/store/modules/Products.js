@@ -53,7 +53,7 @@ const actions = {
     getRecentProd({commit}){
         
         
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?featured = true&per_page=8';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?featured = true&per_page=8';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -72,7 +72,7 @@ const actions = {
     getProdByTax({commit}){
         
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=714&per_page=4';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=714&per_page=4';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -89,7 +89,7 @@ const actions = {
     },
     getProdByTax0({commit}){
 
-        var SetUrl = 'https://alyaman.com/wp-json/wc/v3/products?tag=717&per_page=9';
+        var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=717&per_page=9';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -110,7 +110,7 @@ const actions = {
 
     getProdOffers({commit}){
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=715&per_page=8';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=715&per_page=8';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -128,7 +128,7 @@ const actions = {
 
     getProdBestSell({commit}){
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=672&per_page=8';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=672&per_page=8';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -147,7 +147,7 @@ const actions = {
 
     getProdMostPopular({commit}){
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=718&per_page=8';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=718&per_page=8';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -166,7 +166,7 @@ const actions = {
 
     getProdByTax1({commit}){
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=719&per_page=4';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=719&per_page=4';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -185,7 +185,7 @@ const actions = {
 
     getProdByTax2({commit}){
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=695&per_page=4';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=695&per_page=4';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -204,7 +204,7 @@ const actions = {
 
     getProdByTax3({commit}){
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=707&per_page=4';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=707&per_page=4';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -223,7 +223,7 @@ const actions = {
     },
     getProdByTax4({commit}){
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=705&per_page=4';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=705&per_page=4';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -241,7 +241,7 @@ const actions = {
     },
     getProdByTax5({commit}){
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=705&per_page=4';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=705&per_page=4';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -260,7 +260,7 @@ const actions = {
 
     getProdByTax6({commit}){
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=716&per_page=9';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=716&per_page=9';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -278,7 +278,7 @@ const actions = {
     },
     getProdByTax7({commit}){
 
-        var SetUrl='https://alyaman.com/wp-json/wc/v3/products?tag=720&per_page=9';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=720&per_page=9';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -316,7 +316,7 @@ const actions = {
 
 
         //Do Requset 
-        var SetUrl = 'https://alyaman.com/wp-json/wc/v3/products?tag=696&per_page=8';
+        var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=696&per_page=8';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -334,7 +334,7 @@ const actions = {
 
     getProdDecRope({commit}){
 
-        var Seturl = ' https://alyaman.com/wp-json/wc/v3/products?tag=703&per_page=8';
+        var Seturl = process.env.VUE_APP_BASEURL+'products?tag=703&per_page=8';
 
         axios.get(Seturl).then(function(response){
 

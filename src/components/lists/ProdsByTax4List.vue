@@ -10,7 +10,7 @@
         <div class="scrollmenu d-sm-none d-none">
             <ProdCard v-for="Product in ProdByTax4" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
         </div>
-        <div class="container">
+        <div class="container-fluid">
           <div class="row">
               <ProdGridBox v-for="Product in ProdByTax4" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem"></ProdGridBox>                
           </div>

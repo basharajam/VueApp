@@ -38,9 +38,15 @@
               <div class="FooterHeadingContent">
                 <h3>كن معنا</h3>
                 <div class="SocialLinks">
-                    <a href="https://www.facebook.com/alyaman.b2b"><i class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/alyaman_online/?igshid=1p9gkpkdv2z86"><i class="fab fa-instagram"></i></a>
-                    <a href="https://www.youtube.com/channel/UCQ6ywr7-jUKRCm7eEcR1zpQ"><i class="fab fa-youtube" style="    padding: 17px 14px;"></i></a>
+                    <div class="SocialLinkI">
+                        <a href="https://www.facebook.com/alyaman.b2b"><span class="fab fa-facebook-f"></span></a>
+                    </div>
+                    <div class="SocialLinkI">
+                     <a href="https://www.instagram.com/alyaman_online/?igshid=1p9gkpkdv2z86"><span class="fab fa-instagram"></span></a>
+                    </div>
+                    <div class="SocialLinkI">
+                        <a href="https://www.youtube.com/channel/UCQ6ywr7-jUKRCm7eEcR1zpQ"><span class="fab fa-youtube" style=""></span></a>
+                    </div>
                 </div>
               </div>
           </div>
@@ -142,25 +148,27 @@ export default {
 }
 
 .SocialLinks{
+    display: flex;
     text-align: center;
     font-weight: 100;
     font-size: 30px;
 
 }
 
-.SocialLinks a {
-    margin: 0 10px;
-    color: white;
-    min-width: 2.5em;
-    border-radius: 999px ;
-    line-height: 2.19em;
+
+.SocialLinkI{
+    margin: 24px;
 }
 
-.SocialLinks a i {
-    border: 1px #ffffff80 solid;
-    border-radius: 60px;
-    box-shadow: 0px 0px 2px #888;
-    padding: 0.5em 0.6em;
+.SocialLinkI span{
+    line-height: 19px;
+    width: 60px;
+    text-align: center;
+    border: 1px #2f2f2f solid;
+    padding: 16px 0;
+    border-radius: 50%;
+    color: white;
+    box-shadow: 0 0 2px 0px;
 }
 
 .CopyRightsFooter{
@@ -175,6 +183,7 @@ export default {
     padding: 35px 0;
     font-size: 26px;
     margin-top: 26px;
+    text-align: center;
 }
 
 .mobileFooter{
@@ -210,10 +219,6 @@ export default {
 }
 
 .al_footer-item i:hover {
-    /* font-size: 22px;
-    display: block;
-    margin: 0 4px;
-    */
     color: #fe6a00; 
 }
 
