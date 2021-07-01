@@ -16,7 +16,7 @@
             <div class="product-data">
                 <h3 class="title"><a :href="Product.permalink">{{Product.name}}</a></h3>
                 <div class="price"><span>ر.س</span> {{ parseFloat(Product.regular_price).toFixed(2) }}</div>
-                <div class="descrition"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Veniam rem culpa alias quidem atque et  </div>
+                <div class="descrition" v-html=" Product.short_description"></div>
             </div>
             <div class="product-content">
                 <!-- <ul class="rating">

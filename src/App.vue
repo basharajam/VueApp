@@ -260,6 +260,10 @@ position: relative;
     white-space: break-spaces;
     margin-bottom: 50px;
 }
+.SearchInput{
+  position: relative;
+    bottom: 6px;
+}
 
 
 
@@ -306,7 +310,7 @@ position: relative;
         margin:6px !important;
   }
   .SearchInput{
-        bottom: 6px !important;
+        /* bottom: 6px !important; */
         position: relative !important;
 
   }
@@ -469,7 +473,7 @@ min-height: 300px !important;
 
   .al_footer-item{
 
-          margin:2% 2.6% !important
+          margin:2% 2.85% !important
 
   }
 
