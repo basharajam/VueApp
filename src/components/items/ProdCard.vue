@@ -1,6 +1,6 @@
 <template>
 
-        <div class="ProdCard col-sm-3 col-6">
+        <div class="ProdCard col-sm-3 col-5">
         <div class="product-grid">
              <div class="product-image">
                 <a :href="Product.permalink" class="image">

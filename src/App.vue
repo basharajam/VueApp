@@ -121,9 +121,13 @@ data: function() {
 
 body{
 
-  background-color: #ecececec;
+  background-color: #f5f5f5ec;
+  /* background-image: url('./assets/patt.png');
+  background-repeat: repeat;
+  background-blend-mode: hue; */
 
 }
+
 
 .Section{
 
@@ -181,6 +185,15 @@ position: relative;
           -ms-overflow-style: none;  /* IE and Edge */
           scrollbar-width: none;  /* Firefox */
           width:100%;
+}
+
+.carousel-item{
+    transition: -webkit-transform .6s ease;
+    transition: transform .6s ease;
+    transition: transform .6s ease,-webkit-transform .6s ease;
+} 
+.carousel-control-next-icon, .carousel-control-prev-icon{
+      background-color: #fd6906;
 }
 
 .scrollmenu::-webkit-scrollbar {
@@ -329,11 +342,11 @@ position: relative;
         margin: 0 10px !important;
 }
 
-.mobileBanner{
+/* .mobileBanner{
 
 min-height: 300px !important;
 
-}
+} */
 
 .spinner{
 

@@ -2,7 +2,6 @@
   <div class="alheader">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       
-
         <a class="navbar-brand "  href="https://alyaman.com">
           <img  src="icon.png" alt="" style="max-width: 175px;">
         </a>
@@ -21,32 +20,20 @@
             </div>
     </nav>
                 <div class="SearchResult" v-if="SearchRes">
+                  <div v-if="innerSpinner" class="innerSpinner">
+                    <img src="spinner.png" class="innerSpinner0"> 
+                  </div>
                   <div class="media" v-for="Prod in SearchResArr" v-bind:key="Prod.id">
-                    <a :href="Prod.url" target="_blank">
-                     <img class="mr-3" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2264%22%20height%3D%2264%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17a57728259%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17a57728259%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2213.546875%22%20y%3D%2236.5%22%3E64x64%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Generic placeholder image">
+                    <a  class="SearchResImg" :href="Prod.permalink" target="_blank">
+                     <img class="mr-3 img-thumbnail img-fluid" :src="Prod.images[0].src" alt="Generic placeholder image">
                     </a>
                     <div class="media-body">
-                      <a  :href="Prod.url" target="_blank" >
-                        <h5 class="mt-0">{{  Prod.title }}</h5>
-
+                      <a  :href="Prod.permalink" target="_blank" >
+                        <h5 class="mt-0 SearchResTitle">{{  Prod.name }}</h5>
                       </a>
                       
                     </div>
                   </div>
-                  <!-- <div class="media">
-                    <img class="mr-3" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2264%22%20height%3D%2264%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17a57728259%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17a57728259%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2213.546875%22%20y%3D%2236.5%22%3E64x64%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Generic placeholder image">
-                    <div class="media-body">
-                      <h5 class="mt-0">Media heading</h5>
-                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                  </div>
-                  <div class="media">
-                    <img class="mr-3" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2264%22%20height%3D%2264%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_17a57728259%20text%20%7B%20fill%3Argba(255%2C255%2C255%2C.75)%3Bfont-weight%3Anormal%3Bfont-family%3AHelvetica%2C%20monospace%3Bfont-size%3A10pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_17a57728259%22%3E%3Crect%20width%3D%2264%22%20height%3D%2264%22%20fill%3D%22%23777%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2213.546875%22%20y%3D%2236.5%22%3E64x64%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" alt="Generic placeholder image">
-                    <div class="media-body">
-                      <h5 class="mt-0">Media heading</h5>
-                      Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-                    </div>
-                  </div> -->
                     <!-- <div class="ShowMoreResBtn">
                       <button >عرض المزيد</button>
                     </div> -->
@@ -76,6 +63,7 @@ export default {
 
         SearchInput:"",
         SearchRes:false,
+        innerSpinner:true,
         search:true,
         SearchResArr:[]
       }
@@ -85,16 +73,18 @@ export default {
          SearchRequest: _.debounce(function(){
            
            var value=this.SearchInput;
-
+          this.SearchResArr=[];
            if(value != ''){
 
              //hide Search Icon
              this.search = false
              //Display Search Result List 
              this.SearchRes=true
+             this.innerSpinner=true
 
              //Do Request 
-             axios.get('https://alyaman.com/wp-json/wp/v2/search/?term="'+value+'"&subtype=product').then((response) =>{
+            //  "https://alyaman.com/wp-json/wc/v3/products/?search="+value
+             axios.get("https://alyaman.com/wp-json/wc/v3/products/?search="+value+"&per_page=4").then((response) =>{
 
               console.log(response)
               if(response.status != 200){
@@ -105,6 +95,8 @@ export default {
               }
               else{
 
+                //hide Inner Spinner
+                this.innerSpinner=false
                 //fetch Data in Search Result List 
                 this.SearchResArr=response.data
                 console.log(response)
@@ -126,7 +118,7 @@ export default {
              //Hide Search Result List
              this.SearchRes=false
            }
-         },2000)
+         },1000)
          ,
          hideIcon(){
            this.search = false
@@ -176,6 +168,15 @@ export default {
     border-color:#fe6a0036 !important ;
     box-shadow: 0 0 0 0.2rem #fe6a0036;
   }
+  .SearchResImg{
+    max-width: 40%;
+    height: auto;
+  }
+
+  .SearchResImg img{
+    width: 90%;
+    height: auto;
+  }
     .SearchInput:focus + .SearchIcon{
       display: none;
   }
@@ -183,6 +184,10 @@ export default {
     position: relative;
     right: 25px;
     top: 32px;
+  }
+
+  .SearchResTitle{
+    padding: 16% 0px;
   }
 
   .HeaderIcons a{
@@ -230,6 +235,25 @@ export default {
         border: 1px #fa660d solid;
         color: #fa660d;
   }
+
+  .innerSpinner0 {
+    width: 20%;
+    text-align: center;
+    position: relative;
+    padding: 16px;
+    top: 50%;
+    left: 50%;
+    bottom: 50%;
+    right: 40%;
+    z-index: 999;
+    -webkit-animation: spin-data-v-c4c7653a 4s linear infinite;
+    animation: spin-data-v-c4c7653a 4s linear infinite;
+}
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
 
 </style>
 

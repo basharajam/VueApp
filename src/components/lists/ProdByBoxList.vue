@@ -10,7 +10,7 @@
       <div class="ProdList container-fluid">
 
         <div class="scrollmenu">
-            <ProdGridBox v-for="Product in ProdByBox" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3" ></ProdGridBox>
+            <ProdGridBox v-for="Product in ProdByBox" v-bind:key="Product.id" v-bind:Product="Product" class="col-5 col-sm-3" ></ProdGridBox>
           </div>
       </div>
   </div>

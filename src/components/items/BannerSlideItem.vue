@@ -1,7 +1,7 @@
 <template>
-   <div class="BannerSlideItem d-block d-sm-none">
+   <div class="BannerSlideItem ">
      <a href="#">
-        <img style="width:100%" class="mobileBanner" src="https://alyaman.com/wp-content/uploads/2021/04/%D8%B1%D9%8A-800x213.jpg" alt="">
+        <img  class="mobileBanner" src="@/assets/banners/1.jpeg" alt="">
      </a>
    </div>
 </template>

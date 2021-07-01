@@ -9,14 +9,63 @@
        <CatSlideItem v-for="Category in Categories" v-bind:key='Category.id' v-bind:Category='Category' class="carousel-cell col-2"></CatSlideItem>
       </div>
     </div>
-
-    <!-- <div class="BannerSlider d-block d-sm-none">
-        <div class="scrollmenu  ">
-            <BannerSliderItem></BannerSliderItem>
-            <BannerSliderItem></BannerSliderItem>
-            <BannerSliderItem></BannerSliderItem>
+    <div id="carouselBannerControls" class="carousel slide BannersSlide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <a href="https://alyaman.com/product-category/%d8%a7%d9%84%d8%b9%d9%8a%d8%af-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a/">
+            <img class="d-block w-100" src="@/assets/banners/1.jpeg" alt="First slide">
+          </a>
         </div>
-    </div> -->
+        <div class="carousel-item">
+          <a href="https://alyaman.com/product-category/%d9%85%d9%88%d8%a7%d9%84%d9%8a%d8%af/">
+            <img class="d-block w-100" src="@/assets/banners/0.jpeg" alt="Second slide">
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://alyaman.com/product-category/%d8%a3%d8%b9%d9%8a%d8%a7%d8%af-%d9%85%d9%8a%d9%84%d8%a7%d8%af/">
+            <img class="d-block w-100" src="@/assets/banners/2.jpeg" alt="Third slide">
+          </a>
+        </div>
+        <div class="carousel-item">
+          <a href="https://alyaman.com/product-tag/baby_box_group/">
+            <img class="d-block w-100" src="@/assets/banners/3.jpeg" alt="Third slide">
+          </a>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselBannerControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselBannerControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+  </div>
+
+   <!-- <div class="container"> -->
+      <!-- <div class="BannerSlider"> -->
+              <!-- <BannerSliderItem></BannerSliderItem> -->
+                <!-- <div class="BannerSlideItem ">
+                  <a href="#">
+                    <img  class="mobileBanner " src="@/assets/banners/1.jpeg" alt="">
+                  </a>
+              </div> -->
+              <!-- <div class="BannerSlideItem ">
+                <a href="#">
+                    <img  class="mobileBanner " src="@/assets/banners/0.jpeg" alt="">
+                </a>
+              </div> -->
+              <!-- <div class="BannerSlideItem ">
+                <a href="#">
+                    <img  class="mobileBanner " src="@/assets/banners/2.jpeg" alt="">
+                </a>
+              </div> -->
+              <!-- <div class="BannerSlideItem ">
+                <a href="#">
+                    <img  class="mobileBanner " src="@/assets/banners/3.jpeg" alt="">
+                </a>
+              </div> -->
+      <!-- </div> -->
 
     <div class="TitleList" style="padding:6px">
     <div class="float-left ShowMoreBtn" >
@@ -52,6 +101,7 @@ export default {
 .category-carousel{
 
 background-color: white;
+padding: 18px 0;
 
 }
 
@@ -59,11 +109,17 @@ background-color: white;
   margin: 12px 0;
 }
 
-.BannerSlideItem {
-  width: 80%;
-  height: 80%;
-  display: inline-block !important;
-  margin: 0 16px;
+.BannerSlideItem img {
+
+  /* margin: 0 16px;
+  width: 100%; */
+  padding-right: 20px;
+  width: 30%;
+  height: 30%;
+}
+
+.BannersSlide .carousel-inner .carousel-item img {
+  padding: 16px;
 }
 
 

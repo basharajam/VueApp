@@ -4,11 +4,13 @@ $(document).ready(function(){
     setTimeout(function(){
         //Categories Silder
         // eslint-disable-next-line no-undef
-        $('.category-carousel').flickity({
-            // options
-            groupCells: true
+        // $('.category-carousel').flickity({
+        //     // options
+        //     groupCells: true,
+        //     pageDots: false,
+        //     wrapAround: true
 
-          });
+        //   });
           console.log('loaded')
     },27000)
 
