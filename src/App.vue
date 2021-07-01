@@ -469,7 +469,7 @@ min-height: 300px !important;
 
   .al_footer-item{
 
-          margin:2% 2.9% !important
+          margin:2% 2.6% !important
 
   }
 
@@ -580,7 +580,7 @@ min-height: 300px !important;
 
 
 .al_footer-item{
-    margin: 2% 1.2% !important;
+    margin: 2% 0.6% !important;
 }
 
 .discount-lab{
