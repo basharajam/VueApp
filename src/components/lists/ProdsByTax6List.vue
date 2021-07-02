@@ -8,11 +8,11 @@
       </div>
 
       <div class="ProdList ">
-        <div class="scrollmenu d-sm-none d-none">
-            <ProdCard v-for="Product in ProdByTax6" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+        <div class="scrollmenu d-sm-block d-none">
+            <ProdGridBox v-for="Product in ProdByTax6" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-2"></ProdGridBox>
         </div>
         <div class="container-fluid">
-          <div class="row">
+          <div class="row d-sm-none ">
               <ProdGridBox v-for="Product in ProdByTax6" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-3 GridItem"></ProdGridBox>                
           </div>
         </div>
@@ -22,13 +22,13 @@
 
 <script>
 
-import ProdCard from '../items/ProdCard.vue';
+// import ProdCard from '../items/ProdCard.vue';
 import ProdGridBox from '../items/ProdGridBox.vue';
 import {mapGetters} from 'vuex';
 export default {
     name:'prodsByTax6',
     components:{
-        ProdCard,
+        // ProdCard,
         ProdGridBox
     },
     computed:{

@@ -32,7 +32,7 @@ export default {
   },
 data: function() {
     return {
-      spinner:false
+      spinner:true
     };
   },
   mounted(){
@@ -232,19 +232,32 @@ position: relative;
  color:#fe6a00 ;
 }
 
+
+.card-grid .card-image .discount-lab{
+  width: 16%;
+    height: 16%;
+
+}
+
 .discount-lab{
     color: #fd6906;
     position: absolute;
     top: 16px;
     left: 14px;
-    width: 18%;
-    height: 18%;
+    width: 25%;
+    height: 25%;
     max-width: 25%;
     text-align: center;
     max-height: 25%;
     border: 1px #fd6906 solid;
-    padding: 16px 0;
+    padding: 14px 0;
     border-radius: 999px;
+}
+
+
+.HomeBanner{
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 
@@ -341,6 +354,9 @@ position: relative;
 
 @media only screen and (max-width: 425px) {
 
+
+
+
 .grid-discount .card-grid .card-image .card-discount-label{
     padding: 12px 0px !important;
     max-width: 35% !important;
@@ -359,11 +375,11 @@ position: relative;
     left: 14px;
     width: 35%;
     height: 35%;
-    max-width: 35%;
+    max-width: 25%;
     text-align: center;
-    max-height: 35%;
+    max-height: 25%;
     border: 1px #fd6906 solid;
-    padding: 20px 0;
+    padding: 14px 0;
     border-radius: 999px;
   }
 
@@ -425,6 +441,7 @@ min-height: 300px !important;
 .spinner{
 
   right: 42% !important;
+  top: 45% !important;
 
 }
 
@@ -470,10 +487,13 @@ min-height: 300px !important;
 
 @media only screen and (max-width:425px) {
 
+  .spinner{
+    width: 15% !important;
+  }
 
   .al_footer-item{
 
-          margin:2% 2.85% !important
+          margin:2% 3.16% !important
 
   }
 

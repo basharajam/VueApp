@@ -22,7 +22,7 @@ export default {
 }
 
 .spinner {
-  width: 70px;
+  width: 5%;
   text-align: center;
   position: fixed ;
   top: 50%;

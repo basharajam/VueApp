@@ -9,7 +9,7 @@
        <CatSlideItem v-for="Category in Categories" v-bind:key='Category.id' v-bind:Category='Category' class="carousel-cell col-2"></CatSlideItem>
       </div>
     </div>
-    <div class="d-sm-block d-none">
+    <!-- <div class="d-sm-block d-none">
       <div id="carouselBannerControls" class="carousel slide BannersSlide " data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
@@ -43,7 +43,7 @@
         </a>
     </div>
 
-    </div>
+    </div> -->
 
       <div class="BannerSlider scrollmenu d-sm-none d-block">              
           <div class="BannerSlideItem col-10 ">
@@ -66,14 +66,12 @@
               <img  class="mobileBanner " src="@/assets/banners/3.jpeg" alt="">
           </a>
         </div>
+        <div class="BannerSlideItem col-10 ">
+          <a href="https://alyaman.com/product-category/%d8%a3%d8%b9%d9%8a%d8%a7%d8%af-%d9%85%d9%8a%d9%84%d8%a7%d8%af/">
+              <img  class="mobileBanner " src="@/assets/banners/4.jpeg" alt="">
+          </a>
+        </div>
       </div>
-
-    <div class="TitleList" style="padding:6px">
-    <div class="float-left ShowMoreBtn" >
-        <a href="https://alyaman.com/%d8%b9%d8%b1%d9%88%d8%b6/" class="pull-left">عرض المزيد</a>
-    </div>
-      <h3 class="text-right" >عروض خاصة</h3>
-    </div>
   </div>
   
 </template>

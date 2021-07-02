@@ -105,7 +105,7 @@ export default {
 
 
 .FooterHeadingContent h3{
-    font-size: 90px;
+    font-size: 75px;
     margin-top: 46px;
 }
 
@@ -129,12 +129,12 @@ export default {
 
 .LinkList h3 {
     color: white;
-    font-size: 3.25rem;
+    font-size: 36px;
 }
 
 .LinkList a {
     color: white;
-    font-size: 26px;
+    font-size: 16px;
     padding: 10px 0;
 }
 
@@ -157,7 +157,7 @@ export default {
 
 
 .SocialLinkI{
-    margin: 24px;
+    margin: 12px;
 }
 
 .SocialLinkI span{

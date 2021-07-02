@@ -1,6 +1,6 @@
 <template>
 
-        <div class="ProdCard col-sm-3 col-5">
+        <div class="ProdCard col-sm-2 col-5">
         <div class="product-grid">
              <div class="product-image">
                 <a :href="Product.permalink" class="image">
@@ -302,7 +302,7 @@ transition: all 0.4s ease-out;
 .product-grid .product-image:hover + .product-data {
 
     
-    transform: translateY(-200%);
+    transform: translateY(-100%);
     /* color:white !important; */
 
 }

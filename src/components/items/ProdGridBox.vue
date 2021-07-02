@@ -11,7 +11,7 @@
             <div class="card-content">
                 <!-- <h3 class="title"><a href="#">{{Product.name}}</a></h3> -->
                 <div class="price"><span>ر.س</span> {{ parseFloat(Product.price).toFixed(2) }}</div>
-                <!-- <a class="add-to-cart" href="#">اضافة الى السلة</a> -->
+                <a class="add-to-cart d-sm-block d-none " :href="Product.permalink"  target="_blank" >عرض تفاصيل المنتج</a>
             </div>
          </div>
         </div>
@@ -188,16 +188,17 @@ export default {
 }
 
 .card-content .add-to-cart{
-    color: #fff;
+    color: #fe6a00;
     display: block;
-    background-color: #fe6a00;
+    background-color: white;
+    border: 1px #fe6a00 solid;
     font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
     line-height: 40px;
-    width: 100px;
+    width: 128px;
     border-radius: 50px;
-    padding: 6px;
+    padding: 2px;
     margin: 14px auto;
     transition: all 0.4s ease-out;
     /* height: 40px; */

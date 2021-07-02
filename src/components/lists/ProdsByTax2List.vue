@@ -9,12 +9,12 @@
       </div>
 
       <div class="ProdList ">
-        <div class="scrollmenu d-sm-none d-none">
+        <div class="scrollmenu d-sm-block d-none">
             <ProdCard v-for="Product in ProdByTax2" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
         </div>
         <div class="container-fluid">
-          <div class="row">
-              <ProdGridBox v-for="Product in ProdByTax2" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem "></ProdGridBox>                
+          <div class="row d-sm-none">
+              <ProdGridBox v-for="Product in filterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem "></ProdGridBox>                
           </div>
         </div>
       </div>
@@ -39,7 +39,12 @@ export default {
     ProdGridBox
   },
   computed:{
-      ...mapGetters(['ProdByTax2'])
+      ...mapGetters(['ProdByTax2']),
+      filterArr:function() {
+        
+        return this.ProdByTax2.slice(0,4)
+
+      }
   }
 
 }

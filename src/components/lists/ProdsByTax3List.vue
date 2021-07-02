@@ -6,13 +6,13 @@
         </div>
         <h3 class="text-right">تاغات العيد الوطني السعودي</h3>
       </div>
-       <div class="ProdList ">
-        <div class="scrollmenu d-sm-none d-none">
-            <ProdCard v-for="Product in ProdByTax3" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
-        </div>
+       <div class="ProdList container-fluid">
+        <Flickity v-if="ProdByTax3.length != 0" class="offersListScroll d-none d-sm-block" ref="flickity" :options="flickityOptions">
+            <ProdCard  class="carousel-cell" v-for="Product in ProdByTax3" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+        </Flickity>
         <div class="container-fluid">
-          <div class="row">
-              <ProdGridBox v-for="Product in ProdByTax3" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem"></ProdGridBox>                
+          <div class="row d-sm-none">
+              <ProdGridBox v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem"></ProdGridBox>                
           </div>
         </div>
       </div>
@@ -21,7 +21,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-
+import Flickity from 'vue-flickity';
 import ProdCard from '../items/ProdCard.vue';
 import ProdGridBox from '../items/ProdGridBox.vue';
 
@@ -30,11 +30,27 @@ export default {
   name:'ProdsByTax3',
   components:{
     ProdCard,
-    ProdGridBox
+    ProdGridBox,
+    Flickity
   },
   computed:{
-    ...mapGetters(['ProdByTax3'])
-  }
+    ...mapGetters(['ProdByTax3']),
+    FilterArr:function () {
+          return this.ProdByTax3.slice(0,4)
+    }
+  },
+  data(){
+
+        return {
+        flickityOptions: {
+          initialIndex: 3,
+          pageDots: false,
+          wrapAround: true
+          
+          // any options from Flickity can be used
+        }
+      }
+    }
 
 }
 </script>
