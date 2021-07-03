@@ -175,7 +175,7 @@ position: relative;
 }
 
 .ProdList{
-  margin-bottom: 2px;
+  margin-bottom: 6px;
   
 }
 
@@ -234,8 +234,8 @@ position: relative;
 
 
 .card-grid .card-image .discount-lab{
-  width: 16%;
-    height: 16%;
+  width: 45px;
+  height: 45px;
 
 }
 
@@ -244,13 +244,13 @@ position: relative;
     position: absolute;
     top: 16px;
     left: 14px;
-    width: 25%;
-    height: 25%;
-    max-width: 25%;
+    width: 45px;
+    height: 45px;
+    max-width: 45px;
     text-align: center;
-    max-height: 25%;
+    max-height: 45px;
     border: 1px #fd6906 solid;
-    padding: 14px 0;
+    padding: 12px 0;
     border-radius: 999px;
 }
 
@@ -261,42 +261,126 @@ position: relative;
 }
 
 
-@media only screen and (min-width: 780px) {
 
-  .HomeListLogo{
 
-    max-width: 65px!important;
 
+@media only screen and (min-width:320px) and (max-width:320px){
+
+
+/* .Cat-Slide-item{
+
+  margin: 6px 26px !important;
+
+} */
+.SearchSection{
+  max-width: 115px;
+  bottom: 0px !important;
+}
+
+.Product-content a{
+      width: 126px;
+   
+    padding: 0px;
+}
+
+.LinksLists {
+  flex-direction: column !important;
+}
+
+  .SearchResult{
+    width: 100% !important;
+    left: 0 !important;
+    margin: 10px 0px  !important;
+    padding: 5px !important; 
   }
-  .scrollmenu {
-    overflow: hidden;
-    white-space: break-spaces;
-    margin-bottom: 50px;
-}
-.SearchInput{
-  position: relative;
-    bottom: 6px;
-}
+  .HeaderIcons {
+  display: none !important;
+  }
 
 
-
-
-.Cart-Slide-item {
-      margin: 0 50px;
-
+.al_footer-item{
+    margin: 2% 0.4% !important;
 }
 
-.GridItem{
-      margin: 23px 0 !important;
+.discount-lab{
+      color: #fd6906;
+    position: absolute;
+    top: 16px;
+    left: 14px;
+    width:45px;
+    height: 45px;
+    max-width: 45px;
+    text-align: center;
+    max-height: 45px;
+    border: 1px #fd6906 solid;
+    padding: 12px 0;
+    border-radius: 999px;
 }
 
-.navbar-light .navbar-brand{
-  margin-left: 53%;
+.product-content .add-to-cart{
+  width: 92px !important;
+  font-size: 8px !important;
 }
 
 }
 
-@media only screen and (max-width: 768px){
+/*   Query Media */
+
+
+
+
+/*Desktop */
+@media only screen and  (min-width: 1366px ) and (max-width:1440px){
+
+  .navbar-brand{
+      margin-left: 600px;
+  }
+
+}
+
+@media  only screen and (min-width:1024px) and (max-width:1024px) {
+
+  .navbar-brand{
+    margin-left: 148px;
+  }
+  .HeaderIcons a {
+    margin: 0px 10px !important;
+  }
+
+  .navbar-light .navbar-brand{
+      margin-left: 30%;
+  }
+  .SearchSection{
+        position: relative;
+    bottom: 8px;
+  }
+  .HeaderIcons {
+        display: flex!important;
+  }
+  .discount-lab{
+        color: #fd6906;
+    position: absolute;
+    top: 16px;
+    left: 14px;
+    width: 45px;
+    height: 45px;
+    max-width: 45px;
+    text-align: center;
+    max-height: 45px;
+    border: 1px #fd6906 solid;
+    padding: 12px 0;
+    border-radius: 999px;
+  } 
+}
+
+/* End Desktop */
+
+
+
+
+/* Start Tablet */
+
+@media only screen and  (min-width:768px) and (max-width: 768px){
 
   .LinksLists{
     max-width: 100%!important;
@@ -327,9 +411,7 @@ position: relative;
         position: relative !important;
 
   }
-  .navbar-brand{
-    margin-left: 148px;
-  }
+
 
   .product-content .add-to-cart {
     font-size: 12px;
@@ -340,32 +422,87 @@ position: relative;
     position: absolute;
     top: 16px;
     left: 14px;
-    width: 35%;
-    height: 35%;
-    max-width: 35%;
+    width: 45px;
+    height: 45px;
+    max-width: 45px;
     text-align: center;
-    max-height: 35%;
+    max-height: 45px;
     border: 1px #fd6906 solid;
-    padding: 20px 0;
+    padding: 12px 0;
     border-radius: 999px;
   }
 
+.product-content .add-to-cart{
+
+    font-size: 8px !important;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 40px;
+    width: 96px !important;
+    border-radius: 50px;
+    padding: 4px !important;
+    margin: 14px auto !important;
+
+}
+
 } 
 
-@media only screen and (max-width: 425px) {
+
+@media only screen and (min-width: 780px) and (max-width:780px) {
+
+  .HomeListLogo{
+
+    max-width: 65px!important;
+
+  }
+  .scrollmenu {
+    overflow: hidden;
+    white-space: break-spaces;
+    margin-bottom: 50px;
+}
+.SearchInput{
+  position: relative;
+    bottom: 6px;
+}
+
+
+.Cart-Slide-item {
+      margin: 0 50px;
+
+}
+
+.GridItem{
+      margin: 23px 0 !important;
+}
+
+.navbar-light .navbar-brand{
+  margin-left: 53%;
+}
+
+}
+
+/* End Tablet */
+
+
+/*  Start Large Phone */
+@media only screen and (min-width:425px) and (max-width: 425px) {
 
 
 
 
 .grid-discount .card-grid .card-image .card-discount-label{
-    padding: 12px 0px !important;
-    max-width: 35% !important;
-    max-height: 35% !important; 
+    padding: 10px 0px !important;
+    max-width: 45px !important;
+    max-height: 45px !important; 
   }
 
+  .card-grid .card-image .discount-lab{
+    max-width: 45px;
+    max-height: 45px;
+  }
   .GridItem .card-grid .card-image .card-discount-label{
 
-      padding: 15px 0px;
+      padding: 10px 0px;
 
   }
   .discount-lab{
@@ -373,13 +510,13 @@ position: relative;
     position: absolute;
     top: 16px;
     left: 14px;
-    width: 35%;
-    height: 35%;
-    max-width: 25%;
+    width:45px;
+    height: 45px;
+    max-width: 45px;
     text-align: center;
-    max-height: 25%;
+    max-height: 45px;
     border: 1px #fd6906 solid;
-    padding: 14px 0;
+    padding: 12px 0;
     border-radius: 999px;
   }
 
@@ -405,7 +542,7 @@ position: relative;
   .SearchSection{
     max-width: 170px;
     position: relative;
-    bottom: 10px;
+    bottom: 0px !important;
   }
 
   .homeListItem .content{
@@ -448,6 +585,7 @@ min-height: 300px !important;
 .GridItem{
     padding-right: 1px;
     padding-left: 1px;
+    display: inline-block;
 }
 
 
@@ -482,10 +620,9 @@ min-height: 300px !important;
   margin-left: 0;
 }
 
-}
+} 
 
-
-@media only screen and (max-width:425px) {
+@media only screen and (min-width:412px) and (max-width:428px) {
 
   .spinner{
     width: 15% !important;
@@ -510,41 +647,46 @@ min-height: 300px !important;
     margin: 0 0px  !important;
     padding: 5px !important; 
   }
-  
+  .navbar-brand img{
 
-}
-
-@media  only screen and (max-width:1024) {
-
-  .navbar-light .navbar-brand{
-      margin-left: 34%;
+    max-width: 105px;
   }
   .SearchSection{
-        position: relative;
-    bottom: 8px;
-  }
-  .HeaderIcons {
-        display: flex!important;
-  }
-  .discount-lab{
-        color: #fd6906;
-    position: absolute;
-    top: 16px;
-    left: 14px;
-    width: 35%;
-    height: 35%;
-    max-width: 30%;
-    text-align: center;
-    max-height: 30%;
-    border: 1px #fd6906 solid;
-    padding: 26px 0;
-    border-radius: 999px;
+    width: 40%;
   }
   
+
 }
 
+/*End large Phone */
 
-@media only screen and (max-width: 375px){
+
+/* Medium Phone */
+@media only screen and (min-width:392px) and (max-width:406px){
+
+
+  .al_footer-item{
+    margin: 2% 2.655% !important;
+  }
+  .product-content .add-to-cart{
+      font-size: 10px;
+      width:118px !important;
+      font-size: 8px;
+}
+  .navbar-brand img{
+
+    max-width: 105px;
+  }
+  .SearchSection{
+    width: 50%;
+  }
+}
+
+/* End Medium Phone */
+
+
+/* Start Small Phone */
+@media only screen and (min-width:370px) and (max-width: 375px){
 
 
   .al_footer-item{
@@ -557,77 +699,93 @@ min-height: 300px !important;
     position: absolute;
     top: 16px;
     left: 14px;
-    width: 35%;
-    height: 35%;
+    width: 45px;
+    height: 45px;
     max-width: 35%;
     text-align: center;
     max-height: 35%;
     border: 1px #fd6906 solid;
-    padding: 16px 0;
+    padding: 12px 0;
     border-radius: 999px;
   }
 
-
-}
-
-@media only screen and (max-width:320px){
-
-
-/* .Cat-Slide-item{
-
-  margin: 6px 26px !important;
-
-} */
-.SearchSection{
-  max-width: 115px;
-}
-
-.Product-content a{
-      width: 126px;
-   
-    padding: 0px;
-}
-
-.LinksLists {
-  flex-direction: column !important;
-}
-
-  .SearchResult{
-    width: 100% !important;
-    left: 0 !important;
-    margin: 10px 0px  !important;
-    padding: 5px !important; 
-  }
-  .HeaderIcons {
-  display: none !important;
+  .product-content .add-to-cart{
+      width:116px !important;
+      font-size:10px !important;
   }
 
 
-.al_footer-item{
-    margin: 2% 0.6% !important;
+  .SearchSection {
+    width: 50%;
+    position: relative;
+    bottom: 0px !important;
+  }
+
 }
 
-.discount-lab{
-      color: #fd6906;
-    position: absolute;
-    top: 16px;
-    left: 14px;
-    width: 35%;
-    height: 35%;
-    max-width: 35%;
-    text-align: center;
-    max-height: 35%;
-    border: 1px #fd6906 solid;
-    padding: 10px 0;
-    border-radius: 999px;
-}
 
+
+@media only screen and (min-width: 360px) and (max-width:360px){
+  .al_footer-item{
+    margin: 2% 2.19% !important;
+  }
+  .SearchSection {
+    max-width: 150px;
+    position: relative;
+    bottom: 10px;
+}
 .product-content .add-to-cart{
-  width: 100px !important;
-  font-size: 10px !important;
+      font-size: 10px;
+      width:112px;
 }
 
 }
+
+
+@media only screen  and (max-width:425px){
+
+.HeaderIcons {
+  display: none !important;
+}
+}
+
+
+
+/* End Small phone */
+
+/*Custom Media Q */
+
+@media only screen and  (min-width: 320px) and (max-width:425px){
+
+.GridItem{
+
+  padding-right: 0!important;
+  padding-left: 0!important;
+  display: inline-block;
+
+}
+  .navbar-brand img{
+
+    max-width: 110px;
+  }
+  .SearchSection{
+    width: 50%;
+    position: relative;
+    bottom: 10px;
+  }
+  .LinksLists{
+    flex-direction: column !important;
+  }
+  .CopyRightsFooter{
+    margin: 0 45px !important;
+    font-size: 16px !important;
+    margin-bottom: 18px !important;
+  }
+
+}
+
+
+/*End Custom Media Q */
 
 
 </style>

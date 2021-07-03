@@ -26,6 +26,7 @@
         <ProdsByTax6></ProdsByTax6>  
         <RecentList></RecentList>
         <prodsByTax0></prodsByTax0>
+        <MostPopularList></MostPopularList>
         <!--  Saudi Day Banner -->
           <div class="container HomeBanner d-none d-sm-block">
             <a href="https://alyaman.com/product-category/%d8%a7%d9%84%d8%b9%d9%8a%d8%af-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a/">
@@ -34,11 +35,10 @@
           </div>
         <!-- Saudi Day Banner End -->
         <ProdByTax></ProdByTax>
-        <MostPopularList></MostPopularList>
-        <ProdsByTax1></ProdsByTax1>
         <!-- <Banner></Banner> -->
         <ProdsByTax3></ProdsByTax3>
         <ProdsByTax4></ProdsByTax4>
+        <ProdsByTax1></ProdsByTax1>
         <ProdByBoxList></ProdByBoxList> 
         <!-- <BestSell></BestSell>  -->
         <!-- <ProdsByTax5></ProdsByTax5>  -->

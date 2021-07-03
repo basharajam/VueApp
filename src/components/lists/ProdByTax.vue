@@ -10,7 +10,7 @@
       <div class="ProdList">
 
         <div class="scrollmenu d-sm-block d-none">
-            <ProdGridBox v-for="Product in ProdByTax" v-bind:key="Product.id" v-bind:Product="Product" class="col-sm-3 "></ProdGridBox>
+            <ProdCard v-for="Product in ProdByTax" v-bind:key="Product.id" v-bind:Product="Product" class=" "></ProdCard>
         </div>
 
         <div class="d-sm-none d-block">
@@ -26,13 +26,13 @@
 
 <script>
 
-// import ProdCard from '../items/ProdCard.vue';
+import ProdCard from '../items/ProdCard.vue';
 import ProdGridBox from '../items/ProdGridBox.vue';
 import {mapGetters} from 'vuex';
 export default {
     name:'prodsByTax',
     components:{
-        // ProdCard,
+        ProdCard,
         ProdGridBox
     },
     computed:{

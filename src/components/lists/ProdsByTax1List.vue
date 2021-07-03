@@ -7,11 +7,11 @@
         <h3 class="text-right">زينة منوعة</h3>
       </div>
       <div class="ProdList ">
-        <div class="scrollmenu d-sm-none d-none">
-            <ProdCard v-for="Product in ProdByTax1" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+        <div class="scrollmenu  d-sm-block d-none">
+            <ProdCard v-for="Product in ProdByTax1" v-bind:key="Product.id" v-bind:Product="Product" class="col-sm-3"></ProdCard>
         </div>
         <div class="container-fluid">
-          <div class="row">
+          <div class="row d-sm-none d-block">
               <ProdGridBox v-for="Product in ProdByTax1" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem grid-discount"></ProdGridBox>                
           </div>
         </div>    

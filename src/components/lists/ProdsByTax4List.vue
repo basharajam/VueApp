@@ -56,7 +56,13 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.carousel-cell{
 
+ padding-left: 0 !important;
+ padding-right: 0 !important;
+ margin:0 8px;
+
+}
 
 </style>

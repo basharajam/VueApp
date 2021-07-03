@@ -1,6 +1,6 @@
 <template>
 
-        <div class="ProdCard col-sm-2 col-5">
+        <div class="ProdCard col-sm-4 col-md-2 col-5">
         <div class="product-grid">
              <div class="product-image">
                 <a :href="Product.permalink" class="image">
@@ -207,6 +207,10 @@ export default {
 .product-grid .title a{
     color: #2c2c2c;
     transition: all 0.3s ease 0s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 20ch;
 }
 .product-grid .product-data .title a:hover{ color: #fe6a00; }
 .product-grid .price{
@@ -301,8 +305,8 @@ transition: all 0.4s ease-out;
 
 .product-grid .product-image:hover + .product-data {
 
-    
-    transform: translateY(-100%);
+    background: white;
+    transform: translateY(-135%);
     /* color:white !important; */
 
 }

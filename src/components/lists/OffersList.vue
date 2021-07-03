@@ -10,9 +10,12 @@
 
       <div class="ProdList container-fluid">
 
-        <Flickity v-if="ProdOffers.length != 0" class="offersListScroll d-none d-sm-block" ref="flickity" :options="flickityOptions">
-            <ProdCard  class="carousel-cell" v-for="Product in ProdOffers" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+        <Flickity v-if="ProdOffers.length != 0" class="offersListScroll d-sm-block d-none " ref="flickity" :options="flickityOptions">
+            <ProdCard  class="carousel-cell" v-for="Product in ProdOffers" v-bind:key="Product.id" v-bind:Product="Product" ></ProdCard>
         </Flickity>
+        <div class="scrollmenu d-sm-none d-block">
+            <ProdCard v-for="Product in ProdOffers" v-bind:key="Product.id" v-bind:Product="Product" class="col-sm-3"></ProdCard>
+        </div>
         
       </div>
   </div>
@@ -62,6 +65,14 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+
+.carousel-cell{
+
+ padding-left: 0 !important;
+ padding-right: 0 !important;
+ margin:0 8px;
+
+}
 
 </style>

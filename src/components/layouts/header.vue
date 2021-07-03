@@ -3,7 +3,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       
         <a class="navbar-brand "  href="https://alyaman.com">
-          <img  src="icon.png" alt="" style="max-width: 175px;">
+          <img  src="icon.png" alt="" >
         </a>
         
           <div class="SearchSection">
@@ -236,6 +236,7 @@ export default {
         color: #fa660d;
   }
 
+
   .innerSpinner0 {
     width: 20%;
     text-align: center;
@@ -252,6 +253,15 @@ export default {
 @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
 @-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+
+@media only screen  and (max-width:720px){
+
+.HeaderIcons {
+  display: none !important;
+}
+}
 
 
 

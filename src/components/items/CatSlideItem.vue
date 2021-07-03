@@ -21,6 +21,7 @@ export default {
 .Cat-Slide-item{
         bottom: 0 !important;
         display: inline-block;
+        margin: 0 0;
 }
 
 .Cat-Slide-item a {
@@ -32,8 +33,9 @@ export default {
 }
 
 .Cat-Slide-item-img{
-    max-width: 90px;
+    max-width: 45px;
     height: auto;
+
 }
 
 .Cat-Slide-item a span {

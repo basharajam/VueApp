@@ -51,7 +51,8 @@
               </div>
           </div>
       
-            <div class="LinksLists container">
+            <div class="">
+                <div class="LinksLists">
                     <div class="LinkList col-sm-3 col-12">
                     <h3>أبحث في</h3>
                     <a href="https://alyaman.com/">الصفحة الرئيسية</a>
@@ -84,6 +85,8 @@
             <div class="CopyRightsFooter">
                 <p>جميع الحقوق محفوظة 1996-2021©Alyaman.com</p>
             </div>
+
+                </div>
               
           
       </div>
@@ -212,8 +215,6 @@ export default {
     padding: 0px;
     width: min-content;
     overflow: hidden;
-    margin: 2% 3.7%;
-
     float: right;
     
 }
