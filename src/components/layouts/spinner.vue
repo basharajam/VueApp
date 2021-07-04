@@ -22,13 +22,13 @@ export default {
 }
 
 .spinner {
-  width: 5%;
+  width: 16%;
   text-align: center;
   position: fixed ;
-  top: 50%;
+  top: 42%;
   left: 50%;
   bottom: 50%;
-  right: 50%;
+  right: 42%;
   z-index: 999;
   -webkit-animation:spin 4s linear infinite;
   -moz-animation:spin 4s linear infinite;

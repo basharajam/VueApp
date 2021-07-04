@@ -335,11 +335,19 @@ position: relative;
   .navbar-brand{
       margin-left: 600px;
   }
+  .spinner{
+    width:8%!important;
+    right: 45% !important;
+  }
 
 }
 
 @media  only screen and (min-width:1024px) and (max-width:1024px) {
 
+  .spinner{
+    width:8%!important;
+    right: 45% !important;
+  }
   .navbar-brand{
     margin-left: 148px;
   }
@@ -381,7 +389,9 @@ position: relative;
 /* Start Tablet */
 
 @media only screen and  (min-width:768px) and (max-width: 768px){
-
+  .spinner{
+    width:8%!important;
+  }
   .LinksLists{
     max-width: 100%!important;
   }

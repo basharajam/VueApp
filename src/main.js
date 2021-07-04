@@ -4,8 +4,8 @@ import router from './router'
 import store from './store'
 
 import axios from 'axios'
-let username = "ck_4a0c08cd61f3efbd00e151f0b28eb55eaf638851";
-let password = "cs_1c54b351f8a30b348270ffb2e2f2e2a9afef717f";
+let username = "ck_6a1427f5d435ec0a42b8b14c946f24faaf970c18";
+let password = "cs_ec4bd419caf66135ecacc5df3410a7ec03a5fcfb";
 let authHeader = `Basic ${window.btoa(`${username}:${password}`)}`;
 axios.defaults.headers.common["Authorization"] = authHeader;
 Vue.config.productionTip = false
