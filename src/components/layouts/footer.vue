@@ -110,6 +110,7 @@ export default {
 .FooterHeadingContent h3{
     font-size: 75px;
     margin-top: 46px;
+    color: white !important;
 }
 
 .LinksLists{

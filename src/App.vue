@@ -159,6 +159,7 @@ body{
 
   font-size:18px ;
   padding-top: 6px;
+  color: black !important
 }
 
 .TitleList

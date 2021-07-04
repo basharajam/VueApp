@@ -11,7 +11,7 @@
             <input class="form-control mr-sm-2 SearchInput" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-model="SearchInput" type="search" placeholder="          Search"  aria-label="Search">
           </div>
 
-          <a href="#" class="d-inline-block d-sm-none" style="margin: 0 12px;font-size: 24px;"> <i class="fa fa-globe" ></i></a>
+          <a href="#" class="d-inline-block d-sm-none" style="margin: 0 12px;font-size: 24px;color: black;"> <i class="fa fa-globe" ></i></a>
 
             <div class="HeaderIcons d-none d-sm-inline-block col-sm-2 pull-left">
               <a href="#"><i class="fas fa-user"></i></a>
