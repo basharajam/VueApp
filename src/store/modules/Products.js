@@ -99,6 +99,7 @@ const actions = {
             else{
 
                 commit('ProdByTax0',response.data)
+                console.log(response.data)
 
             }
 
@@ -334,7 +335,7 @@ const actions = {
 
     getProdDecRope({commit}){
 
-        var Seturl = process.env.VUE_APP_BASEURL+'products?tag=703&per_page=4';
+        var Seturl = process.env.VUE_APP_BASEURL+'products?tag=720&per_page=4';
 
         axios.get(Seturl).then(function(response){
 
@@ -355,7 +356,7 @@ const actions = {
 
     getProdDecSticker({commit}){
 
-        var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=714&per_page=4';
+        var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=704&per_page=4';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){

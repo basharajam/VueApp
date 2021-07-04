@@ -15,7 +15,8 @@
             </div>
             <div class="product-data">
                 <h3 class="title"><a :href="Product.permalink">{{Product.name}}</a></h3>
-                <div class="price"><span>ر.س</span> {{ parseFloat(Product.regular_price).toFixed(2) }}</div>
+                <!-- parseFloat(Product.regular_price).toFixed(2) -->
+                <div class="price"><span v-html="Product.price_html" ></span> </div>
                 <div class="descrition" v-html=" Product.short_description"></div>
             </div>
             <div class="product-content">
@@ -42,11 +43,12 @@ export default {
         methods:{
             discountPrice(Product){
 
+
                 var stp1 = Product.regular_price-Product.sale_price;
                 var stp2 = stp1/Product.regular_price;
                 var stp3 = stp2 *100;
                 return  parseFloat(stp3).toFixed(0);
-            },
+            }
             // AddtoCart(Product){
 
             //     var meta = Product.meta;
@@ -215,7 +217,7 @@ export default {
 .product-grid .product-data .title a:hover{ color: #fe6a00; }
 .product-grid .price{
     color: #fe6a00;
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 600;
     display: block;
     transition: all 0.4s ease-in-out;
