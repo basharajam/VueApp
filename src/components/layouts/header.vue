@@ -34,6 +34,9 @@
                       
                     </div>
                   </div>
+                  <div v-if="NotFoundErr" class="NotFoundSearch text-center">
+                      <span >عذرا المنتج غير موجود حاليا</span>
+                  </div> 
                     <!-- <div class="ShowMoreResBtn">
                       <button >عرض المزيد</button>
                     </div> -->
@@ -65,6 +68,7 @@ export default {
         SearchRes:false,
         innerSpinner:true,
         search:true,
+        NotFoundErr:false,
         SearchResArr:[]
       }
 
@@ -81,6 +85,7 @@ export default {
              //Display Search Result List 
              this.SearchRes=true
              this.innerSpinner=true
+             this.NotFoundErr=false;
 
              //Do Request 
             //  "https://alyaman.com/wp-json/wc/v3/products/?search="+value
@@ -99,6 +104,12 @@ export default {
                 this.innerSpinner=false
                 //fetch Data in Search Result List 
                 this.SearchResArr=response.data
+                if(this.SearchResArr.length === 0){
+                  this.NotFoundErr=true;
+                }
+                else{
+                  this.NotFoundErr=false;
+                }
                 console.log(response)
                 
               }
