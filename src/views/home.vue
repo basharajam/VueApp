@@ -6,6 +6,21 @@
         <CategorySlide></CategorySlide>
         <ProdBoxList></ProdBoxList>
 
+        <!-- Mobile  -->
+        <OffersList class="d-sm-none"></OffersList>
+        <ProdsByTax6 class="d-sm-none"></ProdsByTax6> 
+        <RecentList class="d-sm-none" ></RecentList>
+        <prodsByTax0 class="d-sm-none"></prodsByTax0>
+        <ProdByTax class="d-sm-none"></ProdByTax>
+        <MostPopularList class="d-sm-none"></MostPopularList>
+        <ProdsByTax1 class="d-sm-none"></ProdsByTax1>
+        <ProdsByTax2 class="d-sm-none"></ProdsByTax2>
+        <ProdsByTax3 class="d-sm-none" ></ProdsByTax3>
+        <ProdsByTax4 class="d-sm-none" ></ProdsByTax4>
+        <ProdsByTax7 class="d-sm-none"></ProdsByTax7>
+        <ProdByBoxList class="d-sm-none" ></ProdByBoxList> 
+        <!-- End Mobile -->
+
         <!-- Birth Distru Banner -->
           <div class="container HomeBanner d-none d-sm-block">
             <a href="https://alyaman.com/product-category/%d9%85%d9%88%d8%a7%d9%84%d9%8a%d8%af/">
@@ -13,8 +28,8 @@
             </a>
           </div>
         <!-- Birth Distru Banner End -->
-        <ProdsByTax2></ProdsByTax2>
-        <OffersList></OffersList>
+        <ProdsByTax2 class="d-sm-block d-none"></ProdsByTax2>
+        <OffersList class="d-sm-block d-none"></OffersList>
         <!--  Box Distru Banner -->
           <div class="container HomeBanner d-none d-sm-block">
             <a href="https://alyaman.com/product-category/%d8%b9%d9%84%d8%a8-%d8%aa%d9%88%d8%b2%d9%8a%d8%b9%d8%a7%d8%aa/">
@@ -22,11 +37,11 @@
             </a>
           </div>
         <!-- Box Distru Banner End -->
-        <ProdsByTax7></ProdsByTax7>
-        <ProdsByTax6></ProdsByTax6>  
-        <RecentList></RecentList>
-        <prodsByTax0></prodsByTax0>
-        <MostPopularList></MostPopularList>
+        <ProdsByTax7 class="d-sm-block d-none"></ProdsByTax7>
+        <ProdsByTax6 class="d-sm-block d-none"></ProdsByTax6>  
+        <RecentList class="d-sm-block d-none"></RecentList>
+        <prodsByTax0 class="d-sm-block d-none"></prodsByTax0>
+        <MostPopularList class="d-sm-block d-none"></MostPopularList>
         <!--  Saudi Day Banner -->
           <div class="container HomeBanner d-none d-sm-block">
             <a href="https://alyaman.com/product-category/%d8%a7%d9%84%d8%b9%d9%8a%d8%af-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a/">
@@ -34,12 +49,12 @@
             </a>
           </div>
         <!-- Saudi Day Banner End -->
-        <ProdByTax></ProdByTax>
+        <ProdByTax class="d-sm-block d-none"></ProdByTax>
         <!-- <Banner></Banner> -->
-        <ProdsByTax3></ProdsByTax3>
-        <ProdsByTax4></ProdsByTax4>
-        <ProdsByTax1></ProdsByTax1>
-        <ProdByBoxList></ProdByBoxList> 
+        <ProdsByTax3 class="d-sm-block d-none"></ProdsByTax3>
+        <ProdsByTax4 class="d-sm-block d-none"></ProdsByTax4>
+        <ProdsByTax1 class="d-sm-block d-none"></ProdsByTax1>
+        <ProdByBoxList class="d-sm-block d-none"></ProdByBoxList> 
         <!-- <BestSell></BestSell>  -->
         <!-- <ProdsByTax5></ProdsByTax5>  -->
  

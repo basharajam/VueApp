@@ -72,7 +72,7 @@ const actions = {
     getProdByTax({commit}){
         
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=714&per_page=12';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=699&per_page=12';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -89,7 +89,7 @@ const actions = {
     },
     getProdByTax0({commit}){
 
-        var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=717&per_page=12';
+        var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=718&per_page=12';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -147,7 +147,7 @@ const actions = {
 
     getProdMostPopular({commit}){
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=718&per_page=8';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=719&per_page=8';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -166,7 +166,7 @@ const actions = {
 
     getProdByTax1({commit}){
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=719&per_page=4';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=720&per_page=6';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -260,7 +260,7 @@ const actions = {
 
     getProdByTax6({commit}){
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=716&per_page=12';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=717&per_page=12';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -278,7 +278,7 @@ const actions = {
     },
     getProdByTax7({commit}){
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=720&per_page=12';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=716&per_page=12';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){

@@ -107,7 +107,7 @@ data: function() {
       //Disable Spinner
       setTimeout(() => {
          this.spinner=false
-      }, 25500);
+      }, 6500);
 
 
 
@@ -128,7 +128,7 @@ data: function() {
 body{
  font-family: 'font';
  text-align: right;
-  background-color: #f5f5f5ec;
+background-color: #f5f5f5ec !important ;
   /* background-image: url('./assets/patt.png');
   background-repeat: repeat;
   background-blend-mode: hue; */
@@ -178,6 +178,12 @@ position: relative;
 .ProdList{
   margin-bottom: 6px;
   
+}
+
+.ProdBoxTitle {
+   
+  color: black !important;
+
 }
 
 .scrollmenu .ProdCard {
@@ -275,7 +281,7 @@ position: relative;
 } */
 .SearchSection{
   max-width: 115px;
-  bottom: 0px !important;
+  bottom: 10px !important;
 }
 
 .Product-content a{
@@ -683,7 +689,7 @@ min-height: 300px !important;
       font-size: 10px;
       width:118px !important;
       font-size: 8px;
-}
+  } 
   .navbar-brand img{
 
     max-width: 105px;
@@ -691,6 +697,12 @@ min-height: 300px !important;
   .SearchSection{
     width: 50%;
   }
+  .FooterHeadingContent {
+      font-size: 50px !important;
+    margin-top: 46px !important;
+    text-align: center;
+  }
+
 }
 
 /* End Medium Phone */
@@ -731,6 +743,12 @@ min-height: 300px !important;
     position: relative;
     bottom: 0px !important;
   }
+  .FooterHeadingContent {
+      font-size: 50px !important;
+    margin-top: 46px !important;
+    text-align: center;
+  }
+
 
 }
 
@@ -749,6 +767,12 @@ min-height: 300px !important;
       font-size: 10px;
       width:112px;
 }
+.FooterHeadingContent {
+      font-size: 50px !important;
+    margin-top: 46px !important;
+    text-align: center;
+}
+
 
 }
 
