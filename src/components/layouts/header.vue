@@ -35,7 +35,7 @@
                       <button >عرض المزيد</button>
                     </div> -->
             </div>
-    <div class="CatNavLinks scrollmenu">
+    <div class="CatNavLinks scrollmenu" style="overflow-y: hidden !important">
         <a href="https://alyaman.com/shop/"> الكل </a>
         <a v-for="Category in Categories" v-bind:key="Category.id" :href="'https://alyaman.com/product-category/'+Category.slug" > {{ Category.name }} </a>
   </div>
