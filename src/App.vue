@@ -24,11 +24,7 @@ export default {
     Spinner
   },
   methods:{
-    ...mapActions(['getCategories','getProdByTax','getProdByTax0','getProdByTax1','getProdByTax2','getProdByTax3','getProdByTax4','getProdByTax5','getProdByTax6','getProdByTax7','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns']),
-
-    hideSpinner(){
-      return this.spinner = false;
-    }
+    ...mapActions(['getCategories','getProdByTax','getProdByTax0','getProdByTax1','getProdByTax2','getProdByTax3','getProdByTax4','getProdByTax5','getProdByTax6','getProdByTax7','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
   },
 data: function() {
     return {
@@ -267,10 +263,6 @@ position: relative;
     margin-bottom: 12px;
 }
 
-
-
-
-
 @media only screen and (min-width:320px) and (max-width:320px){
 
 
@@ -280,7 +272,7 @@ position: relative;
 
 } */
 .SearchSection{
-  max-width: 115px;
+  max-width: 175px;
   bottom: 10px !important;
 }
 
@@ -463,6 +455,11 @@ position: relative;
 
 }
 
+.SearchSection{
+    bottom: 10px;
+    position: relative;
+}
+
 } 
 
 
@@ -542,7 +539,7 @@ position: relative;
         margin: 10px 31px;
   } */
   .navbar-brand img {
-        max-width: 124px !important;
+        max-width: 148px !important;
   }
 
   .HomeListLogo{
@@ -558,9 +555,9 @@ position: relative;
       scrollbar-width: none;  /* Firefox */
   }
   .SearchSection{
-    max-width: 170px;
+    width: 170px;
     position: relative;
-    bottom: 0px !important;
+    bottom: 8px !important;
   }
 
   .homeListItem .content{
@@ -743,9 +740,8 @@ min-height: 300px !important;
 
 
   .SearchSection {
-    width: 50%;
-    position: relative;
-    bottom: 0px !important;
+    width: 62% !important;
+    bottom: 10px !important;
   }
   .FooterHeadingContent {
       font-size: 50px !important;
@@ -816,7 +812,7 @@ display: none !important;
     max-width: 110px;
   }
   .SearchSection{
-    width: 50%;
+    width: 56%;
     position: relative;
     bottom: 10px;
   }
@@ -825,7 +821,7 @@ display: none !important;
   }
   .CopyRightsFooter{
     margin: 0 45px !important;
-    font-size: 16px !important;
+    font-size: 12px !important;
     margin-bottom: 18px !important;
   }
 

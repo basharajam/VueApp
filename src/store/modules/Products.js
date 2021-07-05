@@ -335,7 +335,7 @@ const actions = {
 
     getProdDecRope({commit}){
 
-        var Seturl = process.env.VUE_APP_BASEURL+'products?tag=720&per_page=4';
+        var Seturl = process.env.VUE_APP_BASEURL+'products?tag=703&per_page=4';
 
         axios.get(Seturl).then(function(response){
 

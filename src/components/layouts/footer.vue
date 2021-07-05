@@ -1,5 +1,5 @@
 <template>
-  <div class="Footer ">
+  <div class="Footer " style="background-color: #f5f5f5ec !important ;">
       <div class="mobileFooter d-flex d-sm-none">
           <div class="al_footer-item">
               <a href="https://alyaman.com/" class="flex  justify-center">
@@ -140,7 +140,7 @@ export default {
 .LinkList a {
     color: white;
     font-size: 14px;
-    padding: 6px 0;
+    padding: 2px  0;
 }
 
 .FooterHeading{
