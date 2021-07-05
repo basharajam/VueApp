@@ -12,7 +12,7 @@
         </div>
         <div class="container-fluid">
           <div class="row d-sm-none d-block">
-              <ProdGridBox v-for="Product in ProdByTax1" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem grid-discount"></ProdGridBox>                
+              <ProdCard v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem grid-discount hideAddToCart"></ProdCard>                
           </div>
         </div>    
       </div>
@@ -23,16 +23,19 @@
 import { mapGetters } from 'vuex';
 
 import ProdCard from '../items/ProdCard.vue';
-import ProdGridBox from '../items/ProdGridBox.vue';
+// import ProdGridBox from '../items/ProdGridBox.vue';
 export default {
 
   name:'ProdsByTax1',
   components:{
     ProdCard,
-    ProdGridBox
+    // ProdGridBox
   },
   computed:{
-    ...mapGetters(['ProdByTax1'])
+    ...mapGetters(['ProdByTax1']),
+    FilterArr:function () {
+      return this.ProdByTax1.slice(0,4)
+    }
   }
 
 }

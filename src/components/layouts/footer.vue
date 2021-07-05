@@ -1,6 +1,6 @@
 <template>
   <div class="Footer ">
-      <div class="mobileFooter d-block d-sm-none">
+      <div class="mobileFooter d-flex d-sm-none">
           <div class="al_footer-item">
               <a href="https://alyaman.com/" class="flex  justify-center">
                   <i class="fa fa-home" ></i>
@@ -65,21 +65,22 @@
                     <h3>أتصل بنا</h3>
                     <a href="#">support@alyaman.com</a>
                     <a href="https://wa.me/8617757971070">tel: +86 17757971070</a>
+                                        <a href="https://alyaman.com/%d8%a7%d9%84%d8%aa%d8%a8%d9%84%d9%8a%d8%ba-%d8%b9%d9%86-%d9%85%d8%b4%d9%83%d9%84%d8%a9/">التبليغ عن مشكلة</a>
                 </div>
                 <div class="LinkList col-sm-3 col-12">
                     <h3>خدمة العملاء</h3>
                     <a href="https://alyaman.com/privacy-policy/">سياسات الخصوصية</a>
                     <a href="https://alyaman.com/%d8%a7%d9%84%d8%b4%d8%ad%d9%86-%d9%88%d8%a7%d9%84%d8%aa%d8%b3%d9%84%d9%8a%d9%85/">الشحن والتسليم</a>
+                    <a href="https://www.alyaman.com/remember/">الشروط والأحكام</a>
                     <a href="https://alyaman.com/%d9%83%d9%8a%d9%81%d9%8a%d8%a9-%d8%aa%d9%82%d8%af%d9%8a%d9%85-%d8%b7%d9%84%d8%a8-%d8%b4%d8%b1%d8%a7%d8%a1/">كيفية الشراء</a>
                     <a href="https://alyaman.com/my-account/edit-account/">حسابي</a>
                     <a href="https://alyaman.com/my-account/orders/">طلباتك</a>
-                    <a href="https://alyaman.com/%d8%a7%d9%84%d8%aa%d8%a8%d9%84%d9%8a%d8%ba-%d8%b9%d9%86-%d9%85%d8%b4%d9%83%d9%84%d8%a9/">التبليغ عن مشكلة</a>
                     <a href="https://alyaman.com/about-us-arabic/">حول</a>
                 </div>
-                    <div class="LinkList col-sm-3 col-12" >
+                <!-- <div class="LinkList col-sm-3 col-12" >
                     <h3>أنضم الينا</h3>
                     <a href="http://vendor.alyaman.com/login">البيع على اليمان</a>
-                </div>
+                </div> -->
             </div>
 
             <div class="CopyRightsFooter">
@@ -108,7 +109,7 @@ export default {
 
 
 .FooterHeadingContent h3{
-    font-size: 75px;
+    font-size: 64px;
     margin-top: 46px;
     color: white !important;
 }
@@ -133,13 +134,13 @@ export default {
 
 .LinkList h3 {
     color: white;
-    font-size: 36px;
+    font-size: 32px;
 }
 
 .LinkList a {
     color: white;
-    font-size: 16px;
-    padding: 10px 0;
+    font-size: 14px;
+    padding: 6px 0;
 }
 
 .FooterHeading{
@@ -161,7 +162,7 @@ export default {
 
 
 .SocialLinkI{
-    margin: 12px;
+    margin: 8px;
 }
 
 .SocialLinkI span{
@@ -215,7 +216,6 @@ export default {
     flex: 1;
     padding: 0px;
     width: min-content;
-    overflow: hidden;
     float: right;
     
 }

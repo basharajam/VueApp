@@ -103,6 +103,10 @@ export default {
     width: 100%;
     height: auto;
 }
+.product-data.descrition p {
+        max-width: 20ch;    
+        white-space: break-spaces;
+}
 .product-grid .product-discount-label{
 
     color: #fe6a00;
@@ -209,11 +213,10 @@ export default {
 .product-grid .title a{
     color: #2c2c2c;
     transition: all 0.3s ease 0s;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    white-space: break-spaces;
     max-width: 20ch;
 }
+
 .product-grid .product-data .title a:hover{ color: #fe6a00; }
 .product-grid .price{
     color: #fe6a00;

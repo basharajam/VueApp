@@ -10,23 +10,17 @@
             <i v-if="search" class="fas fa-search SearchIcon"></i>
             <input class="form-control mr-sm-2 SearchInput" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-model="SearchInput" type="search" placeholder="          Search"  aria-label="Search">
           </div>
-
-          <a href="#" class="d-inline-block d-sm-none" style="margin: 0 12px;font-size: 24px;color: black;"> <i class="fa fa-globe" ></i></a>
-
-            <div class="HeaderIcons d-none d-sm-inline-block col-sm-2 pull-left">
-              <a href="#"><i class="fas fa-user"></i></a>
-              <a href="#"> <i class="fal fa-shopping-cart"></i></a>
-              <a href="#"> <i style="color:black" class="fa fa-globe" ></i></a>
-            </div>
+          <div class="HeaderIcons d-none d-sm-inline-block col-sm-2 pull-left">
+            <a href="#"><i class="fas fa-user"></i></a>
+            <a href="#"> <i class="fal fa-shopping-cart"></i></a>
+            <a href="#"> <i style="color:black" class="fa fa-globe" ></i></a>
+          </div>
     </nav>
                 <div class="SearchResult" v-if="SearchRes">
                   <div v-if="innerSpinner" class="innerSpinner">
                     <img src="spinner.png" class="innerSpinner0"> 
                   </div>
                   <div class="media" v-for="Prod in SearchResArr" v-bind:key="Prod.id">
-                    <a  class="SearchResImg" :href="Prod.permalink" target="_blank">
-                     <img class="mr-3 img-thumbnail img-fluid" :src="Prod.images[0].src" alt="Generic placeholder image">
-                    </a>
                     <div class="media-body">
                       <a  :href="Prod.permalink" target="_blank" >
                         <h5 class="mt-0 SearchResTitle">{{  Prod.name }}</h5>

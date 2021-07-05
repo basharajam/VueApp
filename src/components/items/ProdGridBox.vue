@@ -11,6 +11,7 @@
             <div class="card-content">
                 <!-- <h3 class="title"><a href="#">{{Product.name}}</a></h3> -->
                 <div class="price"><span>ر.س</span> {{ parseFloat(Product.price).toFixed(2) }}</div>
+                <div class="descrition" v-html=" Product.short_description"></div>  
                 <a class="add-to-cart d-sm-block d-none " :href="Product.permalink"  target="_blank" >عرض تفاصيل المنتج</a>
             </div>
          </div>
@@ -217,6 +218,16 @@ export default {
 .rating li {
     display: inline-block;
 }
+
+.descrition {
+
+display: none;
+position: absolute;
+background-color: white;
+transition: all 0.4s ease-out;
+}
+
+
 
 @media screen and (max-width:1200px){
     .card-grid{ margin:2px; }

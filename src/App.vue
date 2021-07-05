@@ -306,7 +306,8 @@ position: relative;
 
 
 .al_footer-item{
-    margin: 2% 0.4% !important;
+    /* margin: 2% 0.4% !important; */
+    margin: 2% 0 !important;
 }
 
 .discount-lab{
@@ -647,7 +648,8 @@ min-height: 300px !important;
 
   .al_footer-item{
 
-          margin:2% 3.16% !important
+          /* margin:2% 3.16% !important */
+          margin:2% 0 !important
 
   }
 
@@ -684,6 +686,7 @@ min-height: 300px !important;
 
   .al_footer-item{
     margin: 2% 2.655% !important;
+    margin: 2% 0 !important;
   }
   .product-content .add-to-cart{
       font-size: 10px;
@@ -714,7 +717,8 @@ min-height: 300px !important;
 
   .al_footer-item{
 
-          margin:2% 2.5% !important
+          /* margin:2% 2.5% !important */
+          margin:2% 0% !important
   }
 
   .discount-lab{
@@ -756,7 +760,8 @@ min-height: 300px !important;
 
 @media only screen and (min-width: 360px) and (max-width:360px){
   .al_footer-item{
-    margin: 2% 2.19% !important;
+    /* margin: 2% 2.19% !important; */
+    margin: 2% 0% !important; 
   }
   .SearchSection {
     max-width: 150px;
@@ -797,6 +802,13 @@ min-height: 300px !important;
   padding-right: 0!important;
   padding-left: 0!important;
   display: inline-block;
+
+}
+
+.hideAddToCart .product-grid .product-content .add-to-cart{
+
+
+display: none !important;
 
 }
   .navbar-brand img{

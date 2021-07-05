@@ -12,7 +12,7 @@
         </Flickity>
         <div class="container-fluid">
           <div class="row d-sm-none">
-              <ProdGridBox v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem"></ProdGridBox>                
+              <ProdCard v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem hideAddToCart"></ProdCard>                
           </div>
         </div>
       </div>
@@ -23,14 +23,14 @@
 import { mapGetters } from 'vuex';
 import Flickity from 'vue-flickity';
 import ProdCard from '../items/ProdCard.vue';
-import ProdGridBox from '../items/ProdGridBox.vue';
+// import ProdGridBox from '../items/ProdGridBox.vue';
 
 export default {
 
   name:'ProdsByTax3',
   components:{
     ProdCard,
-    ProdGridBox,
+    // ProdGridBox,
     Flickity
   },
   computed:{
