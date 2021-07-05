@@ -99,7 +99,7 @@ const actions = {
             else{
 
                 commit('ProdByTax0',response.data)
-                console.log(response.data)
+                
 
             }
 

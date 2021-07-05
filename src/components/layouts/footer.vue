@@ -3,13 +3,13 @@
       <div class="mobileFooter d-flex d-sm-none">
           <div class="al_footer-item">
               <a href="https://alyaman.com/" class="flex  justify-center">
-                  <i class="fa fa-home" ></i>
+                  <i class="far fa-home" ></i>
                   <span>الرئيسية</span>
               </a>
           </div>
           <div class="al_footer-item">
               <a href="https://alyaman.com/wishlist/" class="flex  justify-center">
-                  <i class="fa fa-heart" ></i>
+                  <i class="far fa-heart" ></i>
                   <span>المفضلة</span>
               </a>
           </div>
@@ -21,13 +21,13 @@
           </div>
           <div class="al_footer-item">
               <a href="https://alyaman.com/%d8%a7%d9%84%d8%aa%d8%a8%d9%84%d9%8a%d8%ba-%d8%b9%d9%86-%d9%85%d8%b4%d9%83%d9%84%d8%a9/" class="flex  justify-center">
-                  <i class="fa fa-phone-alt" ></i>
+                  <i class="far fa-phone-alt" ></i>
                   <span>تواصل معنا</span>
               </a>
           </div>
           <div class="al_footer-item">
               <a href="https://alyaman.com/my-account/" class="flex  justify-center">
-                  <i class="fa fa-user" ></i>
+                  <i class="far fa-user" ></i>
                   <span>حسابي</span>
               </a>
           </div>
@@ -220,8 +220,11 @@ export default {
     
 }
 
+.al_footer-item i{
+    color:#fe6a00
+}
 .al_footer-item i:hover {
-    color: #fe6a00; 
+    color:black; 
 }
 
 .al_footer-item a {

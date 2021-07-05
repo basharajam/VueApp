@@ -11,8 +11,8 @@
             <input class="form-control mr-sm-2 SearchInput" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-model="SearchInput" type="search" placeholder="          Search"  aria-label="Search">
           </div>
           <div class="HeaderIcons d-none d-sm-inline-block col-sm-2 pull-left">
-            <a href="#"><i class="fas fa-user"></i></a>
-            <a href="#"> <i class="fal fa-shopping-cart"></i></a>
+            <a href="https://alyaman.com/my-account/"><i class="fas fa-user"></i></a>
+            <a href="https://alyaman.com/cart/"> <i class="fal fa-shopping-cart"></i></a>
             <a href="#"> <i style="color:black" class="fa fa-globe" ></i></a>
           </div>
     </nav>

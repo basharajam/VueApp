@@ -47,7 +47,7 @@
 
       <div class="BannerSlider scrollmenu d-sm-none d-block">              
         <div class="BannerSlideItem col-10 ">
-          <a href="https://alyaman.com/product-category/%d8%a7%d9%84%d8%b9%d9%8a%d8%af-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a/">
+          <a href="https://www.alyaman.com/product-category/%d8%a7%d9%84%d8%b9%d9%8a%d8%af-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a/">
               <img  class="mobileBanner " src="@/assets/banners/2.jpeg" alt="">
           </a>
         </div>
@@ -57,7 +57,7 @@
             </a>
         </div>
         <div class="BannerSlideItem  col-10 ">
-          <a href="https://alyaman.com/product-category/%d8%aa%d8%ae%d8%b1%d8%ac">
+          <a href="https://www.alyaman.com/product-category/%d8%aa%d8%ae%d8%b1%d8%ac/">
               <img  class="mobileBanner " src="@/assets/banners/0.jpeg" alt="">
           </a>
         </div>
