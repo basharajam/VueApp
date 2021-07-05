@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="home" style="background-color: #f5f5f5ec !important ;">
       
         <carouselWidget></carouselWidget>
         <!-- <homeList></homeList> -->
