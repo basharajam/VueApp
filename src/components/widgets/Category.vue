@@ -5,7 +5,7 @@
     </div> -->
 
     <div class="" >
-      <div class="category-carousel">
+      <div class="category-carousel d-sm-none d-block">
        <CatSlideItem v-for="Category in Categories" v-bind:key='Category.id' v-bind:Category='Category' class="carousel-cell col-2"></CatSlideItem>
       </div>
     </div>
@@ -45,7 +45,8 @@
 
     </div> -->
 
-      <div class="BannerSlider scrollmenu d-sm-none d-block">              
+    <div class="container-fluid">
+      <Flickity v-if="display" class="d-sm-none d-block  " ref="flickity" :options="flickityOptions">              
         <div class="BannerSlideItem col-10 ">
           <a href="https://www.alyaman.com/product-category/%d8%a7%d9%84%d8%b9%d9%8a%d8%af-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a/">
               <img  class="mobileBanner " src="@/assets/banners/2.jpeg" alt="">
@@ -71,7 +72,9 @@
               <img  class="mobileBanner " src="@/assets/banners/4.jpeg" alt="">
           </a>
         </div>
-      </div>
+      </Flickity>
+      
+    </div>
   </div>
   
 </template>
@@ -80,23 +83,53 @@
 
 import { mapGetters } from 'vuex';
 import CatSlideItem from '../items/CatSlideItem.vue';
+import Flickity from 'vue-flickity';
 // import BannerSliderItem from '../items/BannerSlideItem.vue';
 
 export default {
     name:'CategorySilde',
     components:{
       CatSlideItem,
+      Flickity
       // BannerSliderItem
     },
     computed:{
         ...mapGetters(['Categories'])
-    }
+    },
+    data(){
+
+      return {
+        flickityOptions: {
+          initialIndex: 3,
+          pageDots: false,
+          wrapAround: true,
+          freeScroll: true,
+          contain: true,
+          prevNextButtons: false,
+          imagesLoaded: true 
+          
+          // any options from Flickity can be used
+        },
+        display:false
+      }
+  },
+  mounted(){
+
+    setTimeout(() => {
+      this.display=true
+    }, 1500);
+
+  }
 
 }
 
 </script>
 
-<style>
+<style scoped>
+
+.flickity-viewport{
+      height: 101.359px !important;
+}
 
 .category-carousel{
 

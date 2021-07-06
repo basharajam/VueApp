@@ -303,17 +303,18 @@ position: relative;
 }
 
 .discount-lab{
-      color: #fd6906;
+    font-size: 15px;
+    color: #fd6906;
     position: absolute;
-    top: 16px;
+    top: 4px;
     left: 14px;
-    width:45px;
+    width: 45px;
     height: 45px;
-    max-width: 45px;
+    max-width: 40px;
     text-align: center;
-    max-height: 45px;
+    max-height: 40px;
     border: 1px #fd6906 solid;
-    padding: 12px 0;
+    padding: 8px 0;
     border-radius: 999px;
 }
 
@@ -521,17 +522,18 @@ position: relative;
 
   }
   .discount-lab{
+    font-size: 12px;
     color: #fd6906;
     position: absolute;
     top: 16px;
     left: 14px;
-    width:45px;
+    width: 45px;
     height: 45px;
-    max-width: 45px;
+    max-width: 34px;
     text-align: center;
-    max-height: 45px;
+    max-height: 34px;
     border: 1px #fd6906 solid;
-    padding: 12px 0;
+    padding: 8px 0;
     border-radius: 999px;
   }
 
@@ -665,7 +667,7 @@ min-height: 300px !important;
   }
   .navbar-brand img{
 
-    max-width: 105px;
+    max-width: 156px !important;
   }
   .SearchSection{
     width: 40%;
@@ -723,13 +725,14 @@ min-height: 300px !important;
     position: absolute;
     top: 16px;
     left: 14px;
-    width: 45px;
-    height: 45px;
+    width: 32px;
+    height: 32px;
+    font-size: 10px;
     max-width: 35%;
     text-align: center;
     max-height: 35%;
     border: 1px #fd6906 solid;
-    padding: 12px 0;
+    padding: 8px 0;
     border-radius: 999px;
   }
 
@@ -747,6 +750,10 @@ min-height: 300px !important;
       font-size: 50px !important;
     margin-top: 46px !important;
     text-align: center;
+  }
+
+  .navbar-brand img{
+    max-width: 120px;
   }
 
 
@@ -801,6 +808,7 @@ min-height: 300px !important;
 
 }
 
+
 .hideAddToCart .product-grid .product-content .add-to-cart{
 
 
@@ -820,13 +828,32 @@ display: none !important;
     flex-direction: column !important;
   }
   .CopyRightsFooter{
-    margin: 0 45px !important;
+    margin: 10px 45px !important;
     font-size: 12px !important;
     margin-bottom: 18px !important;
   }
 
 }
 
+@media only screen and (min-width:429px) and (max-width: 570px){
+
+
+.LinksLists{
+
+  flex-direction:column !important;
+
+}
+
+.navbar-brand img{
+  max-width: 185px;
+}
+
+.SearchSection{
+  position: relative;
+  bottom: 10px !important;
+}
+
+}
 
 /*End Custom Media Q */
 

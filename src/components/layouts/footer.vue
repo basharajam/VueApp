@@ -77,10 +77,10 @@
                     <a href="https://alyaman.com/my-account/orders/">طلباتك</a>
                     <a href="https://alyaman.com/about-us-arabic/">حول</a>
                 </div>
-                <!-- <div class="LinkList col-sm-3 col-12" >
-                    <h3>أنضم الينا</h3>
-                    <a href="http://vendor.alyaman.com/login">البيع على اليمان</a>
-                </div> -->
+                <div class="LinkList col-sm-3 col-12" >
+                    <h3>اللغات</h3>
+                    <a href="https://www.alyaman.com/">العربية</a>
+                </div>
             </div>
 
             <div class="CopyRightsFooter">
