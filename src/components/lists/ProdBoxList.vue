@@ -98,6 +98,9 @@ export default {
     padding: 6px;
 }
 
+.ProdBoxOne a{
+    color: black !important;
+}
 
 .ProdBoxOne a img{
     width: 80%;
@@ -110,6 +113,7 @@ export default {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 75ch;
+    color: black !important;
 }
 
 .ProdBoxOne{

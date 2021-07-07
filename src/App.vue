@@ -263,67 +263,15 @@ position: relative;
     margin-bottom: 12px;
 }
 
-@media only screen and (min-width:320px) and (max-width:320px){
 
-
-/* .Cat-Slide-item{
-
-  margin: 6px 26px !important;
-
-} */
-.SearchSection{
-  max-width: 175px;
-  bottom: 10px !important;
+.add-to-cart:active{
+  transform: scale(1.1);
+}
+.add-to-cart{
+  transition: 1s ease-in-out;
 }
 
-.Product-content a{
-      width: 126px;
-   
-    padding: 0px;
-}
 
-.LinksLists {
-  flex-direction: column !important;
-}
-
-  .SearchResult{
-    width: 100% !important;
-    left: 0 !important;
-    margin: 10px 0px  !important;
-    padding: 5px !important; 
-  }
-  .HeaderIcons {
-  display: none !important;
-  }
-
-
-.al_footer-item{
-    /* margin: 2% 0.4% !important; */
-    margin: 2% 0 !important;
-}
-
-.discount-lab{
-    font-size: 15px;
-    color: #fd6906;
-    position: absolute;
-    top: 4px;
-    left: 14px;
-    width: 45px;
-    height: 45px;
-    max-width: 40px;
-    text-align: center;
-    max-height: 40px;
-    border: 1px #fd6906 solid;
-    padding: 8px 0;
-    border-radius: 999px;
-}
-
-.product-content .add-to-cart{
-  width: 92px !important;
-  font-size: 8px !important;
-}
-
-}
 
 /*   Query Media */
 
@@ -851,6 +799,68 @@ display: none !important;
 .SearchSection{
   position: relative;
   bottom: 10px !important;
+}
+
+}
+
+@media only screen and (min-width:320px) and (max-width:320px){
+
+
+/* .Cat-Slide-item{
+
+  margin: 6px 26px !important;
+
+} */
+.SearchSection{
+  max-width: 175px;
+  bottom: 10px !important;
+}
+
+.Product-content a{
+      width: 126px;
+   
+    padding: 0px;
+}
+
+.LinksLists {
+  flex-direction: column !important;
+}
+
+  .SearchResult{
+    width: 100% !important;
+    left: 0 !important;
+    margin: 10px 0px  !important;
+    padding: 5px !important; 
+  }
+  .HeaderIcons {
+  display: none !important;
+  }
+
+
+.al_footer-item{
+    /* margin: 2% 0.4% !important; */
+    margin: 2% 0 !important;
+}
+
+.discount-lab{
+    font-size: 15px;
+    color: #fd6906;
+    position: absolute;
+    top: 4px;
+    left: 14px;
+    width: 45px;
+    height: 45px;
+    max-width: 40px;
+    text-align: center;
+    max-height: 40px;
+    border: 1px #fd6906 solid;
+    padding: 8px 0;
+    border-radius: 999px;
+}
+
+.product-content .add-to-cart{
+  width: 92px !important;
+  font-size: 8px !important;
 }
 
 }

@@ -113,24 +113,12 @@ export default {
     
 }
 
-.spinner {
-  width: 16%;
-  text-align: center;
-  position: fixed ;
-  /* top: 42%;
-  left: 50%;
-  bottom: 50%;
-  right: 42%; */
-  z-index: 999;
-  -webkit-animation:spin 3s linear infinite;
-  -moz-animation:spin 3s linear infinite;
-  animation:spin 3s linear infinite;
+@media screen and (min-width:320px) and (max-width:425px) {
+.front img,
+.back img {
+    width: 25% !important ;
 }
-
-
-/* @-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
-@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
-@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } } */
+}
 
 
 </style>

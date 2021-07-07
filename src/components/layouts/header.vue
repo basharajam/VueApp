@@ -8,7 +8,7 @@
         
           <div class="SearchSection">
             <i v-if="search" class="fas fa-search SearchIcon"></i>
-            <input class="form-control mr-sm-2 SearchInput" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-model="SearchInput" type="search" placeholder="          Search"  aria-label="Search">
+            <input class="form-control mr-sm-2 SearchInput" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="search" placeholder="          Search"  aria-label="Search">
           </div>
           <div class="HeaderIcons d-none d-sm-inline-block col-sm-2 pull-left">
             <a href="https://alyaman.com/my-account/"><i class="fas fa-user"></i></a>
@@ -70,9 +70,12 @@ export default {
     methods:{
          SearchRequest: _.debounce(function(){
            
+           this.hideIcon();
+
            var value=this.SearchInput;
+           var valLength = value.length;
           this.SearchResArr=[];
-           if(value != ''){
+           if(value != '' && valLength > 2){
 
              //hide Search Icon
              this.search = false
@@ -85,7 +88,6 @@ export default {
             //  "https://alyaman.com/wp-json/wc/v3/products/?search="+value
              axios.get("https://alyaman.com/wp-json/wc/v3/products/?search="+value+"&per_page=4").then((response) =>{
 
-              console.log(response)
               if(response.status != 200){
                   
                   console.log('baddddddddd')
@@ -104,10 +106,8 @@ export default {
                 else{
                   this.NotFoundErr=false;
                 }
-                console.log(response)
                 
               }
-               console.log(response.data)
 
              })
              
@@ -119,7 +119,7 @@ export default {
            else{
 
              //Display Search Icon
-             this.search = true
+             //  this.search = true
              //Hide Search Result List
              this.SearchRes=false
            }
