@@ -16,6 +16,7 @@
           <div class="al_footer-item al_footer-item-cart">
               <a href="https://alyaman.com/cart/" class="flex  justify-center">
                   <i class="fal fa-shopping-cart" ></i>
+                  <span class="CartCount" >{{ this.$cookies.get('gift_cart_counter') }}</span>
                   <span>السلة</span>
               </a>
           </div>
@@ -95,6 +96,12 @@
 </template>
 <script>
 export default {
+
+    data(){
+
+        return {
+        }
+    }
 
 }
 </script>
