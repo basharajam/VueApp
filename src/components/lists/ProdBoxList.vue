@@ -5,10 +5,10 @@
                 <h3 class="ProdBoxTitle ">احبال زينة العيد الوطني</h3>
                 <div class="ProdBoxItems">
                     <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdDecRope" v-bind:key="Prod.id">
-                        <a href="#">
+                        <a :href="Product.permalink">
                             <img :src="Prod.images[0].src" alt="">
                         </a>
-                        <a href="#">
+                        <a :href="Product.permalink">
                             <p>{{Prod.name}}</p>
                         </a>
                     </div>
@@ -20,10 +20,10 @@
                 <h3 class="ProdBoxTitle ">تغريسات العيد الوطني</h3>
                 <div class="ProdBoxItems">
                     <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdDecIns" v-bind:key="Prod.id">
-                        <a href="#">
+                        <a :href="Product.permalink">
                             <img :src="Prod.images[0].src" alt="">
                         </a>
-                        <a href="#">
+                        <a :href="Product.permalink">
                             <p>{{Prod.name}}</p>
                         </a>
                     </div>
@@ -34,10 +34,10 @@
                 <h3 class="ProdBoxTitle ">ستيكرات العيد الوطني</h3>
                 <div class="ProdBoxItems">
                     <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdDecSticker" v-bind:key="Prod.id">
-                        <a href="#">
+                        <a :href="Product.permalink">
                             <img :src="Prod.images[0].src" alt="">
                         </a>
-                        <a href="#">
+                        <a :href="Product.permalink">
                             <p>{{Prod.name}}</p>
                         </a>
                     </div>
@@ -47,10 +47,10 @@
                 <h3 class="ProdBoxTitle ">تاغات العيد الوطني</h3>
                 <div class="ProdBoxItems">
                     <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdDecTag" v-bind:key="Prod.id">
-                        <a href="#">
+                        <a :href="Product.permalink">
                             <img :src="Prod.images[0].src" alt="">
                         </a>
-                        <a href="#">
+                        <a :href="Product.permalink">
                             <p>{{Prod.name}}</p>
                         </a>
                     </div>
