@@ -11,7 +11,7 @@
             <ProdCard v-for="Product in ProdByTax1" v-bind:key="Product.id" v-bind:Product="Product" class="col-sm-3"></ProdCard>
         </div>
         <div class="container-fluid">
-          <div class="row d-sm-none d-block">
+          <div class="row d-sm-none d-flex">
               <ProdCard v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem grid-discount hideAddToCart"></ProdCard>                
           </div>
         </div>    

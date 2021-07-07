@@ -6,7 +6,7 @@
         </div>
         <h3 class="text-right">تاغات العيد الوطني السعودي</h3>
       </div>
-       <div class="ProdList container-fluid">
+       <div class="ProdList">
         <Flickity v-if="ProdByTax3.length != 0" class="offersListScroll d-none d-sm-block" ref="flickity" :options="flickityOptions">
             <ProdCard  class="carousel-cell" v-for="Product in ProdByTax3" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
         </Flickity>
