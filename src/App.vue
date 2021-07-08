@@ -473,6 +473,24 @@ position: relative;
 /*  Start Large Phone */
 @media only screen and (min-width:425px) and (max-width: 425px) {
 
+.CartCount{
+      background-color: #92278f;
+      padding: 4px !important;
+      position: fixed !important;
+      bottom: 30px !important;
+      right: 45% !important;
+      font-size: 12px !important;
+      padding-left: 2px !important;
+      padding-right: 2px !important;
+      opacity: .9;
+      line-height: 17px;
+      letter-spacing: -.5px;
+      height: 22px !important;
+      min-width: 18px !important;
+      border-radius: 99px !important;
+      color: #fff;
+      text-align: center;
+}
 
 
 
@@ -726,6 +744,25 @@ min-height: 300px !important;
     max-width: 120px;
   }
 
+  .CartCount{
+      background-color: #92278f;
+      padding: 4px !important;
+      position: fixed !important;
+      bottom: 30px !important;
+      right: 42% !important;  
+      font-size: 12px !important;
+      padding-left: 2px !important;
+      padding-right: 2px !important;
+      opacity: .9;
+      line-height: 17px;
+      letter-spacing: -.5px;
+      height: 22px !important;
+      min-width: 18px !important;
+      border-radius: 99px !important;
+      color: #fff;
+      text-align: center;
+}
+
 
 }
 
@@ -778,24 +815,6 @@ min-height: 300px !important;
 
 }
 
-.CartCount{
-      background-color: #92278f;
-      padding: 4px !important;
-      position: fixed !important;
-      bottom: 32px !important;
-      right: 40% !important;
-      font-size: 12px !important;
-      padding-left: 2px !important;
-      padding-right: 2px !important;
-      opacity: .9;
-      line-height: 17px;
-      letter-spacing: -.5px;
-      height: 22px !important;
-      min-width: 18px !important;
-      border-radius: 99px !important;
-      color: #fff;
-      text-align: center;
-}
 
 .hideAddToCart .product-grid .product-content .add-to-cart{
 
@@ -867,8 +886,8 @@ display: none !important;
 }
 
   .SearchResult{
-    width: 100% !important;
-    left: 0 !important;
+    width: 92% !important;
+    left: 4% !important;
     margin: 10px 0px  !important;
     padding: 5px !important; 
   }
@@ -901,6 +920,25 @@ display: none !important;
 .product-content .add-to-cart{
   width: 92px !important;
   font-size: 8px !important;
+}
+
+.CartCount{
+      background-color: #92278f;
+      padding: 4px !important;
+      position: fixed !important;
+      bottom: 32px !important;
+      right: 40% !important;
+      font-size: 12px !important;
+      padding-left: 2px !important;
+      padding-right: 2px !important;
+      opacity: .9;
+      line-height: 17px;
+      letter-spacing: -.5px;
+      height: 22px !important;
+      min-width: 18px !important;
+      border-radius: 99px !important;
+      color: #fff;
+      text-align: center;
 }
 
 }

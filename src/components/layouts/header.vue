@@ -12,7 +12,7 @@
           </div>
           <div class="HeaderIcons d-none d-sm-inline-block col-sm-2 pull-left">
             <a href="https://alyaman.com/my-account/"><i class="fas fa-user"></i></a>
-            <a href="https://alyaman.com/cart/"> <i class="fal fa-shopping-cart"> </i> <span class="CartCount" >{{ this.$cookies.get('gift_cart_counter') }}</span> </a>
+            <a href="https://alyaman.com/cart/"> <i class="fal fa-shopping-cart"> </i> <span class="CartCount" ><span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span></span> </a>
             <a href="#"> <i style="color:black" class="fa fa-globe" ></i></a>
           </div>
     </nav>
@@ -192,7 +192,10 @@ export default {
   }
 
   .SearchResTitle{
-    padding: 16% 0px;
+    font-size: 10px;
+    color: #000;
+    padding-bottom: 6px;
+    border-bottom:1px red solid;
   }
 
   .HeaderIcons a{
@@ -216,10 +219,6 @@ export default {
     border-radius: 20px;
     box-shadow: 5px 10px 30px rgb(0 0 0 / 10%);
     transition:all .4s ease 0s
-  }
-
-  .SearchResult .media{
-    margin:12px  0;
   }
 
   .SearchResult .media .media-body{

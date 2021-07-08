@@ -16,7 +16,7 @@
           <div class="al_footer-item al_footer-item-cart">
               <a href="https://alyaman.com/cart/" class="flex  justify-center">
                   <i class="fal fa-shopping-cart" ></i>
-                  <span class="CartCount" >{{ this.$cookies.get('gift_cart_counter') }}</span>
+                  <span class="CartCount" ><span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span></span>
                   <span>السلة</span>
               </a>
           </div>
