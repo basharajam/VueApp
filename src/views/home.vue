@@ -13,6 +13,7 @@
         <prodsByTax0 class="d-sm-none"></prodsByTax0>
         <ProdByTax class="d-sm-none"></ProdByTax>
         <MostPopularList class="d-sm-none"></MostPopularList>
+        <ProdsByTax5 class="d-sm-none"></ProdsByTax5>
         <ProdsByTax1 class="d-sm-none"></ProdsByTax1>
         <ProdsByTax2 class="d-sm-none"></ProdsByTax2>
         <ProdsByTax3 class="d-sm-none" ></ProdsByTax3>
@@ -42,6 +43,7 @@
         <RecentList class="d-sm-block d-none"></RecentList>
         <prodsByTax0 class="d-sm-block d-none"></prodsByTax0>
         <MostPopularList class="d-sm-block d-none"></MostPopularList>
+        <ProdsByTax5 class="d-sm-block d-none"></ProdsByTax5>
         <!--  Saudi Day Banner -->
           <div class="container HomeBanner d-none d-sm-block">
             <a href="https://alyaman.com/product-category/%d8%a7%d9%84%d8%b9%d9%8a%d8%af-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a/">
@@ -82,8 +84,8 @@ import ProdsByTax2 from '../components/lists/ProdsByTax2List.vue';
 import ProdsByTax3 from '../components/lists/ProdsByTax3List.vue';
 import ProdsByTax4 from '../components/lists/ProdsByTax4List.vue';
 import ProdsByTax7 from '../components/lists/ProdsByTax7List.vue';
+import ProdsByTax5 from '../components/lists/ProdsByTax5List.vue';
 // import CatGridList from '../components/lists/CatGridList.vue';
-// import ProdsByTax5 from '../components/lists/ProdsByTax5List.vue';
 // import BestSell from '../components/lists/BestSellList.vue';
 // import Banner from '../components/widgets/Banner.vue';
 
@@ -106,7 +108,7 @@ export default {
       ProdsByTax3,
       ProdsByTax4,
       ProdsByTax7,
-      // ProdsByTax5,
+      ProdsByTax5,
       ProdByBoxList,
       // CatGridList,
       // Banner

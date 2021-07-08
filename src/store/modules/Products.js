@@ -242,7 +242,7 @@ const actions = {
     },
     getProdByTax5({commit}){
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=705&per_page=4';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=723&per_page=10';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
