@@ -24,7 +24,7 @@
         <!-- End Mobile -->
 
         <!-- Birth Distru Banner -->
-          <div class="container HomeBanner d-none d-sm-block">
+          <div class="container HomeBanner d-none d-sm-block col-xl-12">
             <a href="https://alyaman.com/product-category/%d9%85%d9%88%d8%a7%d9%84%d9%8a%d8%af/">
               <img class="d-block w-100" src="@/assets/banners/4.jpeg" alt="Third slide">
             </a>
@@ -33,7 +33,7 @@
         <ProdsByTax2 class="d-sm-block d-none"></ProdsByTax2>
         <OffersList class="d-sm-block d-none"></OffersList>
         <!--  Box Distru Banner -->
-          <div class="container HomeBanner d-none d-sm-block">
+          <div class="container HomeBanner d-none d-sm-block col-xl-12">
             <a href="https://alyaman.com/product-category/%d8%b9%d9%84%d8%a8-%d8%aa%d9%88%d8%b2%d9%8a%d8%b9%d8%a7%d8%aa/">
               <img class="d-block w-100" src="@/assets/banners/1.jpeg" alt="Third slide">
             </a>
@@ -46,7 +46,7 @@
         <MostPopularList class="d-sm-block d-none"></MostPopularList>
         <ProdsByTax5 class="d-sm-block d-none"></ProdsByTax5>
         <!--  Saudi Day Banner -->
-          <div class="container HomeBanner d-none d-sm-block">
+          <div class="container HomeBanner d-none d-sm-block col-xl-12">
             <a href="https://alyaman.com/product-category/%d8%a7%d9%84%d8%b9%d9%8a%d8%af-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a/">
               <img class="d-block w-100" src="@/assets/banners/2.jpeg" alt="Third slide">
             </a>
