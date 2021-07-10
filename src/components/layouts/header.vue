@@ -1,16 +1,15 @@
 <template>
   <div class="alheader">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      
         <a class="navbar-brand "  href="https://alyaman.com">
           <img  src="icon.png" alt="" >
         </a>
         
           <div class="SearchSection">
             <i v-if="search" class="fas fa-search SearchIcon"></i>
-            <input class="form-control mr-sm-2 SearchInput" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="search" placeholder="          Search"  aria-label="Search">
+            <input class="form-control mr-sm-2 SearchInput" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="text" placeholder="          بحث"  aria-label="Search">
           </div>
-          <div class="HeaderIcons d-none d-sm-inline-block col-sm-2 pull-left">
+          <div class="HeaderIcons d-none  col-sm-2 pull-left">
             <a href="https://alyaman.com/my-account/"><i class="fas fa-user"></i></a>
             <a href="https://alyaman.com/cart/"> <i class="fal fa-shopping-cart"> </i> <span class="CartCount" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" ><span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span></span> </a>
             <a href="#"> <i style="color:black" class="fa fa-globe" ></i></a>
@@ -195,7 +194,7 @@ export default {
     font-size: 10px;
     color: #000;
     padding-bottom: 6px;
-    border-bottom:1px red solid;
+    border-bottom:1px #f6601a  solid;
   }
 
   .HeaderIcons a{
