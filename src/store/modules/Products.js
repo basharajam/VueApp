@@ -15,7 +15,7 @@ const state  = {
     ProdByTax5:[],
     ProdByTax6:[],
     ProdByTax7:[],
-
+    ProdByTax8:[],
     ProdByBox:[],
     ProdDecRope:[],
     ProdDecSticker:[],
@@ -38,7 +38,7 @@ const getters = {
     ProdByTax5:state=>state.ProdByTax5,
     ProdByTax6:state=>state.ProdByTax6,
     ProdByTax7:state=>state.ProdByTax7,
-
+    ProdByTax8:state=>state.ProdByTax8,
     ProdByBox:state=>state.ProdByBox,
     ProdDecRope:state=>state.ProdDecRope,
     ProdDecSticker:state=>state.ProdDecSticker,
@@ -111,7 +111,7 @@ const actions = {
 
     getProdOffers({commit}){
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=715&per_page=12';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=679&per_page=12';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -205,7 +205,7 @@ const actions = {
 
     getProdByTax3({commit}){
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=707&per_page=12';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=731&per_page=12';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -289,6 +289,24 @@ const actions = {
             else{
           
                 commit('ProdByTax7',response.data)
+
+            }
+
+        })
+
+    },
+    getProdByTax8({commit}){
+
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=703&per_page=12';
+        axios.get(SetUrl).then(function(response){
+
+            if(response.status != 200){
+           
+                console.log('Badddddddddddddddddddd')
+            }
+            else{
+          
+                commit('ProdByTax8',response.data)
 
             }
 
@@ -438,7 +456,8 @@ const mutations = {
     ProdByTax4:(state,ProdByTax4)=>(state.ProdByTax4=ProdByTax4),
     ProdByTax5:(state,ProdByTax5)=>(state.ProdByTax5=ProdByTax5),
     ProdByTax6:(state,ProdByTax6)=>(state.ProdByTax6=ProdByTax6),
-    ProdByTax7:(state,ProdByTax7)=>(state.ProdByTax7=ProdByTax7)
+    ProdByTax7:(state,ProdByTax7)=>(state.ProdByTax7=ProdByTax7),
+    ProdByTax8:(state,ProdByTax8)=>(state.ProdByTax8=ProdByTax8),
     
 }
 

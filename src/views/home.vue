@@ -12,6 +12,7 @@
         <RecentList class="d-sm-none" ></RecentList>
         <prodsByTax0 class="d-sm-none"></prodsByTax0>
         <ProdByTax class="d-sm-none"></ProdByTax>
+        <ProdsByTax8 class="d-sm-none"></ProdsByTax8>
         <MostPopularList class="d-sm-none"></MostPopularList>
         <ProdsByTax5 class="d-sm-none"></ProdsByTax5>
         <ProdsByTax1 class="d-sm-none"></ProdsByTax1>
@@ -52,6 +53,7 @@
           </div>
         <!-- Saudi Day Banner End -->
         <ProdByTax class="d-sm-block d-none"></ProdByTax>
+        <ProdsByTax8 class="d-sm-block d-none"></ProdsByTax8>
         <!-- <Banner></Banner> -->
         <ProdsByTax3 class="d-sm-block d-none"></ProdsByTax3>
         <ProdsByTax4 class="d-sm-block d-none"></ProdsByTax4>
@@ -85,6 +87,7 @@ import ProdsByTax3 from '../components/lists/ProdsByTax3List.vue';
 import ProdsByTax4 from '../components/lists/ProdsByTax4List.vue';
 import ProdsByTax7 from '../components/lists/ProdsByTax7List.vue';
 import ProdsByTax5 from '../components/lists/ProdsByTax5List.vue';
+import ProdsByTax8 from '../components/lists/ProdsByTax8List.vue';
 // import CatGridList from '../components/lists/CatGridList.vue';
 // import BestSell from '../components/lists/BestSellList.vue';
 // import Banner from '../components/widgets/Banner.vue';
@@ -108,6 +111,7 @@ export default {
       ProdsByTax3,
       ProdsByTax4,
       ProdsByTax7,
+      ProdsByTax8,
       ProdsByTax5,
       ProdByBoxList,
       // CatGridList,

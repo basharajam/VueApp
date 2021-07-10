@@ -24,7 +24,7 @@ export default {
     Spinner
   },
   methods:{
-    ...mapActions(['getCategories','getProdByTax','getProdByTax0','getProdByTax1','getProdByTax2','getProdByTax3','getProdByTax4','getProdByTax5','getProdByTax6','getProdByTax7','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
+    ...mapActions(['getCategories','getProdByTax','getProdByTax0','getProdByTax1','getProdByTax2','getProdByTax3','getProdByTax4','getProdByTax5','getProdByTax6','getProdByTax7','getProdByTax8','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
   },
 data: function() {
     return {
@@ -100,14 +100,15 @@ data: function() {
        //get Products By Tax 7
        this.getProdByTax7();
 
+      //get Products By Tax 8
+      this.getProdByTax8();
+
       //Disable Spinner
       setTimeout(() => {
          this.spinner=false
       }, 6500);
 
       console.log(this.$cookies.get('gift_cart_counter'))
-
-
 
   }
 
@@ -469,6 +470,27 @@ position: relative;
 
 /* End Tablet */
 
+@media only screen and (min-width:375px) and (max-width: 425px) {
+
+.CartCount{
+    background-color: #92278f;
+    padding: 4px !important;
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 42% !important;
+    font-size: 12px !important;
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    opacity: .9;
+    line-height: 17px;
+    letter-spacing: -.5px;
+    height: 22px !important;
+    min-width: 18px !important;
+    border-radius: 99px !important;
+    color: #fff;
+    text-align: center;
+  }
+}
 
 /*  Start Large Phone */
 @media only screen and (min-width:425px) and (max-width: 425px) {
@@ -842,7 +864,27 @@ display: none !important;
 
 }
 
-@media only screen and (min-width:429px) and (max-width: 570px){
+@media only screen and (min-width:426px) and (max-width: 570px){
+
+
+  .CartCount{
+      background-color: #92278f;
+      padding: 4px !important;
+      position: fixed !important;
+      bottom: 30px !important;
+      right: 46% !important;  
+      font-size: 12px !important;
+      padding-left: 2px !important;
+      padding-right: 2px !important;
+      opacity: .9;
+      line-height: 17px;
+      letter-spacing: -.5px;
+      height: 22px !important;
+      min-width: 18px !important;
+      border-radius: 99px !important;
+      color: #fff;
+      text-align: center;
+}
 
 
 .LinksLists{

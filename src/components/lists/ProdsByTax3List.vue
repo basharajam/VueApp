@@ -2,9 +2,9 @@
     <div class="" >
       <div class="TitleList">
         <div class="float-left ShowMoreBtn" >
-          <a href="https://alyaman.com/product-tag/ksa_tag_group/" class="pull-left">عرض المزيد</a>
+          <a href="https://www.alyaman.com/product-tag/ksa_badge_group/" class="pull-left">عرض المزيد</a>
         </div>
-        <h3 class="text-right">تاغات العيد الوطني السعودي</h3>
+        <h3 class="text-right">بروش اليوم الوطني السعودي</h3>
       </div>
        <div class="ProdList">
         <Flickity v-if="ProdByTax3.length != 0" class="offersListScroll d-none d-sm-block" ref="flickity" :options="flickityOptions">

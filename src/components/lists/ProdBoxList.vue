@@ -2,7 +2,7 @@
     <div class="container-fluid ProdBoxList d-none d-sm-block">
             <!-- SaudiDayTopper -->
             <div class="ProdsBox col-sm-3">
-                <h3 class="ProdBoxTitle ">احبال زينة العيد الوطني</h3>
+                <h3 class="ProdBoxTitle ">احبال زينة اليوم الوطني</h3>
                 <div class="ProdBoxItems">
                     <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdDecRope" v-bind:key="Prod.id">
                         <a :href="Prod.permalink">
@@ -17,7 +17,7 @@
 
 
             <div class="ProdsBox col-sm-3">
-                <h3 class="ProdBoxTitle ">تغريسات العيد الوطني</h3>
+                <h3 class="ProdBoxTitle ">تغريسات اليوم الوطني</h3>
                 <div class="ProdBoxItems">
                     <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdDecIns" v-bind:key="Prod.id">
                         <a :href="Prod.permalink">
@@ -31,7 +31,7 @@
             </div>
 
             <div class="ProdsBox col-sm-3">
-                <h3 class="ProdBoxTitle ">ستيكرات العيد الوطني</h3>
+                <h3 class="ProdBoxTitle ">ستيكرات اليوم الوطني</h3>
                 <div class="ProdBoxItems">
                     <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdDecSticker" v-bind:key="Prod.id">
                         <a :href="Prod.permalink">
@@ -44,7 +44,7 @@
                 </div>
             </div>
             <div class="ProdsBox col-sm-3">
-                <h3 class="ProdBoxTitle ">تاغات العيد الوطني</h3>
+                <h3 class="ProdBoxTitle ">تاغات اليوم الوطني</h3>
                 <div class="ProdBoxItems">
                     <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdDecTag" v-bind:key="Prod.id">
                         <a :href="Prod.permalink">

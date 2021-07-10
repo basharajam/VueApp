@@ -2,15 +2,15 @@
   <div class="">
       <div class="TitleList">
         <div class="float-left ShowMoreBtn" >
-          <a href="https://alyaman.com/product-category/%d8%a7%d9%84%d8%b9%d9%8a%d8%af-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a/" class="pull-left">عرض المزيد</a>
+          <a href="https://www.alyaman.com/product-tag/ksa_decoration_group/" class="pull-left">عرض المزيد</a>
         </div>
-        <h3 class="text-right" >اليوم الوطني السعودي</h3>
+        <h3 class="text-right" >زينة اليوم الوطني السعودي</h3>
       </div>
 
       <div class="ProdList">
 
         <div class="scrollmenu d-sm-block d-none">
-            <ProdCard v-for="Product in ProdByTax" v-bind:key="Product.id" v-bind:Product="Product" class=" "></ProdCard>
+            <ProdCard v-for="Product in ProdByTax8" v-bind:key="Product.id" v-bind:Product="Product" class=" "></ProdCard>
         </div>
 
         <div class="d-sm-none d-block">
@@ -36,9 +36,9 @@ export default {
         // ProdGridBox
     },
     computed:{
-      ...mapGetters(['ProdByTax']),
+      ...mapGetters(['ProdByTax8']),
       FilterArr:function () {
-          return this.ProdByTax.slice(0,4)
+          return this.ProdByTax8.slice(0,4)
       }
 
     }

@@ -20,14 +20,9 @@
                 <div class="descrition" v-html=" Product.short_description"></div>
             </div>
             <div class="product-content">
-                <!-- <ul class="rating">
-                    <span>{{ Product.average_rating }}</span>
-                    <li class="fas fa-star"></li>
-                    <li class="fas fa-star"></li>
-                    <li class="fas fa-star"></li>
-                    <li class="far fa-star"></li>
-                    <li class="far fa-star"></li>
-                </ul> -->
+                <ul class="rating">
+                    <star-rating style="display: flex;flex-direction: column;"  :rating="parseFloat(Product.average_rating)" :increment='0.01' :read-only="true" :star-size="18" :show-rating='false' v-bind:rtl='true' active-color='#fe6a00' :glow='1' :animate='true'></star-rating>
+                </ul>
                 <!-- addToCart(Product.ID,Product.meta._wc_min_qty_product,Product.meta.al_carton_qty) -->
                 <a class="add-to-cart" :href="Product.permalink"  >عرض تفاصيل المنتج</a>
             </div>
@@ -36,10 +31,15 @@
 </template>
 
 <script>
+
+import StarRating from 'vue-star-rating'
 export default {
 
 
         props:['Product'],
+        components:{
+            StarRating
+        },
         methods:{
             discountPrice(Product){
 
