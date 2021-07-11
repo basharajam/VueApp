@@ -7,7 +7,6 @@
         <ProdBoxList></ProdBoxList>
 
         <!-- Mobile  -->
-        <OffersList class="d-sm-none"></OffersList>
         <ProdsByTax6 class="d-sm-none"></ProdsByTax6> 
         <RecentList class="d-sm-none" ></RecentList>
         <prodsByTax0 class="d-sm-none"></prodsByTax0>
@@ -21,6 +20,7 @@
         <ProdsByTax4 class="d-sm-none" ></ProdsByTax4>
         <ProdsByTax7 class="d-sm-none"></ProdsByTax7>
         <ProdByBoxList class="d-sm-none" ></ProdByBoxList> 
+        <OffersList class="d-sm-none"></OffersList>
         <!-- End Mobile -->
 
         <!-- Birth Distru Banner -->
@@ -31,7 +31,6 @@
           </div>
         <!-- Birth Distru Banner End -->
         <ProdsByTax2 class="d-sm-block d-none"></ProdsByTax2>
-        <OffersList class="d-sm-block d-none"></OffersList>
         <!--  Box Distru Banner -->
           <div class="container HomeBanner d-none d-sm-block col-xl-12">
             <a href="https://alyaman.com/product-category/%d8%b9%d9%84%d8%a8-%d8%aa%d9%88%d8%b2%d9%8a%d8%b9%d8%a7%d8%aa/">
@@ -59,6 +58,7 @@
         <ProdsByTax4 class="d-sm-block d-none"></ProdsByTax4>
         <ProdsByTax1 class="d-sm-block d-none"></ProdsByTax1>
         <ProdByBoxList class="d-sm-block d-none"></ProdByBoxList> 
+        <OffersList class="d-sm-block d-none"></OffersList>
         <!-- <BestSell></BestSell>  -->
         <!-- <ProdsByTax5></ProdsByTax5>  -->
  
