@@ -24,7 +24,8 @@ export default {
     // Spinner
   },
   methods:{
-    ...mapActions(['getCategories','getProdByTax','getProdByTax0','getProdByTax1','getProdByTax2','getProdByTax3','getProdByTax4','getProdByTax5','getProdByTax6','getProdByTax7','getProdByTax8','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
+    // ...mapActions(['getCategories','getProdByTax','getProdByTax0','getProdByTax1','getProdByTax2','getProdByTax3','getProdByTax4','getProdByTax5','getProdByTax6','getProdByTax7','getProdByTax8','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
+    ...mapActions(['getCategories','getProdByTax','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
   },
 data: function() {
     return {
@@ -50,10 +51,6 @@ data: function() {
       //get getProdDecTag
       this.getProdDecTag();
 
-
-
-
-
       // get Categories 
       this.getCategories();
 
@@ -67,8 +64,8 @@ data: function() {
       //get Products By Tax
       this.getProdByTax();
 
-      //get Products By Tax
-      this.getProdByTax0();
+      // //get Products By Tax
+      // this.getProdByTax0();
 
        //get ProdsByBox
        this.getProdByBox();
@@ -79,29 +76,29 @@ data: function() {
         //get Product Most Popular
        this.getProdMostPopular();
 
-        //get Products By Tax 1
-       this.getProdByTax1();
+      //   //get Products By Tax 1
+      //  this.getProdByTax1();
 
-        //get Products By Tax 2
-       this.getProdByTax2();
+      //   //get Products By Tax 2
+      //  this.getProdByTax2();
 
-       //get Products By Tax 3
-       this.getProdByTax3();
+      //  //get Products By Tax 3
+      //  this.getProdByTax3();
 
-       //get Products By Tax 4
-       this.getProdByTax4();
+      //  //get Products By Tax 4
+      //  this.getProdByTax4();
 
-       //get Products By Tax 5
-       this.getProdByTax5();
+      //  //get Products By Tax 5
+      //  this.getProdByTax5();
 
-      //get Products By Tax 6
-       this.getProdByTax6();
+      // //get Products By Tax 6
+      //  this.getProdByTax6();
 
-       //get Products By Tax 7
-       this.getProdByTax7();
+      //  //get Products By Tax 7
+      //  this.getProdByTax7();
 
-      //get Products By Tax 8
-      this.getProdByTax8();
+      // //get Products By Tax 8
+      // this.getProdByTax8();
 
       //Disable Spinner
       // setTimeout(() => {

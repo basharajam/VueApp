@@ -68,50 +68,9 @@ const actions = {
 
         })
     },
-
-    getProdByTax({commit}){
-        
-
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=699&per_page=12&status=publish';
-        axios.get(SetUrl).then(function(response){
-
-            if(response.status != 200){
-          
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
-  
-                commit('ProdByTax',response.data)
-
-            }
-
-        })
-    },
-    getProdByTax0({commit}){
-
-        var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=718&per_page=12&status=publish';
-        axios.get(SetUrl).then(function(response){
-
-            if(response.status != 200){
-       
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
-
-                commit('ProdByTax0',response.data)
-                
-
-            }
-
-        })
-
-
-
-    },
-
     getProdOffers({commit}){
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=679&per_page=12&status=publish';
+        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=739&per_page=12&status=publish';
         axios.get(SetUrl).then(function(response){
 
             if(response.status != 200){
@@ -164,19 +123,28 @@ const actions = {
         })
 
     },
+    getProdByTax({commit}){
 
-    getProdByTax1({commit}){
-
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=720&per_page=6&status=publish';
-        axios.get(SetUrl).then(function(response){
+        var setUrl =process.env.VUE_APP_BASEURLPROD+'Products';
+        axios.get(setUrl).then(function(response){
 
             if(response.status != 200){
-           
+          
                 console.log('Badddddddddddddddddddd')
             }
             else{
-          
-                commit('ProdByTax1',response.data)
+
+                console.log(response.data)
+                commit('ProdByTax',response.data.ProdByTax)
+                commit('ProdByTax0',response.data.ProdByTax0)
+                commit('ProdByTax1',response.data.ProdByTax1)
+                commit('ProdByTax2',response.data.ProdByTax2)
+                commit('ProdByTax3',response.data.ProdByTax3)
+                commit('ProdByTax4',response.data.ProdByTax4)
+                commit('ProdByTax5',response.data.ProdByTax5)
+                commit('ProdByTax6',response.data.ProdByTax6)
+                commit('ProdByTax7',response.data.ProdByTax7)
+                commit('ProdByTax8',response.data.ProdByTax8)
 
             }
 
@@ -184,135 +152,196 @@ const actions = {
 
     },
 
-    getProdByTax2({commit}){
+    // getProdByTax({commit}){
+        
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=695&per_page=12&status=publish';
-        axios.get(SetUrl).then(function(response){
+    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=699&per_page=12&status=publish';
+    //     axios.get(SetUrl).then(function(response){
 
-            if(response.status != 200){
-           
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
+    //         if(response.status != 200){
           
-                commit('ProdByTax2',response.data)
+    //             console.log('Badddddddddddddddddddd')
+    //         }
+    //         else{
+  
+    //             commit('ProdByTax',response.data)
 
-            }
+    //         }
 
-        })
+    //     })
+    // },
+    // getProdByTax0({commit}){
 
-    },
+    //     var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=718&per_page=12&status=publish';
+    //     axios.get(SetUrl).then(function(response){
 
-    getProdByTax3({commit}){
+    //         if(response.status != 200){
+       
+    //             console.log('Badddddddddddddddddddd')
+    //         }
+    //         else{
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=731&per_page=12&status=publish';
-        axios.get(SetUrl).then(function(response){
+    //             commit('ProdByTax0',response.data)
+                
 
-            if(response.status != 200){
+    //         }
+
+    //     })
+
+
+
+    // },
+
+
+
+    // getProdByTax1({commit}){
+
+    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=720&per_page=6&status=publish';
+    //     axios.get(SetUrl).then(function(response){
+
+    //         if(response.status != 200){
            
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
+    //             console.log('Badddddddddddddddddddd')
+    //         }
+    //         else{
           
-                commit('ProdByTax3',response.data)
+    //             commit('ProdByTax1',response.data)
 
-            }
+    //         }
 
-        })
+    //     })
 
+    // },
 
-    },
-    getProdByTax4({commit}){
+    // getProdByTax2({commit}){
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=705&per_page=12&status=publish';
-        axios.get(SetUrl).then(function(response){
+    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=695&per_page=12&status=publish';
+    //     axios.get(SetUrl).then(function(response){
 
-            if(response.status != 200){
+    //         if(response.status != 200){
            
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
+    //             console.log('Badddddddddddddddddddd')
+    //         }
+    //         else{
           
-                commit('ProdByTax4',response.data)
+    //             commit('ProdByTax2',response.data)
 
-            }
+    //         }
 
-        })
+    //     })
 
-    },
-    getProdByTax5({commit}){
+    // },
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=723&per_page=10&status=publish';
-        axios.get(SetUrl).then(function(response){
+    // getProdByTax3({commit}){
 
-            if(response.status != 200){
+    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=731&per_page=12&status=publish';
+    //     axios.get(SetUrl).then(function(response){
+
+    //         if(response.status != 200){
            
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
+    //             console.log('Badddddddddddddddddddd')
+    //         }
+    //         else{
           
-                commit('ProdByTax5',response.data)
+    //             commit('ProdByTax3',response.data)
 
-            }
+    //         }
 
-        })
+    //     })
 
-    },
 
-    getProdByTax6({commit}){
+    // },
+    // getProdByTax4({commit}){
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=717&per_page=12&status=publish';
-        axios.get(SetUrl).then(function(response){
+    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=705&per_page=12&status=publish';
+    //     axios.get(SetUrl).then(function(response){
 
-            if(response.status != 200){
+    //         if(response.status != 200){
            
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
+    //             console.log('Badddddddddddddddddddd')
+    //         }
+    //         else{
           
-                commit('ProdByTax6',response.data)
+    //             commit('ProdByTax4',response.data)
 
-            }
+    //         }
 
-        })
+    //     })
 
-    },
-    getProdByTax7({commit}){
+    // },
+    // getProdByTax5({commit}){
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=716&per_page=12&status=publish';
-        axios.get(SetUrl).then(function(response){
+    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=723&per_page=10&status=publish';
+    //     axios.get(SetUrl).then(function(response){
 
-            if(response.status != 200){
+    //         if(response.status != 200){
            
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
+    //             console.log('Badddddddddddddddddddd')
+    //         }
+    //         else{
           
-                commit('ProdByTax7',response.data)
+    //             commit('ProdByTax5',response.data)
 
-            }
+    //         }
 
-        })
+    //     })
 
-    },
-    getProdByTax8({commit}){
+    // },
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=703&per_page=12&status=publish';
-        axios.get(SetUrl).then(function(response){
+    // getProdByTax6({commit}){
 
-            if(response.status != 200){
+    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=717&per_page=12&status=publish';
+    //     axios.get(SetUrl).then(function(response){
+
+    //         if(response.status != 200){
            
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
+    //             console.log('Badddddddddddddddddddd')
+    //         }
+    //         else{
           
-                commit('ProdByTax8',response.data)
+    //             commit('ProdByTax6',response.data)
 
-            }
+    //         }
 
-        })
+    //     })
 
-    },
+    // },
+    // getProdByTax7({commit}){
+
+    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=716&per_page=12&status=publish';
+    //     axios.get(SetUrl).then(function(response){
+
+    //         if(response.status != 200){
+           
+    //             console.log('Badddddddddddddddddddd')
+    //         }
+    //         else{
+          
+    //             commit('ProdByTax7',response.data)
+
+    //         }
+
+    //     })
+
+    // },
+    // getProdByTax8({commit}){
+
+    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=703&per_page=12&status=publish';
+    //     axios.get(SetUrl).then(function(response){
+
+    //         if(response.status != 200){
+           
+    //             console.log('Badddddddddddddddddddd')
+    //         }
+    //         else{
+          
+    //             commit('ProdByTax8',response.data)
+
+    //         }
+
+    //     })
+
+    // },
 
 
 
@@ -447,6 +476,8 @@ const mutations = {
     ProdOffers:(state,ProdOffers)=>(state.ProdOffers = ProdOffers),
     ProdMostPopular:(state,ProdMostPopular)=>(state.ProdMostPopular=ProdMostPopular),
     RecentProd:(state,RecentProd) =>(state.RecentProd = RecentProd),
+
+    
     ProdByTax:(state,ProdByTax)=>(state.ProdByTax = ProdByTax),
     ProdByTax0:(state,ProdByTax0)=>(state.ProdByTax0 = ProdByTax0),
     ProdBestSell:(state,ProdBestSell)=>(state.ProdBestSell =ProdBestSell),
