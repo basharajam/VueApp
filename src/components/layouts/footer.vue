@@ -64,9 +64,9 @@
                 </div>
                 <div class="LinkList col-sm-3 col-12">
                     <h3>أتصل بنا</h3>
-                    <a href="#">support@alyaman.com</a>
+                    <a href="mailto:support@alyaman.com">support@alyaman.com</a>
                     <a href="https://wa.me/8617757971070">tel: +86 17757971070</a>
-                                        <a href="https://alyaman.com/%d8%a7%d9%84%d8%aa%d8%a8%d9%84%d9%8a%d8%ba-%d8%b9%d9%86-%d9%85%d8%b4%d9%83%d9%84%d8%a9/">التبليغ عن مشكلة</a>
+                    <a href="https://alyaman.com/%d8%a7%d9%84%d8%aa%d8%a8%d9%84%d9%8a%d8%ba-%d8%b9%d9%86-%d9%85%d8%b4%d9%83%d9%84%d8%a9/">التبليغ عن مشكلة</a>
                 </div>
                 <div class="LinkList col-sm-3 col-12">
                     <h3>خدمة العملاء</h3>
@@ -266,6 +266,7 @@ white-space: nowrap;
 .LinkList a:active{
 
     color:white;
+    text-decoration: underline !important ;
 
 }
 

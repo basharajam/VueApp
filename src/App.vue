@@ -301,7 +301,7 @@ position: relative;
 @media only screen and  (min-width: 1366px ) and (max-width:1440px){
 
   .navbar-brand{
-      margin-left: 600px;
+      margin-left: 240px;
   }
   .spinner{
     width:8%!important;
@@ -989,7 +989,7 @@ display: none !important;
 
       margin-right: 305px;
       position: relative;
-      bottom: 20px;
+      bottom: 8px !important;
 
 }
 .HeaderIcons {

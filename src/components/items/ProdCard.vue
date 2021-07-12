@@ -4,7 +4,7 @@
         <div class="product-grid">
              <div class="product-image">
                 <a :href="Product.permalink" class="image">
-                    <img class="pic-1" :src="Product.images[0].src" >
+                    <img class="pic-1"  :src="Product.images[0].src" >
                     
                 </a>
                 <span v-if="Product.sale_price" class="discount-lab">% {{ discountPrice(Product)  }}</span>
