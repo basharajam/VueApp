@@ -125,8 +125,8 @@ const actions = {
     },
     getProdByTax({commit}){
 
-        // var setUrl =process.env.VUE_APP_BASEURLPROD+'Products';
-        var setUrl ='http://127.0.0.1:8000/api/Products';
+        var setUrl =process.env.VUE_APP_BASEURLPROD+'Products';
+        //var setUrl ='http://127.0.0.1:8000/api/Products';
         axios.get(setUrl).then(function(response){
 
             if(response.status != 200){
