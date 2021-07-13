@@ -25,7 +25,8 @@ export default {
   },
   methods:{
     // ...mapActions(['getCategories','getProdByTax','getProdByTax0','getProdByTax1','getProdByTax2','getProdByTax3','getProdByTax4','getProdByTax5','getProdByTax6','getProdByTax7','getProdByTax8','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
-    ...mapActions(['getCategories','getProdByTax','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
+    // ...mapActions(['getCategories','getProdByTax','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
+       ...mapActions(['getProdByTax','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
   },
 data: function() {
     return {
@@ -52,7 +53,7 @@ data: function() {
       this.getProdDecTag();
 
       // get Categories 
-      this.getCategories();
+      // this.getCategories();
 
       //get getRecentProd
       this.getRecentProd();
