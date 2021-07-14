@@ -29,7 +29,7 @@ export default {
 
     width: 100%;
     height: 100%;
-    background: white;
+    background: #e1e1e1c7;
     position: fixed;
     z-index: 997;
 }
