@@ -17,7 +17,7 @@
             <div class="product-data">
                 <h3 class="title"><a :href="Product.permalink">{{Product.name}}</a></h3>
                 <!-- parseFloat(Product.regular_price).toFixed(2) -->
-                <div class="price"><span v-html="Product.price_html" ></span> </div>
+                <div class="price"><span v-html="Product.price_html" v-if="Product.price_htm != 0" ></span> </div>
                 <div class="descrition" v-html=" Product.short_description"></div>
             </div>
             <div class="product-content">

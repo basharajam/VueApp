@@ -22,7 +22,8 @@
           </div>
           <div class="al_footer-item">
               <a href="https://alyaman.com/%d8%a7%d9%84%d8%aa%d8%a8%d9%84%d9%8a%d8%ba-%d8%b9%d9%86-%d9%85%d8%b4%d9%83%d9%84%d8%a9/" class="flex  justify-center">
-                  <i class="far fa-phone-alt" ></i>
+                  <i class=" fab fa-whatsapp" ></i>
+                  <div v-show="elementVisible" class="PopupSoc">تواصل عبر واتساب</div>
                   <span>تواصل معنا</span>
               </a>
           </div>
@@ -100,8 +101,12 @@ export default {
     data(){
 
         return {
+            elementVisible: true
         }
-    }
+    },
+    created() {
+    setTimeout(() => this.elementVisible = false, 10000)
+        }
 
 }
 </script>
@@ -255,6 +260,31 @@ export default {
 white-space: nowrap;
 }
 
+.PopupSoc{
+    position: absolute;
+    bottom: 63px;
+    white-space: nowrap;
+    background: white;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid rgba(0,0,0,.2);
+}
+
+.PopupSoc::after{
+    position: absolute;
+    z-index: -1;
+    content: "";
+    right: calc(50% - 10px);
+    bottom: -8px;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #ffffff transparent;
+    transition-duration: 0.3s;
+    transition-property: transform;
+    transform: rotate(
+180deg
+);
+}
 
 .SocialLinkI a:active span.SocialLinkSpan {
 
