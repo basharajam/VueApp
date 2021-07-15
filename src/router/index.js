@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/home';
 import test from '../views/test';
+import ProdOne from '../views/ProdOne';
 // import { i18n } from "../main.js";
 Vue.use(VueRouter)
 
@@ -20,6 +21,11 @@ const routes = [
         // which is lazy-loaded when the route is visited.
         component:test
       },
+      {
+        path:'/:ProdName',
+        name:'ProdOne',
+        component:ProdOne
+      }
 
 
 ]
