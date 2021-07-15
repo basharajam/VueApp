@@ -38,12 +38,11 @@ data: function() {
     //State Actions 
 
 
-      //get Products By Tax
-
-      setTimeout(() => {
+    setTimeout(() => {
+        //get Products By Tax
         this.getProdByTax();
-        
-      }, 1500);
+    }, 1500);
+ 
 
       //get ProdDecRope
       this.getProdDecRope();
@@ -65,7 +64,6 @@ data: function() {
 
       //get Offers Prods
       this.getProdOffers();
-
 
       // //get Products By Tax
       // this.getProdByTax0();
@@ -102,8 +100,6 @@ data: function() {
 
       // //get Products By Tax 8
       // this.getProdByTax8();
-
-
 
       //Disable Spinner
       setTimeout(() => {
