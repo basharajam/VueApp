@@ -30,19 +30,17 @@ export default {
   },
 data: function() {
     return {
-      spinner:true
+      spinner:true,
     };
   },
   mounted(){
 
     //State Actions 
+    // console.log(this.curVal2)
+    // if(this.curVal2 != null){
 
-
-    setTimeout(() => {
-        //get Products By Tax
-        this.getProdByTax();
-    }, 3000);
- 
+      this.getProdByTax();
+    // }
 
       //get ProdDecRope
       this.getProdDecRope();
