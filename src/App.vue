@@ -41,7 +41,7 @@ data: function() {
     setTimeout(() => {
         //get Products By Tax
         this.getProdByTax();
-    }, 5500);
+    }, 2000);
  
 
       //get ProdDecRope
