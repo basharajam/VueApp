@@ -21,10 +21,10 @@
               </a>
           </div>
           <div class="al_footer-item">
-              <a href="https://alyaman.com/%d8%a7%d9%84%d8%aa%d8%a8%d9%84%d9%8a%d8%ba-%d8%b9%d9%86-%d9%85%d8%b4%d9%83%d9%84%d8%a9/" class="flex  justify-center">
+              <a href="https://wa.me/8617757971070" class="flex  justify-center">
                   <i class=" fab fa-whatsapp" ></i>
-                  <div v-show="elementVisible" class="PopupSoc">تواصل عبر واتساب</div>
-                  <span>تواصل معنا</span>
+                  <div v-show="elementVisible" class="PopupSoc">للمزيد من التفاصيل</div>
+                  <span >واتساب</span>
               </a>
           </div>
           <div class="al_footer-item">

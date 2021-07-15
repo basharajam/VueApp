@@ -14,9 +14,7 @@
             </div>
             <div class="product-content">
                 <h3 class="title"><a :href="Product.permalink">{{ Product.name }}</a></h3>
-                <div class="price"><span>ر.س</span> 
-                
-                    {{ Product.regular_price }} 
+                <div class="price" v-html="Product.price_html" >
                     
                 </div>
                 <!-- <ul class="rating">
