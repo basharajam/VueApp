@@ -46,7 +46,7 @@
     </div> -->
 
     <div class="container-fluid">
-      <Flickity v-if="display" class="d-sm-none d-block  " ref="flickity" :options="flickityOptions">              
+      <Flickity v-if="display" class="d-sm-none d-block mobBannerSlier " ref="flickity" :options="flickityOptions" >              
         <div class="BannerSlideItem col-10 ">
           <a href="https://www.alyaman.com/product-category/%d8%a7%d9%84%d8%b9%d9%8a%d8%af-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a/">
               <img  class="mobileBanner " src="@/assets/banners/2.jpeg" alt="">
@@ -126,6 +126,11 @@ export default {
 </script>
 
 <style scoped>
+
+
+.mobBannerSlier{
+  height: 126px !important;
+}
 
 .flickity-viewport{
       height: 101.359px !important;

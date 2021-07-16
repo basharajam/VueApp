@@ -101,12 +101,13 @@ export default {
     data(){
 
         return {
-            elementVisible: true
+            elementVisible: false
         }
     },
     created() {
-    setTimeout(() => this.elementVisible = false, 10000)
-        }
+        setTimeout(() => { this.elementVisible = true },6000);
+        setTimeout(() => this.elementVisible = false, 15000)
+    }
 
 }
 </script>
@@ -237,7 +238,7 @@ export default {
 .al_footer-item i{
     color:#fe6a00
 }
-.al_footer-item i:hover {
+.al_footer-item i:active {
     color:black; 
 }
 
