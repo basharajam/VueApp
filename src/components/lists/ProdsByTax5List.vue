@@ -44,8 +44,9 @@ export default {
         flickityOptions: {
           initialIndex: 3,
           pageDots: false,
-          wrapAround: true
-          
+          wrapAround: true,
+          imagesLoaded: true,
+  
           // any options from Flickity can be used
         }
       }

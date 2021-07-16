@@ -129,7 +129,9 @@ background-color: #f5f5f5ec !important ;
 
 }
 
-
+.flickity-viewport{
+  height: 375px !important;
+}
 .Section{
 
   padding: 8px 0;

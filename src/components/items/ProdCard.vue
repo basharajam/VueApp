@@ -3,7 +3,7 @@
         <div class="ProdCard col-sm-4 col-md-2 col-5">
         <div class="product-grid">
              <div class="product-image">
-                <a :href="Product.permalink" class="image">
+                <a :href="Product.permalink" class="image" style="min-width:150;">
                     <img class="pic-1"  :src="Product.images[0].src" >
                     
                 </a>
