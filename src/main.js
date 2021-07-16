@@ -4,6 +4,8 @@ import router from './router'
 import store from './store'
 import https from 'https';
 import VueCookie from 'vue-cookies';
+import VueGeolocation from 'vue-browser-geolocation';
+
 // import VueI18n from 'vue-i18n';
 // import lang from '../lang';
 import axios from 'axios'
@@ -14,6 +16,7 @@ axios.defaults.headers.common["Authorization"] = authHeader;
 axios.defaults.httpsAgent = new https.Agent({ rejectUnauthorized: false })
 Vue.config.productionTip = false
 Vue.use(VueCookie)
+Vue.use(VueGeolocation);
 // Vue.use(VueI18n);
 // export const i18n = new VueI18n({
 //   locale: 'ar',

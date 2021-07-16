@@ -125,36 +125,42 @@ const actions = {
     },
     getProdByTax({commit}){
 
-        let cur =window.$cookies.get('wmc_current_currency');
-        console.log(cur)
-        var setUrl =process.env.VUE_APP_BASEURLPROD+'Products/'+cur;
-        //var setUrl ='http://127.0.0.1:8000/api/Products/'+cur;
-        axios.get(setUrl).then(function(response){
 
-            if(response.status != 200){
-          
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
+        //get User Region
+        axios.get('https://api.ipregistry.co/?key=ujxmbnhgocsp5a').then(function(response) {
+      
+            var cur =response.data.currency.code;
+      
+            var setUrl =process.env.VUE_APP_BASEURLPROD+'Products/'+cur;
+            //var setUrl ='http://127.0.0.1:8000/api/Products/'+cur;
+            axios.get(setUrl).then(function(response){
+    
+                if(response.status != 200){
+              
+                    console.log('Badddddddddddddddddddd')
+                }
+                else{
+    
+                    //Category
+                    commit('Categories',response.data.Categories)
+                    
+                    console.log(response.data)
+                    commit('ProdByTax',response.data.ProdByTax)
+                    commit('ProdByTax0',response.data.ProdByTax0)
+                    commit('ProdByTax1',response.data.ProdByTax1)
+                    commit('ProdByTax2',response.data.ProdByTax2)
+                    commit('ProdByTax3',response.data.ProdByTax3)
+                    commit('ProdByTax4',response.data.ProdByTax4)
+                    commit('ProdByTax5',response.data.ProdByTax5)
+                    commit('ProdByTax6',response.data.ProdByTax6)
+                    commit('ProdByTax7',response.data.ProdByTax7)
+                    commit('ProdByTax8',response.data.ProdByTax8)
+    
+                }
+    
+            })
+          })
 
-                //Category
-                commit('Categories',response.data.Categories)
-                
-                console.log(response.data)
-                commit('ProdByTax',response.data.ProdByTax)
-                commit('ProdByTax0',response.data.ProdByTax0)
-                commit('ProdByTax1',response.data.ProdByTax1)
-                commit('ProdByTax2',response.data.ProdByTax2)
-                commit('ProdByTax3',response.data.ProdByTax3)
-                commit('ProdByTax4',response.data.ProdByTax4)
-                commit('ProdByTax5',response.data.ProdByTax5)
-                commit('ProdByTax6',response.data.ProdByTax6)
-                commit('ProdByTax7',response.data.ProdByTax7)
-                commit('ProdByTax8',response.data.ProdByTax8)
-
-            }
-
-        })
 
     },
 

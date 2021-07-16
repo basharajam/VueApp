@@ -16,6 +16,8 @@ import Footer from './components/layouts/footer.vue';
 import Spinner from './components/layouts/spinner.vue';
 import { mapActions } from 'vuex';
 
+
+
 export default {
   name: 'App',
   components: {
@@ -34,6 +36,9 @@ data: function() {
     };
   },
   mounted(){
+
+    //get User Region 
+
 
     //State Actions 
     // console.log(this.curVal2)
@@ -104,8 +109,7 @@ data: function() {
          this.spinner=false
       }, 2800);
 
-
-  }
+  },
 
 }
 </script>
