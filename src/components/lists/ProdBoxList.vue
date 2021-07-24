@@ -4,7 +4,7 @@
             <div class="ProdsBox col-sm-3">
                 <h3 class="ProdBoxTitle ">احبال زينة اليوم الوطني</h3>
                 <div class="ProdBoxItems">
-                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdDecRope" v-bind:key="Prod.id">
+                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox2" v-bind:key="Prod.id">
                         <a :href="Prod.permalink">
                             <img :src="Prod.images[0].src" alt="">
                         </a>
@@ -19,7 +19,7 @@
             <div class="ProdsBox col-sm-3">
                 <h3 class="ProdBoxTitle ">تغريسات اليوم الوطني</h3>
                 <div class="ProdBoxItems">
-                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdDecIns" v-bind:key="Prod.id">
+                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox0" v-bind:key="Prod.id">
                         <a :href="Prod.permalink">
                             <img :src="Prod.images[0].src" alt="">
                         </a>
@@ -33,7 +33,7 @@
             <div class="ProdsBox col-sm-3">
                 <h3 class="ProdBoxTitle ">ستيكرات اليوم الوطني</h3>
                 <div class="ProdBoxItems">
-                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdDecSticker" v-bind:key="Prod.id">
+                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox" v-bind:key="Prod.id">
                         <a :href="Prod.permalink">
                             <img :src="Prod.images[0].src" alt="">
                         </a>
@@ -46,7 +46,7 @@
             <div class="ProdsBox col-sm-3">
                 <h3 class="ProdBoxTitle ">تاغات اليوم الوطني</h3>
                 <div class="ProdBoxItems">
-                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdDecTag" v-bind:key="Prod.id">
+                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox1" v-bind:key="Prod.id">
                         <a :href="Prod.permalink">
                             <img :src="Prod.images[0].src" alt="">
                         </a>
@@ -69,7 +69,7 @@ export default {
 
     name:'ProdBoxList',
     computed:{
-        ...mapGetters(['ProdDecRope','ProdDecSticker','ProdDecIns','ProdDecTag'])
+        ...mapGetters(['ProdInBox','ProdInBox0','ProdInBox1','ProdInBox2','ProdInBox3'])
     }
 
 

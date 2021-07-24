@@ -16,11 +16,12 @@ const state  = {
     ProdByTax6:[],
     ProdByTax7:[],
     ProdByTax8:[],
-    ProdByBox:[],
-    ProdDecRope:[],
-    ProdDecSticker:[],
-    ProdDecIns:[],
-    ProdDecTag:[]
+
+    ProdInBox:[],
+    ProdInBox0:[],
+    ProdInBox1:[],
+    ProdInBox2:[],
+    ProdByBox:[]
     
 }
 
@@ -39,11 +40,12 @@ const getters = {
     ProdByTax6:state=>state.ProdByTax6,
     ProdByTax7:state=>state.ProdByTax7,
     ProdByTax8:state=>state.ProdByTax8,
-    ProdByBox:state=>state.ProdByBox,
-    ProdDecRope:state=>state.ProdDecRope,
-    ProdDecSticker:state=>state.ProdDecSticker,
-    ProdDecIns:state=>state.ProdDecIns,
-    ProdDecTag:state=>state.ProdDecTag
+    
+    ProdInBox:state=>state.ProdInBox,
+    ProdInBox0:state=>state.ProdInBox0,
+    ProdInBox1:state=>state.ProdInBox1,
+    ProdInBox2:state=>state.ProdInBox2,
+    ProdByBox:state=>state.ProdByBox
 
 }
 
@@ -155,6 +157,11 @@ const actions = {
                     commit('ProdByTax6',response.data.ProdByTax6)
                     commit('ProdByTax7',response.data.ProdByTax7)
                     commit('ProdByTax8',response.data.ProdByTax8)
+                    commit('ProdInBox',response.data.ProdInBox)
+                    commit('ProdInBox0',response.data.ProdInBox0)
+                    commit('ProdInBox1',response.data.ProdInBox1)
+                    commit('ProdInBox2',response.data.ProdInBox2)
+                    commit('ProdByBox',response.data.ProdByBox)
     
                 }
     
@@ -162,6 +169,25 @@ const actions = {
           })
 
 
+    },
+    getProdByBox({commit}){
+
+
+        //Do Requset 
+        var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=696&per_page=8&status=publish';
+        axios.get(SetUrl).then(function(response){
+
+            if(response.status != 200){
+
+                console.log('Badddddddddddddddddddd')
+            }
+            else{
+
+                commit('ProdByBox',response.data)
+
+            }
+
+        })
     },
 
     // getProdByTax({commit}){
@@ -354,134 +380,99 @@ const actions = {
     //     })
 
     // },
+    // getProdDecRope({commit}){
+
+    //     var Seturl = process.env.VUE_APP_BASEURL+'products?tag=703&per_page=4&status=publish';
+
+    //     axios.get(Seturl).then(function(response){
+
+    //         if(response.status != 200){
+
+    //             console.log('baddddd')
+
+    //         }
+    //         else{
+
+    //             commit('ProdDecRope',response.data)
+
+    //         }
+
+    //     })
+
+    // },
+
+    // getProdDecSticker({commit}){
+
+    //     var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=704&per_page=4&status=publish';
+    //     axios.get(SetUrl).then(function(response){
+
+    //         if(response.status != 200){
+
+    //             console.log('baddddd')
+
+    //         }
+    //         else{
+
+    //             commit('ProdDecSticker',response.data)
+
+    //         }
+
+    //     })
+
+    // },
+
+    // getProdDecIns({commit}){
+
+    //     var SetUrl = 'https://alyaman.com/wp-json/wc/v3/products?tag=705&per_page=4&status=publish';
+    //     axios.get(SetUrl).then(function(response){
+
+    //         if(response.status != 200){
+
+    //             console.log('baddddd')
+
+    //         }
+    //         else{
+
+    //             commit('ProdDecIns',response.data)
+
+    //         }
+
+    //     })
+
+    // },
+
+    // getProdDecTag({commit}){
+
+    //     var SetUrl = 'https://alyaman.com/wp-json/wc/v3/products?tag=707&per_page=4&status=publish';
+    //     axios.get(SetUrl).then(function(response){
+
+    //         if(response.status != 200){
+
+    //             console.log('baddddd')
+
+    //         }
+    //         else{
+
+    //             commit('ProdDecTag',response.data)
+
+    //         }
+
+    //     })
+
+    // }
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    getProdByBox({commit}){
-
-
-        //Do Requset 
-        var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=696&per_page=8&status=publish';
-        axios.get(SetUrl).then(function(response){
-
-            if(response.status != 200){
-
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
-
-                commit('ProdByBox',response.data)
-
-            }
-
-        })
-    },
-
-    getProdDecRope({commit}){
-
-        var Seturl = process.env.VUE_APP_BASEURL+'products?tag=703&per_page=4&status=publish';
-
-        axios.get(Seturl).then(function(response){
-
-            if(response.status != 200){
-
-                console.log('baddddd')
-
-            }
-            else{
-
-                commit('ProdDecRope',response.data)
-
-            }
-
-        })
-
-    },
-
-    getProdDecSticker({commit}){
-
-        var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=704&per_page=4&status=publish';
-        axios.get(SetUrl).then(function(response){
-
-            if(response.status != 200){
-
-                console.log('baddddd')
-
-            }
-            else{
-
-                commit('ProdDecSticker',response.data)
-
-            }
-
-        })
-
-    },
-
-    getProdDecIns({commit}){
-
-        var SetUrl = 'https://alyaman.com/wp-json/wc/v3/products?tag=705&per_page=4&status=publish';
-        axios.get(SetUrl).then(function(response){
-
-            if(response.status != 200){
-
-                console.log('baddddd')
-
-            }
-            else{
-
-                commit('ProdDecIns',response.data)
-
-            }
-
-        })
-
-    },
-
-    getProdDecTag({commit}){
-
-        var SetUrl = 'https://alyaman.com/wp-json/wc/v3/products?tag=707&per_page=4&status=publish';
-        axios.get(SetUrl).then(function(response){
-
-            if(response.status != 200){
-
-                console.log('baddddd')
-
-            }
-            else{
-
-                commit('ProdDecTag',response.data)
-
-            }
-
-        })
-
-    }
 
 
 }
 
 const mutations = {
     ProdByBox:(state,ProdByBox) => (state.ProdByBox = ProdByBox),
-    ProdDecRope:(state,ProdDecRope) => (state.ProdDecRope = ProdDecRope),
-    ProdDecSticker:(state,ProdDecSticker) => (state.ProdDecSticker = ProdDecSticker),
-    ProdDecIns:(state,ProdDecIns) => (state.ProdDecIns = ProdDecIns),
-    ProdDecTag:(state,ProdDecTag) => (state.ProdDecTag = ProdDecTag),
+    ProdInBox:(state,ProdInBox0) => (state.ProdInBox0 = ProdInBox0),
+    ProdInBox0:(state,ProdInBox1) => (state.ProdInBox1 = ProdInBox1),
+    ProdInBox1:(state,ProdInBox2) => (state.ProdInBox2 = ProdInBox2),
+    ProdInBox2:(state,ProdInBox3) => (state.ProdInBox3 = ProdInBox3),
 
 
 

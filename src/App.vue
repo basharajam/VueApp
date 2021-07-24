@@ -1,7 +1,7 @@
 <template>
   <div id="app">
 
-    <Spinner v-if="spinner" />
+    <!-- <Spinner v-if="spinner" /> -->
     <Header />
     <router-view />
     <Footer  />
@@ -13,7 +13,7 @@
 
 import Header from './components/layouts/header.vue';
 import Footer from './components/layouts/footer.vue';
-import Spinner from './components/layouts/spinner.vue';
+// import Spinner from './components/layouts/spinner.vue';
 import { mapActions } from 'vuex';
 
 
@@ -23,7 +23,7 @@ export default {
   components: {
     Header,
     Footer,
-    Spinner
+    // Spinner
   },
   methods:{
     // ...mapActions(['getCategories','getProdByTax','getProdByTax0','getProdByTax1','getProdByTax2','getProdByTax3','getProdByTax4','getProdByTax5','getProdByTax6','getProdByTax7','getProdByTax8','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
