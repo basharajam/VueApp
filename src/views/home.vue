@@ -1,6 +1,6 @@
 <template>
   <div class="home" style="background-color: #f5f5f5ec !important ;">
-      
+
         <carouselWidget></carouselWidget>
         <!-- <homeList></homeList> -->
         <CategorySlide></CategorySlide>
@@ -114,6 +114,7 @@ export default {
       ProdsByTax8,
       ProdsByTax5,
       ProdByBoxList,
+
       // CatGridList,
       // Banner
       

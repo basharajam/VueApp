@@ -28,7 +28,7 @@ export default {
     },
     computed:{
 
-      ...mapGetters(['ProdInBox'])
+      ...mapGetters(['ProdByBox'])
 
     }
 

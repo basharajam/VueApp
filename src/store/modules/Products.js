@@ -52,41 +52,41 @@ const getters = {
 const actions = {
 
 
-    getRecentProd({commit}){
+    // getRecentProd({commit}){
         
         
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?featured = true& per_page=8';
-        axios.get(SetUrl).then(function(response){
+    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?featured = true& per_page=8';
+    //     axios.get(SetUrl).then(function(response){
 
-            if(response.status != 200){
+    //         if(response.status != 200){
            
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
+    //             console.log('Badddddddddddddddddddd')
+    //         }
+    //         else{
            
-                commit('RecentProd',response.data)
+    //             commit('RecentProd',response.data)
 
-            }
+    //         }
 
-        })
-    },
-    getProdOffers({commit}){
+    //     })
+    // },
+    // getProdOffers({commit}){
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=739&per_page=12&status=publish';
-        axios.get(SetUrl).then(function(response){
+    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=739&per_page=12&status=publish';
+    //     axios.get(SetUrl).then(function(response){
 
-            if(response.status != 200){
+    //         if(response.status != 200){
            
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
+    //             console.log('Badddddddddddddddddddd')
+    //         }
+    //         else{
           
-                commit('ProdOffers',response.data)
+    //             commit('ProdOffers',response.data)
 
-            }
+    //         }
 
-        })
-    },
+    //     })
+    // },
 
     getProdBestSell({commit}){
 
@@ -133,8 +133,8 @@ const actions = {
       
             var cur =response.data.currency.code;
       
-            var setUrl =process.env.VUE_APP_BASEURLPROD+'Products/'+cur;
-            //var setUrl ='http://127.0.0.1:8000/api/Products/'+cur;
+            //var setUrl =process.env.VUE_APP_BASEURLPROD+'Products/'+cur;
+            var setUrl ='http://127.0.0.1:8000/api/Products/'+cur;
             axios.get(setUrl).then(function(response){
     
                 if(response.status != 200){
@@ -157,11 +157,17 @@ const actions = {
                     commit('ProdByTax6',response.data.ProdByTax6)
                     commit('ProdByTax7',response.data.ProdByTax7)
                     commit('ProdByTax8',response.data.ProdByTax8)
+
                     commit('ProdInBox',response.data.ProdInBox)
                     commit('ProdInBox0',response.data.ProdInBox0)
                     commit('ProdInBox1',response.data.ProdInBox1)
                     commit('ProdInBox2',response.data.ProdInBox2)
                     commit('ProdByBox',response.data.ProdByBox)
+
+                    commit('ProdOffers',response.data.Offers)
+                    commit('RecentProd',response.data.RecentProds)
+
+
     
                 }
     
@@ -170,25 +176,25 @@ const actions = {
 
 
     },
-    getProdByBox({commit}){
+    // getProdByBox({commit}){
 
 
-        //Do Requset 
-        var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=696&per_page=8&status=publish';
-        axios.get(SetUrl).then(function(response){
+    //     //Do Requset 
+    //     var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=696&per_page=8&status=publish';
+    //     axios.get(SetUrl).then(function(response){
 
-            if(response.status != 200){
+    //         if(response.status != 200){
 
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
+    //             console.log('Badddddddddddddddddddd')
+    //         }
+    //         else{
 
-                commit('ProdByBox',response.data)
+    //             commit('ProdByBox',response.data)
 
-            }
+    //         }
 
-        })
-    },
+    //     })
+    // },
 
     // getProdByTax({commit}){
         
@@ -469,12 +475,10 @@ const actions = {
 
 const mutations = {
     ProdByBox:(state,ProdByBox) => (state.ProdByBox = ProdByBox),
-    ProdInBox:(state,ProdInBox0) => (state.ProdInBox0 = ProdInBox0),
-    ProdInBox0:(state,ProdInBox1) => (state.ProdInBox1 = ProdInBox1),
-    ProdInBox1:(state,ProdInBox2) => (state.ProdInBox2 = ProdInBox2),
-    ProdInBox2:(state,ProdInBox3) => (state.ProdInBox3 = ProdInBox3),
-
-
+    ProdInBox:(state,ProdInBox) => (state.ProdInBox = ProdInBox),
+    ProdInBox0:(state,ProdInBox0) => (state.ProdInBox0 = ProdInBox0),
+    ProdInBox1:(state,ProdInBox1) => (state.ProdInBox1 = ProdInBox1),
+    ProdInBox2:(state,ProdInBox2) => (state.ProdInBox2 = ProdInBox2),
 
     ProdOffers:(state,ProdOffers)=>(state.ProdOffers = ProdOffers),
     ProdMostPopular:(state,ProdMostPopular)=>(state.ProdMostPopular=ProdMostPopular),

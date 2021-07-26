@@ -12,7 +12,7 @@
           <div class="HeaderIcons d-none  col-sm-2 pull-left">
             <a href="https://alyaman.com/my-account/"><i class="fas fa-user"></i></a>
             <a href="https://alyaman.com/cart/"> <i class="fal fa-shopping-cart"> </i> <span class="CartCount" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" ><span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span></span> </a>
-            <a href="#"> <i style="color:black" class="fa fa-globe" ></i></a>
+            <!-- <a href="#"> <i style="color:black" class="fa fa-globe" ></i></a> -->
           </div>
     </nav>
                 <div class="SearchResult" v-if="SearchRes">

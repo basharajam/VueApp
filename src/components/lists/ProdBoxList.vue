@@ -69,7 +69,7 @@ export default {
 
     name:'ProdBoxList',
     computed:{
-        ...mapGetters(['ProdInBox','ProdInBox0','ProdInBox1','ProdInBox2','ProdInBox3'])
+        ...mapGetters(['ProdInBox','ProdInBox0','ProdInBox1','ProdInBox2'])
     }
 
 

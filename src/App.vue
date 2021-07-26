@@ -2,6 +2,7 @@
   <div id="app">
 
     <!-- <Spinner v-if="spinner" /> -->
+    <Cart/>
     <Header />
     <router-view />
     <Footer  />
@@ -13,6 +14,7 @@
 
 import Header from './components/layouts/header.vue';
 import Footer from './components/layouts/footer.vue';
+import Cart from './components/layouts/cart.vue';
 // import Spinner from './components/layouts/spinner.vue';
 import { mapActions } from 'vuex';
 
@@ -23,12 +25,15 @@ export default {
   components: {
     Header,
     Footer,
+    Cart
     // Spinner
   },
   methods:{
     // ...mapActions(['getCategories','getProdByTax','getProdByTax0','getProdByTax1','getProdByTax2','getProdByTax3','getProdByTax4','getProdByTax5','getProdByTax6','getProdByTax7','getProdByTax8','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
     // ...mapActions(['getCategories','getProdByTax','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
-       ...mapActions(['getProdByTax','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
+    // ...mapActions(['getProdByTax','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
+    // ...mapActions(['getProdByTax','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell'])
+       ...mapActions(['getProdByTax','getProdMostPopular','getProdBestSell'])
   },
 data: function() {
     return {
@@ -37,48 +42,42 @@ data: function() {
   },
   mounted(){
 
-    //get User Region 
+    this.getProdByTax();
 
+    // //get getRecentProd
+    // this.getRecentProd();
 
-    //State Actions 
-    // console.log(this.curVal2)
-    // if(this.curVal2 != null){
+    // //get Offers Prods
+    // this.getProdOffers();
 
-      this.getProdByTax();
-    // }
+    //get Products Best Sell
+    this.getProdBestSell();
 
-      //get ProdDecRope
-      this.getProdDecRope();
+    //get Product Most Popular
+    this.getProdMostPopular();
 
-      //get prodDecSticker
-      this.getProdDecSticker();
+    // //get ProdsByBox
+    // this.getProdByBox();
 
-      //get getProdDecIns
-      this.getProdDecIns();
+      // //get ProdDecRope
+      // this.getProdDecRope();
 
-      //get getProdDecTag
-      this.getProdDecTag();
+      // //get prodDecSticker
+      // this.getProdDecSticker();
+
+      // //get getProdDecIns
+      // this.getProdDecIns();
+
+      // //get getProdDecTag
+      // this.getProdDecTag();
 
       // get Categories 
       // this.getCategories();
 
-      //get getRecentProd
-      this.getRecentProd();
-
-      //get Offers Prods
-      this.getProdOffers();
 
       // //get Products By Tax
       // this.getProdByTax0();
 
-       //get ProdsByBox
-       this.getProdByBox();
-
-       //get Products Best Sell
-       this.getProdBestSell();
-
-        //get Product Most Popular
-       this.getProdMostPopular();
 
       //   //get Products By Tax 1
       //  this.getProdByTax1();
@@ -133,9 +132,9 @@ background-color: #f5f5f5ec !important ;
 
 }
 
-.flickity-viewport{
+/* .flickity-viewport{
   height: 375px !important;
-}
+} */
 .Section{
 
   padding: 8px 0;
@@ -313,6 +312,11 @@ position: relative;
     right: 45% !important;
   }
 
+  .flickity-viewport {
+    height: 400px!important;
+  }
+
+
 }
 
 @media  only screen and (min-width:1024px) and (max-width:1024px) {
@@ -320,6 +324,10 @@ position: relative;
   .spinner{
     width:8%!important;
     right: 45% !important;
+  }
+
+  .flickity-viewport{
+        height: 350px !important;
   }
   .navbar-brand{
     margin-left: 148px;

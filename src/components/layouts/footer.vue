@@ -47,7 +47,7 @@
                      <a href="https://www.instagram.com/alyaman_online/?igshid=1p9gkpkdv2z86"><span class="fab fa-instagram SocialLinkSpan"></span></a>
                     </div>
                     <div class="SocialLinkI">
-                        <a href="https://www.youtube.com/channel/UCQ6ywr7-jUKRCm7eEcR1zpQ"><span class="fab fa-youtube SocialLinkSpan" style=""></span></a>
+                        <a href="https://www.youtube.com/channel/UC0bq-kmZcBP3df0UJ0IQDmQ"><span class="fab fa-youtube SocialLinkSpan" style=""></span></a>
                     </div>
                 </div>
               </div>
