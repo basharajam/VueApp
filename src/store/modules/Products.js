@@ -134,7 +134,8 @@ const actions = {
             var cur =response.data.currency.code;
       
             //var setUrl =process.env.VUE_APP_BASEURLPROD+'Products/'+cur;
-            var setUrl ='http://127.0.0.1:8000/api/Products/'+cur;
+            //var setUrl ='http://127.0.0.1:8000/api/Products/'+cur;
+            var setUrl ='https://phplaravel-608610-2049275.cloudwaysapps.com/api/Products'+cur;
             axios.get(setUrl).then(function(response){
     
                 if(response.status != 200){
