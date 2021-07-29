@@ -1,10 +1,11 @@
 <template>
   <div class="alheader">
     <div class="header-list">
+      <a href="https://www.alyaman.com/my-account/">إنشاء حساب</a>
       <a >الشحن الى : 
         
         <span>
-          <b-dropdown id="dropdown-1" variant='outline-light ' :text="SelectedCountryText " class="m-2">
+          <b-dropdown id="dropdown-1" variant='outline-light ' :text="SelectedCountryText " class="m-2 ShipBtn ">
             <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
                 <b-form-group label="العملة" >
                     <b-form-select v-model="CurrInput" size="sm" :options="CurOptions"></b-form-select>
@@ -18,7 +19,8 @@
                 </b-form-group>
             </b-dropdown-form>
         </b-dropdown>
-        </span></a>
+        </span>
+      </a>
       <a href="#">اللغة</a>
 
     </div>
@@ -87,7 +89,34 @@ export default {
 
           var CurrVal0=CurrVal;
           var CountryVal0=CountryVal;
-          var CountryValText='تخصيص';
+          var CountryValText;
+          switch(CountryVal) {
+            case "SAR":
+               CountryValText='السعودية'
+                break;
+            case "OMR":
+               CountryValText='سلطنة عمان'
+                break;
+            case "YMN":
+               CountryValText='اليمن'
+                break;
+            case "LBN":
+               CountryValText='لبنان'
+                break;
+            case "IRQ":
+               CountryValText='العراق'
+                break;
+            case "UAE":
+               CountryValText='الامارات'
+                break;
+            case "PLS":
+               CountryValText='فلسطين'
+                break;
+            default:
+               CountryValText='السعودية'
+          }
+
+          
 
         }
         else{
@@ -308,8 +337,8 @@ export default {
         color: #fa660d;
   }
   .header-list{
-    height: 32px;
-    background: #641b64;  
+    height: 30px;
+    background: #2f2f2f;  
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
@@ -335,7 +364,11 @@ export default {
     left: -3px;
 
   } */
-
+ .btn-outline-light{
+    border: 0 !important;
+    padding: 0 !important;
+    text-align: center;
+  }
 
 
 

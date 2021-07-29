@@ -71,6 +71,7 @@ export default {
     overflow-x: hidden;
     margin-right: 0;
     margin-left: 0;
+    height: 300px !important;
 
 }
 
