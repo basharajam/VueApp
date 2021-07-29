@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import cookie from 'vue-cookies'
 
 const state  = {
     RecentProd:[],
@@ -51,43 +51,6 @@ const getters = {
 
 const actions = {
 
-
-    // getRecentProd({commit}){
-        
-        
-    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?featured = true& per_page=8';
-    //     axios.get(SetUrl).then(function(response){
-
-    //         if(response.status != 200){
-           
-    //             console.log('Badddddddddddddddddddd')
-    //         }
-    //         else{
-           
-    //             commit('RecentProd',response.data)
-
-    //         }
-
-    //     })
-    // },
-    // getProdOffers({commit}){
-
-    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=739&per_page=12&status=publish';
-    //     axios.get(SetUrl).then(function(response){
-
-    //         if(response.status != 200){
-           
-    //             console.log('Badddddddddddddddddddd')
-    //         }
-    //         else{
-          
-    //             commit('ProdOffers',response.data)
-
-    //         }
-
-    //     })
-    // },
-
     getProdBestSell({commit}){
 
         var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=672&per_page=8&status=publish';
@@ -127,351 +90,75 @@ const actions = {
     },
     getProdByTax({commit}){
 
+        var CountryVal= cookie.get('shipCountry');
+        var CurrVal = cookie.get('Curr');
+        console.log(CountryVal)
+        console.log(CurrVal);
 
-        //get User Region
-        axios.get('https://api.ipregistry.co/?key=ujxmbnhgocsp5a').then(function(response) {
+        //var setUrl ='https://phplaravel-608610-2049275.cloudwaysapps.com/api/Products/'+cur;
+        if(CountryVal && CurrVal){
+
+            var cur =CurrVal;
+            var country= CountryVal;
+        }
+
+        else{
+
+            //get User Region
+            axios.get('https://api.ipregistry.co/?key=ujxmbnhgocsp5a').then(function(response) {
       
-            var cur =response.data.currency.code;
-      
-            //var setUrl =process.env.VUE_APP_BASEURLPROD+'Products/'+cur;
-            //var setUrl ='http://127.0.0.1:8000/api/Products/'+cur;
-            var setUrl ='https://phplaravel-608610-2049275.cloudwaysapps.com/api/Products/'+cur;
-            axios.get(setUrl).then(function(response){
-    
-                if(response.status != 200){
-              
-                    console.log('Badddddddddddddddddddd')
-                }
-                else{
-    
-                    //Category
-                    commit('Categories',response.data.Categories)
-                    
-                    console.log(response.data)
-                    commit('ProdByTax',response.data.ProdByTax)
-                    commit('ProdByTax0',response.data.ProdByTax0)
-                    commit('ProdByTax1',response.data.ProdByTax1)
-                    commit('ProdByTax2',response.data.ProdByTax2)
-                    commit('ProdByTax3',response.data.ProdByTax3)
-                    commit('ProdByTax4',response.data.ProdByTax4)
-                    commit('ProdByTax5',response.data.ProdByTax5)
-                    commit('ProdByTax6',response.data.ProdByTax6)
-                    commit('ProdByTax7',response.data.ProdByTax7)
-                    commit('ProdByTax8',response.data.ProdByTax8)
+                 cur =response.data.currency.code;
+                 country=response.data.location.name;
+          
+                //var setUrl =process.env.VUE_APP_BASEURLPROD+'Products/'+cur;
+                //var setUrl ='http://127.0.0.1:8000/api/Products/'+cur;
+              })
+        }
 
-                    commit('ProdInBox',response.data.ProdInBox)
-                    commit('ProdInBox0',response.data.ProdInBox0)
-                    commit('ProdInBox1',response.data.ProdInBox1)
-                    commit('ProdInBox2',response.data.ProdInBox2)
-                    commit('ProdByBox',response.data.ProdByBox)
-
-                    commit('ProdOffers',response.data.Offers)
-                    commit('RecentProd',response.data.RecentProds)
-
-
+        //http://127.0.0.1:8000/api/Products/USD/UAE
+        var setUrl ='http://127.0.0.1:8000/api/Products/'+cur+'/'+country;
+          axios.get(setUrl).then(function(response){
     
-                }
-    
-            })
-          })
+            if(response.status != 200){
+          
+                console.log('Badddddddddddddddddddd')
+            }
+            else{
+
+                //Category
+                commit('Categories',response.data.Categories)
+                
+                console.log(response.data)
+
+                // landing page 
+                commit('ProdByTax',response.data.ProdByTax)
+                commit('ProdByTax0',response.data.ProdByTax0)
+                commit('ProdByTax1',response.data.ProdByTax1)
+                commit('ProdByTax2',response.data.ProdByTax2)
+                commit('ProdByTax3',response.data.ProdByTax3)
+                commit('ProdByTax4',response.data.ProdByTax4)
+                commit('ProdByTax5',response.data.ProdByTax5)
+                commit('ProdByTax6',response.data.ProdByTax6)
+                commit('ProdByTax7',response.data.ProdByTax7)
+                commit('ProdByTax8',response.data.ProdByTax8)
+
+                commit('ProdInBox',response.data.ProdInBox)
+                commit('ProdInBox0',response.data.ProdInBox0)
+                commit('ProdInBox1',response.data.ProdInBox1)
+                commit('ProdInBox2',response.data.ProdInBox2)
+                commit('ProdByBox',response.data.ProdByBox)
+
+                commit('ProdOffers',response.data.Offers)
+                commit('RecentProd',response.data.RecentProds)
+
+
+
+            }
+
+        })
 
 
     },
-    // getProdByBox({commit}){
-
-
-    //     //Do Requset 
-    //     var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=696&per_page=8&status=publish';
-    //     axios.get(SetUrl).then(function(response){
-
-    //         if(response.status != 200){
-
-    //             console.log('Badddddddddddddddddddd')
-    //         }
-    //         else{
-
-    //             commit('ProdByBox',response.data)
-
-    //         }
-
-    //     })
-    // },
-
-    // getProdByTax({commit}){
-        
-
-    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=699&per_page=12&status=publish';
-    //     axios.get(SetUrl).then(function(response){
-
-    //         if(response.status != 200){
-          
-    //             console.log('Badddddddddddddddddddd')
-    //         }
-    //         else{
-  
-    //             commit('ProdByTax',response.data)
-
-    //         }
-
-    //     })
-    // },
-    // getProdByTax0({commit}){
-
-    //     var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=718&per_page=12&status=publish';
-    //     axios.get(SetUrl).then(function(response){
-
-    //         if(response.status != 200){
-       
-    //             console.log('Badddddddddddddddddddd')
-    //         }
-    //         else{
-
-    //             commit('ProdByTax0',response.data)
-                
-
-    //         }
-
-    //     })
-
-
-
-    // },
-
-
-
-    // getProdByTax1({commit}){
-
-    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=720&per_page=6&status=publish';
-    //     axios.get(SetUrl).then(function(response){
-
-    //         if(response.status != 200){
-           
-    //             console.log('Badddddddddddddddddddd')
-    //         }
-    //         else{
-          
-    //             commit('ProdByTax1',response.data)
-
-    //         }
-
-    //     })
-
-    // },
-
-    // getProdByTax2({commit}){
-
-    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=695&per_page=12&status=publish';
-    //     axios.get(SetUrl).then(function(response){
-
-    //         if(response.status != 200){
-           
-    //             console.log('Badddddddddddddddddddd')
-    //         }
-    //         else{
-          
-    //             commit('ProdByTax2',response.data)
-
-    //         }
-
-    //     })
-
-    // },
-
-    // getProdByTax3({commit}){
-
-    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=731&per_page=12&status=publish';
-    //     axios.get(SetUrl).then(function(response){
-
-    //         if(response.status != 200){
-           
-    //             console.log('Badddddddddddddddddddd')
-    //         }
-    //         else{
-          
-    //             commit('ProdByTax3',response.data)
-
-    //         }
-
-    //     })
-
-
-    // },
-    // getProdByTax4({commit}){
-
-    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=705&per_page=12&status=publish';
-    //     axios.get(SetUrl).then(function(response){
-
-    //         if(response.status != 200){
-           
-    //             console.log('Badddddddddddddddddddd')
-    //         }
-    //         else{
-          
-    //             commit('ProdByTax4',response.data)
-
-    //         }
-
-    //     })
-
-    // },
-    // getProdByTax5({commit}){
-
-    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=723&per_page=10&status=publish';
-    //     axios.get(SetUrl).then(function(response){
-
-    //         if(response.status != 200){
-           
-    //             console.log('Badddddddddddddddddddd')
-    //         }
-    //         else{
-          
-    //             commit('ProdByTax5',response.data)
-
-    //         }
-
-    //     })
-
-    // },
-
-    // getProdByTax6({commit}){
-
-    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=717&per_page=12&status=publish';
-    //     axios.get(SetUrl).then(function(response){
-
-    //         if(response.status != 200){
-           
-    //             console.log('Badddddddddddddddddddd')
-    //         }
-    //         else{
-          
-    //             commit('ProdByTax6',response.data)
-
-    //         }
-
-    //     })
-
-    // },
-    // getProdByTax7({commit}){
-
-    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=716&per_page=12&status=publish';
-    //     axios.get(SetUrl).then(function(response){
-
-    //         if(response.status != 200){
-           
-    //             console.log('Badddddddddddddddddddd')
-    //         }
-    //         else{
-          
-    //             commit('ProdByTax7',response.data)
-
-    //         }
-
-    //     })
-
-    // },
-    // getProdByTax8({commit}){
-
-    //     var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=703&per_page=12&status=publish';
-    //     axios.get(SetUrl).then(function(response){
-
-    //         if(response.status != 200){
-           
-    //             console.log('Badddddddddddddddddddd')
-    //         }
-    //         else{
-          
-    //             commit('ProdByTax8',response.data)
-
-    //         }
-
-    //     })
-
-    // },
-    // getProdDecRope({commit}){
-
-    //     var Seturl = process.env.VUE_APP_BASEURL+'products?tag=703&per_page=4&status=publish';
-
-    //     axios.get(Seturl).then(function(response){
-
-    //         if(response.status != 200){
-
-    //             console.log('baddddd')
-
-    //         }
-    //         else{
-
-    //             commit('ProdDecRope',response.data)
-
-    //         }
-
-    //     })
-
-    // },
-
-    // getProdDecSticker({commit}){
-
-    //     var SetUrl = process.env.VUE_APP_BASEURL+'products?tag=704&per_page=4&status=publish';
-    //     axios.get(SetUrl).then(function(response){
-
-    //         if(response.status != 200){
-
-    //             console.log('baddddd')
-
-    //         }
-    //         else{
-
-    //             commit('ProdDecSticker',response.data)
-
-    //         }
-
-    //     })
-
-    // },
-
-    // getProdDecIns({commit}){
-
-    //     var SetUrl = 'https://alyaman.com/wp-json/wc/v3/products?tag=705&per_page=4&status=publish';
-    //     axios.get(SetUrl).then(function(response){
-
-    //         if(response.status != 200){
-
-    //             console.log('baddddd')
-
-    //         }
-    //         else{
-
-    //             commit('ProdDecIns',response.data)
-
-    //         }
-
-    //     })
-
-    // },
-
-    // getProdDecTag({commit}){
-
-    //     var SetUrl = 'https://alyaman.com/wp-json/wc/v3/products?tag=707&per_page=4&status=publish';
-    //     axios.get(SetUrl).then(function(response){
-
-    //         if(response.status != 200){
-
-    //             console.log('baddddd')
-
-    //         }
-    //         else{
-
-    //             commit('ProdDecTag',response.data)
-
-    //         }
-
-    //     })
-
-    // }
-
-
-
-
-
 }
 
 const mutations = {

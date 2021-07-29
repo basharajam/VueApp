@@ -1,5 +1,27 @@
 <template>
   <div class="alheader">
+    <div class="header-list">
+      <a >الشحن الى : 
+        
+        <span>
+          <b-dropdown id="dropdown-1" variant='outline-light ' :text="SelectedCountryText " class="m-2">
+            <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
+                <b-form-group label="العملة" >
+                    <b-form-select v-model="CurrInput" size="sm" :options="CurOptions"></b-form-select>
+                </b-form-group>
+
+                <b-form-group label="الشحن الى" >
+                    <b-form-select v-model="CountryInput" size="sm" :options="CountryOptions"></b-form-select>
+                </b-form-group>
+                <b-form-group>
+                  <b-button type="submit" block pill variant="outline-warning">حفظ</b-button>
+                </b-form-group>
+            </b-dropdown-form>
+        </b-dropdown>
+        </span></a>
+      <a href="#">اللغة</a>
+
+    </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand "  href="https://alyaman.com">
           <img  src="icon.png" alt="" >
@@ -43,7 +65,7 @@
 
 <script>
 
-import { mapGetters } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import _ from 'lodash'
 import axios from 'axios';
 
@@ -51,9 +73,28 @@ import axios from 'axios';
 export default {
     name:'alheader',
     computed:{
-      ...mapGetters(['Categories'])
+      ...mapGetters(['Categories']),
+      ...mapActions(['getProdByTax']),
     },
     data(){
+
+        var CountryVal= this.$cookies.get('shipCountry');
+        var CurrVal = this.$cookies.get('Curr');
+        // console.log(CountryVal)
+        // console.log(CurrVal);
+
+        if(CountryVal && CurrVal){
+
+          var CurrVal0=CurrVal;
+          var CountryVal0=CountryVal;
+          var CountryValText='تخصيص';
+
+        }
+        else{
+           CurrVal0='SAR';
+           CountryVal0='SAR';
+           CountryValText='السعودية';
+        }
 
       return{
 
@@ -62,7 +103,27 @@ export default {
         innerSpinner:true,
         search:true,
         NotFoundErr:false,
-        SearchResArr:[]
+        SearchResArr:[],
+        elementVisible: false,
+        CountryInput:CountryVal0,
+        CurrInput:CurrVal0,
+        SelectedCountryText:CountryValText,
+        CountryOptions:{
+            SAR:"السعودية",
+            OMR:"سلطنة عمان",
+            YMN:"اليمن",
+            LBN:"لبنان",
+            IRQ:"العراق",
+            UAE:"الامارات",
+            PLS:"فلسطين"
+        },
+        CurOptions:{
+            CNY:"اليوان الصيني",
+            SAR:"الريال السعودي",
+            AED:"الدرهم الاماراتي",
+            OMR:"الريال العماني",
+            USD:"الدولار الاميركي"
+        }
       }
 
     },
@@ -88,13 +149,9 @@ export default {
              axios.get("https://alyaman.com/wp-json/wc/v3/products/?search="+value+"&per_page=4").then((response) =>{
 
               if(response.status != 200){
-                  
                   console.log('baddddddddd')
-
-
               }
               else{
-
                 //hide Inner Spinner
                 this.innerSpinner=false
                 //fetch Data in Search Result List 
@@ -105,13 +162,8 @@ export default {
                 else{
                   this.NotFoundErr=false;
                 }
-                
               }
-
              })
-             
-
-
              return 'done';
 
            }
@@ -126,11 +178,28 @@ export default {
          ,
          hideIcon(){
            this.search = false
+         },
+         UpdateCurSubmit(){
+
+           console.log('Clicked')
+           
+           //Do Request To Get New Data ---later
+           //this.getProdByTax();
+           
+            //Display Spinner 
+
+           //Hide Spinner 
+
+           //Save New Cookie With values 
+           this.$cookies.set('shipCountry',this.CountryInput);
+           this.$cookies.set('Curr',this.CurrInput);
+
+            // Refresh The Page
+            window.location.reload()
+            //this.$forceUpdate();
          }
     }
     
-
-
 
 }
 </script>
@@ -238,6 +307,36 @@ export default {
         border: 1px #fa660d solid;
         color: #fa660d;
   }
+  .header-list{
+    height: 32px;
+    background: #641b64;  
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+    color: white;
+    font-weight: bolder;
+
+  }
+  .header-list a {
+
+    color: white;
+    margin: 0 12px;
+    text-decoration: none;
+  }
+  /* .header-list a:after{
+    content: "";
+    position: absolute;
+    height: 12px;
+    width: 1px;
+    background-color: #666;
+    top: 3px;
+    left: -3px;
+
+  } */
+
+
 
 
   .innerSpinner0 {

@@ -13,6 +13,7 @@
                         </a>
                     </div>
                 </div>
+                <a href="#" class="ProdBoxBtn">عرض المزيد</a>
             </div>
 
 
@@ -27,6 +28,7 @@
                             <p>{{Prod.name}}</p>
                         </a>
                     </div>
+                    <a href="#" class="ProdBoxBtn">عرض المزيد</a>
                 </div>
             </div>
 
@@ -41,6 +43,7 @@
                             <p>{{Prod.name}}</p>
                         </a>
                     </div>
+                <a href="#" class="ProdBoxBtn">عرض المزيد</a>
                 </div>
             </div>
             <div class="ProdsBox col-sm-3">
@@ -54,6 +57,7 @@
                             <p>{{Prod.name}}</p>
                         </a>
                     </div>
+                    <a href="#" class="ProdBoxBtn">عرض المزيد</a>
                 </div>
             </div>
 
@@ -118,6 +122,23 @@ export default {
 
 .ProdBoxOne{
     padding: 6px 0;
+    text-align: center;
+}
+
+.ProdBoxBtn{
+        color: #fe6a00;
+    display: block;
+    background-color: white;
+    border: 1px #fe6a00 solid;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 40px;
+    width: 60%;
+    border-radius: 50px;
+    padding: 2px;
+    margin: 14px auto;
+    transition: all 0.4s;
     text-align: center;
 }
 

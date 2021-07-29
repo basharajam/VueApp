@@ -4,8 +4,9 @@ import router from './router'
 import store from './store'
 import https from 'https';
 import VueCookie from 'vue-cookies';
-
-
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 // import VueI18n from 'vue-i18n';
 // import lang from '../lang';
@@ -17,7 +18,10 @@ axios.defaults.headers.common["Authorization"] = authHeader;
 axios.defaults.httpsAgent = new https.Agent({ rejectUnauthorized: false })
 Vue.config.productionTip = false
 Vue.use(VueCookie)
-
+// Make BootstrapVue available throughout your project
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
 // Vue.use(VueI18n);
 // export const i18n = new VueI18n({
 //   locale: 'ar',

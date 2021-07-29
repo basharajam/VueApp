@@ -294,7 +294,19 @@ position: relative;
 }
 
 
-
+.btn-outline-warning{
+  color: #fe6a00 !important ;
+  border-color: #fe6a00 !important;
+}
+.btn-outline-warning:hover{
+    color: #000 !important;
+    background-color: #fe6a00 !important;
+    border-color: #fe6a00 !important;
+}
+.btn-outline-warning:not(:disabled):not(.disabled).active, .btn-outline-warning:not(:disabled):not(.disabled):active, .show>.btn-outline-warning.dropdown-toggle{
+  background-color: #fe6a00 !important;
+  color: #000 !important;
+}
 
 /*   Query Media */
 

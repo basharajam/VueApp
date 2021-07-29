@@ -82,6 +82,8 @@
                 <div class="LinkList col-sm-3 col-12" >
                     <h3>اللغات</h3>
                     <a href="https://www.alyaman.com/">العربية</a>
+                    <div>
+                    </div>
                 </div>
             </div>
 
@@ -101,13 +103,15 @@ export default {
     data(){
 
         return {
-            elementVisible: false
+            elementVisible: false,
+    
         }
     },
     created() {
         setTimeout(() => { this.elementVisible = true },6000);
         setTimeout(() => this.elementVisible = false, 15000)
     }
+    
 
 }
 </script>
