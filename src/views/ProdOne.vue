@@ -88,37 +88,56 @@
 
               <div class="row">
                 <div class="col-sm-6">
-                  <div class="d-flex justify-content-between"><div class="rating-content"><p class="product-rating"> 
-                  <p class="product-stars">
-                    <star-rating   :rating="4" :increment='0.01' :read-only="true" :star-size="18" :show-rating='false' v-bind:rtl='true' active-color='#fe6a00' :glow='1' :animate='true' ></star-rating>
-                  </p> 
-                  <p class="based-on">
-                    بناء على 12 تقييمات
-                  </p>
-                </div>
-                <div class="RateProgress">
-                  <div class="progress-br" style="width: 100%;">
-                    <b-progress class="" value="9" max="10"></b-progress>
-                    <span>5</span>
+                  <div class="d-flex flex-column">
+                    <div class="d-flex">
+                      <div class="rating-content">
+                        <p class="product-rating"> 
+                        <p class="product-stars">
+                        <star-rating   :rating="4" :increment='0.01' :read-only="true" :star-size="18" :show-rating='false' v-bind:rtl='true' active-color='#fe6a00' :glow='1' :animate='true' ></star-rating>
+                          </p> 
+                        <p class="based-on">
+                            بناء على 12 تقييمات
+                        </p>
+                      </div>
+                      <div class="RateProgress">
+                        <div class="progress-br" style="width: 100%;">
+                          <b-progress class="" value="9" max="10"></b-progress>
+                          <span>5</span>
+                        </div>
+                        <div class="progress-br" style="width: 100%;">
+                          <b-progress class="" value="8" max="10"></b-progress>
+                          <span>4</span>
+                        </div>
+                        <div class="progress-br" style="width: 100%;">
+                          <b-progress class="" value="2" max="10"></b-progress>
+                          <span>3</span>
+                        </div>
+                        <div class="progress-br" style="width: 100%;">
+                          <b-progress class="" value="1" max="10"></b-progress>
+                          <span>2</span>
+                        </div>
+                        <div class="progress-br" style="width: 100%;">
+                          <b-progress class="" value="0" max="10"></b-progress>
+                          <span>1</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="RateForm">
+                      <b-form @submit="onSubmit" @reset="onReset">
+                        <b-form-group
+                          id="input-group-1"
+                          label="Email address:"
+                          label-for="input-1"
+                        >
+                          <b-form-input
+                            type="text"
+                            placeholder="Enter name"
+                            required>
+                          </b-form-input>
+                        </b-form-group>
+                      </b-form>
+                    </div>
                   </div>
-                  <div class="progress-br" style="width: 100%;">
-                    <b-progress class="" value="8" max="10"></b-progress>
-                    <span>4</span>
-                  </div>
-                  <div class="progress-br" style="width: 100%;">
-                    <b-progress class="" value="2" max="10"></b-progress>
-                    <span>3</span>
-                  </div>
-                  <div class="progress-br" style="width: 100%;">
-                    <b-progress class="" value="1" max="10"></b-progress>
-                    <span>2</span>
-                  </div>
-                  <div class="progress-br" style="width: 100%;">
-                    <b-progress class="" value="0" max="10"></b-progress>
-                    <span>1</span>
-                  </div>
-                </div>
-                </div>
                 </div>
                 <div class="col-sm-6">
                   <ul class="list-unstyled" style="padding: 0;">
