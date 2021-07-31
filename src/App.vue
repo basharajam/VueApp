@@ -179,6 +179,7 @@ position: relative;
   
 }
 
+
 .ProdBoxTitle {
    
   color: black !important;
@@ -317,7 +318,7 @@ position: relative;
 @media only screen and  (min-width: 1366px ) and (max-width:1440px){
 
   .navbar-brand{
-      margin-left: 240px;
+      /* margin-left: 240px; */
   }
   .spinner{
     width:8%!important;
@@ -342,14 +343,14 @@ position: relative;
         height: 350px !important;
   }
   .navbar-brand{
-    margin-left: 148px;
+    /* margin-left: 148px; */
   }
   .HeaderIcons a {
     margin: 0px 10px !important;
   }
 
   .navbar-light .navbar-brand{
-      margin-left: 30%;
+      /* margin-left: 30%; */
   }
   .SearchSection{
         position: relative;
@@ -484,7 +485,7 @@ position: relative;
 }
 
 .navbar-light .navbar-brand{
-  margin-left: 53%;
+  /* margin-left: 53%; */
 }
 
 }
@@ -588,7 +589,7 @@ position: relative;
       scrollbar-width: none;  /* Firefox */
   }
   .SearchSection{
-    width: 170px;
+    /* width: 170px; */
     position: relative;
     bottom: 8px !important;
   }
@@ -701,7 +702,7 @@ min-height: 300px !important;
     max-width: 156px !important;
   }
   .SearchSection{
-    width: 40%;
+    /* width: 40%; */
   }
   
 
@@ -728,7 +729,7 @@ min-height: 300px !important;
     max-width: 105px;
   }
   .SearchSection{
-    width: 50%;
+    /* width: 50%; */
   }
   .FooterHeadingContent {
       font-size: 50px !important;
@@ -774,7 +775,7 @@ min-height: 300px !important;
 
 
   .SearchSection {
-    width: 62% !important;
+    /* width: 62% !important; */
     bottom: 10px !important;
   }
   .FooterHeadingContent {
@@ -817,7 +818,7 @@ min-height: 300px !important;
     margin: 2% 0% !important; 
   }
   .SearchSection {
-    max-width: 150px;
+    /* max-width: 150px; */
     position: relative;
     bottom: 10px;
 }
@@ -870,7 +871,7 @@ display: none !important;
     max-width: 110px;
   }
   .SearchSection{
-    width: 56%;
+    /* width: 56%; */
     position: relative;
     bottom: 10px;
   }
@@ -934,7 +935,7 @@ display: none !important;
 
 } */
 .SearchSection{
-  max-width: 175px;
+  /* max-width: 175px; */
   bottom: 10px !important;
 }
 
@@ -1012,7 +1013,7 @@ display: none !important;
 
 .SearchSection{
 
-      margin-right: 305px;
+      /* margin-right: 305px; */
       position: relative;
       bottom: 8px !important;
 

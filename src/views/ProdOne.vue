@@ -15,7 +15,7 @@
                 </h3>
               </div>
               <div class="starRate">
-                <star-rating   :rating="4" :increment='0.01' :read-only="true" :star-size="18" :show-rating='false' v-bind:rtl='true' active-color='#fe6a00' :glow='1' :animate='true' ></star-rating>
+                <star-rating  :rating="4" :increment='0.01' :read-only="true" :star-size="18" :show-rating='false' v-bind:rtl='true' active-color='#fe6a00' :glow='1' :animate='true' ></star-rating>
               </div>
               <p>المنتج أو المنتوج هو لفظة عامة تشمل كل ما يصنع أو ينتج بغرض البيع والتسويق والتصدير للأفراد  الصناعية</p>
               <div class="Price">
@@ -40,9 +40,9 @@
         </div>
 
         <div class="row">
-          <div class="col-sm-10">
+          <div class="col-sm-12">
             <!-- prod Nav Tabs -->
-            <ul class="nav nav-tabs" id="myTab" role="tablist" style="padding-right: 0;">
+            <ul data-spy="affix" class="nav nav-tabs" id="myTab" role="tablist" style="padding-right: 0;">
               <li class="nav-item">
                 <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">وصف المنتج </a>
               </li>
@@ -123,18 +123,40 @@
                       </div>
                     </div>
                     <div class="RateForm">
-                      <b-form @submit="onSubmit" @reset="onReset">
-                        <b-form-group
-                          id="input-group-1"
-                          label="Email address:"
-                          label-for="input-1"
-                        >
+                      <b-form @submit.stop.prevent="onRateSubmit">
+                        <b-form-group id="name-live-feedback" label-for="name-live-feedback">
                           <b-form-input
-                            type="text"
-                            placeholder="Enter name"
-                            required>
-                          </b-form-input>
+                            id="name-live-feedback"
+                            name="name-live-feedback"
+                            v-model="$v.form.name.$model"
+                            :state="validateState('name')"
+                            aria-describedby="name-live-feedback"
+                          ></b-form-input>
+
+                          <b-form-invalid-feedback
+                            id="name-live-feedback"
+                          >This is a required field and must be at least 3 characters.</b-form-invalid-feedback>
                         </b-form-group>
+
+                        <b-form-group>
+                            <star-rating :rating="5" :increment='0.01' :read-only="false" :star-size="24" :show-rating='false' v-bind:rtl='true' active-color='#fe6a00' :glow='1' :animate='true' ></star-rating>
+                        </b-form-group>
+                        
+                        <b-form-group id="desc-live-feedback" label-for="desc-live-feedback" >
+                          <b-form-textarea
+                            id="textarea"
+                            placeholder="Enter something..."
+                            rows="6"
+                            max-rows="6"
+                            :state="validateState('desc')"
+                            v-model="$v.form.desc.$model"
+                            aria-describedby="desc-live-feedback"
+                          ></b-form-textarea>
+                          <b-form-invalid-feedback
+                            id="desc-live-feedback"
+                          >This is a required field and must be at least 8 characters.</b-form-invalid-feedback>
+                        </b-form-group>
+                        <b-button type="submit" variant="primary">Submit</b-button>
                       </b-form>
                     </div>
                   </div>
@@ -208,13 +230,52 @@
 
 import ImgScrollerProd from '../components/widgets/ImgScrollerProd.vue';
 import StarRating from 'vue-star-rating'
+import { required, minLength } from 'vuelidate/lib/validators'
 
 export default {
 
-components:{
-  ImgScrollerProd,
-  StarRating,
-}
+      components:{
+        ImgScrollerProd,
+        StarRating,
+      },
+      data(){
+
+        return  {
+          form: {
+            name: null,
+            food: null,
+            desc:null
+          }
+        }
+      },
+      validations: {
+        form: {
+          rate: {
+            required
+          },
+          name: {
+            required,
+            minLength: minLength(3)
+          },
+          desc:{
+            required,
+            minLength:minLength(8)
+          }
+        }
+  },
+  methods:{
+
+    validateState(name) {
+      const { $dirty, $error } = this.$v.form[name];
+      return $dirty ? !$error : null;
+    },
+    onRateSubmit(){
+
+      console.log('Rate Clicked')
+
+    }
+
+  }
 
 }
 </script>

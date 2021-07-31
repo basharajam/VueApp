@@ -23,6 +23,7 @@
     "vue-content-placeholders": "^0.2.1",
     "vue-cookie": "^1.1.4",
     "vue-cookies": "^1.7.4",
+    "vue-country-flag": "^2.2.0",
     "vue-flickity": "^1.2.1",
     "vue-i18n": "^8.24.5",
     "vue-inner-image-zoom": "^1.1.0",
@@ -30,6 +31,7 @@
     "vue-product-zoomer": "^3.0.1",
     "vue-router": "^3.5.1",
     "vue-star-rating": "^1.7.0",
+    "vuelidate": "^0.7.6",
     "vuex": "^3.6.2"
   },
   "devDependencies": {

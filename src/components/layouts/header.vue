@@ -1,11 +1,10 @@
 <template>
   <div class="alheader">
-    <div class="header-list">
-      <a href="https://www.alyaman.com/my-account/">إنشاء حساب</a>
+    <!-- <div class="header-list">
       <a >الشحن الى : 
         
         <span>
-          <b-dropdown id="dropdown-1" variant='outline-light ' :text="SelectedCountryText " class="m-2 ShipBtn ">
+          <b-dropdown id="dropdown-1" :text="SelectedCountryText " variant="link" class="m-2 ShipBtn ">
             <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
                 <b-form-group label="العملة" >
                     <b-form-select v-model="CurrInput" size="sm" :options="CurOptions"></b-form-select>
@@ -21,23 +20,70 @@
         </b-dropdown>
         </span>
       </a>
-      <a href="#">اللغة</a>
+      <a href="#">اللغة :
+          <b-dropdown id="dropdown-2" variant='outline-light ' text="العربية" class="m-2 ShipBtn ">
 
-    </div>
+          </b-dropdown>
+
+      </a>
+
+    </div> -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand "  href="https://alyaman.com">
           <img  src="icon.png" alt="" >
         </a>
         
-          <div class="SearchSection">
+          <div class="SearchSection col-sm-4 col-7">
             <i v-if="search" class="fas fa-search SearchIcon"></i>
             <input class="form-control mr-sm-2 SearchInput" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="text" placeholder="          بحث"  aria-label="Search">
           </div>
-          <div class="HeaderIcons d-none  col-sm-2 pull-left">
+          <div class="HeaderIcons d-none d-sm-inline-flex  col-sm-1">
             <a href="https://alyaman.com/my-account/"><i class="fas fa-user"></i></a>
             <a href="https://alyaman.com/cart/"> <i class="fal fa-shopping-cart"> </i> <span class="CartCount" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" ><span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span></span> </a>
             <!-- <a href="#"> <i style="color:black" class="fa fa-globe" ></i></a> -->
           </div>
+          <div class="headerDrp col-sm-2 d-none d-sm-block">
+                    <b-dropdown id="dropdown-1"  variant="none" class="m-2 ShipBtn " no-flip no-caret>
+                          <template #button-content>
+                              <div class="d-flex align-items-center">
+                                <country-flag country='sa' size='normal' v-if="CountryVal0 ==='SAR'"/>
+                                <country-flag country='ye' size='normal' v-if="CountryVal0 ==='YMN'"/>
+                                <country-flag country='om' size='normal' v-if="CountryVal0 ==='OMR'"/>
+                                <country-flag country='lb' size='normal' v-if="CountryVal0 ==='LBN'"/>
+                                <country-flag country='iq' size='normal' v-if="CountryVal0 ==='IRQ'"/>
+                                <country-flag country='ae' size='normal' v-if="CountryVal0 ==='UAE'"/>
+                                <country-flag country='ps' size='normal' v-if="CountryVal0 ==='PLS'"/>
+        
+                                <!-- <img src="https://z.nooncdn.com/s/app/com/common/images/flags/sa.svg" style="margin:0 6px" alt="country-sa"> -->
+                                <div class="stack" style="flex-direction: column;align-items: flex-end; margin-left: 10px;display: flex;">
+                                    <span>الشحن إلى</span>
+                                    <span style="font-weight: bold;font-size: 20px;"> {{SelectedCountryText}}</span>
+                                </div>
+                                <div style="width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
+                              </div>
+                          </template>
+                      <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
+                          <b-form-group label="العملة" >
+                              <b-form-select v-model="CurrInput" size="sm" :options="CurOptions"></b-form-select>
+                          </b-form-group>
+
+                          <b-form-group label="الشحن الى" >
+                              <b-form-select v-model="CountryInput" size="sm" :options="CountryOptions"></b-form-select>
+                          </b-form-group>
+                          <b-form-group>
+                            <b-button type="submit" block pill variant="outline-warning">حفظ</b-button>
+                          </b-form-group>
+                      </b-dropdown-form>
+                    </b-dropdown>
+              <!-- <a >اللغة  
+                  <span>
+                    <b-dropdown id="dropdown-2" text=" العربية" variant="link" class="m-2 ShipBtn ">
+ 
+                    </b-dropdown>
+                </span>
+              </a> -->
+          </div>
+
     </nav>
                 <div class="SearchResult" v-if="SearchRes">
                   <div v-if="innerSpinner" class="innerSpinner">
@@ -68,6 +114,7 @@
 <script>
 
 import { mapGetters, mapActions } from 'vuex';
+import CountryFlag from 'vue-country-flag'
 import _ from 'lodash'
 import axios from 'axios';
 
@@ -77,6 +124,9 @@ export default {
     computed:{
       ...mapGetters(['Categories']),
       ...mapActions(['getProdByTax']),
+    },
+    components:{
+      CountryFlag
     },
     data(){
 
@@ -135,6 +185,7 @@ export default {
         SearchResArr:[],
         elementVisible: false,
         CountryInput:CountryVal0,
+        CountryVal0:CountryVal0,
         CurrInput:CurrVal0,
         SelectedCountryText:CountryValText,
         CountryOptions:{
@@ -341,7 +392,7 @@ export default {
     background: #2f2f2f;  
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: end;
     align-content: center;
     align-items: center;
     color: white;
@@ -364,11 +415,11 @@ export default {
     left: -3px;
 
   } */
- .btn-outline-light{
-    border: 0 !important;
-    padding: 0 !important;
-    text-align: center;
-  }
+#dropdown-1 button {
+
+border-color: unset !important;
+
+}
 
 
 
