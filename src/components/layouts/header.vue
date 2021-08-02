@@ -34,11 +34,11 @@
         </a>
         
           <div class="SearchSection col-sm-4 col-7">
-            <i v-if="search" class="fas fa-search SearchIcon"></i>
-            <input class="form-control mr-sm-2 SearchInput" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="text" placeholder="          بحث"  aria-label="Search">
+            <!-- <i v-if="search" class="fas fa-search SearchIcon"></i> -->
+            <input class="form-control mr-sm-2 SearchInput" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="search" placeholder="          بحث"  aria-label="Search">
           </div>
           <div class="headerDrp col-sm-2 d-none d-sm-block">
-                    <b-dropdown id="dropdown-1"  variant="none" class="m-2 ShipBtn " no-flip no-caret>
+                    <!-- <b-dropdown id="dropdown-1"  variant="none" class="m-2 ShipBtn " no-flip no-caret>
                           <template #button-content>
                               <div class="d-flex align-items-center">
                                 <country-flag country='sa' size='normal' v-if="CountryVal0 ==='SAR'"/>
@@ -47,9 +47,7 @@
                                 <country-flag country='lb' size='normal' v-if="CountryVal0 ==='LBN'"/>
                                 <country-flag country='iq' size='normal' v-if="CountryVal0 ==='IRQ'"/>
                                 <country-flag country='ae' size='normal' v-if="CountryVal0 ==='UAE'"/>
-                                <country-flag country='ps' size='normal' v-if="CountryVal0 ==='PLS'"/>
-        
-                                <!-- <img src="https://z.nooncdn.com/s/app/com/common/images/flags/sa.svg" style="margin:0 6px" alt="country-sa"> -->
+                                <country-flag country='ps' size='normal' v-if="CountryVal0 ==='PLS'"/> 
                                 <div class="stack" style="flex-direction: column;align-items: flex-end; margin-left: 10px;display: flex;">
                                     <span>الشحن إلى</span>
                                     <span style="font-weight: bold;font-size: 20px;"> {{SelectedCountryText}}</span>
@@ -69,7 +67,7 @@
                             <b-button type="submit" block pill variant="outline-warning">حفظ</b-button>
                           </b-form-group>
                       </b-dropdown-form>
-                    </b-dropdown>
+                    </b-dropdown> -->
               <!-- <a >اللغة  
                   <span>
                     <b-dropdown id="dropdown-2" text=" العربية" variant="link" class="m-2 ShipBtn ">
@@ -79,7 +77,7 @@
               </a> -->
           </div>
           <div class="HeaderIcons d-none d-sm-inline-flex  col-sm-1">
-            <div class="HeaderDivider"></div>
+            <!-- <div class="HeaderDivider"></div> -->
             <a href="https://alyaman.com/my-account/"><i class="fas fa-user"></i></a>
             <div class="HeaderDivider"></div>
             <a href="https://alyaman.com/cart/"> <i class="fal fa-shopping-cart"> </i> <span class="CartCount" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" ><span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span></span> </a>
@@ -116,7 +114,7 @@
 <script>
 
 import { mapGetters, mapActions } from 'vuex';
-import CountryFlag from 'vue-country-flag'
+// import CountryFlag from 'vue-country-flag'
 import _ from 'lodash'
 import axios from 'axios';
 
@@ -127,9 +125,9 @@ export default {
       ...mapGetters(['Categories']),
       ...mapActions(['getProdByTax']),
     },
-    components:{
-      CountryFlag
-    },
+    // components:{
+    //   CountryFlag
+    // },
     data(){
 
         var CountryVal= this.$cookies.get('shipCountry');

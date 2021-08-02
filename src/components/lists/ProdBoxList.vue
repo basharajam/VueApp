@@ -113,7 +113,7 @@
                         </a>
                     </div>
                 </div>
-                <a href="#" class="ProdBoxBtn">عرض المزيد</a>
+                <a href="https://www.alyaman.com/product-tag/ksa_decoration_group/" class="ProdBoxBtn">عرض المزيد</a>
             </div>
 
 
@@ -128,7 +128,7 @@
                             <p>{{Prod.name}}</p>
                         </a>
                     </div>
-                    <a href="#" class="ProdBoxBtn">عرض المزيد</a>
+                    <a href="https://www.alyaman.com/product-tag/ksa_topper_group/" class="ProdBoxBtn">عرض المزيد</a>
                 </div>
             </div>
 
@@ -143,7 +143,7 @@
                             <p>{{Prod.name}}</p>
                         </a>
                     </div>
-                <a href="#" class="ProdBoxBtn">عرض المزيد</a>
+                <a href="https://www.alyaman.com/product-tag/ksa_sticker_group/" class="ProdBoxBtn">عرض المزيد</a>
                 </div>
             </div>
             <div class="ProdsBox col-sm-3">
@@ -157,7 +157,7 @@
                             <p>{{Prod.name}}</p>
                         </a>
                     </div>
-                    <a href="#" class="ProdBoxBtn">عرض المزيد</a>
+                    <a href="https://www.alyaman.com/product-tag/ksa_tag_group/" class="ProdBoxBtn">عرض المزيد</a>
                 </div>
               </div>
             </b-skeleton-wrapper>
