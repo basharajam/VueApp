@@ -29,9 +29,9 @@
                 </div>
               </div>
               <div class="Qty d-flex">
-                <button class="btn btn-link">إضافة الى السلة</button>
-                <input type="number" class="form-control col-sm-3">
-                <p>الحد الادنى للطلب 1000 قطعة</p>
+                <input type="number" class="form-control col-sm-3" value="60">
+                <b-link >إضافة الى سلة التسوق</b-link>
+                <p>الحد الادنى للطلب 60 قطعة</p>
               </div>
 
             </div>
@@ -221,13 +221,21 @@
             </div>
         <!-- Prod nav Tabs End -->
           </div>
+
           <!-- End Desktop Product Informations  -->
 
           <div class="col-12  d-block d-sm-none">
               <div class="accordion" role="tablist">
                 <b-card no-body class="mb-1">
                   <b-card-header header-tag="header" class="p-1" role="tab">
-                    <b-button block v-b-toggle.accordion-1 variant="link">وصف المنتج</b-button>
+                    <div  v-b-toggle.accordion-1 variant="link">وصف المنتج
+                        <span class="when-opened">
+                          <i class="fas fa-chevron-up"></i>
+                        </span>
+                        <span class="when-closed">
+                          <i class="fas fa-chevron-down"></i>
+                        </span>
+                    </div>
                   </b-card-header>
                   <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
                     <b-card-body>
@@ -242,7 +250,14 @@
 
                 <b-card no-body class="mb-1">
                   <b-card-header header-tag="header" class="p-1" role="tab">
-                    <b-button block v-b-toggle.accordion-2 variant="link">معلومات المنتج</b-button>
+                    <div  v-b-toggle.accordion-2 variant="link">معلومات المنتج
+                      <span class="when-opened">
+                          <i class="fas fa-chevron-up"></i>
+                        </span>
+                        <span class="when-closed">
+                          <i class="fas fa-chevron-down"></i>
+                      </span>
+                    </div>
                   </b-card-header>
                   <b-collapse id="accordion-2" accordion="my-accordion" role="tabpanel">
                     <b-card-body>
@@ -270,7 +285,14 @@
 
                 <b-card no-body class="mb-1">
                   <b-card-header header-tag="header" class="p-1" role="tab">
-                    <b-button block v-b-toggle.accordion-3 variant="link">التقييمات</b-button>
+                    <div v-b-toggle.accordion-3 variant="link" >التقييمات 
+                           <span class="when-opened">
+                              <i class="fas fa-chevron-up"></i>
+                            </span>
+                            <span class="when-closed">
+                              <i class="fas fa-chevron-down"></i>
+                            </span>
+                    </div>
                   </b-card-header>
                   <b-collapse id="accordion-3" accordion="my-accordion" role="tabpanel">
                     <b-card-body>
@@ -507,11 +529,28 @@ export default {
     align-items: center;
     align-content: center;
     justify-content: flex-start;
+    margin: 12px 0;
 }
 
 .Qty p {
 
   margin: 0 8px;
+  font-size: 10px;
+  font-weight: bold;
+
+}
+
+.Qty a{
+    border: 1px #fe6a00 solid;
+    padding: 8px;
+    margin: 8px;
+    border-radius: 24px;
+    text-decoration: none;
+}
+.Qty input[type=number]::-webkit-inner-spin-button, 
+.Qty input[type=number]::-webkit-outer-spin-button {  
+
+   opacity: 1;
 
 }
 
@@ -542,6 +581,25 @@ export default {
 
 .RateForm{
   margin: 16px 0;
+}
+
+.collapsed > .when-opened,
+:not(.collapsed) > .when-closed {
+    display: none;
+}
+
+.when-opened , .when-closed{
+  position: absolute;
+  left: 10px;
+}
+
+@media only screen and (min-width:320px) and (max-width: 767px) {
+
+.Qty{
+  flex-direction: column !important;
+      margin-bottom: 20px;
+}
+
 }
 
 </style>

@@ -6,6 +6,11 @@
         </div>
         <h3 class="text-right">بروش اليوم الوطني السعودي</h3>
       </div>
+      <b-skeleton-wrapper :loading="ProdByTax3Loading">
+      <template #loading>
+        <ProdListLoader></ProdListLoader>
+      </template>
+
        <div class="ProdList">
         <Flickity v-if="ProdByTax3.length != 0" class="offersListScroll d-none d-sm-block" ref="flickity" :options="flickityOptions">
             <ProdCard  class="carousel-cell" v-for="Product in ProdByTax3" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
@@ -16,6 +21,10 @@
           </div>
         </div>
       </div>
+
+      </b-skeleton-wrapper>
+
+
   </div>
 </template>
 
@@ -23,6 +32,7 @@
 import { mapGetters } from 'vuex';
 import Flickity from 'vue-flickity';
 import ProdCard from '../items/ProdCard.vue';
+import ProdListLoader from '../widgets/PordListLoader.vue';
 // import ProdGridBox from '../items/ProdGridBox.vue';
 
 export default {
@@ -31,7 +41,8 @@ export default {
   components:{
     ProdCard,
     // ProdGridBox,
-    Flickity
+    Flickity,
+    ProdListLoader
   },
   computed:{
     ...mapGetters(['ProdByTax3']),
@@ -46,13 +57,19 @@ export default {
           initialIndex: 3,
           pageDots: false,
           wrapAround: true,
-          imagesLoaded: true,
-        
-          
+          imagesLoaded: true,          
           // any options from Flickity can be used
-        }
+        },
+        ProdByTax3Loading:true
       }
-    }
+    },
+    watch:{
+          ProdByTax3(newValue){
+              if(newValue.length > 0){
+                  this.ProdByTax3Loading=false;
+              }
+          },
+      }
 
 }
 </script>

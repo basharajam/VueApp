@@ -1,12 +1,12 @@
 <template>
 
         <div id="custCarousel" class="carousel slide carousel-fade" data-ride="carousel" align="center"  data-interval="false" >
-                <!-- Thumbnails -->
-            <ol class="ProdThumbs carousel-indicators col-2 col-sm-3 " >
-                <li class=" active"> <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#custCarousel"> <img src="https://i.picsum.photos/id/449/100/100.jpg?hmac=RDAmExfBxWp028XbWOtSJOj858jDpALVjjXGOg1FtSM" class="img-fluid"> </a> </li>
-                <li class=""> <a id="carousel-selector-1" data-slide-to="1" data-target="#custCarousel"> <img src="https://i.picsum.photos/id/449/100/100.jpg?hmac=RDAmExfBxWp028XbWOtSJOj858jDpALVjjXGOg1FtSM" class="img-fluid"> </a> </li>
-                <li class=""> <a id="carousel-selector-2" data-slide-to="2" data-target="#custCarousel"> <img src="https://i.picsum.photos/id/449/100/100.jpg?hmac=RDAmExfBxWp028XbWOtSJOj858jDpALVjjXGOg1FtSM" class="img-fluid"> </a> </li>
-                <li class=""> <a id="carousel-selector-2" data-slide-to="3" data-target="#custCarousel"> <img src="https://i.picsum.photos/id/449/100/100.jpg?hmac=RDAmExfBxWp028XbWOtSJOj858jDpALVjjXGOg1FtSM" class="img-fluid"> </a> </li>
+            <!-- Thumbnails -->
+            <ol class="ProdThumbs carousel-indicators col-sm-3 " >
+                <li class=" active"><a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#custCarousel"> <img src="https://i.picsum.photos/id/449/100/100.jpg?hmac=RDAmExfBxWp028XbWOtSJOj858jDpALVjjXGOg1FtSM" class="img-fluid"> </a> </li>
+                <li><a id="carousel-selector-1" data-slide-to="1" data-target="#custCarousel"> <img src="https://i.picsum.photos/id/449/100/100.jpg?hmac=RDAmExfBxWp028XbWOtSJOj858jDpALVjjXGOg1FtSM" class="img-fluid"> </a> </li>
+                <li><a id="carousel-selector-2" data-slide-to="2" data-target="#custCarousel"> <img src="https://i.picsum.photos/id/449/100/100.jpg?hmac=RDAmExfBxWp028XbWOtSJOj858jDpALVjjXGOg1FtSM" class="img-fluid"> </a> </li>
+                <li><a id="carousel-selector-2" data-slide-to="3" data-target="#custCarousel"> <img src="https://i.picsum.photos/id/449/100/100.jpg?hmac=RDAmExfBxWp028XbWOtSJOj858jDpALVjjXGOg1FtSM" class="img-fluid"> </a> </li>
             </ol>
             <!-- slides -->
             <div class="carousel-inner col-sm-9" >
@@ -16,6 +16,7 @@
                 <div class="carousel-item"> <img src="https://i.picsum.photos/id/1/400/300.jpg?hmac=IEz4gAs8hxV4d9YLVH7Eha48-M-MmGD1Cc2l-V92rPc" alt="Hills"> </div>
             </div> 
             <!-- Left right -->
+
                 <!-- <a class="carousel-control-prev" href="#custCarousel" data-slide="prev"> <span class="carousel-control-prev-icon"></span> </a> <a class="carousel-control-next" href="#custCarousel" data-slide="next"> <span class="carousel-control-next-icon"></span> </a> -->
             
         </div>
@@ -71,6 +72,20 @@ export default {
     height: 300px !important;
 
 }
+
+@media only screen and (min-width:320px) and (max-width: 767px) {
+    
+    #custCarousel{
+        flex-direction: column !important;
+    }
+    .ProdThumbs {
+        
+        flex-direction: row !important;
+        height: unset !important;
+
+    }
+}
+
 
 
 

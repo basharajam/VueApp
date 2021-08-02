@@ -8,6 +8,11 @@
         <h3 class="text-right" >توزيعات عيد ميلاد</h3>
       </div>
 
+      <b-skeleton-wrapper :loading="ProdByTax2Loading">
+      <template #loading>
+        <ProdListLoader></ProdListLoader>
+      </template>
+
       <div class="ProdList ">
         <div class="scrollmenu d-sm-block d-none">
             <ProdCard v-for="Product in ProdByTax2" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
@@ -18,6 +23,10 @@
           </div>
         </div>
       </div>
+
+    </b-skeleton-wrapper>
+
+
   
   
   </div>
@@ -27,25 +36,42 @@
 <script>
 
 import ProdCard from '../items/ProdCard.vue';
+import ProdListLoader from '../widgets/PordListLoader.vue';
 // import ProdGridBox from '../items/ProdGridBox.vue';
 import {mapGetters} from 'vuex';
 
 
 export default {
 
-  name:'ProdsByTax2',
-  components:{
-    ProdCard,
-    // ProdGridBox
-  },
-  computed:{
-      ...mapGetters(['ProdByTax2']),
-      filterArr:function() {
-        
-        return this.ProdByTax2.slice(0,4)
+        name:'ProdsByTax2',
+        components:{
+          ProdCard,
+          ProdListLoader
+          
+          // ProdGridBox
+        },
+        computed:{
+            ...mapGetters(['ProdByTax2']),
+            filterArr:function() {
+              
+              return this.ProdByTax2.slice(0,4)
 
+            }
+        },
+        data(){
+
+          return {
+              ProdByTax2Loading:true
+          }
+
+        },
+        watch:{
+          ProdByTax2(newValue){
+              if(newValue.length > 0){
+                  this.ProdByTax2Loading=false;
+              }
+          },
       }
-  }
 
 }
 </script>

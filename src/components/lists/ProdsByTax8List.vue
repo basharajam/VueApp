@@ -7,20 +7,27 @@
         <h3 class="text-right" >زينة اليوم الوطني السعودي</h3>
       </div>
 
-      <div class="ProdList">
+      <b-skeleton-wrapper :loading="ProdByTax8Loading">
+        <template #loading>
+          <ProdListLoader></ProdListLoader>
+        </template>
+        <div class="ProdList">
 
-        <div class="scrollmenu d-sm-block d-none">
-            <ProdCard v-for="Product in ProdByTax8" v-bind:key="Product.id" v-bind:Product="Product" class=" "></ProdCard>
-        </div>
+          <div class="scrollmenu d-sm-block d-none">
+              <ProdCard v-for="Product in ProdByTax8" v-bind:key="Product.id" v-bind:Product="Product" class=" "></ProdCard>
+          </div>
 
-        <div class="d-sm-none d-block">
-        <div class="container-fluid">
-          <div class="row">
-              <ProdCard v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem hideAddToCart"></ProdCard>                
+          <div class="d-sm-none d-block">
+          <div class="container-fluid">
+            <div class="row">
+                <ProdCard v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem hideAddToCart"></ProdCard>                
+            </div>
+          </div>
           </div>
         </div>
-        </div>
-      </div>
+
+      </b-skeleton-wrapper>
+
   </div>
 </template>
 
@@ -28,11 +35,13 @@
 
 import ProdCard from '../items/ProdCard.vue';
 // import ProdGridBox from '../items/ProdGridBox.vue';
+import ProdListLoader from '../widgets/PordListLoader.vue';
 import {mapGetters} from 'vuex';
 export default {
     name:'prodsByTax',
     components:{
         ProdCard,
+        ProdListLoader
         // ProdGridBox
     },
     computed:{
@@ -41,6 +50,20 @@ export default {
           return this.ProdByTax8.slice(0,4)
       }
 
+    },
+    data(){
+
+      return {
+        ProdByTax8Loading:true
+      }
+
+    },
+    watch:{
+      ProdByTax8(newValue){
+          if(newValue.length > 0){
+              this.ProdByTax8Loading=false;
+          }
+      },
     }
 
 }

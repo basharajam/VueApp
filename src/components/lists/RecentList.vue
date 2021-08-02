@@ -7,27 +7,48 @@
         <h3 class="text-right" >وصلنا حديثا</h3>
       </div>
 
-      <div class="ProdList">
+      <b-skeleton-wrapper :loading="RecentListLoading">
+        <template #loading>
+          <ProdListLoader></ProdListLoader>
+        </template>
+          <div class="ProdList">
 
-        <div class="scrollmenu">
-            <ProdCard v-for="Product in RecentProd" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+            <div class="scrollmenu">
+                <ProdCard v-for="Product in RecentProd" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
 
+              </div>
           </div>
-      </div>
+      </b-skeleton-wrapper>
   </div>
 </template>
 
 <script>
 
 import ProdCard from '../items/ProdCard.vue';
+import ProdListLoader from '../widgets/PordListLoader.vue';
 import {mapGetters} from 'vuex';
 export default {
     name:'RecentList',
     components:{
-        ProdCard
+        ProdCard,
+        ProdListLoader
     },
     computed:{
       ...mapGetters(['RecentProd'])
+    },
+    data(){
+
+      return {
+        RecentListLoading:true
+      }
+
+    },
+    watch:{
+      RecentProd(newValue){
+          if(newValue.length > 0){
+              this.RecentListLoading=false;
+          }
+      },
     }
 
 }

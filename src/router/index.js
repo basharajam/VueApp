@@ -3,6 +3,8 @@ import VueRouter from 'vue-router'
 import Home from '../views/home';
 import test from '../views/test';
 import ProdOne from '../views/ProdOne';
+import ProdByCat from '../views/ProdByCat';
+import Login from '../views/Login';
 // import { i18n } from "../main.js";
 Vue.use(VueRouter)
 
@@ -14,6 +16,11 @@ const routes = [
         component: Home
       },
       {
+        path:'/Login',
+        name:'Login',
+        component:Login
+      },
+      {
         path: '/about',
         name: 'About',
         // route level code-splitting
@@ -22,10 +29,16 @@ const routes = [
         component:test
       },
       {
-        path:'/:ProdName',
+        path:'/:ProdByCat',
+        name:'ProdByCat',
+        component:ProdByCat
+      },
+      {
+        path:'/:ProdByCat/:ProdName',
         name:'ProdOne',
         component:ProdOne
-      }
+      },
+
 
 
 ]

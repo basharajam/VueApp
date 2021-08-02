@@ -7,29 +7,52 @@
         <h3 class="text-right" >منتجات يمكنك طلب 5 كرتون منها او اقل</h3>
       </div>
 
-      <div class="ProdList container-fluid">
+      <b-skeleton-wrapper :loading="ProdByBoxLoading">
+        <template #loading>
+          <ProdListLoader></ProdListLoader>
+        </template>
+        <div class="ProdList container-fluid">
 
-        <div class="scrollmenu">
-            <ProdGridBox v-for="Product in ProdByBox" v-bind:key="Product.id" v-bind:Product="Product" class="col-5 col-sm-3" ></ProdGridBox>
-          </div>
-      </div>
+          <div class="scrollmenu">
+              <ProdGridBox v-for="Product in ProdByBox" v-bind:key="Product.id" v-bind:Product="Product" class="col-5 col-sm-3" ></ProdGridBox>
+            </div>
+        </div>
+
+      </b-skeleton-wrapper>
+
   </div>
 </template>
 
 <script>
 import ProdGridBox from '../items/ProdGridBox.vue';
+import ProdListLoader from '../widgets/PordListLoader.vue';
 // import ProdBox from '../items/ProdBox.vue';
 import { mapGetters } from 'vuex';
 
 export default {
     name:'ProdByBox',
     components:{
-    ProdGridBox
+    ProdGridBox,
+    ProdListLoader
     },
     computed:{
 
       ...mapGetters(['ProdByBox'])
 
+    },
+    data(){
+
+      return {
+        ProdByBoxLoading:true
+      }
+
+    },
+    watch:{
+      ProdByBox(newValue){
+          if(newValue.length > 0){
+              this.ProdByBoxLoading=false;
+          }
+      },
     }
 
 }

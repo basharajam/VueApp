@@ -6,34 +6,56 @@
         </div>
         <h3 class="text-right" >توزيعات بلاستيك</h3>
       </div>
-
-      <div class="ProdList ">
-        <div class="scrollmenu d-sm-block d-none">
-            <ProdCard v-for="Product in ProdByTax6" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-2"></ProdCard>
-        </div>
-        <div class="container-fluid">
-          <div class="row d-sm-none ">
-              <ProdGridBox v-for="Product in ProdByTax6" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-3 GridItem"></ProdGridBox>                
+      <b-skeleton-wrapper :loading="ProdByTax6Loading">
+        <template #loading>
+          <ProdListLoader></ProdListLoader>
+        </template>
+        <div class="ProdList ">
+          <div class="scrollmenu d-sm-block d-none">
+              <ProdCard v-for="Product in ProdByTax6" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-2"></ProdCard>
+          </div>
+          <div class="container-fluid">
+            <div class="row d-sm-none ">
+                <ProdGridBox v-for="Product in ProdByTax6" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-3 GridItem"></ProdGridBox>                
+            </div>
           </div>
         </div>
-      </div>
+
+      </b-skeleton-wrapper>
+
   </div>
 </template>
 
 <script>
 
 import ProdCard from '../items/ProdCard.vue';
+import ProdListLoader from '../widgets/PordListLoader.vue';
 import ProdGridBox from '../items/ProdGridBox.vue';
 import {mapGetters} from 'vuex';
 export default {
     name:'prodsByTax6',
     components:{
         ProdCard,
-        ProdGridBox
+        ProdGridBox,
+        ProdListLoader
     },
     computed:{
       ...mapGetters(['ProdByTax6'])
-    }
+    },
+    data(){
+
+      return {
+        ProdByTax6Loading:true
+      }
+
+    },
+    watch:{
+      ProdByTax6(newValue){
+          if(newValue.length > 0){
+              this.ProdByTax6Loading=false;
+          }
+  },
+}
 
 }
 </script>

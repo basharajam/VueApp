@@ -6,17 +6,23 @@
         </div>
         <h3 class="text-right" >توزيعات علب كرتون</h3>
       </div>
-
-      <div class="ProdList ">
-        <div class="scrollmenu d-sm-block d-none">
-            <ProdCard v-for="Product in ProdByTax7" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-2"></ProdCard>
-        </div>
-        <div class="container-fluid">
-          <div class="row   d-sm-none">
-              <ProdGridBox v-for="Product in ProdByTax7" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-3 GridItem grid-discount"></ProdGridBox>                
+      <b-skeleton-wrapper :loading="ProdByTax7Loading">
+        <template #loading>
+          <ProdListLoader></ProdListLoader>
+        </template>
+        <div class="ProdList ">
+          <div class="scrollmenu d-sm-block d-none">
+              <ProdCard v-for="Product in ProdByTax7" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-2"></ProdCard>
+          </div>
+          <div class="container-fluid">
+            <div class="row   d-sm-none">
+                <ProdGridBox v-for="Product in ProdByTax7" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-3 GridItem grid-discount"></ProdGridBox>                
+            </div>
           </div>
         </div>
-      </div>
+
+      </b-skeleton-wrapper>
+
   </div>
 </template>
 
@@ -24,15 +30,31 @@
 
 import ProdCard from '../items/ProdCard.vue';
 import ProdGridBox from '../items/ProdGridBox.vue';
+import ProdListLoader from '../widgets/PordListLoader.vue';
 import {mapGetters} from 'vuex';
 export default {
     name:'prodsByTax7',
     components:{
         ProdCard,
-        ProdGridBox
+        ProdGridBox,
+        ProdListLoader
     },
     computed:{
       ...mapGetters(['ProdByTax7'])
+    },
+        data(){
+
+      return {
+        ProdByTax7Loading:true
+      }
+
+    },
+    watch:{
+      ProdByTax7(newValue){
+          if(newValue.length > 0){
+              this.ProdByTax7Loading=false;
+          }
+      },
     }
 
 }

@@ -2,10 +2,10 @@
   <div id="app">
 
     <!-- <Spinner v-if="spinner" /> -->
-    <Cart/>
-    <Header />
+    <Cart v-if="['Home','ProdByCat','ProdOne'].includes($route.name)" />
+    <Header  v-if="['Home','ProdByCat','ProdOne'].includes($route.name)" />
     <router-view />
-    <Footer  />
+    <Footer   v-if="['Home','ProdByCat','ProdOne'].includes($route.name)" />
 
   </div>
 </template>
@@ -41,7 +41,6 @@ data: function() {
     };
   },
   mounted(){
-
     this.getProdByTax();
 
     // //get getRecentProd
@@ -307,6 +306,18 @@ position: relative;
 .btn-outline-warning:not(:disabled):not(.disabled).active, .btn-outline-warning:not(:disabled):not(.disabled):active, .show>.btn-outline-warning.dropdown-toggle{
   background-color: #fe6a00 !important;
   color: #000 !important;
+}
+
+.rounded-form {
+  border-radius: 20px !important;
+}
+
+.rounded-form:focus{
+  color: #212529;
+  background-color: #fff;
+  border-color: #ff98006b;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #ff990059;
 }
 
 /*   Query Media */

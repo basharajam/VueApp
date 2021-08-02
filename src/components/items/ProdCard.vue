@@ -4,7 +4,7 @@
         <div class="product-grid">
              <div class="product-image">
                 <a :href="Product.permalink" class="image" style="min-width:150;">
-                    <img class="pic-1"  :src="Product.images[0].src" >
+                    <img class="pic-1"  :src="Product.images[0].src" :alt="Product.name" width="500" height="500" >
                     
                 </a>
                 <span v-if="Product.sale_price" class="discount-lab">% {{ discountPrice(Product)  }}</span>
@@ -281,6 +281,8 @@ export default {
 display: none;
 position: absolute;
 background-color: white;
+text-align: center;
+white-space: break-spaces;
 transition: all 0.4s ease-out;
 }
 

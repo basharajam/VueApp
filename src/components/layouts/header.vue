@@ -37,11 +37,6 @@
             <i v-if="search" class="fas fa-search SearchIcon"></i>
             <input class="form-control mr-sm-2 SearchInput" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="text" placeholder="          بحث"  aria-label="Search">
           </div>
-          <div class="HeaderIcons d-none d-sm-inline-flex  col-sm-1">
-            <a href="https://alyaman.com/my-account/"><i class="fas fa-user"></i></a>
-            <a href="https://alyaman.com/cart/"> <i class="fal fa-shopping-cart"> </i> <span class="CartCount" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" ><span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span></span> </a>
-            <!-- <a href="#"> <i style="color:black" class="fa fa-globe" ></i></a> -->
-          </div>
           <div class="headerDrp col-sm-2 d-none d-sm-block">
                     <b-dropdown id="dropdown-1"  variant="none" class="m-2 ShipBtn " no-flip no-caret>
                           <template #button-content>
@@ -82,6 +77,13 @@
                     </b-dropdown>
                 </span>
               </a> -->
+          </div>
+          <div class="HeaderIcons d-none d-sm-inline-flex  col-sm-1">
+            <div class="HeaderDivider"></div>
+            <a href="https://alyaman.com/my-account/"><i class="fas fa-user"></i></a>
+            <div class="HeaderDivider"></div>
+            <a href="https://alyaman.com/cart/"> <i class="fal fa-shopping-cart"> </i> <span class="CartCount" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" ><span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span></span> </a>
+            <!-- <a href="#"> <i style="color:black" class="fa fa-globe" ></i></a> -->
           </div>
 
     </nav>
@@ -353,6 +355,10 @@ export default {
   }
   .HeaderIcons a:hover{
     color: #fe6a00;
+  }
+  .HeaderDivider{
+    border-left: 1px solid #efa072;
+    height: 46px;
   }
 
   .SearchResult{

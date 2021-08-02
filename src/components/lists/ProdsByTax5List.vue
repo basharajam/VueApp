@@ -6,18 +6,25 @@
         </div>
         <h3 class="text-right">اعراس </h3>
       </div>
-      <div class="ProdList container-fluid">
 
-       <div class="ProdList">
-        <Flickity  v-if="ProdByTax5.length != 0"  class="offersListScroll d-none d-sm-block" ref="flickity" :options="flickityOptions">
-            <ProdCard  class="carousel-cell" v-for="Product in ProdByTax5" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
-        </Flickity>
-        <div class="scrollmenu d-sm-none">
-            <ProdCard v-for="Product in ProdByTax5" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
-          </div>
-      </div>
-        
-      </div>
+      <b-skeleton-wrapper :loading="ProdByTax5Loading">
+        <template #loading>
+          <ProdListLoader></ProdListLoader>
+        </template>
+        <div class="ProdList container-fluid">
+        <div class="ProdList">
+          <Flickity  v-if="ProdByTax5.length != 0"  class="offersListScroll d-none d-sm-block" ref="flickity" :options="flickityOptions">
+              <ProdCard  class="carousel-cell" v-for="Product in ProdByTax5" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+          </Flickity>
+          <div class="scrollmenu d-sm-none">
+              <ProdCard v-for="Product in ProdByTax5" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+            </div>
+        </div>
+          
+        </div>
+
+      </b-skeleton-wrapper>
+
   </div>
 </template>
 
@@ -25,6 +32,7 @@
 import { mapGetters } from 'vuex';
 import Flickity from 'vue-flickity';
 import ProdCard from '../items/ProdCard.vue';
+import ProdListLoader from '../widgets/PordListLoader.vue';
 // import ProdGridBox from '../items/ProdGridBox.vue';
 
 export default {
@@ -32,7 +40,8 @@ export default {
   name:'ProdsByTax5',
   components:{
     ProdCard,
-    Flickity
+    Flickity,
+    ProdListLoader
     // ProdGridBox
   },
   computed:{
@@ -48,9 +57,18 @@ export default {
           imagesLoaded: true,
   
           // any options from Flickity can be used
-        }
+        },
+        ProdByTax5Loading:true
+
       }
-  }
+  },
+  watch:{
+      ProdByTax5(newValue){
+          if(newValue.length > 0){
+              this.ProdByTax5Loading=false;
+          }
+      },
+    }
 
 }
 </script>

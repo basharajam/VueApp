@@ -1,5 +1,105 @@
 <template>
     <div class="container-fluid ProdBoxList d-none d-sm-block">
+
+            <b-skeleton-wrapper :loading="ProdInBox2Loading">
+                <template #loading>
+                <div class="container-fluid">
+                  <div class="row">
+                    <div class="col-sm-3">
+                        <b-skeleton class="mx-auto my-2" width="100%"></b-skeleton>
+                        <div class="row">
+                            <div class="col-sm-6  my-2">
+                                <b-skeleton-img no-aspect height="150px"></b-skeleton-img>
+                                <b-skeleton class="mx-auto my-1" width="80%"></b-skeleton>
+                            </div>
+                            <div class="col-sm-6  my-2">
+                                <b-skeleton-img no-aspect height="150px" ></b-skeleton-img>
+                                <b-skeleton class="mx-auto my-1" width="80%"></b-skeleton>
+                            </div>
+                            <div class="col-sm-6   my-2">
+                                <b-skeleton-img no-aspect height="150px" ></b-skeleton-img>
+                                <b-skeleton class="mx-auto my-1" width="80%"></b-skeleton>
+                            </div>
+                            <div class="col-sm-6 my-2">
+                                <b-skeleton-img no-aspect height="150px" ></b-skeleton-img>
+                                <b-skeleton class="mx-auto my-1" width="80%"></b-skeleton>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        
+                        <b-skeleton class="mx-auto my-2" width="100%"></b-skeleton>
+                        <div class="row">
+                            <div class="col-sm-6  my-2">
+                                <b-skeleton-img no-aspect height="150px"></b-skeleton-img>
+                                <b-skeleton class="mx-auto my-1" width="80%"></b-skeleton>
+                            </div>
+                            <div class="col-sm-6  my-2">
+                                <b-skeleton-img no-aspect height="150px" ></b-skeleton-img>
+                                <b-skeleton class="mx-auto my-1" width="80%"></b-skeleton>
+                            </div>
+                            <div class="col-sm-6   my-2">
+                                <b-skeleton-img no-aspect height="150px" ></b-skeleton-img>
+                                <b-skeleton class="mx-auto my-1" width="80%"></b-skeleton>
+                            </div>
+                            <div class="col-sm-6 my-2">
+                                <b-skeleton-img no-aspect height="150px" ></b-skeleton-img>
+                                <b-skeleton class="mx-auto my-1" width="80%"></b-skeleton>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        
+                        <b-skeleton class="mx-auto my-2" width="100%"></b-skeleton>
+                        <div class="row">
+                            <div class="col-sm-6  my-2">
+                                <b-skeleton-img no-aspect height="150px"></b-skeleton-img>
+                                <b-skeleton class="mx-auto my-1" width="80%"></b-skeleton>
+                            </div>
+                            <div class="col-sm-6  my-2">
+                                <b-skeleton-img no-aspect  height="150px" ></b-skeleton-img>
+                                <b-skeleton class="mx-auto my-1" width="80%"></b-skeleton>
+                            </div>
+                            <div class="col-sm-6   my-2">
+                                <b-skeleton-img no-aspect height="150px" ></b-skeleton-img>
+                                <b-skeleton class="mx-auto my-1" width="80%"></b-skeleton>
+                            </div>
+                            <div class="col-sm-6 my-2">
+                                <b-skeleton-img no-aspect height="150px" ></b-skeleton-img>
+                                <b-skeleton class="mx-auto my-1" width="80%"></b-skeleton>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        
+                        <b-skeleton class="mx-auto my-2" width="100%"></b-skeleton>
+                        <div class="row">
+                            <div class="col-sm-6  my-2">
+                                <b-skeleton-img no-aspect height="150px"></b-skeleton-img>
+                                <b-skeleton class="mx-auto my-1" width="80%"></b-skeleton>
+                            </div>
+                            <div class="col-sm-6  my-2">
+                                <b-skeleton-img no-aspect height="150px" ></b-skeleton-img>
+                                <b-skeleton class="mx-auto my-1" width="80%"></b-skeleton>
+                            </div>
+                            <div class="col-sm-6   my-2">
+                                <b-skeleton-img no-aspect height="150px" ></b-skeleton-img>
+                                <b-skeleton class="mx-auto my-1" width="80%"></b-skeleton>
+                            </div>
+                            <div class="col-sm-6 my-2">
+                                <b-skeleton-img no-aspect height="150px" ></b-skeleton-img>
+                                <b-skeleton class="mx-auto my-1" width="80%"></b-skeleton>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                    
+                </div>
+                </template>
+
             <!-- SaudiDayTopper -->
             <div class="ProdsBox col-sm-3">
                 <h3 class="ProdBoxTitle ">احبال زينة اليوم الوطني</h3>
@@ -59,7 +159,70 @@
                     </div>
                     <a href="#" class="ProdBoxBtn">عرض المزيد</a>
                 </div>
-            </div>
+              </div>
+            </b-skeleton-wrapper>
+
+            <!-- SaudiDayTopper -->
+            <!-- <div class="ProdsBox col-sm-3">
+                <h3 class="ProdBoxTitle ">احبال زينة اليوم الوطني</h3>
+                <div class="ProdBoxItems">
+                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox2" v-bind:key="Prod.id">
+                        <a :href="Prod.permalink">
+                            <img :src="Prod.images[0].src" alt="">
+                        </a>
+                        <a :href="Prod.permalink">
+                            <p>{{Prod.name}}</p>
+                        </a>
+                    </div>
+                </div>
+                <a href="#" class="ProdBoxBtn">عرض المزيد</a>
+            </div> -->
+
+
+            <!-- <div class="ProdsBox col-sm-3">
+                <h3 class="ProdBoxTitle ">تغريسات اليوم الوطني</h3>
+                <div class="ProdBoxItems">
+                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox0" v-bind:key="Prod.id">
+                        <a :href="Prod.permalink">
+                            <img :src="Prod.images[0].src" alt="">
+                        </a>
+                        <a :href="Prod.permalink">
+                            <p>{{Prod.name}}</p>
+                        </a>
+                    </div>
+                    <a href="#" class="ProdBoxBtn">عرض المزيد</a>
+                </div>
+            </div> -->
+
+            <!-- <div class="ProdsBox col-sm-3">
+                <h3 class="ProdBoxTitle ">ستيكرات اليوم الوطني</h3>
+                <div class="ProdBoxItems">
+                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox" v-bind:key="Prod.id">
+                        <a :href="Prod.permalink">
+                            <img :src="Prod.images[0].src" alt="">
+                        </a>
+                        <a :href="Prod.permalink">
+                            <p>{{Prod.name}}</p>
+                        </a>
+                    </div>
+                <a href="#" class="ProdBoxBtn">عرض المزيد</a>
+                </div>
+            </div> -->
+
+            <!-- <div class="ProdsBox col-sm-3">
+                <h3 class="ProdBoxTitle ">تاغات اليوم الوطني</h3>
+                <div class="ProdBoxItems">
+                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox1" v-bind:key="Prod.id">
+                        <a :href="Prod.permalink">
+                            <img :src="Prod.images[0].src" alt="">
+                        </a>
+                        <a :href="Prod.permalink">
+                            <p>{{Prod.name}}</p>
+                        </a>
+                    </div>
+                    <a href="#" class="ProdBoxBtn">عرض المزيد</a>
+                </div>
+            </div> -->
 
         </div>
 
@@ -74,9 +237,19 @@ export default {
     name:'ProdBoxList',
     computed:{
         ...mapGetters(['ProdInBox','ProdInBox0','ProdInBox1','ProdInBox2'])
+    },
+    data(){
+        return{
+            ProdInBox2Loading:true
+        }
+    },
+    watch:{
+        ProdInBox2(newValue){
+            if(newValue.length > 0){
+                this.ProdInBox2Loading=false;
+            }
+        },
     }
-
-
 }
 </script>
 
