@@ -112,8 +112,8 @@
                             <p>{{Prod.name}}</p>
                         </a>
                     </div>
+                    <a href="https://www.alyaman.com/product-tag/ksa_decoration_group/" class="ProdBoxBtn">عرض المزيد</a>
                 </div>
-                <a href="https://www.alyaman.com/product-tag/ksa_decoration_group/" class="ProdBoxBtn">عرض المزيد</a>
             </div>
 
 
@@ -151,7 +151,7 @@
                 <div class="ProdBoxItems">
                     <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox1" v-bind:key="Prod.id">
                         <a :href="Prod.permalink">
-                            <img :src="Prod.images[0].src" alt="">
+                            <img :src="Prod.images[0].src" alt="" >
                         </a>
                         <a :href="Prod.permalink">
                             <p>{{Prod.name}}</p>
@@ -299,20 +299,22 @@ export default {
 }
 
 .ProdBoxBtn{
-        color: #fe6a00;
+    color: #fe6a00;
     display: block;
     background-color: white;
-    border: 1px #fe6a00 solid;
+
     font-size: 12px;
     font-weight: 500;
     text-transform: uppercase;
     line-height: 40px;
     width: 60%;
-    border-radius: 50px;
-    padding: 2px;
-    margin: 14px auto;
+
     transition: all 0.4s;
-    text-align: center;
+    text-align: justify;
+}
+
+.ProdBoxBtn:active{
+        color: black;
 }
 
 </style>

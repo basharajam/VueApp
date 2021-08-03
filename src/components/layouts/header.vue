@@ -76,9 +76,9 @@
                 </span>
               </a> -->
           </div>
-          <div class="HeaderIcons d-none d-sm-inline-flex  col-sm-1">
+          <div class="HeaderIcons d-none d-sm-inline-flex" style="position: absolute;left: 0;">
             <!-- <div class="HeaderDivider"></div> -->
-            <a href="https://alyaman.com/my-account/"><i class="fas fa-user"></i></a>
+            <a href="https://alyaman.com/my-account/"><i class="fal fa-user"></i></a>
             <div class="HeaderDivider"></div>
             <a href="https://alyaman.com/cart/"> <i class="fal fa-shopping-cart"> </i> <span class="CartCount" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" ><span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span></span> </a>
             <!-- <a href="#"> <i style="color:black" class="fa fa-globe" ></i></a> -->
@@ -347,16 +347,16 @@ export default {
   }
 
   .HeaderIcons a{
-    margin: 0px 12px;
-    color: black;
+    margin: 0px 16px;
+    color: #fe6a00;
     font-size: 26px;
   }
   .HeaderIcons a:hover{
-    color: #fe6a00;
+    color: black;
   }
   .HeaderDivider{
-    border-left: 1px solid #efa072;
-    height: 46px;
+    border-left: 1px solid #d1d3d4;
+    height: 42px;
   }
 
   .SearchResult{
