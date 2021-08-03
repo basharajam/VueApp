@@ -33,7 +33,8 @@ export default {
     // ...mapActions(['getCategories','getProdByTax','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
     // ...mapActions(['getProdByTax','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
     // ...mapActions(['getProdByTax','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell'])
-       ...mapActions(['getProdByTax','getProdMostPopular','getProdBestSell'])
+    //   ...mapActions(['getProdByTax','getProdMostPopular','getProdBestSell'])
+       ...mapActions(['getProdByTax'])
   },
 data: function() {
     return {
@@ -50,10 +51,10 @@ data: function() {
     // this.getProdOffers();
 
     //get Products Best Sell
-    this.getProdBestSell();
+    //this.getProdBestSell();
 
     //get Product Most Popular
-    this.getProdMostPopular();
+    //this.getProdMostPopular();
 
     // //get ProdsByBox
     // this.getProdByBox();

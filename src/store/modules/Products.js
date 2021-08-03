@@ -45,55 +45,18 @@ const getters = {
     ProdInBox0:state=>state.ProdInBox0,
     ProdInBox1:state=>state.ProdInBox1,
     ProdInBox2:state=>state.ProdInBox2,
-    ProdByBox:state=>state.ProdByBox
+    ProdByBox:state=>state.ProdByBox,
 
 }
 
 const actions = {
 
-    getProdBestSell({commit}){
 
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=672&per_page=8&status=publish';
-        axios.get(SetUrl).then(function(response){
-
-            if(response.status != 200){
-           
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
-          
-                commit('ProdBestSell',response.data)
-
-            }
-
-        })
-
-    },
-
-    getProdMostPopular({commit}){
-
-        var SetUrl=process.env.VUE_APP_BASEURL+'products?tag=719&per_page=8&status=publish';
-        axios.get(SetUrl).then(function(response){
-
-            if(response.status != 200){
-           
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
-          
-                commit('ProdMostPopular',response.data)
-
-            }
-
-        })
-
-    },
     getProdByTax({commit}){
 
         var CountryVal= cookie.get('shipCountry');
         var CurrVal = cookie.get('Curr');
-        console.log(CountryVal)
-        console.log(CurrVal);
+
 
         //var setUrl ='https://phplaravel-608610-2049275.cloudwaysapps.com/api/Products/'+cur;
         if(CountryVal && CurrVal){
@@ -117,6 +80,7 @@ const actions = {
 
         //http://127.0.0.1:8000/api/Products/USD/UAE
         //https://wordpress-608610-2061089.cloudwaysapps.com/
+        //var setUrl ='http://127.0.0.1:8000/api/Products/'+cur+'/'+country;
         var setUrl ='https://phplaravel-608610-2049275.cloudwaysapps.com/api/Products/'+cur+'/'+country;
           axios.get(setUrl).then(function(response){
     
@@ -129,7 +93,7 @@ const actions = {
                 //Category
                 commit('Categories',response.data.Categories)
                 
-                console.log(response.data)
+               
 
                 // landing page 
                 commit('ProdByTax',response.data.ProdByTax)
@@ -151,14 +115,11 @@ const actions = {
 
                 commit('ProdOffers',response.data.Offers)
                 commit('RecentProd',response.data.RecentProds)
-
-
+                commit('ProdBestSell',response.data.BestSell)
+                commit('ProdMostPopular',response.data.MostPop)
 
             }
-
         })
-
-
     },
 }
 
@@ -172,11 +133,10 @@ const mutations = {
     ProdOffers:(state,ProdOffers)=>(state.ProdOffers = ProdOffers),
     ProdMostPopular:(state,ProdMostPopular)=>(state.ProdMostPopular=ProdMostPopular),
     RecentProd:(state,RecentProd) =>(state.RecentProd = RecentProd),
+    ProdBestSell:(state,ProdBestSell)=>(state.ProdBestSell =ProdBestSell),
 
-    
     ProdByTax:(state,ProdByTax)=>(state.ProdByTax = ProdByTax),
     ProdByTax0:(state,ProdByTax0)=>(state.ProdByTax0 = ProdByTax0),
-    ProdBestSell:(state,ProdBestSell)=>(state.ProdBestSell =ProdBestSell),
     ProdByTax1:(state,ProdByTax1)=>(state.ProdByTax1=ProdByTax1),
     ProdByTax2:(state,ProdByTax2)=>(state.ProdByTax2=ProdByTax2),
     ProdByTax3:(state,ProdByTax3)=>(state.ProdByTax3=ProdByTax3),
