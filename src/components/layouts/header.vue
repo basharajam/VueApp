@@ -33,7 +33,7 @@
           <img  src="icon.png" alt="" >
         </a>
         
-          <div class="SearchSection col-sm-4 col-7">
+          <div class="SearchSection col-sm-8 col-7">
             <!-- <i v-if="search" class="fas fa-search SearchIcon"></i> -->
             <input class="form-control mr-sm-2 SearchInput" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="search" placeholder="          بحث"  aria-label="Search">
           </div>
@@ -285,6 +285,12 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
+
+  .SearchSection {
+    position: relative;
+    top:3px;
+  }
 
   .CatNavLinks{
     padding: 10px 0;
