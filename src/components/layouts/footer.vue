@@ -41,13 +41,13 @@
                 <h3>كن معنا</h3>
                 <div class="SocialLinks">
                     <div class="SocialLinkI">
-                        <a href="https://www.facebook.com/alyaman.b2b"><span class="fab fa-facebook-f SocialLinkSpan"></span></a>
+                        <a href="https://www.facebook.com/alyaman.b2b" aria-label="Facebook"><span class="fab fa-facebook-f SocialLinkSpan"></span></a>
                     </div>
                     <div class="SocialLinkI">
-                     <a href="https://www.instagram.com/alyaman_online/?igshid=1p9gkpkdv2z86"><span class="fab fa-instagram SocialLinkSpan"></span></a>
+                     <a href="https://www.instagram.com/alyaman_online/?igshid=1p9gkpkdv2z86" aria-label="Instagram"><span class="fab fa-instagram SocialLinkSpan"></span></a>
                     </div>
                     <div class="SocialLinkI">
-                        <a href="https://www.youtube.com/channel/UC0bq-kmZcBP3df0UJ0IQDmQ"><span class="fab fa-youtube SocialLinkSpan" style=""></span></a>
+                        <a href="https://www.youtube.com/channel/UC0bq-kmZcBP3df0UJ0IQDmQ" aria-label="Youtube" ><span class="fab fa-youtube SocialLinkSpan" style=""></span></a>
                     </div>
                 </div>
               </div>

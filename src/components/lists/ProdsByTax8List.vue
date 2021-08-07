@@ -13,11 +13,11 @@
         </template>
         <div class="ProdList">
 
-          <div class="scrollmenu d-sm-block d-none">
+          <div class="scrollmenu "  v-if="$mq === 'md' || $mq === 'lg'">
               <ProdCard v-for="Product in ProdByTax8" v-bind:key="Product.id" v-bind:Product="Product" class=" "></ProdCard>
           </div>
 
-          <div class="d-sm-none d-block">
+          <div v-if="$mq === 'sm'">
           <div class="container-fluid">
             <div class="row">
                 <ProdCard v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem hideAddToCart"></ProdCard>                

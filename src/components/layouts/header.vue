@@ -1,44 +1,44 @@
 <template>
   <div class="alheader">
-    <!-- <div class="header-list">
-      <a >الشحن الى : 
-        
-        <span>
-          <b-dropdown id="dropdown-1" :text="SelectedCountryText " variant="link" class="m-2 ShipBtn ">
-            <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
-                <b-form-group label="العملة" >
-                    <b-form-select v-model="CurrInput" size="sm" :options="CurOptions"></b-form-select>
-                </b-form-group>
+        <div class="headerTop"  v-if="$mq === 'sm'">
+                <div class="headerDrp d-flex align-items-center ">
+                          <b-dropdown id="dropdown-1"  variant="none" class="ShipBtn" no-flip no-caret>
+                                <template #button-content>
+                                    <div class="d-flex align-items-center">
+                                      <div class="stack" style="color: white; flex-direction:row;align-items: flex-end; margin-left: 10px;display: flex;">
+                                          <span style="font-size: 12px;margin: 0 6px;"> الشحن إلى :</span>
+                                          <span style="font-weight: bold;font-size: 12px"> {{SelectedCountryText}}</span>
+                                      </div>
+                                      <div style="color: white;width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
+                                    </div>
+                                </template>
+                            <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
+                                <b-form-group label="العملة" >
+                                    <b-form-select v-model="CurrInput" size="sm" :options="CurOptions"></b-form-select>
+                                </b-form-group>
 
-                <b-form-group label="الشحن الى" >
-                    <b-form-select v-model="CountryInput" size="sm" :options="CountryOptions"></b-form-select>
-                </b-form-group>
-                <b-form-group>
-                  <b-button type="submit" block pill variant="outline-warning">حفظ</b-button>
-                </b-form-group>
-            </b-dropdown-form>
-        </b-dropdown>
-        </span>
-      </a>
-      <a href="#">اللغة :
-          <b-dropdown id="dropdown-2" variant='outline-light ' text="العربية" class="m-2 ShipBtn ">
-
-          </b-dropdown>
-
-      </a>
-
-    </div> -->
+                                <b-form-group label="الشحن الى" >
+                                    <b-form-select v-model="CountryInput" size="sm" :options="CountryOptions"></b-form-select>
+                                </b-form-group>
+                                <b-form-group>
+                                  <b-button type="submit" block pill variant="outline-warning">حفظ</b-button>
+                                </b-form-group>
+                            </b-dropdown-form>
+                          </b-dropdown>
+                    <a style="color:white" @click="SetLang()" >اللغة</a>
+              </div>
+        </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand "  href="https://alyaman.com">
+        <a class="navbar-brand "  href="https://alyaman.com" aria-label="Al-yaman">
           <img  src="icon.png" alt="" >
         </a>
         
-          <div class="SearchSection col-sm-8 col-7">
+          <div class="SearchSection col-sm-4 col-7">
             <!-- <i v-if="search" class="fas fa-search SearchIcon"></i> -->
             <input class="form-control mr-sm-2 SearchInput" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="search" placeholder="          بحث"  aria-label="Search">
           </div>
-          <div class="headerDrp col-sm-2 d-none d-sm-block">
-                    <!-- <b-dropdown id="dropdown-1"  variant="none" class="m-2 ShipBtn " no-flip no-caret>
+          <div class="headerDrp col-sm-2 " v-if="$mq === 'md' || $mq === 'lg' ">
+                    <b-dropdown id="dropdown-1"  variant="none" class="m-2 ShipBtn " no-flip no-caret>
                           <template #button-content>
                               <div class="d-flex align-items-center">
                                 <country-flag country='sa' size='normal' v-if="CountryVal0 ==='SAR'"/>
@@ -67,7 +67,7 @@
                             <b-button type="submit" block pill variant="outline-warning">حفظ</b-button>
                           </b-form-group>
                       </b-dropdown-form>
-                    </b-dropdown> -->
+                    </b-dropdown>
               <!-- <a >اللغة  
                   <span>
                     <b-dropdown id="dropdown-2" text=" العربية" variant="link" class="m-2 ShipBtn ">
@@ -78,9 +78,9 @@
           </div>
           <div class="HeaderIcons d-none d-sm-inline-flex" style="position: absolute;left: 0;">
             <!-- <div class="HeaderDivider"></div> -->
-            <a href="https://alyaman.com/my-account/"><i class="fal fa-user"></i></a>
+            <a href="https://alyaman.com/my-account/" aria-label="حسابي"><i class="fal fa-user"></i></a>
             <div class="HeaderDivider"></div>
-            <a href="https://alyaman.com/cart/"> <i class="fal fa-shopping-cart"> </i> <span class="CartCount" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" ><span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span></span> </a>
+            <a href="https://alyaman.com/cart/" aria-label="سلة التسوق"> <i class="fal fa-shopping-cart"> </i> <span class="CartCount" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" ><span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span></span> </a>
             <!-- <a href="#"> <i style="color:black" class="fa fa-globe" ></i></a> -->
           </div>
 
@@ -114,7 +114,7 @@
 <script>
 
 import { mapGetters, mapActions } from 'vuex';
-// import CountryFlag from 'vue-country-flag'
+import CountryFlag from 'vue-country-flag'
 import _ from 'lodash'
 import axios from 'axios';
 
@@ -125,9 +125,9 @@ export default {
       ...mapGetters(['Categories']),
       ...mapActions(['getProdByTax']),
     },
-    // components:{
-    //   CountryFlag
-    // },
+    components:{
+      CountryFlag
+    },
     data(){
 
         var CountryVal= this.$cookies.get('shipCountry');
@@ -277,6 +277,9 @@ export default {
             // Refresh The Page
             window.location.reload()
             //this.$forceUpdate();
+         },
+         SetLang(){
+           window.location.reload()
          }
     }
     
@@ -397,42 +400,10 @@ export default {
         border: 1px #fa660d solid;
         color: #fa660d;
   }
-  .header-list{
-    height: 30px;
-    background: #2f2f2f;  
-    display: flex;
-    flex-direction: row;
-    justify-content: end;
-    align-content: center;
-    align-items: center;
-    color: white;
-    font-weight: bolder;
 
+  .headerTop{
+    background: #2f2f2f;
   }
-  .header-list a {
-
-    color: white;
-    margin: 0 12px;
-    text-decoration: none;
-  }
-  /* .header-list a:after{
-    content: "";
-    position: absolute;
-    height: 12px;
-    width: 1px;
-    background-color: #666;
-    top: 3px;
-    left: -3px;
-
-  } */
-#dropdown-1 button {
-
-border-color: unset !important;
-
-}
-
-
-
   .innerSpinner0 {
     width: 20%;
     text-align: center;

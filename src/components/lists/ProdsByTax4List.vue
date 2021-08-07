@@ -12,14 +12,18 @@
           <ProdListLoader></ProdListLoader>
         </template>
          <div class="ProdList">
-          <Flickity  v-if="ProdByTax4.length != 0"  class="offersListScroll d-none d-sm-block" ref="flickity" :options="flickityOptions">
-              <ProdCard  class="carousel-cell" v-for="Product in ProdByTax4" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
-          </Flickity>
-          <div class="container-fluid">
-            <div class="row d-sm-none">
-                <ProdCard v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem hideAddToCart"></ProdCard>                
-            </div>
-          </div>
+
+                <Flickity class="offersListScroll" ref="flickity" :options="flickityOptions" v-if="$mq === 'md' || $mq === 'lg' && ProdByTax4.length != 0">
+                    <ProdCard  class="carousel-cell" v-for="Product in ProdByTax4" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+                </Flickity>
+                <div v-if="$mq === 'sm'">
+                  <div class="container-fluid">
+                    <div class="row">
+                        <ProdCard v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem hideAddToCart"></ProdCard>                
+                    </div>
+                  </div>
+                </div>
+
         </div>
       </b-skeleton-wrapper>
   </div>
@@ -38,6 +42,7 @@ export default {
   components:{
     ProdCard,
     ProdListLoader,
+    
     // ProdGridBox,
     Flickity
   },

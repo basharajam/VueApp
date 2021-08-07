@@ -12,7 +12,7 @@
     <div class="carousel-inner">
         <div class="carousel-item active">
             <a href="https://alyaman.com/%d8%b9%d8%b1%d9%88%d8%b6/">
-              <img class="d-block w-100" src="@/assets/Slider/slid6.jpeg" alt="First slide" />
+              <img class="d-block w-100" src="@/assets/Slider/slid6.jpeg"  alt="First slide" />
             </a>
         </div>
         <!-- <div class="carousel-item">

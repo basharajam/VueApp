@@ -151,7 +151,7 @@ export default {
     display: block;
 }
 .card-grid .card-content{
-    padding: 12px 12px 15px;
+    padding: 12px 2px 12px;
     position: relative;
 }
 .card-grid .rating{
@@ -177,8 +177,8 @@ export default {
 .card-grid .title a:hover{ color: #fe6a00; }
 .card-grid .price{
     color: #fe6a00;
-    font-size: 17px;
-    font-weight: 600;
+    font-size: 12px;
+    /* font-weight: 600; */
     display: block;
     transition: all 0.4s ease-in-out;
 }

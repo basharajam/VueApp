@@ -11,11 +11,11 @@
           <ProdListLoader></ProdListLoader>
         </template>
         <div class="ProdList ">
-          <div class="scrollmenu d-sm-block d-none">
+          <div class="scrollmenu "  v-if="$mq === 'md' || $mq === 'lg'">
               <ProdCard v-for="Product in ProdByTax6" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-2"></ProdCard>
           </div>
-          <div class="container-fluid">
-            <div class="row d-sm-none ">
+          <div class="container-fluid" v-if="$mq === 'sm'">
+            <div class="row">
                 <ProdGridBox v-for="Product in ProdByTax6" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-3 GridItem"></ProdGridBox>                
             </div>
           </div>

@@ -13,12 +13,15 @@
         </template>
         <div class="ProdList container-fluid">
         <div class="ProdList">
-          <Flickity  v-if="ProdByTax5.length != 0"  class="offersListScroll d-none d-sm-block" ref="flickity" :options="flickityOptions">
-              <ProdCard  class="carousel-cell" v-for="Product in ProdByTax5" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
-          </Flickity>
-          <div class="scrollmenu d-sm-none">
-              <ProdCard v-for="Product in ProdByTax5" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
-            </div>
+
+
+              <Flickity  v-if="$mq === 'md' || $mq === 'lg' && ProdByTax5.length != 0"  class="offersListScroll d-none d-sm-block" ref="flickity" :options="flickityOptions">
+                  <ProdCard  class="carousel-cell" v-for="Product in ProdByTax5" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+              </Flickity>
+              <div class="scrollmenu " v-if="$mq === 'sm'">
+                  <ProdCard v-for="Product in ProdByTax5" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+              </div>
+
         </div>
           
         </div>
@@ -41,7 +44,8 @@ export default {
   components:{
     ProdCard,
     Flickity,
-    ProdListLoader
+    ProdListLoader,
+    
     // ProdGridBox
   },
   computed:{

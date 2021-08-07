@@ -21,9 +21,9 @@
                 <div class="descrition" v-html=" Product.short_description"></div>
             </div>
             <div class="product-content">
-                <ul class="rating">
+                <div class="rating">
                     <star-rating style="display: flex;flex-direction: column;"  :rating="parseFloat(Product.average_rating)" :increment='0.01' :read-only="true" :star-size="18" :show-rating='false' v-bind:rtl='true' active-color='#fe6a00' :glow='1' :animate='true'></star-rating>
-                </ul>
+                </div>
                 <!-- addToCart(Product.ID,Product.meta._wc_min_qty_product,Product.meta.al_carton_qty) -->
                 <a class="add-to-cart" :href="Product.permalink"  >عرض تفاصيل المنتج</a>
             </div>
@@ -212,12 +212,14 @@ export default {
     text-transform: uppercase;
     margin: 0 0 15px;
     transition: all 0.4s ease-in-out;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .product-grid .title a{
     color: #2c2c2c;
     transition: all 0.3s ease 0s;
-    white-space: break-spaces;
-    max-width: 20ch;
+    white-space: nowrap;
+    max-width: 75ch;
 }
 
 .product-grid .product-data .title a:hover{ color: #fe6a00; }

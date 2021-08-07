@@ -1,7 +1,8 @@
 <template>
-    <div class="container-fluid ProdBoxList d-none d-sm-block">
 
-            <b-skeleton-wrapper :loading="ProdInBox2Loading">
+    <div class="container-fluid ProdBoxList" v-if="$mq === 'md' || $mq === 'lg'">
+
+            <b-skeleton-wrapper :loading="ProdInBox2Loading" >
                 <template #loading>
                 <div class="container-fluid">
                   <div class="row">
@@ -106,7 +107,7 @@
                 <div class="ProdBoxItems">
                     <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox2" v-bind:key="Prod.id">
                         <a :href="Prod.permalink">
-                            <img :src="Prod.images[0].src" alt="">
+                            <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
                         </a>
                         <a :href="Prod.permalink">
                             <p>{{Prod.name}}</p>
@@ -122,7 +123,7 @@
                 <div class="ProdBoxItems">
                     <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox0" v-bind:key="Prod.id">
                         <a :href="Prod.permalink">
-                            <img :src="Prod.images[0].src" alt="">
+                            <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
                         </a>
                         <a :href="Prod.permalink">
                             <p>{{Prod.name}}</p>
@@ -137,7 +138,7 @@
                 <div class="ProdBoxItems">
                     <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox" v-bind:key="Prod.id">
                         <a :href="Prod.permalink">
-                            <img :src="Prod.images[0].src" alt="">
+                            <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
                         </a>
                         <a :href="Prod.permalink">
                             <p>{{Prod.name}}</p>
@@ -151,7 +152,7 @@
                 <div class="ProdBoxItems">
                     <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox1" v-bind:key="Prod.id">
                         <a :href="Prod.permalink">
-                            <img :src="Prod.images[0].src" alt="" >
+                            <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500"  >
                         </a>
                         <a :href="Prod.permalink">
                             <p>{{Prod.name}}</p>
@@ -161,78 +162,15 @@
                 </div>
               </div>
             </b-skeleton-wrapper>
-
-            <!-- SaudiDayTopper -->
-            <!-- <div class="ProdsBox col-sm-3">
-                <h3 class="ProdBoxTitle ">احبال زينة اليوم الوطني</h3>
-                <div class="ProdBoxItems">
-                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox2" v-bind:key="Prod.id">
-                        <a :href="Prod.permalink">
-                            <img :src="Prod.images[0].src" alt="">
-                        </a>
-                        <a :href="Prod.permalink">
-                            <p>{{Prod.name}}</p>
-                        </a>
-                    </div>
-                </div>
-                <a href="#" class="ProdBoxBtn">عرض المزيد</a>
-            </div> -->
-
-
-            <!-- <div class="ProdsBox col-sm-3">
-                <h3 class="ProdBoxTitle ">تغريسات اليوم الوطني</h3>
-                <div class="ProdBoxItems">
-                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox0" v-bind:key="Prod.id">
-                        <a :href="Prod.permalink">
-                            <img :src="Prod.images[0].src" alt="">
-                        </a>
-                        <a :href="Prod.permalink">
-                            <p>{{Prod.name}}</p>
-                        </a>
-                    </div>
-                    <a href="#" class="ProdBoxBtn">عرض المزيد</a>
-                </div>
-            </div> -->
-
-            <!-- <div class="ProdsBox col-sm-3">
-                <h3 class="ProdBoxTitle ">ستيكرات اليوم الوطني</h3>
-                <div class="ProdBoxItems">
-                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox" v-bind:key="Prod.id">
-                        <a :href="Prod.permalink">
-                            <img :src="Prod.images[0].src" alt="">
-                        </a>
-                        <a :href="Prod.permalink">
-                            <p>{{Prod.name}}</p>
-                        </a>
-                    </div>
-                <a href="#" class="ProdBoxBtn">عرض المزيد</a>
-                </div>
-            </div> -->
-
-            <!-- <div class="ProdsBox col-sm-3">
-                <h3 class="ProdBoxTitle ">تاغات اليوم الوطني</h3>
-                <div class="ProdBoxItems">
-                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox1" v-bind:key="Prod.id">
-                        <a :href="Prod.permalink">
-                            <img :src="Prod.images[0].src" alt="">
-                        </a>
-                        <a :href="Prod.permalink">
-                            <p>{{Prod.name}}</p>
-                        </a>
-                    </div>
-                    <a href="#" class="ProdBoxBtn">عرض المزيد</a>
-                </div>
-            </div> -->
-
         </div>
-
 </template>
 
 <script>
 
-import {mapGetters} from 'vuex'
-
+import {mapGetters} from 'vuex';
 export default {
+
+    
 
     name:'ProdBoxList',
     computed:{
@@ -249,7 +187,9 @@ export default {
                 this.ProdInBox2Loading=false;
             }
         },
-    }
+    },
+
+
 }
 </script>
 
@@ -267,7 +207,7 @@ export default {
     text-align: center;
     background-color: white;
     margin: 0;
-    padding: 0;
+    padding-top: 10px;
 }
 
 .ProdBoxItems{

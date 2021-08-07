@@ -14,14 +14,17 @@
       </template>
 
       <div class="ProdList ">
-        <div class="scrollmenu d-sm-block d-none">
-            <ProdCard v-for="Product in ProdByTax2" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
-        </div>
-        <div class="container-fluid">
-          <div class="row d-sm-none">
-              <ProdCard v-for="Product in filterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem hideAddToCart"></ProdCard>                
-          </div>
-        </div>
+            <div class="scrollmenu "  v-if="$mq === 'md' || $mq === 'lg'">
+                <ProdCard v-for="Product in ProdByTax2" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+            </div>
+            <div v-if="$mq === 'sm'" >
+              <div class="container-fluid">
+                <div class="row">
+                    <ProdCard v-for="Product in filterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem hideAddToCart"></ProdCard>                
+                </div>
+              </div>
+            </div>
+ 
       </div>
 
     </b-skeleton-wrapper>
@@ -37,6 +40,8 @@
 
 import ProdCard from '../items/ProdCard.vue';
 import ProdListLoader from '../widgets/PordListLoader.vue';
+
+
 // import ProdGridBox from '../items/ProdGridBox.vue';
 import {mapGetters} from 'vuex';
 
@@ -46,7 +51,8 @@ export default {
         name:'ProdsByTax2',
         components:{
           ProdCard,
-          ProdListLoader
+          ProdListLoader,
+          
           
           // ProdGridBox
         },

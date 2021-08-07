@@ -14,7 +14,7 @@
         <div class="ProdList container-fluid">
 
           <div class="scrollmenu">
-              <ProdGridBox v-for="Product in ProdByBox" v-bind:key="Product.id" v-bind:Product="Product" class="col-5 col-sm-3" ></ProdGridBox>
+              <ProdCard v-for="Product in ProdByBox" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem "></ProdCard>                
             </div>
         </div>
 
@@ -24,15 +24,15 @@
 </template>
 
 <script>
-import ProdGridBox from '../items/ProdGridBox.vue';
 import ProdListLoader from '../widgets/PordListLoader.vue';
 // import ProdBox from '../items/ProdBox.vue';
+import ProdCard from '../items/ProdCard.vue';
 import { mapGetters } from 'vuex';
 
 export default {
     name:'ProdByBox',
     components:{
-    ProdGridBox,
+    ProdCard,
     ProdListLoader
     },
     computed:{

@@ -10,8 +10,21 @@
       <template #loading>
         <ProdListLoader></ProdListLoader>
       </template>
+        <div class="ProdList ">
+          <div class="scrollmenu "  v-if="$mq === 'md' || $mq === 'lg'">
+              <ProdCard v-for="Product in ProdByTax3" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-2"></ProdCard>
+          </div>
+          <div v-if="$mq === 'sm'" >
+            <div class="container-fluid">
+              <div class="row ">
+                  <ProdCard v-for="Product in ProdByTax3" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 GridItem"></ProdCard>                
+              </div>
+            </div>
+          </div>
+        </div>
 
-       <div class="ProdList">
+
+       <!-- <div class="ProdList">
         <Flickity v-if="ProdByTax3.length != 0" class="offersListScroll d-none d-sm-block" ref="flickity" :options="flickityOptions">
             <ProdCard  class="carousel-cell" v-for="Product in ProdByTax3" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
         </Flickity>
@@ -20,7 +33,7 @@
               <ProdCard v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem hide hideAddToCart"></ProdCard>                
           </div>
         </div>
-      </div>
+      </div> -->
 
       </b-skeleton-wrapper>
 
@@ -30,10 +43,10 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import Flickity from 'vue-flickity';
+// import Flickity from 'vue-flickity';
+// import ProdGridBox from '../items/ProdGridBox.vue';
 import ProdCard from '../items/ProdCard.vue';
 import ProdListLoader from '../widgets/PordListLoader.vue';
-// import ProdGridBox from '../items/ProdGridBox.vue';
 
 export default {
 
@@ -41,7 +54,7 @@ export default {
   components:{
     ProdCard,
     // ProdGridBox,
-    Flickity,
+    // Flickity,
     ProdListLoader
   },
   computed:{

@@ -7,58 +7,58 @@
         <ProdBoxList></ProdBoxList>
 
         <!-- Mobile  -->
-        <ProdsByTax6 class="d-sm-none"></ProdsByTax6> 
-        <RecentList class="d-sm-none" ></RecentList>
-        <prodsByTax0 class="d-sm-none"></prodsByTax0>
-        <ProdByTax class="d-sm-none"></ProdByTax>
-        <ProdsByTax8 class="d-sm-none"></ProdsByTax8>
-        <MostPopularList class="d-sm-none"></MostPopularList>
-        <ProdsByTax5 class="d-sm-none"></ProdsByTax5>
-        <ProdsByTax1 class="d-sm-none"></ProdsByTax1>
-        <ProdsByTax2 class="d-sm-none"></ProdsByTax2>
-        <ProdsByTax3 class="d-sm-none" ></ProdsByTax3>
-        <ProdsByTax4 class="d-sm-none" ></ProdsByTax4>
-        <ProdsByTax7 class="d-sm-none"></ProdsByTax7>
-        <ProdByBoxList class="d-sm-none" ></ProdByBoxList> 
-        <OffersList class="d-sm-none"></OffersList>
+        <ProdsByTax6 v-if="$mq === 'sm'"></ProdsByTax6> 
+        <RecentList v-if="$mq === 'sm'" ></RecentList>
+        <prodsByTax0 v-if="$mq === 'sm'"></prodsByTax0>
+        <ProdByTax v-if="$mq === 'sm'"></ProdByTax>
+        <ProdsByTax8 v-if="$mq === 'sm'"></ProdsByTax8>
+        <MostPopularList v-if="$mq === 'sm'"></MostPopularList>
+        <ProdsByTax5 v-if="$mq === 'sm'"></ProdsByTax5>
+        <ProdsByTax1 v-if="$mq === 'sm'"></ProdsByTax1>
+        <ProdsByTax2 v-if="$mq === 'sm'"></ProdsByTax2>
+        <ProdsByTax3 v-if="$mq === 'sm'" ></ProdsByTax3>
+        <ProdsByTax4 v-if="$mq === 'sm'" ></ProdsByTax4>
+        <ProdsByTax7 v-if="$mq === 'sm'"></ProdsByTax7>
+        <ProdByBoxList v-if="$mq === 'sm'" ></ProdByBoxList> 
+        <OffersList v-if="$mq === 'sm'"></OffersList>
         <!-- End Mobile -->
 
         <!-- Birth Distru Banner -->
-          <div class="container-fluid HomeBanner d-none d-sm-block col-xl-12">
+          <div class="container-fluid HomeBanner "  v-if="$mq === 'md' || $mq === 'lg'">
             <a href="https://alyaman.com/product-category/%d9%85%d9%88%d8%a7%d9%84%d9%8a%d8%af/">
-              <img class="d-block w-100" src="@/assets/banners/4.jpeg" alt="Third slide">
+              <img class="d-block w-100" src="@/assets/banners/4.jpeg" width="1280" height="475" alt="Third slide">
             </a>
           </div>
         <!-- Birth Distru Banner End -->
-        <ProdsByTax2 class="d-sm-block d-none"></ProdsByTax2>
+        <ProdsByTax2 v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax2>
         <!--  Box Distru Banner -->
-          <div class="container-fluid HomeBanner d-none d-sm-block col-xl-12">
+          <div class="container-fluid HomeBanner col-xl-12"  v-if="$mq === 'md' || $mq === 'lg'">
             <a href="https://alyaman.com/product-category/%d8%b9%d9%84%d8%a8-%d8%aa%d9%88%d8%b2%d9%8a%d8%b9%d8%a7%d8%aa/">
-              <img class="d-block w-100" src="@/assets/banners/1.jpeg" alt="Third slide">
+              <img class="d-block w-100" src="@/assets/banners/1.jpeg" width="1280" height="475" alt="Third slide">
             </a>
           </div>
         <!-- Box Distru Banner End -->
-        <ProdsByTax7 class="d-sm-block d-none"></ProdsByTax7>
-        <ProdsByTax6 class="d-sm-block d-none"></ProdsByTax6>  
-        <RecentList class="d-sm-block d-none"></RecentList>
-        <prodsByTax0 class="d-sm-block d-none"></prodsByTax0>
-        <MostPopularList class="d-sm-block d-none"></MostPopularList>
-        <ProdsByTax5 class="d-sm-block d-none"></ProdsByTax5>
+        <ProdsByTax7  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax7>
+        <ProdsByTax6  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax6>  
+        <RecentList  v-if="$mq === 'md' || $mq === 'lg'"></RecentList>
+        <prodsByTax0  v-if="$mq === 'md' || $mq === 'lg'"></prodsByTax0>
+        <MostPopularList  v-if="$mq === 'md' || $mq === 'lg'"></MostPopularList>
+        <ProdsByTax5  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax5>
         <!--  Saudi Day Banner -->
-          <div class="container-fluid HomeBanner d-none d-sm-block col-xl-12">
+          <div class="container-fluid HomeBanner col-xl-12"  v-if="$mq === 'md' || $mq === 'lg'">
             <a href="https://alyaman.com/product-category/%d8%a7%d9%84%d8%b9%d9%8a%d8%af-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a/">
-              <img class="d-block w-100" src="@/assets/banners/2.jpeg" alt="Third slide">
+              <img class="d-block w-100" src="@/assets/banners/2.jpeg" width="1280" height="475" alt="Third slide">
             </a>
           </div>
         <!-- Saudi Day Banner End -->
-        <ProdByTax class="d-sm-block d-none"></ProdByTax>
-        <ProdsByTax8 class="d-sm-block d-none"></ProdsByTax8>
+        <ProdByTax  v-if="$mq === 'md' || $mq === 'lg'"></ProdByTax>
+        <ProdsByTax8  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax8>
         <!-- <Banner></Banner> -->
-        <ProdsByTax3 class="d-sm-block d-none"></ProdsByTax3>
-        <ProdsByTax4 class="d-sm-block d-none"></ProdsByTax4>
-        <ProdsByTax1 class="d-sm-block d-none"></ProdsByTax1>
-        <ProdByBoxList class="d-sm-block d-none"></ProdByBoxList> 
-        <OffersList class="d-sm-block d-none"></OffersList>
+        <ProdsByTax3  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax3>
+        <ProdsByTax4  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax4>
+        <ProdsByTax1  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax1>
+        <ProdByBoxList  v-if="$mq === 'md' || $mq === 'lg'"></ProdByBoxList> 
+        <OffersList  v-if="$mq === 'md' || $mq === 'lg'"></OffersList>
         <!-- <BestSell></BestSell>  -->
         <!-- <ProdsByTax5></ProdsByTax5>  -->
  

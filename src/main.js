@@ -5,6 +5,7 @@ import store from './store'
 import https from 'https';
 import VueCookie from 'vue-cookies';
 import Vuelidate from 'vuelidate'
+import VueMq from 'vue-mq'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
@@ -17,12 +18,16 @@ let authHeader = `Basic ${window.btoa(`${username}:${password}`)}`;
 axios.defaults.headers.common["Authorization"] = authHeader;
 axios.defaults.httpsAgent = new https.Agent({ rejectUnauthorized: false })
 Vue.config.productionTip = false
+
 Vue.use(VueCookie)
 Vue.use(Vuelidate)
 // Make BootstrapVue available throughout your project
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
+
+Vue.use(VueMq)
+
 // Vue.use(VueI18n);
 // export const i18n = new VueI18n({
 //   locale: 'ar',

@@ -13,6 +13,7 @@
         </template>
         <div class="ProdList container-fluid">
 
+          
           <Flickity v-if="ProdOffers.length != 0" class="offersListScroll d-sm-block d-none " ref="flickity" :options="flickityOptions">
               <ProdCard  class="carousel-cell" v-for="Product in ProdOffers" v-bind:key="Product.id" v-bind:Product="Product" ></ProdCard>
           </Flickity>
@@ -53,17 +54,6 @@ export default {
       }
     },
     mounted(){
-
-
-        //Activate Flicktly
-        setTimeout(() => {
-          this.$nextTick(function () {
-            // Code that will run only after the
-            // entire view has been rendered
-            this.$refs.flickity.rerender()
-          })
-          console.log('offers slider done')
-        }, 50000);
     },
 
     computed:{

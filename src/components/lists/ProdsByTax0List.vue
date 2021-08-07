@@ -13,14 +13,16 @@
         <ProdListLoader></ProdListLoader>
       </template>
       <div class="ProdList ">
-        <div class="scrollmenu d-sm-block d-none">
-            <ProdCard v-for="Product in ProdByTax0" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-2"></ProdCard>
-        </div>
-        <div class="container-fluid">
-          <div class="row d-sm-none">
-              <ProdGridBox v-for="Product in ProdByTax0" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-3 GridItem grid-discount"></ProdGridBox>                
-          </div>
-        </div>
+              <div class="scrollmenu"  v-if="$mq === 'md' || $mq === 'lg'">
+                  <ProdCard v-for="Product in ProdByTax0" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-2"></ProdCard>
+              </div>
+              <div  v-if="$mq === 'sm'" >
+                <div class="container-fluid">
+                  <div class="row">
+                      <ProdGridBox v-for="Product in ProdByTax0" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-3 GridItem grid-discount"></ProdGridBox>                
+                  </div>
+                </div>
+              </div>
       </div>
       </b-skeleton-wrapper>
 
@@ -38,7 +40,8 @@ export default {
     components:{
         ProdCard,
         ProdGridBox,
-        ProdListLoader
+        ProdListLoader,
+        
     },
     computed:{
       ...mapGetters(['ProdByTax0'])
