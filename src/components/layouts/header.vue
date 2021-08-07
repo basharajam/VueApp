@@ -404,6 +404,10 @@ export default {
   .headerTop{
     background: #2f2f2f;
   }
+
+  .headerTop div div button{
+      margin: 0;
+  }
   .innerSpinner0 {
     width: 20%;
     text-align: center;
