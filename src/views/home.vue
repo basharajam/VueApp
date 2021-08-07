@@ -61,6 +61,14 @@
         <OffersList  v-if="$mq === 'md' || $mq === 'lg'"></OffersList>
         <!-- <BestSell></BestSell>  -->
         <!-- <ProdsByTax5></ProdsByTax5>  -->
+
+        <!-- Birth Distru Banner -->
+          <div class="container-fluid HomeBanner "  v-if="$mq === 'md' || $mq === 'lg'">
+            <a href="https://www.alyaman.com/product-category/%d8%a3%d8%b9%d8%b1%d8%a7%d8%b3/">
+              <img class="d-block w-100" src="@/assets/banners/5.jpeg" width="1280" height="475" alt="Third slide">
+            </a>
+          </div>
+        <!-- Birth Distru Banner End -->
  
 
 

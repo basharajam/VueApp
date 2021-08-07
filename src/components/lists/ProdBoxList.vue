@@ -208,11 +208,16 @@ export default {
     background-color: white;
     margin: 0;
     padding-top: 10px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+
 }
 
 .ProdBoxItems{
     background: white;
     padding: 6px;
+    border-bottom-left-radius:6px;
+    border-bottom-right-radius:6px;
 }
 
 .ProdBoxOne a{
