@@ -25,7 +25,7 @@
                                 </b-form-group>
                             </b-dropdown-form>
                           </b-dropdown>
-                    <a style="color:white" @click="SetLang()" >اللغة</a>
+                    <!-- <a style="color:white" @click="SetLang()" >اللغة</a> -->
               </div>
         </div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -278,9 +278,9 @@ export default {
             window.location.reload()
             //this.$forceUpdate();
          },
-         SetLang(){
-           window.location.reload()
-         }
+        //  SetLang(){
+        //    window.location.reload()
+        //  }
     }
     
 
