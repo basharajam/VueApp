@@ -41,13 +41,13 @@
                     <b-dropdown id="dropdown-1"  variant="none" class="m-2 ShipBtn " no-flip no-caret>
                           <template #button-content>
                               <div class="d-flex align-items-center">
-                                <country-flag country='sa' size='normal' v-if="CountryVal0 ==='SAR'"/>
-                                <country-flag country='ye' size='normal' v-if="CountryVal0 ==='YMN'"/>
-                                <country-flag country='om' size='normal' v-if="CountryVal0 ==='OMR'"/>
-                                <country-flag country='lb' size='normal' v-if="CountryVal0 ==='LBN'"/>
-                                <country-flag country='iq' size='normal' v-if="CountryVal0 ==='IRQ'"/>
-                                <country-flag country='ae' size='normal' v-if="CountryVal0 ==='UAE'"/>
-                                <country-flag country='ps' size='normal' v-if="CountryVal0 ==='PLS'"/> 
+                                <country-flag country='sa' size='normal' v-if="CountryVal0 ==='SA'"/>
+                                <country-flag country='ye' size='normal' v-if="CountryVal0 ==='YE'"/>
+                                <country-flag country='om' size='normal' v-if="CountryVal0 ==='OM'"/>
+                                <country-flag country='lb' size='normal' v-if="CountryVal0 ==='LB'"/>
+                                <country-flag country='iq' size='normal' v-if="CountryVal0 ==='IQ'"/>
+                                <country-flag country='ae' size='normal' v-if="CountryVal0 ==='AE'"/>
+                                <country-flag country='ps' size='normal' v-if="CountryVal0 ==='PS'"/> 
                                 <div class="stack" style="flex-direction: column;align-items: flex-end; margin-left: 10px;display: flex;">
                                     <span>الشحن إلى</span>
                                     <span style="font-weight: bold;font-size: 20px;"> {{SelectedCountryText}}</span>
@@ -141,25 +141,25 @@ export default {
           var CountryVal0=CountryVal;
           var CountryValText;
           switch(CountryVal) {
-            case "SAR":
+            case "SA":
                CountryValText='السعودية'
                 break;
-            case "OMR":
+            case "OM":
                CountryValText='سلطنة عمان'
                 break;
-            case "YMN":
+            case "YE":
                CountryValText='اليمن'
                 break;
-            case "LBN":
+            case "LB":
                CountryValText='لبنان'
                 break;
-            case "IRQ":
+            case "IQ":
                CountryValText='العراق'
                 break;
-            case "UAE":
+            case "AE":
                CountryValText='الامارات'
                 break;
-            case "PLS":
+            case "PS":
                CountryValText='فلسطين'
                 break;
             default:
@@ -171,7 +171,7 @@ export default {
         }
         else{
            CurrVal0='SAR';
-           CountryVal0='SAR';
+           CountryVal0='SA';
            CountryValText='السعودية';
         }
 
@@ -189,13 +189,13 @@ export default {
         CurrInput:CurrVal0,
         SelectedCountryText:CountryValText,
         CountryOptions:{
-            SAR:"السعودية",
-            OMR:"سلطنة عمان",
-            YMN:"اليمن",
-            LBN:"لبنان",
-            IRQ:"العراق",
-            UAE:"الامارات",
-            PLS:"فلسطين"
+            SA:"السعودية",
+            OM:"سلطنة عمان",
+            YE:"اليمن",
+            LB:"لبنان",
+            IQ:"العراق",
+            AE:"الامارات",
+            PS:"فلسطين"
         },
         CurOptions:{
             CNY:"اليوان الصيني",
