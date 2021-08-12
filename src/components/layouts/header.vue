@@ -1,7 +1,14 @@
 <template>
   <div class="alheader">
-        <div class="headerTop"  v-if="$mq === 'sm'">
-                <div class="headerDrp d-flex align-items-center ">
+        <div class="headerTop" >
+          <div class="headerTopLinks d-flex" v-if="$mq === 'md' || $mq === 'lg' ">
+            <a href="#"> تسجيل حساب </a>
+            <a href="#"> كيفية الشراء </a>
+            <a href="#"> شروط الخصوصية </a>
+            <a href="#"> من نحن </a>
+          </div>
+                
+                <div class="headerDrp d-flex align-items-center " v-if="$mq === 'sm'">
                           <b-dropdown id="dropdown-1"  variant="none" class="ShipBtn" no-flip no-caret>
                                 <template #button-content>
                                     <div class="d-flex align-items-center">
@@ -28,7 +35,7 @@
                     <!-- <a style="color:white" @click="SetLang()" >اللغة</a> -->
               </div>
         </div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar fixed-top navbar-expand-lg sticky-top "  style="    border-bottom: 1px #d1d1d1d1 solid;">
         <a class="navbar-brand "  href="https://alyaman.com" aria-label="Al-yaman">
           <img  src="icon.png" alt="" >
         </a>
@@ -104,7 +111,7 @@
                       <button >عرض المزيد</button>
                     </div> -->
             </div>
-    <div class="CatNavLinks scrollmenu" style="overflow-y: hidden !important">
+    <div class="CatNavLinks scrollmenu d-flex" style="overflow-y: hidden !important">
         <a href="https://alyaman.com/shop/"> الكل </a>
         <a v-for="Category in Categories" v-bind:key="Category.id" :href="'https://alyaman.com/product-category/'+Category.slug" > {{ Category.name }} </a>
   </div>
@@ -299,6 +306,7 @@ export default {
     padding: 10px 0;
     font-size: 14px;
     background: white;
+    /* background: #232f3e; */
     min-width: 100%;
     margin-bottom: 0px !important;
   }
@@ -309,6 +317,8 @@ export default {
       padding: 4px;
       margin: 0 2px;
       color: #808080;
+      /* color: white; */
+      font-weight: 600
   }
   .CatNavLinks a:active {
        color: #fe6a00;
@@ -358,10 +368,12 @@ export default {
   .HeaderIcons a{
     margin: 0px 16px;
     color: #fe6a00;
+    /* color: white; */
     font-size: 26px;
   }
   .HeaderIcons a:hover{
     color: black;
+    /* color: #fe6a00; */
   }
   .HeaderDivider{
     border-left: 1px solid #d1d3d4;
@@ -405,9 +417,21 @@ export default {
     background: #2f2f2f;
   }
 
+  /* .stack{
+    color: white;
+  } */
+
   .headerTop div div button{
       margin: 0;
   }
+
+.headerTopLinks a{
+    color: white;
+    font-size: 16px;
+    margin: 6px;
+    font-weight: 600;
+}
+
   .innerSpinner0 {
     width: 20%;
     text-align: center;

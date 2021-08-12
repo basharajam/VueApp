@@ -56,19 +56,26 @@
         <!-- <Banner></Banner> -->
         <ProdsByTax3  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax3>
         <ProdsByTax4  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax4>
+        <!--Wedding Distru Banner -->
+        <div class="container-fluid HomeBanner "  v-if="$mq === 'md' || $mq === 'lg'">
+          <a href="https://wa.me/8617757971070/">
+            <img class="d-block w-100" src="@/assets/banners/6.jpeg" width="1280" height="475" alt="Third slide">
+          </a>
+        </div>
+        <!-- Wedding Distru Banner End -->
         <ProdsByTax1  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax1>
         <ProdByBoxList  v-if="$mq === 'md' || $mq === 'lg'"></ProdByBoxList> 
         <OffersList  v-if="$mq === 'md' || $mq === 'lg'"></OffersList>
         <!-- <BestSell></BestSell>  -->
         <!-- <ProdsByTax5></ProdsByTax5>  -->
 
-        <!-- Birth Distru Banner -->
+        <!--Wedding Distru Banner -->
           <div class="container-fluid HomeBanner "  v-if="$mq === 'md' || $mq === 'lg'">
             <a href="https://www.alyaman.com/product-category/%d8%a3%d8%b9%d8%b1%d8%a7%d8%b3/">
               <img class="d-block w-100" src="@/assets/banners/5.jpeg" width="1280" height="475" alt="Third slide">
             </a>
           </div>
-        <!-- Birth Distru Banner End -->
+        <!-- Wedding Distru Banner End -->
  
 
 

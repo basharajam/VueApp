@@ -44,7 +44,6 @@ export default {
         methods:{
             discountPrice(Product){
 
-
                 var stp1 = Product.regular_price-Product.sale_price;
                 var stp2 = stp1/Product.regular_price;
                 var stp3 = stp2 *100;
