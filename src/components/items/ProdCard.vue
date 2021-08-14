@@ -4,7 +4,15 @@
         <div class="product-grid">
              <div class="product-image">
                 <a :href="Product.permalink" class="image" style="min-width:150;">
-                    <img class="pic-1"  :src="Product.images[0].src" :alt="Product.name" width="500" height="500" >
+                        <vue-load-image>
+                            
+                            <img slot="image"  class="pic-1"  :src="Product.images[0].src" :alt="Product.name" width="500" height="500" >
+                            
+                            <img slot="preloader" src="@/assets/loader.png" />
+                       
+                            <template v-slot:error>Image load fails</template>
+                        </vue-load-image>
+                    
                     
                 </a>
                 <span v-if="Product.sale_price" class="discount-lab">% {{ discountPrice(Product)  }}</span>
@@ -34,12 +42,14 @@
 <script>
 
 import StarRating from 'vue-star-rating'
+import VueLoadImage from 'vue-load-image'
 export default {
 
 
         props:['Product'],
         components:{
-            StarRating
+            StarRating,
+            'vue-load-image': VueLoadImage
         },
         methods:{
             discountPrice(Product){

@@ -103,62 +103,70 @@
 
             <!-- SaudiDayTopper -->
             <div class="ProdsBox col-sm-3">
-                <h3 class="ProdBoxTitle ">احبال زينة اليوم الوطني</h3>
-                <div class="ProdBoxItems">
-                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox2" v-bind:key="Prod.id">
-                        <a :href="Prod.permalink">
-                            <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
-                        </a>
-                        <a :href="Prod.permalink">
-                            <p>{{Prod.name}}</p>
-                        </a>
+                <div class="" style="box-shadow: #88888836 0px 1px 12px 4px">
+                    <h3 class="ProdBoxTitle ">احبال زينة اليوم الوطني</h3>
+                    <div class="ProdBoxItems">
+                        <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox2" v-bind:key="Prod.id">
+                            <a :href="Prod.permalink">
+                                <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
+                            </a>
+                            <a :href="Prod.permalink">
+                                <p>{{Prod.name}}</p>
+                            </a>
+                        </div>
+                        <a href="https://www.alyaman.com/product-tag/ksa_decoration_group/" class="ProdBoxBtn">عرض المزيد</a>
                     </div>
-                    <a href="https://www.alyaman.com/product-tag/ksa_decoration_group/" class="ProdBoxBtn">عرض المزيد</a>
                 </div>
             </div>
 
 
             <div class="ProdsBox col-sm-3">
-                <h3 class="ProdBoxTitle ">تغريسات اليوم الوطني</h3>
-                <div class="ProdBoxItems">
-                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox0" v-bind:key="Prod.id">
-                        <a :href="Prod.permalink">
-                            <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
-                        </a>
-                        <a :href="Prod.permalink">
-                            <p>{{Prod.name}}</p>
-                        </a>
+                <div class="" style="box-shadow:#88888836  0px 1px 12px 4px">
+                    <h3 class="ProdBoxTitle ">تغريسات اليوم الوطني</h3>
+                    <div class="ProdBoxItems">
+                        <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox0" v-bind:key="Prod.id">
+                            <a :href="Prod.permalink">
+                                <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
+                            </a>
+                            <a :href="Prod.permalink">
+                                <p>{{Prod.name}}</p>
+                            </a>
+                        </div>
+                        <a href="https://www.alyaman.com/product-tag/ksa_topper_group/" class="ProdBoxBtn">عرض المزيد</a>
                     </div>
-                    <a href="https://www.alyaman.com/product-tag/ksa_topper_group/" class="ProdBoxBtn">عرض المزيد</a>
                 </div>
             </div>
 
             <div class="ProdsBox col-sm-3">
-                <h3 class="ProdBoxTitle ">ستيكرات اليوم الوطني</h3>
-                <div class="ProdBoxItems">
-                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox" v-bind:key="Prod.id">
-                        <a :href="Prod.permalink">
-                            <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
-                        </a>
-                        <a :href="Prod.permalink">
-                            <p>{{Prod.name}}</p>
-                        </a>
+                <div class="" style="box-shadow: #88888836 0px 1px 12px 4px">
+                    <h3 class="ProdBoxTitle ">ستيكرات اليوم الوطني</h3>
+                    <div class="ProdBoxItems">
+                        <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox" v-bind:key="Prod.id">
+                            <a :href="Prod.permalink">
+                                <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
+                            </a>
+                            <a :href="Prod.permalink">
+                                <p>{{Prod.name}}</p>
+                            </a>
+                        </div>
+                    <a href="https://www.alyaman.com/product-tag/ksa_sticker_group/" class="ProdBoxBtn">عرض المزيد</a>
                     </div>
-                <a href="https://www.alyaman.com/product-tag/ksa_sticker_group/" class="ProdBoxBtn">عرض المزيد</a>
                 </div>
             </div>
             <div class="ProdsBox col-sm-3">
-                <h3 class="ProdBoxTitle ">تاغات اليوم الوطني</h3>
-                <div class="ProdBoxItems">
-                    <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox1" v-bind:key="Prod.id">
-                        <a :href="Prod.permalink">
-                            <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500"  >
-                        </a>
-                        <a :href="Prod.permalink">
-                            <p>{{Prod.name}}</p>
-                        </a>
+                <div class="" style="box-shadow:#88888836 0px 1px 12px 4px">
+                    <h3 class="ProdBoxTitle ">تاغات اليوم الوطني</h3>
+                    <div class="ProdBoxItems">
+                        <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox1" v-bind:key="Prod.id">
+                            <a :href="Prod.permalink">
+                                <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500"  >
+                            </a>
+                            <a :href="Prod.permalink">
+                                <p>{{Prod.name}}</p>
+                            </a>
+                        </div>
+                        <a href="https://www.alyaman.com/product-tag/ksa_tag_group/" class="ProdBoxBtn">عرض المزيد</a>
                     </div>
-                    <a href="https://www.alyaman.com/product-tag/ksa_tag_group/" class="ProdBoxBtn">عرض المزيد</a>
                 </div>
               </div>
             </b-skeleton-wrapper>
@@ -199,6 +207,11 @@ export default {
   margin: 16px 0;
 }
 
+.ProdsBox{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
 .ProdsBox , .ProdBoxOne{
     display: inline-block;
 }
@@ -207,6 +220,7 @@ export default {
     text-align: center;
     background-color: white;
     margin: 0;
+    font-size: 1.25em;
     padding-top: 10px;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;

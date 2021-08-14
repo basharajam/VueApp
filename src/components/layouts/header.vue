@@ -1,115 +1,76 @@
 <template>
+
+  
   <div class="alheader">
-        <div class="headerTop" >
-          <div class="headerTopLinks d-flex" v-if="$mq === 'md' || $mq === 'lg' ">
-            <a href="#"> تسجيل حساب </a>
-            <a href="#"> كيفية الشراء </a>
-            <a href="#"> شروط الخصوصية </a>
-            <a href="#"> من نحن </a>
-          </div>
-                
-                <div class="headerDrp d-flex align-items-center " v-if="$mq === 'sm'">
-                          <b-dropdown id="dropdown-1"  variant="none" class="ShipBtn" no-flip no-caret>
-                                <template #button-content>
-                                    <div class="d-flex align-items-center">
-                                      <div class="stack" style="color: white; flex-direction:row;align-items: flex-end; margin-left: 10px;display: flex;">
-                                          <span style="font-size: 12px;margin: 0 6px;"> الشحن إلى :</span>
-                                          <span style="font-weight: bold;font-size: 12px"> {{SelectedCountryText}}</span>
-                                      </div>
-                                      <div style="color: white;width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
-                                    </div>
-                                </template>
-                            <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
-                                <b-form-group label="العملة" >
-                                    <b-form-select v-model="CurrInput" size="sm" :options="CurOptions"></b-form-select>
-                                </b-form-group>
 
-                                <b-form-group label="الشحن الى" >
-                                    <b-form-select v-model="CountryInput" size="sm" :options="CountryOptions"></b-form-select>
-                                </b-form-group>
-                                <b-form-group>
-                                  <b-button type="submit" block pill variant="outline-warning">حفظ</b-button>
-                                </b-form-group>
-                            </b-dropdown-form>
-                          </b-dropdown>
-                    <!-- <a style="color:white" @click="SetLang()" >اللغة</a> -->
-              </div>
-        </div>
-    <nav class="navbar fixed-top navbar-expand-lg sticky-top "  style="    border-bottom: 1px #d1d1d1d1 solid;">
-        <a class="navbar-brand "  href="https://alyaman.com" aria-label="Al-yaman">
-          <img  src="icon.png" alt="" >
-        </a>
         
-          <div class="SearchSection col-sm-4 col-7">
-            <!-- <i v-if="search" class="fas fa-search SearchIcon"></i> -->
-            <input class="form-control mr-sm-2 SearchInput" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="search" placeholder="          بحث"  aria-label="Search">
-          </div>
-          <div class="headerDrp col-sm-2 " v-if="$mq === 'md' || $mq === 'lg' ">
-                    <b-dropdown id="dropdown-1"  variant="none" class="m-2 ShipBtn " no-flip no-caret>
-                          <template #button-content>
-                              <div class="d-flex align-items-center">
-                                <country-flag country='sa' size='normal' v-if="CountryVal0 ==='SA'"/>
-                                <country-flag country='ye' size='normal' v-if="CountryVal0 ==='YE'"/>
-                                <country-flag country='om' size='normal' v-if="CountryVal0 ==='OM'"/>
-                                <country-flag country='lb' size='normal' v-if="CountryVal0 ==='LB'"/>
-                                <country-flag country='iq' size='normal' v-if="CountryVal0 ==='IQ'"/>
-                                <country-flag country='ae' size='normal' v-if="CountryVal0 ==='AE'"/>
-                                <country-flag country='ps' size='normal' v-if="CountryVal0 ==='PS'"/> 
-                                <div class="stack" style="flex-direction: column;align-items: flex-end; margin-left: 10px;display: flex;">
-                                    <span>الشحن إلى</span>
-                                    <span style="font-weight: bold;font-size: 20px;"> {{SelectedCountryText}}</span>
-                                </div>
-                                <div style="width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
-                              </div>
-                          </template>
-                      <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
-                          <b-form-group label="العملة" >
-                              <b-form-select v-model="CurrInput" size="sm" :options="CurOptions"></b-form-select>
-                          </b-form-group>
+        
+        <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light "  style="    border-bottom: 1px #d1d1d1d1 solid;">
+            <a class="navbar-brand col-sm-3 px-0"  href="https://alyaman.com" aria-label="Al-yaman">
+              <img  src="icon.png" class="w-100" alt="" >
+            </a>
+            
+              <div class="SearchSection d-flex align-items-center col-sm-5 col-7 px-0" >
+                <input class="form-control mr-sm-2 SearchInput" aria-describedby="basic-addon1" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="text" placeholder="بحث" >
+                <i style="position: relative;left: 36px;" class="fa fa-search"></i>
+              </div>
+              <div class="headerDrp col-sm-2 px-0 " v-if="$mq === 'md' || $mq === 'lg' ">
+                        <b-dropdown id="dropdown-1"  variant="none" class=" ShipBtn " no-flip no-caret>
+                              <template #button-content>
+                                  <div class="d-flex align-items-center">
+                                    <country-flag country='sa' size='normal' v-if="CountryVal0 ==='SA'"/>
+                                    <country-flag country='ye' size='normal' v-if="CountryVal0 ==='YE'"/>
+                                    <country-flag country='om' size='normal' v-if="CountryVal0 ==='OM'"/>
+                                    <country-flag country='lb' size='normal' v-if="CountryVal0 ==='LB'"/>
+                                    <country-flag country='iq' size='normal' v-if="CountryVal0 ==='IQ'"/>
+                                    <country-flag country='ae' size='normal' v-if="CountryVal0 ==='AE'"/>
+                                    <country-flag country='ps' size='normal' v-if="CountryVal0 ==='PS'"/> 
+                                    <div class="stack" style="flex-direction: column;align-items: flex-end; margin-left: 10px;display: flex;">
+                                        <span>الشحن إلى</span>
+                                        <span style="font-weight: bold;font-size: 20px;"> {{SelectedCountryText}}</span>
+                                    </div>
+                                    <div style="width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
+                                  </div>
+                              </template>
+                          <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
+                              <b-form-group label="العملة" >
+                                  <b-form-select v-model="CurrInput" size="sm" :options="CurOptions"></b-form-select>
+                              </b-form-group>
 
-                          <b-form-group label="الشحن الى" >
-                              <b-form-select v-model="CountryInput" size="sm" :options="CountryOptions"></b-form-select>
-                          </b-form-group>
-                          <b-form-group>
-                            <b-button type="submit" block pill variant="outline-warning" style="background-color: unset !important">حفظ</b-button>
-                          </b-form-group>
-                      </b-dropdown-form>
-                    </b-dropdown>
-              <!-- <a >اللغة  
-                  <span>
-                    <b-dropdown id="dropdown-2" text=" العربية" variant="link" class="m-2 ShipBtn ">
- 
-                    </b-dropdown>
-                </span>
-              </a> -->
-          </div>
-          <div class="HeaderIcons d-none d-sm-inline-flex" style="position: absolute;left: 0;">
-            <!-- <div class="HeaderDivider"></div> -->
-            <a href="https://alyaman.com/my-account/" aria-label="حسابي"><i class="fal fa-user"></i></a>
-            <div class="HeaderDivider"></div>
-            <a href="https://alyaman.com/cart/" aria-label="سلة التسوق"> <i class="fal fa-shopping-cart"> </i> <span class="CartCount" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" ><span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span></span> </a>
-            <!-- <a href="#"> <i style="color:black" class="fa fa-globe" ></i></a> -->
-          </div>
+                              <b-form-group label="الشحن الى" >
+                                  <b-form-select v-model="CountryInput" size="sm" :options="CountryOptions"></b-form-select>
+                              </b-form-group>
+                              <b-form-group>
+                                <b-button type="submit" block pill variant="outline-warning" style="background-color: unset !important">حفظ</b-button>
+                              </b-form-group>
+                          </b-dropdown-form>
+                        </b-dropdown>
+                </div>
+                <div class="HeaderIcons d-none d-sm-inline-flex" style="position: absolute;left: 16px;">
+                  <a href="https://alyaman.com/my-account/" aria-label="حسابي"><i class="fal fa-user"></i></a>
+                  <div class="HeaderDivider"></div>
+                  <a href="https://alyaman.com/cart/" aria-label="سلة التسوق"> <i class="fal fa-shopping-cart"> </i> <span class="CartCount" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" ><span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span></span> </a>
+                </div>
 
-    </nav>
-                <div class="SearchResult" v-if="SearchRes">
-                  <div v-if="innerSpinner" class="innerSpinner">
-                    <img src="spinner.png" class="innerSpinner0"> 
-                  </div>
-                  <div class="media" v-for="Prod in SearchResArr" v-bind:key="Prod.id">
-                    <div class="media-body">
-                      <a  :href="Prod.permalink" target="_blank" >
-                        <h5 class="mt-0 SearchResTitle">{{  Prod.name }}</h5>
-                      </a>
-                      
-                    </div>
-                  </div>
-                  <div v-if="NotFoundErr" class="NotFoundSearch text-center">
-                      <span >عذرا المنتج غير موجود حاليا</span>
-                  </div> 
-                    <!-- <div class="ShowMoreResBtn">
-                      <button >عرض المزيد</button>
-                    </div> -->
+             </nav> -->
+            <div class="SearchResult" v-if="SearchRes">
+              <div v-if="innerSpinner" class="innerSpinner">
+                <img src="spinner.png" class="innerSpinner0"> 
+              </div>
+              <div class="media" v-for="Prod in SearchResArr" v-bind:key="Prod.id">
+                <div class="media-body">
+                  <a  :href="Prod.permalink" target="_blank" >
+                    <h5 class="mt-0 SearchResTitle">{{  Prod.name }}</h5>
+                  </a>
+                  
+                </div>
+              </div>
+              <div v-if="NotFoundErr" class="NotFoundSearch text-center">
+                  <span >عذرا المنتج غير موجود حاليا</span>
+              </div> 
+                <!-- <div class="ShowMoreResBtn">
+                  <button >عرض المزيد</button>
+                </div> -->
             </div>
     <div class="CatNavLinks scrollmenu d-flex" style="overflow-y: hidden !important">
         <a href="https://alyaman.com/shop/"> الكل </a>
@@ -121,7 +82,7 @@
 <script>
 
 import { mapGetters, mapActions } from 'vuex';
-import CountryFlag from 'vue-country-flag'
+// import CountryFlag from 'vue-country-flag'
 import _ from 'lodash'
 import axios from 'axios';
 
@@ -133,7 +94,8 @@ export default {
       ...mapActions(['getProdByTax']),
     },
     components:{
-      CountryFlag
+      // CountryFlag
+
     },
     data(){
 
@@ -303,9 +265,11 @@ export default {
   }
 
   .CatNavLinks{
-    padding: 10px 0;
+    /* background: #d1d3d4 !important; */
+    /* background: #252933; */
+    padding: 4px 0;
     font-size: 14px;
-    background: white;
+    /* background: white; */
     /* background: #232f3e; */
     min-width: 100%;
     margin-bottom: 0px !important;
@@ -358,12 +322,12 @@ export default {
     top: 32px;
   }
 
-  .SearchResTitle{
+ .SearchResTitle{
     font-size: 10px;
     color: #000;
     padding-bottom: 6px;
     border-bottom:1px #f6601a  solid;
-  }
+  } 
 
   .HeaderIcons a{
     margin: 0px 16px;
@@ -421,16 +385,7 @@ export default {
     color: white;
   } */
 
-  .headerTop div div button{
-      margin: 0;
-  }
 
-.headerTopLinks a{
-    color: white;
-    font-size: 16px;
-    margin: 6px;
-    font-weight: 600;
-}
 
   .innerSpinner0 {
     width: 20%;

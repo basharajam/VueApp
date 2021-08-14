@@ -3,6 +3,8 @@
 
     <!-- <Spinner v-if="spinner" /> -->
     <Cart v-if="['Home','ProdByCat','ProdOne'].includes($route.name)" />
+    <!-- <headerTop v-if="['Home','ProdByCat','ProdOne'].includes($route.name)"/> -->
+    <navbar v-if="['Home','ProdByCat','ProdOne'].includes($route.name)"/>
     <Header  v-if="['Home','ProdByCat','ProdOne'].includes($route.name)" />
     <router-view />
     <Footer   v-if="['Home','ProdByCat','ProdOne'].includes($route.name)" />
@@ -11,7 +13,8 @@
 </template>
 
 <script>
-
+// import headerTop from './components/widgets/headerTop.vue';
+import navbar from './components/widgets/navbar.vue';
 import Header from './components/layouts/header.vue';
 import Footer from './components/layouts/footer.vue';
 import Cart from './components/layouts/cart.vue';
@@ -24,8 +27,11 @@ export default {
   name: 'App',
   components: {
     Header,
+    navbar,
     Footer,
-    Cart
+    Cart,
+    // headerTop,
+
     // Spinner
   },
   methods:{
@@ -263,9 +269,11 @@ position: relative;
 
 
 .HomeBanner{
-    margin-top: 12px;
-    margin-bottom: 12px;
+    margin-top: 6px;
+    margin-bottom: 6px;
 }
+
+
 
 
 .add-to-cart:active{
@@ -869,6 +877,10 @@ min-height: 300px !important;
   padding-left: 0!important;
   display: inline-block;
 
+}
+
+.SearchSection {
+  padding: 12px 0;
 }
 
 

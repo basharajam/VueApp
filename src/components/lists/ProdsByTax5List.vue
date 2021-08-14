@@ -77,7 +77,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+.carousel-cell{
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+}
 
 </style>

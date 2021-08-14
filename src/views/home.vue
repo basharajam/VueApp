@@ -12,6 +12,13 @@
         <prodsByTax0 v-if="$mq === 'sm'"></prodsByTax0>
         <ProdByTax v-if="$mq === 'sm'"></ProdByTax>
         <ProdsByTax8 v-if="$mq === 'sm'"></ProdsByTax8>
+        <!--Whatsapp Distru Banner -->
+        <div class="container-fluid HomeBanner "  v-if="$mq === 'sm'">
+          <a href="https://wa.me/8617757971070/">
+            <img class="d-block w-100" src="@/assets/banners/6.jpeg" alt="Third slide">
+          </a>
+        </div>
+        <!-- Whatsapp Distru Banner End -->
         <MostPopularList v-if="$mq === 'sm'"></MostPopularList>
         <ProdsByTax5 v-if="$mq === 'sm'"></ProdsByTax5>
         <ProdsByTax1 v-if="$mq === 'sm'"></ProdsByTax1>
@@ -42,6 +49,13 @@
         <ProdsByTax6  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax6>  
         <RecentList  v-if="$mq === 'md' || $mq === 'lg'"></RecentList>
         <prodsByTax0  v-if="$mq === 'md' || $mq === 'lg'"></prodsByTax0>
+        <!--Whatsapp Distru Banner -->
+        <div class="container-fluid HomeBanner "  v-if="$mq === 'md' || $mq === 'lg'">
+          <a href="https://wa.me/8617757971070/">
+            <img class="d-block w-100" src="@/assets/banners/6.jpeg" width="1280" height="475" alt="Third slide">
+          </a>
+        </div>
+        <!-- Whatsapp Distru Banner End -->
         <MostPopularList  v-if="$mq === 'md' || $mq === 'lg'"></MostPopularList>
         <ProdsByTax5  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax5>
         <!--  Saudi Day Banner -->
@@ -56,13 +70,6 @@
         <!-- <Banner></Banner> -->
         <ProdsByTax3  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax3>
         <ProdsByTax4  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax4>
-        <!--Wedding Distru Banner -->
-        <div class="container-fluid HomeBanner "  v-if="$mq === 'md' || $mq === 'lg'">
-          <a href="https://wa.me/8617757971070/">
-            <img class="d-block w-100" src="@/assets/banners/6.jpeg" width="1280" height="475" alt="Third slide">
-          </a>
-        </div>
-        <!-- Wedding Distru Banner End -->
         <ProdsByTax1  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax1>
         <ProdByBoxList  v-if="$mq === 'md' || $mq === 'lg'"></ProdByBoxList> 
         <OffersList  v-if="$mq === 'md' || $mq === 'lg'"></OffersList>
@@ -76,7 +83,11 @@
             </a>
           </div>
         <!-- Wedding Distru Banner End -->
- 
+        <homeList v-if="$mq === 'md' || $mq === 'lg'" />
+        
+
+
+
 
 
   
@@ -85,7 +96,6 @@
 
 <script>
 
-// import homeList from '../components/lists/HomeList.vue';
 import CategorySlide from '../components/widgets/Category.vue';
 import OffersList from '../components/lists/OffersList.vue';
 import ProdBoxList from '../components/lists/ProdBoxList.vue';
@@ -103,6 +113,7 @@ import ProdsByTax4 from '../components/lists/ProdsByTax4List.vue';
 import ProdsByTax7 from '../components/lists/ProdsByTax7List.vue';
 import ProdsByTax5 from '../components/lists/ProdsByTax5List.vue';
 import ProdsByTax8 from '../components/lists/ProdsByTax8List.vue';
+import homeList from '../components/lists/HomeList.vue';
 // import CatGridList from '../components/lists/CatGridList.vue';
 // import BestSell from '../components/lists/BestSellList.vue';
 // import Banner from '../components/widgets/Banner.vue';
@@ -111,7 +122,7 @@ export default {
     name:'home',
     components:{
       carouselWidget,
-      // homeList,
+      homeList,
       CategorySlide,
       ProdBoxList,
       OffersList,

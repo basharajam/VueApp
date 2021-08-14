@@ -58,9 +58,9 @@
                     <div class="LinkList col-sm-3 col-12">
                     <h3>أبحث في</h3>
                     <a href="https://alyaman.com/">الصفحة الرئيسية</a>
+                    <a href="https://alyaman.com/shop/">كل الاصناف</a>
                     <a href="https://alyaman.com/%d8%b1%d8%a7%d8%a6%d8%ac%d8%a9/">رائجة</a>
                     <a href="https://alyaman.com/%d8%b9%d8%b1%d9%88%d8%b6/"> عروض خاصة</a>
-                    <a href="https://alyaman.com/shop/">كل الاصناف</a>
                     <a href="https://alyaman.com/%d9%82%d8%b1%d9%8a%d8%a8%d8%a7%d9%8b-%d9%81%d9%8a-%d8%a7%d9%84%d8%a3%d8%b3%d9%88%d8%a7%d9%82/">قريبا في اليمان</a>
                 </div>
                 <div class="LinkList col-sm-3 col-12">
@@ -71,13 +71,13 @@
                 </div>
                 <div class="LinkList col-sm-3 col-12">
                     <h3>خدمة العملاء</h3>
-                    <a href="https://alyaman.com/privacy-policy/">سياسات الخصوصية</a>
-                    <a href="https://www.alyaman.com/%d8%a7%d9%84%d8%b4%d8%ad%d9%86-%d9%88%d8%a7%d9%84%d8%aa%d8%b3%d9%84%d9%8a%d9%85-2/">الشحن والتسليم</a>
-                    <a href="https://www.alyaman.com/remember/">الشروط والأحكام</a>
+                    <a href="https://alyaman.com/about-us-arabic/">حول</a>
                     <a href="https://alyaman.com/%d9%83%d9%8a%d9%81%d9%8a%d8%a9-%d8%aa%d9%82%d8%af%d9%8a%d9%85-%d8%b7%d9%84%d8%a8-%d8%b4%d8%b1%d8%a7%d8%a1/">كيفية الشراء</a>
+                    <a href="https://www.alyaman.com/%d8%a7%d9%84%d8%b4%d8%ad%d9%86-%d9%88%d8%a7%d9%84%d8%aa%d8%b3%d9%84%d9%8a%d9%85-2/">الشحن والتسليم</a>
                     <a href="https://alyaman.com/my-account/edit-account/">حسابي</a>
                     <a href="https://alyaman.com/my-account/orders/">طلباتك</a>
-                    <a href="https://alyaman.com/about-us-arabic/">حول</a>
+                    <a href="https://www.alyaman.com/remember/">الشروط والأحكام</a>
+                    <a href="https://alyaman.com/privacy-policy/">سياسات الخصوصية</a>
                 </div>
                 <div class="LinkList col-sm-3 col-12" >
                     <h3>اللغات</h3>
@@ -202,10 +202,10 @@ export default {
     align-content: center;
     justify-content: center;
     color: white;
-    border-top: 5px #6e6e6e solid;
-    margin: 0 123px;
-    padding: 35px 0;
-    font-size: 26px;
+    border-top: 1px #6e6e6e solid;
+    margin: 0 110px;
+    padding: 16px 0;
+    font-size: 16px;
     margin-top: 26px;
     text-align: center;
 }

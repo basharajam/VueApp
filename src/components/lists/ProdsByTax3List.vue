@@ -92,7 +92,7 @@ export default {
 
  padding-left: 0 !important;
  padding-right: 0 !important;
- margin:0 8px;
+ margin:0 2px;
 
 }
 

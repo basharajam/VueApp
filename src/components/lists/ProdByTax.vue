@@ -12,7 +12,6 @@
           <ProdListLoader></ProdListLoader>
         </template>
         <div class="ProdList">
->
               <div class="scrollmenu"  v-if="$mq === 'md' || $mq === 'lg'" >
                   <ProdCard v-for="Product in ProdByTax" v-bind:key="Product.id" v-bind:Product="Product" class=" "></ProdCard>
               </div>
