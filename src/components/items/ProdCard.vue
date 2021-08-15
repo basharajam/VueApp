@@ -10,7 +10,7 @@
                             
                             <img slot="preloader" src="@/assets/loader.png" />
                        
-                            <template v-slot:error>Image load fails</template>
+                            <img slot="error" src="@/assets/loader.png" />
                         </vue-load-image>
                     
                     

@@ -248,6 +248,7 @@ export default {
   }
 .SearchInput{
         border-radius: 25px;
+        margin-bottom: 0px !important;
   }
   .SearchInput:focus{
     border-color:#fe6a0036 !important ;
