@@ -3,7 +3,12 @@
         <div class="product-grid">
              <div class="product-image-box">
                 <a :href="Product.permalink" class="image">
-                    <img class="pic-1" :src="Product.images[0].src">
+                    <!-- <img class="pic-1" :src="Product.images[0].src"> -->
+                    <vue-load-image>
+                        <img slot="image"  class="pic-1"  :src="Product.images[0].src" :alt="Product.name" width="500" height="500" >
+                        <img slot="preloader" src="@/assets/loader.png" />
+                        <img slot="error" src="@/assets/loader.png" />
+                    </vue-load-image>
                 </a>
                 <!-- <span class="product-discount-label">-33%</span> -->
                 <ul class="product-links">
@@ -33,10 +38,14 @@
 </template>
 
 <script>
+import VueLoadImage from 'vue-load-image'
 export default {
 
     name:'ProdBox',
-    props:['Product']
+    props:['Product'],
+    components:{
+        'vue-load-image': VueLoadImage
+    }
 
 }
 </script>

@@ -4,16 +4,11 @@
         <div class="product-grid">
              <div class="product-image">
                 <a :href="Product.permalink" class="image" style="min-width:150;">
-                        <vue-load-image>
-                            
-                            <img slot="image"  class="pic-1"  :src="Product.images[0].src" :alt="Product.name" width="500" height="500" >
-                            
-                            <img slot="preloader" src="@/assets/loader.png" />
-                       
-                            <img slot="error" src="@/assets/loader.png" />
-                        </vue-load-image>
-                    
-                    
+                    <vue-load-image>
+                        <img slot="image"  class="pic-1"  :src="Product.images[0].src" :alt="Product.name" width="500" height="500" >
+                        <img slot="preloader" src="@/assets/loader.png" />
+                        <img slot="error" src="@/assets/loader.png" />
+                    </vue-load-image>
                 </a>
                 <span v-if="Product.sale_price" class="discount-lab">% {{ discountPrice(Product)  }}</span>
                 <ul class="product-links">

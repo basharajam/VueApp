@@ -4,7 +4,12 @@
         <div class="card-grid">
              <div class="card-image">
                 <a :href="Product.permalink" class="image">
-                    <img class="pic-1" :src="Product.images[0].src">
+                    <!-- <img class="pic-1" :src="Product.images[0].src"> -->
+                    <vue-load-image>
+                        <img slot="image"  class="pic-1"  :src="Product.images[0].src" :alt="Product.name" width="500" height="500" >
+                        <img slot="preloader" src="@/assets/loader.png" />
+                        <img slot="error" src="@/assets/loader.png" />
+                    </vue-load-image>
                 </a>
                 <span v-if="Product.sale_price" class="discount-lab">% {{ discountPrice(Product)  }}</span>
             </div>
@@ -19,6 +24,7 @@
 </template>
 
 <script>
+import VueLoadImage from 'vue-load-image';
 export default {
 
 
@@ -31,6 +37,9 @@ export default {
                 var stp3 = stp2 *100;
                 return  parseFloat(stp3).toFixed(0);
             }
+        },
+        components:{
+        'vue-load-image': VueLoadImage
         }
 
 

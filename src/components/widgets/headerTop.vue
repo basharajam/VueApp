@@ -10,7 +10,7 @@
         <a href="https://www.alyaman.com/remember/"> سياسات الخصوصية </a>
         </div>
             
-            <div class="headerDrp d-flex align-items-center " v-if="$mq === 'sm'">
+            <!-- <div class="headerDrp d-flex align-items-center " v-if="$mq === 'sm'">
                         <b-dropdown id="dropdown-1"  variant="none" class="ShipBtn" no-flip no-caret>
                             <template #button-content>
                                 <div class="d-flex align-items-center">
@@ -34,8 +34,8 @@
                             </b-form-group>
                         </b-dropdown-form>
                         </b-dropdown>
-                <!-- <a style="color:white" @click="SetLang()" >اللغة</a> -->
-            </div>
+                
+            </div> -->
     </div>  
 </template>
 

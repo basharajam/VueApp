@@ -108,7 +108,12 @@
                     <div class="ProdBoxItems">
                         <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox2" v-bind:key="Prod.id">
                             <a :href="Prod.permalink">
-                                <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
+                                <!-- <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" > -->
+                                <vue-load-image>
+                                    <img slot="image"  class="pic-1"  :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
+                                    <img slot="preloader" src="@/assets/loader.png" />
+                                    <img slot="error" src="@/assets/loader.png" />
+                                </vue-load-image>
                             </a>
                             <a :href="Prod.permalink">
                                 <p>{{Prod.name}}</p>
@@ -126,7 +131,12 @@
                     <div class="ProdBoxItems">
                         <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox0" v-bind:key="Prod.id">
                             <a :href="Prod.permalink">
-                                <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
+                                <!-- <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" > -->
+                                <vue-load-image>
+                                    <img slot="image"  class="pic-1"  :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
+                                    <img slot="preloader" src="@/assets/loader.png" />
+                                    <img slot="error" src="@/assets/loader.png" />
+                                </vue-load-image>
                             </a>
                             <a :href="Prod.permalink">
                                 <p>{{Prod.name}}</p>
@@ -143,7 +153,12 @@
                     <div class="ProdBoxItems">
                         <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox" v-bind:key="Prod.id">
                             <a :href="Prod.permalink">
-                                <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
+                                <!-- <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" > -->
+                                <vue-load-image>
+                                    <img slot="image"  class="pic-1"  :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
+                                    <img slot="preloader" src="@/assets/loader.png" />
+                                    <img slot="error" src="@/assets/loader.png" />
+                                </vue-load-image>
                             </a>
                             <a :href="Prod.permalink">
                                 <p>{{Prod.name}}</p>
@@ -159,7 +174,11 @@
                     <div class="ProdBoxItems">
                         <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox1" v-bind:key="Prod.id">
                             <a :href="Prod.permalink">
-                                <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500"  >
+                                <vue-load-image>
+                                    <img slot="image"  class="pic-1"  :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
+                                    <img slot="preloader" src="@/assets/loader.png" />
+                                    <img slot="error" src="@/assets/loader.png" />
+                                </vue-load-image>
                             </a>
                             <a :href="Prod.permalink">
                                 <p>{{Prod.name}}</p>
@@ -176,9 +195,8 @@
 <script>
 
 import {mapGetters} from 'vuex';
+import VueLoadImage from 'vue-load-image'
 export default {
-
-    
 
     name:'ProdBoxList',
     computed:{
@@ -196,6 +214,9 @@ export default {
             }
         },
     },
+    components:{
+        'vue-load-image': VueLoadImage
+    }
 
 
 }
