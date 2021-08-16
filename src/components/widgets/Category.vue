@@ -5,9 +5,9 @@
     </div> -->
 
     <div class="" >
-      <div class="category-carousel d-sm-none d-block">
-       <CatSlideItem v-for="Category in Categories" v-bind:key='Category.id' v-bind:Category='Category' class="carousel-cell col-2"></CatSlideItem>
-      </div>
+      <Flickity ref="flickity" :options="flickityOptions" v-if="$mq === 'sm' && Categories.length != 0">
+        <CatSlideItem v-for="Category in Categories" v-bind:key='Category.id' v-bind:Category='Category' class="carousel-cell col-2"></CatSlideItem>
+      </Flickity>
     </div>
     <!-- <div class="d-sm-block d-none">
       <div id="carouselBannerControls" class="carousel slide BannersSlide " data-ride="carousel">
@@ -73,7 +73,6 @@
           </a>
         </div>
       </Flickity>
-      
     </div>
   </div>
   
