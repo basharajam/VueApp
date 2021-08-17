@@ -170,7 +170,7 @@
             </div>
             <div class="ProdsBox col-sm-3">
                 <div class="" style="box-shadow:#88888836 0px 1px 12px 4px">
-                    <h3 class="ProdBoxTitle ">تاغات اليوم الوطني</h3>
+                    <h3 class="ProdBoxTitle ">مزهريات</h3>
                     <div class="ProdBoxItems">
                         <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox1" v-bind:key="Prod.id">
                             <a :href="Prod.permalink">

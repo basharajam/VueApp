@@ -16,7 +16,7 @@ const state  = {
     ProdByTax6:[],
     ProdByTax7:[],
     ProdByTax8:[],
-
+    ProdByTax9:[],
     ProdInBox:[],
     ProdInBox0:[],
     ProdInBox1:[],
@@ -40,7 +40,8 @@ const getters = {
     ProdByTax6:state=>state.ProdByTax6,
     ProdByTax7:state=>state.ProdByTax7,
     ProdByTax8:state=>state.ProdByTax8,
-    
+    ProdByTax9:state=>state.ProdByTax9,
+
     ProdInBox:state=>state.ProdInBox,
     ProdInBox0:state=>state.ProdInBox0,
     ProdInBox1:state=>state.ProdInBox1,
@@ -106,6 +107,7 @@ const actions = {
                 commit('ProdByTax6',response.data.ProdByTax6)
                 commit('ProdByTax7',response.data.ProdByTax7)
                 commit('ProdByTax8',response.data.ProdByTax8)
+                commit('ProdByTax9',response.data.ProdByTax9)
 
                 commit('ProdInBox',response.data.ProdInBox)
                 commit('ProdInBox0',response.data.ProdInBox0)
@@ -145,6 +147,7 @@ const mutations = {
     ProdByTax6:(state,ProdByTax6)=>(state.ProdByTax6=ProdByTax6),
     ProdByTax7:(state,ProdByTax7)=>(state.ProdByTax7=ProdByTax7),
     ProdByTax8:(state,ProdByTax8)=>(state.ProdByTax8=ProdByTax8),
+    ProdByTax9:(state,ProdByTax9)=>(state.ProdByTax9=ProdByTax9),
     
 }
 

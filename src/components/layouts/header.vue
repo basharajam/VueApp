@@ -265,12 +265,9 @@ export default {
   }
 
   .CatNavLinks{
-    /* background: #d1d3d4 !important; */
-    /* background: #252933; */
     padding: 4px 0;
     font-size: 14px;
-    /* background: white; */
-    /* background: #232f3e; */
+    background: white;
     min-width: 100%;
     margin-bottom: 0px !important;
   }

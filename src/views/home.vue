@@ -21,6 +21,7 @@
         <!-- Whatsapp Distru Banner End -->
         <MostPopularList v-if="$mq === 'sm'"></MostPopularList>
         <ProdsByTax5 v-if="$mq === 'sm'"></ProdsByTax5>
+        <ProdsByTax9 v-if="$mq === 'sm'" ></ProdsByTax9>
         <ProdsByTax1 v-if="$mq === 'sm'"></ProdsByTax1>
         <ProdsByTax2 v-if="$mq === 'sm'"></ProdsByTax2>
         <ProdsByTax3 v-if="$mq === 'sm'" ></ProdsByTax3>
@@ -70,6 +71,7 @@
         <!-- <Banner></Banner> -->
         <ProdsByTax3  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax3>
         <ProdsByTax4  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax4>
+        <ProdsByTax9 v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax9>
         <ProdsByTax1  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax1>
         <ProdByBoxList  v-if="$mq === 'md' || $mq === 'lg'"></ProdByBoxList> 
         <OffersList  v-if="$mq === 'md' || $mq === 'lg'"></OffersList>
@@ -113,6 +115,7 @@ import ProdsByTax4 from '../components/lists/ProdsByTax4List.vue';
 import ProdsByTax7 from '../components/lists/ProdsByTax7List.vue';
 import ProdsByTax5 from '../components/lists/ProdsByTax5List.vue';
 import ProdsByTax8 from '../components/lists/ProdsByTax8List.vue';
+import ProdsByTax9 from '../components/lists/ProdsByTax9List.vue';
 import homeList from '../components/lists/HomeList.vue';
 // import CatGridList from '../components/lists/CatGridList.vue';
 // import BestSell from '../components/lists/BestSellList.vue';
@@ -140,7 +143,7 @@ export default {
       ProdsByTax8,
       ProdsByTax5,
       ProdByBoxList,
-
+      ProdsByTax9
       // CatGridList,
       // Banner
       

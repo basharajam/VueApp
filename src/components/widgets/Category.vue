@@ -4,7 +4,7 @@
       <h3 class="text-right" >تسوق حسب الفئة</h3>
     </div> -->
 
-    <div class="" >
+    <div class="" style="background:white;padding:6px 0;margin-bottom:6px " >
       <Flickity ref="flickity" :options="flickityOptions" v-if="$mq === 'sm' && Categories.length != 0">
         <CatSlideItem v-for="Category in Categories" v-bind:key='Category.id' v-bind:Category='Category' class="carousel-cell col-2"></CatSlideItem>
       </Flickity>
@@ -70,6 +70,11 @@
         <div class="BannerSlideItem col-10 ">
           <a href="https://alyaman.com/product-category/%d8%a3%d8%b9%d9%8a%d8%a7%d8%af-%d9%85%d9%8a%d9%84%d8%a7%d8%af/">
               <img  class="mobileBanner " src="@/assets/banners/4.jpeg" alt="">
+          </a>
+        </div>
+        <div class="BannerSlideItem col-10 ">
+          <a href="https://alyaman.com/product-category/%d8%a3%d8%b9%d9%8a%d8%a7%d8%af-%d9%85%d9%8a%d9%84%d8%a7%d8%af/">
+              <img  class="mobileBanner " src="@/assets/banners/5.jpeg" alt="">
           </a>
         </div>
       </Flickity>
