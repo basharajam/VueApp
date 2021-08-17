@@ -127,6 +127,7 @@ export default {
 
 .FooterHeadingContent h3{
     font-size: 64px;
+    text-align: center;
     margin-top: 46px;
     color: white !important;
 }

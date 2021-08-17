@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light p-0"  style="    border-bottom: 1px #d1d1d1d1 solid;">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light p-0"  style="    border-bottom: 1px #d1d1d1d1 solid;z-index: 988 !important;">
         <a class="navbar-brand col-sm-3 col-3 px-0"  href="https://alyaman.com" aria-label="Al-yaman">
           <img  src="icon.png" class="w-100" alt="" >
         </a>

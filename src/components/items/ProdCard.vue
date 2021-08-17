@@ -230,15 +230,18 @@ export default {
 .product-grid .price{
     color: #fe6a00;
     font-size: 14px;
-    font-weight: 600;
+    /* font-weight: 600; */
     display: block;
     transition: all 0.4s ease-in-out;
 }
-.product-grid .product-data .price span{
+
+.price span {
+    color: #fe6a00;
+}
+/* .product-grid .product-data .price span{
     color: #999;
     font-weight: 500;
-  
-}
+} */
 /* .product-grid:hover  */
 /* .price{ opacity: 0; } */
 .product-content .add-to-cart{
