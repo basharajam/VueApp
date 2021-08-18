@@ -4,7 +4,7 @@
         <div class="float-left ShowMoreBtn" >
           <a href="https://alyaman.com/product-tag/ksa_topper_group/" class="pull-left">عرض المزيد</a>
         </div>
-        <h3 class="text-right">تغريسات اليوم الوطني السعودي</h3>
+        <h3 class="text-right">{{ ProdByTax4.title }}</h3>
       </div>
 
       <b-skeleton-wrapper :loading="ProdByTax4Loading">
@@ -13,10 +13,10 @@
         </template>
          <div class="ProdList">
 
-                <Flickity class="offersListScroll" ref="flickity" :options="flickityOptions" v-if="$mq === 'md' || $mq === 'lg' && ProdByTax4.length != 0">
-                    <ProdCard  class="carousel-cell" v-for="Product in ProdByTax4" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+                <Flickity class="offersListScroll" ref="flickity" :options="flickityOptions" v-if="$mq === 'md' || $mq === 'lg' && ProdByTax4.items.length != 0">
+                    <ProdCard  class="carousel-cell" v-for="Product in ProdByTax4.items" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
                 </Flickity>
-                <div v-if="$mq === 'sm'">
+                <div v-if="$mq === 'sm' && FilterArr.length > 0  ">
                   <div class="container-fluid">
                     <div class="row">
                         <ProdCard v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem hideAddToCart"></ProdCard>                
@@ -47,10 +47,7 @@ export default {
     Flickity
   },
   computed:{
-    ...mapGetters(['ProdByTax4']),
-    FilterArr:function () {
-          return this.ProdByTax4.slice(0,4)
-    }
+    ...mapGetters(['ProdByTax4'])
   },
     data(){
 
@@ -62,13 +59,15 @@ export default {
           imagesLoaded: true,
           // any options from Flickity can be used
         },
-        ProdByTax4Loading:true
+        ProdByTax4Loading:true,
+        FilterArr:[]
       }
     },
     watch:{
       ProdByTax4(newValue){
-          if(newValue.length > 0){
+          if(newValue.items.length > 0){
               this.ProdByTax4Loading=false;
+              this.FilterArr=this.ProdByTax4.items.slice(0,4)
           }
       },
     }

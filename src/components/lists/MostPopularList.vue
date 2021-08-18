@@ -5,7 +5,7 @@
         <div class="float-left ShowMoreBtn" >
           <a href="https://alyaman.com/%d8%b1%d8%a7%d8%a6%d8%ac%d8%a9/" class="pull-left">عرض المزيد</a>
         </div>
-        <h3 class="text-right" >الاكثر رواجا</h3>
+        <h3 class="text-right" >{{ ProdMostPopular.title }}</h3>
       </div>
     <b-skeleton-wrapper :loading="MostPopLoading">
         <template #loading>
@@ -13,7 +13,7 @@
         </template>
       <div class="ProdList">
         <div class="scrollmenu">
-            <ProdCard v-for="Product in ProdMostPopular" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+            <ProdCard v-for="Product in ProdMostPopular.items" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
           </div>
       </div>
     </b-skeleton-wrapper>
@@ -47,7 +47,7 @@ export default {
   },
   watch:{
     ProdMostPopular(newValue){
-        if(newValue.length > 0){
+        if(newValue.items.length > 0){
             this.MostPopLoading=false;
         }
     },

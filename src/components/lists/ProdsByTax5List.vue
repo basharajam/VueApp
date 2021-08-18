@@ -4,7 +4,7 @@
         <div class="float-left ShowMoreBtn" >
           <a href="https://www.alyaman.com/product-category/%d8%a3%d8%b9%d8%b1%d8%a7%d8%b3/" class="pull-left">عرض المزيد</a>
         </div>
-        <h3 class="text-right">أعراس </h3>
+        <h3 class="text-right">{{ ProdByTax5.title }} </h3>
       </div>
 
       <b-skeleton-wrapper :loading="ProdByTax5Loading">
@@ -15,11 +15,11 @@
         <div class="ProdList">
 
 
-              <Flickity  v-if="$mq === 'md' || $mq === 'lg' && ProdByTax5.length != 0"  class="offersListScroll d-none d-sm-block" ref="flickity" :options="flickityOptions">
-                  <ProdCard  class="carousel-cell" v-for="Product in ProdByTax5" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+              <Flickity  v-if="$mq === 'md' || $mq === 'lg' && ProdByTax5.items.length != 0"  class="offersListScroll d-none d-sm-block" ref="flickity" :options="flickityOptions">
+                  <ProdCard  class="carousel-cell" v-for="Product in ProdByTax5.items" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
               </Flickity>
               <div class="scrollmenu " v-if="$mq === 'sm'">
-                  <ProdCard v-for="Product in ProdByTax5" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+                  <ProdCard v-for="Product in ProdByTax5.items" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
               </div>
 
         </div>
@@ -68,7 +68,7 @@ export default {
   },
   watch:{
       ProdByTax5(newValue){
-          if(newValue.length > 0){
+          if(newValue.items.length > 0){
               this.ProdByTax5Loading=false;
           }
       },

@@ -5,7 +5,7 @@
         <div class="float-left ShowMoreBtn" >
           <a href="https://alyaman.com/product-category/%d8%a3%d8%b9%d9%8a%d8%a7%d8%af-%d9%85%d9%8a%d9%84%d8%a7%d8%af/" class="pull-left">عرض المزيد</a>
         </div>
-        <h3 class="text-right" >توزيعات عيد ميلاد</h3>
+        <h3 class="text-right" >{{ ProdByTax2.title }}</h3>
       </div>
 
       <b-skeleton-wrapper :loading="ProdByTax2Loading">
@@ -15,12 +15,12 @@
 
       <div class="ProdList ">
             <div class="scrollmenu "  v-if="$mq === 'md' || $mq === 'lg'">
-                <ProdCard v-for="Product in ProdByTax2" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+                <ProdCard v-for="Product in ProdByTax2.items" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
             </div>
-            <div v-if="$mq === 'sm'" >
+            <div v-if="$mq === 'sm' && FilterArr.length > 0 " >
               <div class="container-fluid">
                 <div class="row">
-                    <ProdCard v-for="Product in filterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem hideAddToCart"></ProdCard>                
+                    <ProdCard v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem hideAddToCart"></ProdCard>                
                 </div>
               </div>
             </div>
@@ -58,23 +58,20 @@ export default {
         },
         computed:{
             ...mapGetters(['ProdByTax2']),
-            filterArr:function() {
-              
-              return this.ProdByTax2.slice(0,4)
-
-            }
         },
         data(){
 
           return {
-              ProdByTax2Loading:true
+              ProdByTax2Loading:true,
+              FilterArr:[]
           }
 
         },
         watch:{
           ProdByTax2(newValue){
-              if(newValue.length > 0){
+              if(newValue.items.length > 0){
                   this.ProdByTax2Loading=false;
+                  this.FilterArr=this.ProdByTax2.items.slice(0,4)
               }
           },
       }

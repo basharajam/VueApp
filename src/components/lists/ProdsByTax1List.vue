@@ -4,7 +4,7 @@
         <div class="float-left ShowMoreBtn" >
           <a href="https://alyaman.com/product-category/%d9%85%d9%88%d8%a7%d9%84%d9%8a%d8%af/" class="pull-left">عرض المزيد</a>
         </div>
-        <h3 class="text-right">زينة منوعة</h3>
+        <h3 class="text-right">{{ ProdByTax1.title }}</h3>
       </div>
 
       <b-skeleton-wrapper :loading="ProdByTax1Loading">
@@ -14,12 +14,12 @@
 
         <div class="ProdList ">
               <div class="scrollmenu"  v-if="$mq === 'md' || $mq === 'lg'" >
-                  <ProdCard v-for="Product in ProdByTax1" v-bind:key="Product.id" v-bind:Product="Product" class="col-sm-3"></ProdCard>
+                  <ProdCard v-for="Product in ProdByTax1.items" v-bind:key="Product.id" v-bind:Product="Product" class="col-sm-3"></ProdCard>
               </div>
-              <div  v-if="$mq === 'sm'">
+              <div  v-if="$mq === 'sm' && FilterArr.length > 0 " >
                 <div class="container-fluid">
                   <div class="row d-flex">
-                      <ProdCard v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem grid-discount hideAddToCart"></ProdCard>                
+                      <ProdCard v-for="Product in FilterArr " v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem grid-discount hideAddToCart"></ProdCard>                
                   </div>
                 </div>    
               </div>
@@ -47,21 +47,21 @@ export default {
   },
   computed:{
     ...mapGetters(['ProdByTax1']),
-    FilterArr:function () {
-      return this.ProdByTax1.slice(0,4)
-    }
+
   },
   data(){
 
   return {
-      ProdByTax1Loading:true
+      ProdByTax1Loading:true,
+      FilterArr:[]
   }
 
 },
 watch:{
   ProdByTax1(newValue){
-      if(newValue.length > 0){
+      if(newValue.items.length > 0){
           this.ProdByTax1Loading=false;
+          this.FilterArr=this.ProdByTax1.items.slice(0,4)
       }
   },
 }

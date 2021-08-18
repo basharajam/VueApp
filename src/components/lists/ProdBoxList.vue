@@ -104,9 +104,9 @@
             <!-- SaudiDayTopper -->
             <div class="ProdsBox col-sm-3">
                 <div class="" style="box-shadow: #88888836 0px 1px 12px 4px">
-                    <h3 class="ProdBoxTitle ">احبال زينة اليوم الوطني</h3>
+                    <h3 class="ProdBoxTitle ">{{ ProdInBox2.title }}</h3>
                     <div class="ProdBoxItems">
-                        <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox2" v-bind:key="Prod.id">
+                        <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox2.items" v-bind:key="Prod.id">
                             <a :href="Prod.permalink">
                                 <!-- <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" > -->
                                 <vue-load-image>
@@ -127,9 +127,9 @@
 
             <div class="ProdsBox col-sm-3">
                 <div class="" style="box-shadow:#88888836  0px 1px 12px 4px">
-                    <h3 class="ProdBoxTitle ">تغريسات اليوم الوطني</h3>
+                    <h3 class="ProdBoxTitle ">{{ ProdInBox0.title }}</h3>
                     <div class="ProdBoxItems">
-                        <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox0" v-bind:key="Prod.id">
+                        <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox0.items" v-bind:key="Prod.id">
                             <a :href="Prod.permalink">
                                 <!-- <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" > -->
                                 <vue-load-image>
@@ -149,9 +149,9 @@
 
             <div class="ProdsBox col-sm-3">
                 <div class="" style="box-shadow: #88888836 0px 1px 12px 4px">
-                    <h3 class="ProdBoxTitle ">ستيكرات اليوم الوطني</h3>
+                    <h3 class="ProdBoxTitle ">{{ ProdInBox.title }}</h3>
                     <div class="ProdBoxItems">
-                        <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox" v-bind:key="Prod.id">
+                        <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox.items" v-bind:key="Prod.id">
                             <a :href="Prod.permalink">
                                 <!-- <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" > -->
                                 <vue-load-image>
@@ -170,9 +170,9 @@
             </div>
             <div class="ProdsBox col-sm-3">
                 <div class="" style="box-shadow:#88888836 0px 1px 12px 4px">
-                    <h3 class="ProdBoxTitle ">مزهريات</h3>
+                    <h3 class="ProdBoxTitle ">{{ ProdInBox1.title }}</h3>
                     <div class="ProdBoxItems">
-                        <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox1" v-bind:key="Prod.id">
+                        <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox1.items" v-bind:key="Prod.id">
                             <a :href="Prod.permalink">
                                 <vue-load-image>
                                     <img slot="image"  class="pic-1"  :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
@@ -209,7 +209,7 @@ export default {
     },
     watch:{
         ProdInBox2(newValue){
-            if(newValue.length > 0){
+            if(newValue.items.length > 0){
                 this.ProdInBox2Loading=false;
             }
         },

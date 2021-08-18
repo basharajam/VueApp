@@ -4,7 +4,7 @@
         <div class="float-left ShowMoreBtn" >
           <a href="https://alyaman.com/product-tag/baby_box_group/" class="">عرض المزيد</a>
         </div>
-        <h3 class="text-right" >توزيعات علب كرتون</h3>
+        <h3 class="text-right" >{{ProdByTax7.title}}</h3>
       </div>
       <b-skeleton-wrapper :loading="ProdByTax7Loading">
         <template #loading>
@@ -12,11 +12,11 @@
         </template>
         <div class="ProdList ">
           <div class="scrollmenu "  v-if="$mq === 'md' || $mq === 'lg'">
-              <ProdCard v-for="Product in ProdByTax7" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-2"></ProdCard>
+              <ProdCard v-for="Product in ProdByTax7.items" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-2"></ProdCard>
           </div>
           <div class="container-fluid" v-if="$mq === 'sm'">
             <div class="row ">
-                <ProdGridBox v-for="Product in ProdByTax7" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-3 GridItem grid-discount"></ProdGridBox>                
+                <ProdGridBox v-for="Product in ProdByTax7.items" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-3 GridItem grid-discount"></ProdGridBox>                
             </div>
           </div>
         </div>
@@ -51,7 +51,7 @@ export default {
     },
     watch:{
       ProdByTax7(newValue){
-          if(newValue.length > 0){
+          if(newValue.items.length > 0){
               this.ProdByTax7Loading=false;
           }
       },

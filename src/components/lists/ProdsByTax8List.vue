@@ -4,7 +4,7 @@
         <div class="float-left ShowMoreBtn" >
           <a href="https://www.alyaman.com/product-tag/ksa_decoration_group/" class="pull-left">عرض المزيد</a>
         </div>
-        <h3 class="text-right" >زينة اليوم الوطني السعودي</h3>
+        <h3 class="text-right" >{{ ProdByTax8.title }}</h3>
       </div>
 
       <b-skeleton-wrapper :loading="ProdByTax8Loading">
@@ -14,10 +14,10 @@
         <div class="ProdList">
 
           <div class="scrollmenu "  v-if="$mq === 'md' || $mq === 'lg'">
-              <ProdCard v-for="Product in ProdByTax8" v-bind:key="Product.id" v-bind:Product="Product" class=" "></ProdCard>
+              <ProdCard v-for="Product in ProdByTax8.items" v-bind:key="Product.id" v-bind:Product="Product" class=" "></ProdCard>
           </div>
 
-          <div v-if="$mq === 'sm'">
+          <div v-if="$mq === 'sm' && FilterArr.length > 0 ">
           <div class="container-fluid">
             <div class="row">
                 <ProdCard v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem hideAddToCart"></ProdCard>                
@@ -46,22 +46,22 @@ export default {
     },
     computed:{
       ...mapGetters(['ProdByTax8']),
-      FilterArr:function () {
-          return this.ProdByTax8.slice(0,4)
-      }
+
 
     },
     data(){
 
       return {
-        ProdByTax8Loading:true
+        ProdByTax8Loading:true,
+        FilterArr:[]
       }
 
     },
     watch:{
       ProdByTax8(newValue){
-          if(newValue.length > 0){
+          if(newValue.items.length > 0){
               this.ProdByTax8Loading=false;
+              this.FilterArr=this.ProdByTax8.items.slice(0,4)
           }
       },
     }

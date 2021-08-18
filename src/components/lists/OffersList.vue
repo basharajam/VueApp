@@ -5,7 +5,7 @@
         <div class="float-left ShowMoreBtn" >
             <a href="https://alyaman.com/%d8%b9%d8%b1%d9%88%d8%b6/" class="pull-left">عرض المزيد</a>
         </div>
-          <h3 class="text-right" >عروض خاصة</h3>
+          <h3 class="text-right" >{{ProdOffers.title}}</h3>
       </div>
       <b-skeleton-wrapper :loading="OffersListLoading">
         <template #loading>
@@ -15,10 +15,10 @@
 
           
           <Flickity v-if="ProdOffers.length != 0" class="offersListScroll d-sm-block d-none " ref="flickity" :options="flickityOptions">
-              <ProdCard  class="carousel-cell" v-for="Product in ProdOffers" v-bind:key="Product.id" v-bind:Product="Product" ></ProdCard>
+              <ProdCard  class="carousel-cell" v-for="Product in ProdOffers.items" v-bind:key="Product.id" v-bind:Product="Product" ></ProdCard>
           </Flickity>
           <div class="scrollmenu d-sm-none d-block">
-              <ProdCard v-for="Product in ProdOffers" v-bind:key="Product.id" v-bind:Product="Product" class="col-sm-3"></ProdCard>
+              <ProdCard v-for="Product in ProdOffers.items" v-bind:key="Product.id" v-bind:Product="Product" class="col-sm-3"></ProdCard>
           </div>
           
         </div>
@@ -61,7 +61,7 @@ export default {
     },
     watch:{
       ProdOffers(newValue){
-          if(newValue.length > 0){
+          if(newValue.items.length > 0){
               this.OffersListLoading=false;
           }
       },

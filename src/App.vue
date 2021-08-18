@@ -3,7 +3,7 @@
 
     <!-- <Spinner v-if="spinner" /> -->
     <Cart v-if="['Home','ProdByCat','ProdOne'].includes($route.name)" />
-    <headerTop v-if="['Home','ProdByCat','ProdOne'].includes($route.name)"/>
+    <!-- <headerTop v-if="['Home','ProdByCat','ProdOne'].includes($route.name)"/> -->
     <navbar v-if="['Home','ProdByCat','ProdOne'].includes($route.name)"/>
     <Header  v-if="['Home','ProdByCat','ProdOne'].includes($route.name)" />
     <router-view />
@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import headerTop from './components/widgets/headerTop.vue';
+// import headerTop from './components/widgets/headerTop.vue';
 import navbar from './components/widgets/navbar.vue';
 import Header from './components/layouts/header.vue';
 import Footer from './components/layouts/footer.vue';
@@ -30,7 +30,7 @@ export default {
     navbar,
     Footer,
     Cart,
-    headerTop,
+    // headerTop,
 
     // Spinner
   },

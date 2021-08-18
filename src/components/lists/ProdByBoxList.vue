@@ -4,7 +4,7 @@
         <div class="float-left ShowMoreBtn" >
           <a href="https://alyaman.com/product-tag/moq_5_group/" class="pull-left">عرض المزيد</a>
         </div>
-        <h3 class="text-right" >منتجات يمكنك طلب 5 كرتون منها او اقل</h3>
+        <h3 class="text-right" >{{ ProdByBox.title }}</h3>
       </div>
 
       <b-skeleton-wrapper :loading="ProdByBoxLoading">
@@ -14,7 +14,7 @@
         <div class="ProdList container-fluid">
 
           <div class="scrollmenu">
-              <ProdCard v-for="Product in ProdByBox" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem "></ProdCard>                
+              <ProdCard v-for="Product in ProdByBox.items" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem "></ProdCard>                
             </div>
         </div>
 
@@ -49,7 +49,7 @@ export default {
     },
     watch:{
       ProdByBox(newValue){
-          if(newValue.length > 0){
+          if(newValue.items.length > 0){
               this.ProdByBoxLoading=false;
           }
       },

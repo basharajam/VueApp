@@ -4,7 +4,7 @@
         <div class="float-left ShowMoreBtn" >
           <a href="https://www.alyaman.com/product-tag/ksa_badge_group/" class="pull-left">عرض المزيد</a>
         </div>
-        <h3 class="text-right">بروش اليوم الوطني السعودي</h3>
+        <h3 class="text-right">{{ ProdByTax3.title }}</h3>
       </div>
       <b-skeleton-wrapper :loading="ProdByTax3Loading">
       <template #loading>
@@ -12,12 +12,12 @@
       </template>
         <div class="ProdList ">
           <div class="scrollmenu "  v-if="$mq === 'md' || $mq === 'lg'">
-              <ProdCard v-for="Product in ProdByTax3" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-2"></ProdCard>
+              <ProdCard v-for="Product in ProdByTax3.items" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-2"></ProdCard>
           </div>
           <div v-if="$mq === 'sm'" >
             <div class="container-fluid">
               <div class="row ">
-                  <ProdCard v-for="Product in ProdByTax3" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 GridItem"></ProdCard>                
+                  <ProdCard v-for="Product in ProdByTax3.items" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 GridItem"></ProdCard>                
               </div>
             </div>
           </div>
@@ -60,7 +60,7 @@ export default {
   computed:{
     ...mapGetters(['ProdByTax3']),
     FilterArr:function () {
-          return this.ProdByTax3.slice(0,4)
+          return this.ProdByTax3.items.slice(0,4)
     }
   },
   data(){
@@ -78,7 +78,7 @@ export default {
     },
     watch:{
           ProdByTax3(newValue){
-              if(newValue.length > 0){
+              if(newValue.items.length > 0){
                   this.ProdByTax3Loading=false;
               }
           },
