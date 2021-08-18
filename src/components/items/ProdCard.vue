@@ -293,6 +293,7 @@ background-color: white;
 text-align: center;
 white-space: break-spaces;
 transition: all 0.4s ease-out;
+width: 100% !important;
 }
 
 

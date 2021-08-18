@@ -279,7 +279,7 @@ export default {
       margin: 0 2px;
       color: #808080;
       /* color: white; */
-      font-weight: 600
+      
   }
   .CatNavLinks a:active {
        color: #fe6a00;

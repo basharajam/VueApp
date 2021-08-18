@@ -4,11 +4,11 @@
           <img  src="icon.png" class="w-100" alt="" >
         </a>
         
-          <div class="SearchSection d-flex align-items-center col-sm-7 col-7 px-0" >
+          <div class="SearchSection d-flex align-items-center col-sm-5 col-7 px-0" >
             <i style="position: relative;right: 38px;top:0px;" class="fa fa-search"></i>
             <input class="form-control mr-sm-2 SearchInput pr-5" aria-describedby="basic-addon1" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="search" placeholder="بحث" >
           </div>
-          <!-- <div class="headerDrp col-sm-2 px-0 " v-if="$mq === 'md' || $mq === 'lg' ">
+          <div class="headerDrp col-sm-2 px-0 " v-if="$mq === 'md' || $mq === 'lg' ">
                     <b-dropdown id="dropdown-1"  variant="none" class=" ShipBtn " no-flip no-caret>
                           <template #button-content>
                               <div class="d-flex align-items-center">
@@ -40,7 +40,7 @@
                       </b-dropdown-form>
                     </b-dropdown>
 
-          </div> -->
+          </div>
           <div class="HeaderIcons d-none d-sm-inline-flex" style="position: absolute;left: 16px;">
             <a href="https://alyaman.com/my-account/" aria-label="حسابي"><i class="fal fa-user"></i></a>
             <div class="HeaderDivider"></div>
@@ -69,12 +69,12 @@
 </template>
 
 <script>
-// import CountryFlag from 'vue-country-flag'
+import CountryFlag from 'vue-country-flag'
 import _ from 'lodash'
 import axios from 'axios';
 export default {
  components:{
-      // CountryFlag
+      CountryFlag
     },
     data(){
 
