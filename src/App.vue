@@ -332,7 +332,7 @@ position: relative;
   box-shadow: 0 0 0 0.25rem #ff990059;
 }
 
-.amount span{
+span.amount {
 
   font-weight: normal !important;
       color: #fa6810 !important;
