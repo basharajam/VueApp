@@ -167,7 +167,9 @@ background-color: #f5f5f5ec !important ;
   color: black !important
 }
 
-.TitleList
+.TitleList{
+    min-height: 54px !important;
+}
 
 .SearchSection{
 position: relative;
