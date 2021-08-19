@@ -1,10 +1,10 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light p-0"  style="    border-bottom: 1px #d1d1d1d1 solid;z-index: 988 !important;">
+    <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light p-0 justify-content-start"  style="    border-bottom: 1px #d1d1d1d1 solid;z-index: 988 !important;">
         <a class="navbar-brand col-sm-3 col-3 px-0"  href="https://alyaman.com" aria-label="Al-yaman">
           <img  src="icon.png" class="w-100" alt="" >
         </a>
         
-          <div class="SearchSection d-flex align-items-center col-sm-5 col-7 px-0" >
+          <div class="SearchSection d-flex align-items-center col-md-4 col-lg-5 col-7 px-0" >
             <i style="position: relative;right: 38px;top:0px;" class="fa fa-search"></i>
             <input class="form-control mr-sm-2 SearchInput pr-5" aria-describedby="basic-addon1" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="search" placeholder="بحث" >
           </div>
