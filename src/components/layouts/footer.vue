@@ -90,6 +90,11 @@
 
             <div class="CopyRightsFooter">
                 <p>جميع الحقوق محفوظة 1996-2021©Alyaman.com</p>
+                <div class="PayMethods" style="text-align: center; width: 100%">
+                 <img height="40" src="https://shoplineimg.com/assets/footer/card_visa.png"/>
+                 <img height="22" src="http:///www.credit-card-logos.com/images/mastercard_credit-card-logos/mastercard_logo_1.gif"  width="37" border="0"/>
+                 <img height="40" src="https://shoplineimg.com/assets/footer/card_paypal.png"/>
+                </div>
             </div>
 
                 </div>
@@ -200,7 +205,7 @@ export default {
 .CopyRightsFooter{
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-content: center;
     justify-content: center;
     color: white;
@@ -210,6 +215,10 @@ export default {
     font-size: 16px;
     margin-top: 26px;
     text-align: center;
+}
+
+.PayMethods img{
+margin: 6px;
 }
 
 .mobileFooter{
