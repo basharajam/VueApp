@@ -310,16 +310,24 @@ position: relative;
   color: #9d3c9a  !important ;
   border-color: #9d3c9a  !important;
 }
-.btn-outline-warning:hover{
+/* .btn-outline-warning:hover{
     color: #000 !important;
     background-color: #fe6a00 !important;
     border-color: #fe6a00 !important;
-}
+} */
 .btn-outline-warning:not(:disabled):not(.disabled).active, .btn-outline-warning:not(:disabled):not(.disabled):active, .show>.btn-outline-warning.dropdown-toggle{
-  background-color: #fe6a00 !important;
-  color: #000 !important;
+  background-color: #9d3c9a !important;
+  border-color: #9d3c9a  !important;
+  color: white !important;
+}
+.btn-outline-warning:hover {
+  background-color: white !important;
+  border-color: #9d3c9a  !important;
 }
 
+.btn-outline-warning:not(:disabled):not(.disabled):active:focus, .btn-outline-warning:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-warning.dropdown-toggle:focus {
+    box-shadow: 0 0 0 0.2rem rgb(157 60 154 / 24%) !important;
+}
 .rounded-form {
   border-radius: 20px !important;
 }
@@ -348,6 +356,16 @@ select.dropSelect:focus{
     border-color: #f7611894;
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgb(250 100 16 / 47%);
+}
+
+.updCurrSubmit{
+background: white;
+}
+
+.updCurrSubmit:active{
+background: #9d3c9a !important;
+color: white !important;
+
 }
 
 

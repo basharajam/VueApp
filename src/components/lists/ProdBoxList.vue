@@ -119,7 +119,7 @@
                                 <p>{{Prod.name}}</p>
                             </a>
                         </div>
-                        <a href="https://www.alyaman.com/product-tag/ksa_decoration_group/" class="ProdBoxBtn">عرض المزيد</a>
+                        <a href="https://alyaman.com/product-category/%D9%85%D8%B2%D9%87%D8%B1%D9%8A%D8%A7%D8%AA" class="ProdBoxBtn">عرض المزيد</a>
                     </div>
                 </div>
             </div>

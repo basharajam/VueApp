@@ -30,7 +30,7 @@
                                 <b-form-select v-model="CountryInput" size="sm" class="dropSelect" :options="CountryOptions"></b-form-select>
                             </b-form-group>
                             <b-form-group>
-                                <b-button type="submit" block pill variant="outline-warning" style="background-color: unset !important;">حفظ</b-button>
+                                <b-button type="submit" block pill variant="outline-warning updCurrSubmit" >حفظ</b-button>
                             </b-form-group>
                         </b-dropdown-form>
                         </b-dropdown>
