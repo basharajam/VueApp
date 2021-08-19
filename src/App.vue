@@ -337,6 +337,11 @@ span.amount {
   font-weight: normal !important;
       color: #fa6810 !important;
 }
+
+
+.drpSel{
+  text-align: start;
+}
 /*   Query Media */
 
 select.dropSelect:focus{

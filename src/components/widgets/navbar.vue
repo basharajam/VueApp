@@ -27,11 +27,11 @@
                               </div>
                           </template>
                       <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
-                          <b-form-group label="العملة" >
+                          <b-form-group label="العملة" class="drpSel" >
                               <b-form-select v-model="CurrInput" class="dropSelect" size="sm" :options="CurOptions"></b-form-select>
                           </b-form-group>
 
-                          <b-form-group label="الشحن الى" >
+                          <b-form-group label="الشحن الى" class="drpSel" >
                               <b-form-select v-model="CountryInput" class="dropSelect" size="sm" :options="CountryOptions"></b-form-select>
                           </b-form-group>
                           <b-form-group>

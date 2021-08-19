@@ -59,6 +59,7 @@
         <!-- Whatsapp Distru Banner End -->
         <MostPopularList  v-if="$mq === 'md' || $mq === 'lg'"></MostPopularList>
         <ProdsByTax5  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax5>
+        <ProdsByTax8  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax8>
         <!--  Saudi Day Banner -->
           <div class="container-fluid HomeBanner col-xl-12"  v-if="$mq === 'md' || $mq === 'lg'">
             <a href="https://alyaman.com/product-category/%d8%a7%d9%84%d8%b9%d9%8a%d8%af-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a/">
@@ -67,7 +68,6 @@
           </div>
         <!-- Saudi Day Banner End -->
         <ProdByTax  v-if="$mq === 'md' || $mq === 'lg'"></ProdByTax>
-        <ProdsByTax8  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax8>
         <!-- <Banner></Banner> -->
         <ProdsByTax3  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax3>
         <ProdsByTax4  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax4>
