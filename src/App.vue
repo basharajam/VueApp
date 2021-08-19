@@ -307,8 +307,8 @@ position: relative;
 
 
 .btn-outline-warning{
-  color: #fe6a00 !important ;
-  border-color: #fe6a00 !important;
+  color: #9d3c9a  !important ;
+  border-color: #9d3c9a  !important;
 }
 .btn-outline-warning:hover{
     color: #000 !important;
