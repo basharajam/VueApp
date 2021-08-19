@@ -17,6 +17,7 @@
               <a href="https://alyaman.com/cart/" class="flex  justify-center">
                   <i class="fal fa-shopping-cart" ></i>
                   <span class="CartCount" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" ><span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span></span>
+                  <span class="CartCount" v-else >0</span>
                   <span>السلة</span>
               </a>
           </div>
@@ -151,7 +152,7 @@ export default {
 }
 
 .LinkList h3 {
-    color: white;
+    color: white !important;
     font-size: 32px;
 }
 

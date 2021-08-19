@@ -339,7 +339,11 @@ span.amount {
 }
 /*   Query Media */
 
-
+select.dropSelect:focus{
+    border-color: #f7611894;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgb(250 100 16 / 47%);
+}
 
 
 /*Desktop */

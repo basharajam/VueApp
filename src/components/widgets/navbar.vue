@@ -28,11 +28,11 @@
                           </template>
                       <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
                           <b-form-group label="العملة" >
-                              <b-form-select v-model="CurrInput" size="sm" :options="CurOptions"></b-form-select>
+                              <b-form-select v-model="CurrInput" class="dropSelect" size="sm" :options="CurOptions"></b-form-select>
                           </b-form-group>
 
                           <b-form-group label="الشحن الى" >
-                              <b-form-select v-model="CountryInput" size="sm" :options="CountryOptions"></b-form-select>
+                              <b-form-select v-model="CountryInput" class="dropSelect" size="sm" :options="CountryOptions"></b-form-select>
                           </b-form-group>
                           <b-form-group>
                             <b-button type="submit" block pill variant="outline-warning" style="background-color: unset !important">حفظ</b-button>
@@ -44,7 +44,15 @@
           <div class="HeaderIcons d-none d-sm-inline-flex" style="position: absolute;left: 16px;">
             <a href="https://alyaman.com/my-account/" aria-label="حسابي"><i class="fal fa-user"></i></a>
             <div class="HeaderDivider"></div>
-            <a href="https://alyaman.com/cart/" aria-label="سلة التسوق"> <i class="fal fa-shopping-cart"> </i> <span class="CartCount" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" ><span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span></span> </a>
+            <a href="https://alyaman.com/cart/" aria-label="سلة التسوق"> 
+             <i class="fal fa-shopping-cart"></i>
+             <span class="CartCountHeading" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >
+              <span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span>
+             </span>             
+             <span class="CartCountHeading" v-else >
+              0
+             </span> 
+            </a>
           </div>
           <div class="SearchResult" v-if="SearchRes">
               <div v-if="innerSpinner" class="innerSpinner">
@@ -323,7 +331,24 @@ export default {
         background: white;
         border: 1px #fa660d solid;
         color: #fa660d;
-  }
+}
+
+.CartCountHeading {
+    background-color: #92278f;
+    padding: 4px;
+    position: relative;
+    bottom: 16px;
+    left: 22px;
+    font-size: 11px;
+    opacity: .9;
+    line-height: 17px;
+    letter-spacing: -.5px;
+    height: 17px;
+    min-width: 17px;
+    border-radius: 99px;
+    color: #fff;
+    text-align: center;
+}
     .innerSpinner0 {
     width: 20%;
     text-align: center;
