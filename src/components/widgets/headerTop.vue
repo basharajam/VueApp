@@ -11,8 +11,8 @@
         </div> -->
             
             <div class="headerDrp d-flex align-items-center " v-if="$mq === 'sm'">
-                        <b-dropdown id="dropdown-1"  variant="none" class="ShipBtn" no-flip no-caret>
-                            <template #button-content>
+                        <b-dropdown id="dropdown-0"  variant="none" class="ShipBtn" no-flip no-caret>
+                            <template #button-content style="margin-bottom:0 !important">
                                 <div class="d-flex align-items-center">
                                     <div class="stack" style="color: white; flex-direction:row;align-items: flex-end; margin-left: 10px;display: flex;">
                                         <span style="font-size: 12px;margin: 0 6px;"> الشحن إلى :</span>
@@ -168,5 +168,10 @@ data(){
     background: #999999;
     width: 1px;
     margin: 8px 0;
+}
+
+
+#dropdown-0{
+    max-height: 36px !important;
 }
 </style>
