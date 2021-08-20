@@ -56,9 +56,11 @@ const actions = {
     getProdByTax({commit}){
 
         var CountryVal= cookie.get('shipCountry');
-        var CurrVal = cookie.get('Curr');
+        var CurrVal = cookie.get('wmc_current_currency');
         let cur;
         let country
+
+
 
         //var setUrl ='https://phplaravel-608610-2049275.cloudwaysapps.com/api/Products/'+cur;
         if(CountryVal && CurrVal){

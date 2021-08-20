@@ -44,7 +44,7 @@ export default {
 data(){
 
         var CountryVal= this.$cookies.get('shipCountry');
-        var CurrVal = this.$cookies.get('Curr');
+        var CurrVal = this.$cookies.get('wmc_current_currency');
         // console.log(CountryVal)
         // console.log(CurrVal);
 
