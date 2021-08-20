@@ -88,7 +88,6 @@ export default {
 
         var CountryVal= this.$cookies.get('shipCountry');
         var CurrVal = this.$cookies.get('wmc_current_currency');
-
         if(CountryVal && CurrVal){
 
           var CurrVal0=CurrVal;
