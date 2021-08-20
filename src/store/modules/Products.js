@@ -56,7 +56,7 @@ const actions = {
     getProdByTax({commit}){
 
         var CountryVal= cookie.get('shipCountry');
-        var CurrVal = cookie.get('wmc_current_currency');
+        var CurrVal = cookie.get('Curr');
         let cur;
         let country
 
