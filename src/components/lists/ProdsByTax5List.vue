@@ -2,7 +2,7 @@
     <div class="" >
       <div class="TitleList">
         <div class="float-left ShowMoreBtn" >
-          <a href="https://www.alyaman.com/product-category/%d8%a3%d8%b9%d8%b1%d8%a7%d8%b3/" class="pull-left">عرض المزيد</a>
+          <a :href="ProdByTax5.link" class="pull-left">عرض المزيد</a>
         </div>
         <h3 class="text-right">{{ ProdByTax5.title }} </h3>
       </div>

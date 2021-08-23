@@ -2,7 +2,7 @@
   <div class="">
       <div class="TitleList" style="margin-bottom: 4px;">
         <div class="float-left ShowMoreBtn" >
-          <a href="https://alyaman.com/product-tag/baby_box_group/" class="">عرض المزيد</a>
+          <a :href="ProdByTax7.link" class="">عرض المزيد</a>
         </div>
         <h3 class="text-right" >{{ProdByTax7.title}}</h3>
       </div>

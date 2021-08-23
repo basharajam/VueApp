@@ -2,7 +2,7 @@
   <div class="">
       <div class="TitleList">
         <div class="float-left ShowMoreBtn" >
-          <a href="https://alyaman.com/%d9%85%d8%ac%d9%85%d9%88%d8%b9%d8%a9-%d8%aa%d9%88%d8%b2%d9%8a%d8%b9%d8%a7%d8%aa-%d8%b2%d8%ac%d8%a7%d8%ac%d9%8a%d8%a9-%d8%a3%d8%b9%d8%b1%d8%a7%d8%b3/" class="pull-left">عرض المزيد</a>
+          <a :href="ProdByTax0.link" class="pull-left">عرض المزيد</a>
         </div>
         <h3 class="text-right" >{{ProdByTax0.title}}</h3>
         <!-- <h3 class="text-right" >{{ $t('translation1') }}</h3> -->

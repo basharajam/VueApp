@@ -2,7 +2,7 @@
   <div class="">
       <div class="TitleList">
         <div class="float-left ShowMoreBtn" >
-          <a href="https://alyaman.com/product-tag/moq_5_group/" class="pull-left">عرض المزيد</a>
+          <a :href="ProdByBox.link" class="pull-left">عرض المزيد</a>
         </div>
         <h3 class="text-right" >{{ ProdByBox.title }}</h3>
       </div>

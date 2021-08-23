@@ -414,20 +414,20 @@ color: white !important;
   .HeaderIcons {
         display: flex!important;
   }
-  .discount-lab{
-        color: #fd6906;
+.discount-lab {
+    color: #fd6906;
     position: absolute;
     top: 16px;
     left: 14px;
-    width: 45px;
-    height: 45px;
+    width: 32px;
+    height: 32px;
     max-width: 45px;
     text-align: center;
     max-height: 45px;
     border: 1px #fd6906 solid;
-    padding: 12px 0;
+    padding: 2px 0;
     border-radius: 999px;
-  } 
+}
 }
 
 /* End Desktop */
@@ -481,13 +481,13 @@ color: white !important;
     position: absolute;
     top: 16px;
     left: 14px;
-    width: 45px;
-    height: 45px;
+    width: 32px;
+    height: 32px;
     max-width: 45px;
     text-align: center;
     max-height: 45px;
     border: 1px #fd6906 solid;
-    padding: 12px 0;
+    padding: 2px 0;
     border-radius: 999px;
   }
 
@@ -614,13 +614,13 @@ color: white !important;
     position: absolute;
     top: 16px;
     left: 14px;
-    width: 45px;
-    height: 45px;
+    width: 32px;
+    height: 32px;
     max-width: 34px;
     text-align: center;
     max-height: 34px;
     border: 1px #fd6906 solid;
-    padding: 8px 0;
+    padding: 2px 0;
     border-radius: 999px;
   }
 
