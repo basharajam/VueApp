@@ -72,6 +72,13 @@
         <ProdsByTax3  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax3>
         <ProdsByTax4  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax4>
         <ProdsByTax9 v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax9>
+        <!--  Vases Banner -->
+          <div class="container-fluid HomeBanner col-xl-12"  v-if="$mq === 'md' || $mq === 'lg'">
+            <a href="https://alyaman.com/product-category/%D9%85%D8%B2%D9%87%D8%B1%D9%8A%D8%A7%D8%AA">
+              <img class="d-block w-100" src="@/assets/banners/7.jpg" width="1280" height="475" alt="Third slide">
+            </a>
+          </div>
+        <!-- Vases Banner End -->
         <ProdsByTax1  v-if="$mq === 'md' || $mq === 'lg'"></ProdsByTax1>
         <ProdByBoxList  v-if="$mq === 'md' || $mq === 'lg'"></ProdByBoxList> 
         <OffersList  v-if="$mq === 'md' || $mq === 'lg'"></OffersList>

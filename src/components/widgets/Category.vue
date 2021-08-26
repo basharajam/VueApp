@@ -46,35 +46,40 @@
     </div> -->
 
     <div class="container-fluid">
-      <Flickity v-if="display" class="d-sm-none d-block mobBannerSlier " ref="flickity" :options="flickityOptions" >              
+      <Flickity v-if="display" class="d-sm-none d-block mobBannerSlier " ref="flickity" :options="flickityOptions" >  
+        <div class="BannerSlideItem col-10 ">
+          <a href="https://alyaman.com/product-category/%D9%85%D8%B2%D9%87%D8%B1%D9%8A%D8%A7%D8%AA">
+              <img  class="mobileBanner " src="@/assets/banners/7.jpg" alt="banner">
+          </a>
+        </div>            
         <div class="BannerSlideItem col-10 ">
           <a href="https://www.alyaman.com/product-category/%d8%a7%d9%84%d8%b9%d9%8a%d8%af-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a/">
-              <img  class="mobileBanner " src="@/assets/banners/2.jpeg" alt="">
+              <img  class="mobileBanner " src="@/assets/banners/2.jpeg" alt="banner">
           </a>
         </div>
           <div class="BannerSlideItem col-10 ">
             <a href="https://alyaman.com/product-tag/baby_box_group/">
-              <img  class="mobileBanner " src="@/assets/banners/1.jpeg" alt="">
+              <img  class="mobileBanner " src="@/assets/banners/1.jpeg" alt="banner">
             </a>
         </div>
         <div class="BannerSlideItem  col-10 ">
           <a href="https://www.alyaman.com/product-category/%d8%aa%d8%ae%d8%b1%d8%ac/">
-              <img  class="mobileBanner " src="@/assets/banners/0.jpeg" alt="">
+              <img  class="mobileBanner " src="@/assets/banners/0.jpeg" alt="banner">
           </a>
         </div>
         <div class="BannerSlideItem col-10 ">
           <a href="https://alyaman.com/product-category/%d9%85%d9%88%d8%a7%d9%84%d9%8a%d8%af/">
-              <img  class="mobileBanner " src="@/assets/banners/3.jpeg" alt="">
+              <img  class="mobileBanner " src="@/assets/banners/3.jpeg" alt="banner">
           </a>
         </div>
         <div class="BannerSlideItem col-10 ">
           <a href="https://alyaman.com/product-category/%d8%a3%d8%b9%d9%8a%d8%a7%d8%af-%d9%85%d9%8a%d9%84%d8%a7%d8%af/">
-              <img  class="mobileBanner " src="@/assets/banners/4.jpeg" alt="">
+              <img  class="mobileBanner " src="@/assets/banners/4.jpeg" alt="banner">
           </a>
         </div>
         <div class="BannerSlideItem col-10 ">
           <a href="https://alyaman.com/product-category/%d8%a3%d8%b9%d9%8a%d8%a7%d8%af-%d9%85%d9%8a%d9%84%d8%a7%d8%af/">
-              <img  class="mobileBanner " src="@/assets/banners/5.jpeg" alt="">
+              <img  class="mobileBanner " src="@/assets/banners/5.jpeg" alt="banner">
           </a>
         </div>
       </Flickity>
