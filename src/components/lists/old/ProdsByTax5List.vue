@@ -34,8 +34,8 @@
 <script>
 import { mapGetters } from 'vuex';
 import Flickity from 'vue-flickity';
-import ProdCard from '../items/ProdCard.vue';
-import ProdListLoader from '../widgets/PordListLoader.vue';
+import ProdCard from '../../items/ProdCard.vue';
+import ProdListLoader from '../../widgets/PordListLoader.vue';
 // import ProdGridBox from '../items/ProdGridBox.vue';
 
 export default {

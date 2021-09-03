@@ -40,10 +40,10 @@
 <script>
 
 import { mapGetters } from 'vuex';
-import ProdByTax1 from '../components/lists/ProdsByTax1List.vue';
-import ProdByTax4 from '../components/lists/ProdsByTax4List.vue';
-import ProdByTax5 from '../components/lists/ProdsByTax5List.vue';
-import ProdByTax6 from '../components/lists/ProdsByTax6List.vue';
+import ProdByTax1 from '../components/lists/old/ProdsByTax1List.vue';
+import ProdByTax4 from '../components/lists/old/ProdsByTax4List.vue';
+import ProdByTax5 from '../components/lists/old/ProdsByTax5List.vue';
+import ProdByTax6 from '../components/lists/old/ProdsByTax6List.vue';
 export default {
 
     name:'ProdByCat',

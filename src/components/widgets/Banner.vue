@@ -1,23 +1,17 @@
 <template>
-   <div class="">
-
-       <div class=" d-block d-sm-none" >
-          <a href="#">
-            <img style="width:100%" class="mobileBanner" src="https://alyaman.com/wp-content/uploads/2021/04/%D8%B1%D9%8A-800x213.jpg" alt="">
-          </a>
-       </div>
-       <div class=" d-sm-block d-none">
-          <a href="#">
-             <img style="width:100%" src="https://alyaman.com/wp-content/uploads/2021/04/%D8%B1%D9%8A-800x213.jpg" alt="">
-          </a>
-       </div>
-
-   </div>
+      <div class="container-fluid HomeBanner col-xl-12"  >
+         <a :href="item.link" v-if="$mq === 'md' || $mq === 'lg'">
+            <img class="d-block w-100" :src="require(`../../assets/banners/${item.value}`)" width="1280" height="475" :alt="item.title">
+         </a>
+         <a :href="item.link" v-if="$mq === 'sm'">
+            <img class="img-fluid" :src="require(`../../assets/banners/${item.value}`)" width="1280" height="475" :alt="item.title">
+         </a>
+      </div>
 </template>
 
 <script>
 export default {
-
+        props:['item']
 }
 </script>
 

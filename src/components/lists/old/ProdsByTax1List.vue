@@ -32,8 +32,8 @@
 <script>
 import { mapGetters } from 'vuex';
 
-import ProdCard from '../items/ProdCard.vue';
-import ProdListLoader from '../widgets/PordListLoader.vue';
+import ProdCard from '../../items/ProdCard.vue';
+import ProdListLoader from '../../widgets/PordListLoader.vue';
 
 // import ProdGridBox from '../items/ProdGridBox.vue';
 export default {

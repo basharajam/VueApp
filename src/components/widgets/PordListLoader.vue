@@ -1,5 +1,6 @@
 <template>
     <b-container fluid>
+        <b-skeleton width="100%"></b-skeleton>
         <b-row>
         <b-col col cols='6' sm="2">
             <b-skeleton-img no-aspect height="200px" ></b-skeleton-img>

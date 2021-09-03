@@ -24,8 +24,8 @@
 
 <script>
 
-import ProdCard from '../items/ProdCard.vue';
-import ProdListLoader from '../widgets/PordListLoader.vue';
+import ProdCard from '../../items/ProdCard.vue';
+import ProdListLoader from '../../widgets/PordListLoader.vue';
 import {mapGetters} from 'vuex';
 export default {
     name:'RecentList',

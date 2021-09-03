@@ -31,9 +31,9 @@
 
 <script>
 
-import ProdCard from '../items/ProdCard.vue';
-import ProdListLoader from '../widgets/PordListLoader.vue';
-import ProdGridBox from '../items/ProdGridBox.vue';
+import ProdCard from '../../items/ProdCard.vue';
+import ProdListLoader from '../../widgets/PordListLoader.vue';
+import ProdGridBox from '../../items/ProdGridBox.vue';
 import {mapGetters} from 'vuex';
 export default {
     name:'prodsByTax0',

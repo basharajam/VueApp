@@ -1,92 +1,72 @@
 <template>
+<div class="">
+    <flickity ref="flickity" :options="flickityOptions" class="carousel-main">
+        <img src="https://picsum.photos/400/400.jpg" alt="">
+        <img src="https://picsum.photos/400/400.jpg" alt="">
+        <img src="https://picsum.photos/400/400.jpg" alt="">
+        <img src="https://picsum.photos/400/400.jpg" alt="">
+    </flickity>
+    <flickity ref="flickity2" class="carousel-thumb " :options="flickityOptions2">
+        <img src="https://picsum.photos/100/100.jpg" alt="">
+        <img src="https://picsum.photos/100/100.jpg" alt="">
+        <img src="https://picsum.photos/100/100.jpg" alt="">
+        <img src="https://picsum.photos/100/100.jpg" alt="">
 
-        <div id="custCarousel" class="carousel slide carousel-fade" data-ride="carousel" align="center"  data-interval="false" >
-            <!-- Thumbnails -->
-            <ol class="ProdThumbs carousel-indicators col-sm-3 " >
-                <li class=" active"><a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#custCarousel"> <img src="https://i.picsum.photos/id/449/100/100.jpg?hmac=RDAmExfBxWp028XbWOtSJOj858jDpALVjjXGOg1FtSM" class="img-fluid"> </a> </li>
-                <li><a id="carousel-selector-1" data-slide-to="1" data-target="#custCarousel"> <img src="https://i.picsum.photos/id/449/100/100.jpg?hmac=RDAmExfBxWp028XbWOtSJOj858jDpALVjjXGOg1FtSM" class="img-fluid"> </a> </li>
-                <li><a id="carousel-selector-2" data-slide-to="2" data-target="#custCarousel"> <img src="https://i.picsum.photos/id/449/100/100.jpg?hmac=RDAmExfBxWp028XbWOtSJOj858jDpALVjjXGOg1FtSM" class="img-fluid"> </a> </li>
-                <li><a id="carousel-selector-2" data-slide-to="3" data-target="#custCarousel"> <img src="https://i.picsum.photos/id/449/100/100.jpg?hmac=RDAmExfBxWp028XbWOtSJOj858jDpALVjjXGOg1FtSM" class="img-fluid"> </a> </li>
-            </ol>
-            <!-- slides -->
-            <div class="carousel-inner col-sm-9" >
-                <div class="carousel-item active"> <img src="https://i.picsum.photos/id/28/400/300.jpg?hmac=EcWNPwRvO1rYo2_EgMZwqvVBux5MEc_-ZyrL7NcOR0g" alt="Hills"> </div>
-                <div class="carousel-item"> <img src="https://i.picsum.photos/id/28/400/300.jpg?hmac=EcWNPwRvO1rYo2_EgMZwqvVBux5MEc_-ZyrL7NcOR0g" alt="Hills"> </div>
-                <div class="carousel-item"> <img src="https://i.picsum.photos/id/28/400/300.jpg?hmac=EcWNPwRvO1rYo2_EgMZwqvVBux5MEc_-ZyrL7NcOR0g" alt="Hills"> </div>
-                <div class="carousel-item"> <img src="https://i.picsum.photos/id/1/400/300.jpg?hmac=IEz4gAs8hxV4d9YLVH7Eha48-M-MmGD1Cc2l-V92rPc" alt="Hills"> </div>
-            </div> 
-            <!-- Left right -->
+    </flickity>
 
-                <!-- <a class="carousel-control-prev" href="#custCarousel" data-slide="prev"> <span class="carousel-control-prev-icon"></span> </a> <a class="carousel-control-next" href="#custCarousel" data-slide="next"> <span class="carousel-control-next-icon"></span> </a> -->
-            
-        </div>
+</div>
 </template>
 
 <script>
+import Flickity from 'vue-flickity';
+import 'flickity-as-nav-for'
 export default {
- name:'ImgScrollProd',
- data () {
-    return {
+    name:'ImgScrollProd',
+    
+    components: {
+        Flickity
+    },
+     data () {
+        return {
+         flickityOptions: {
+            width:100,
+            pageDots: false,
+            resize: true,
+            prevNextButtons: true,
+            wrapAround: true,
 
-    }
-  }
+            // any options from Flickity can be used
+         },
+         flickityOptions2:{
+                asNavFor: '.carousel-main',
+                freeScroll: false,
+                contain: true,
+                prevNextButtons: false,
+                pageDots: false,
+                wrapAround: false,
+           
+         }
+        }
+  },
+
 }
 </script>
 
 <style scoped>
 
-#custCarousel{
-    display: flex;
-    max-height: 400px;
-}
-#custCarousel .carousel-indicators {
-    position: static;
+.carousel-main img{
+    width: 100%;
 }
 
-#custCarousel .carousel-indicators>li {
-    width: 100px;
-    height: unset !important;
-}
-
-#custCarousel .carousel-indicators li img {
-    display: block;
-    opacity: 0.5
-}
-
-#custCarousel .carousel-indicators li.active img {
-    opacity: 1
-}
-
-#custCarousel .carousel-indicators li:hover img {
-    opacity: 0.75
-}
-
-.ProdThumbs{
-    display: flex;
-    justify-content: space-between;
-    flex-direction:column;
-    overflow: scroll;
-    overflow-x: hidden;
-    margin-right: 0;
-    margin-left: 0;
-    height: 300px !important;
+.carousel-thumb ,.carousel-main{
+ width: 100%;
+ margin: 8px;
 
 }
 
-@media only screen and (min-width:320px) and (max-width: 767px) {
-    
-    #custCarousel{
-        flex-direction: column !important;
-    }
-    .ProdThumbs {
-        
-        flex-direction: row !important;
-        height: unset !important;
-
-    }
+.carousel-thumb img{
+    margin: 2px;
 }
-
-
 
 
 </style>

@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container-fluid ProdBoxList" v-if="$mq === 'md' || $mq === 'lg'">
+    <div class="container-fluid ProdBoxList" >
 
             <b-skeleton-wrapper :loading="ProdInBox2Loading" >
                 <template #loading>
@@ -100,94 +100,27 @@
                     
                 </div>
                 </template>
-
-            <!-- SaudiDayTopper -->
-            <div class="ProdsBox col-sm-3">
-                <div class="" style="box-shadow: #88888836 0px 1px 12px 4px">
-                    <h3 class="ProdBoxTitle ">{{ ProdInBox2.title }}</h3>
-                    <div class="ProdBoxItems">
-                        <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox2.items" v-bind:key="Prod.id">
-                            <a :href="Prod.permalink">
-                                <!-- <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" > -->
-                                <vue-load-image>
-                                    <img slot="image"  class="pic-1"  :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
-                                    <img slot="preloader" src="@/assets/loader.png" />
-                                    <img slot="error" src="@/assets/loader.png" />
-                                </vue-load-image>
-                            </a>
-                            <a :href="Prod.permalink">
-                                <p>{{Prod.name}}</p>
-                            </a>
+                <div class="ProdsBox col-sm-3" v-for="Box in LandingLayout.ProdInBox" v-bind:key="Box.title">
+                    <div class="" style="box-shadow: #88888836 0px 1px 12px 4px">
+                        <h3 class="ProdBoxTitle ">{{ Box.title }}</h3>
+                        <div class="ProdBoxItems">
+                            <div class="ProdBoxOne col-sm-6" v-for="Prod in Box.items" v-bind:key="Prod.id">
+                                <a :href="Prod.permalink">
+                                    <!-- <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" > -->
+                                    <vue-load-image>
+                                        <img slot="image"  class="pic-1"  :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
+                                        <img slot="preloader" src="@/assets/loader.png" />
+                                        <img slot="error" src="@/assets/loader.png" />
+                                    </vue-load-image>
+                                </a>
+                                <a :href="Prod.permalink">
+                                    <p>{{Prod.name}}</p>
+                                </a>
+                            </div>
+                            <a :href="Box.link" class="ProdBoxBtn">عرض المزيد</a>
                         </div>
-                        <a :href="ProdInBox2.link" class="ProdBoxBtn">عرض المزيد</a>
                     </div>
                 </div>
-            </div>
-
-
-            <div class="ProdsBox col-sm-3">
-                <div class="" style="box-shadow:#88888836  0px 1px 12px 4px">
-                    <h3 class="ProdBoxTitle ">{{ ProdInBox0.title }}</h3>
-                    <div class="ProdBoxItems">
-                        <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox0.items" v-bind:key="Prod.id">
-                            <a :href="Prod.permalink">
-                                <!-- <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" > -->
-                                <vue-load-image>
-                                    <img slot="image"  class="pic-1"  :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
-                                    <img slot="preloader" src="@/assets/loader.png" />
-                                    <img slot="error" src="@/assets/loader.png" />
-                                </vue-load-image>
-                            </a>
-                            <a :href="Prod.permalink">
-                                <p>{{Prod.name}}</p>
-                            </a>
-                        </div>
-                        <a :href=" ProdInBox0.link" class="ProdBoxBtn">عرض المزيد</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="ProdsBox col-sm-3">
-                <div class="" style="box-shadow: #88888836 0px 1px 12px 4px">
-                    <h3 class="ProdBoxTitle ">{{ ProdInBox.title }}</h3>
-                    <div class="ProdBoxItems">
-                        <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox.items" v-bind:key="Prod.id">
-                            <a :href="Prod.permalink">
-                                <!-- <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" > -->
-                                <vue-load-image>
-                                    <img slot="image"  class="pic-1"  :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
-                                    <img slot="preloader" src="@/assets/loader.png" />
-                                    <img slot="error" src="@/assets/loader.png" />
-                                </vue-load-image>
-                            </a>
-                            <a :href="Prod.permalink">
-                                <p>{{Prod.name}}</p>
-                            </a>
-                        </div>
-                    <a :href="ProdInBox.link" class="ProdBoxBtn">عرض المزيد</a>
-                    </div>
-                </div>
-            </div>
-            <div class="ProdsBox col-sm-3">
-                <div class="" style="box-shadow:#88888836 0px 1px 12px 4px">
-                    <h3 class="ProdBoxTitle ">{{ ProdInBox1.title }}</h3>
-                    <div class="ProdBoxItems">
-                        <div class="ProdBoxOne col-sm-6" v-for="Prod in ProdInBox1.items" v-bind:key="Prod.id">
-                            <a :href="Prod.permalink">
-                                <vue-load-image>
-                                    <img slot="image"  class="pic-1"  :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
-                                    <img slot="preloader" src="@/assets/loader.png" />
-                                    <img slot="error" src="@/assets/loader.png" />
-                                </vue-load-image>
-                            </a>
-                            <a :href="Prod.permalink">
-                                <p>{{Prod.name}}</p>
-                            </a>
-                        </div>
-                        <a :href="ProdInBox1.link" class="ProdBoxBtn">عرض المزيد</a>
-                    </div>
-                </div>
-              </div>
             </b-skeleton-wrapper>
         </div>
 </template>
@@ -200,7 +133,7 @@ export default {
 
     name:'ProdBoxList',
     computed:{
-        ...mapGetters(['ProdInBox','ProdInBox0','ProdInBox1','ProdInBox2'])
+        ...mapGetters(['LandingLayout'])
     },
     data(){
         return{
@@ -208,8 +141,8 @@ export default {
         }
     },
     watch:{
-        ProdInBox2(newValue){
-            if(newValue.items.length > 0){
+        LandingLayout(newValue){
+            if(newValue.ProdInBox.length > 0){
                 this.ProdInBox2Loading=false;
             }
         },
