@@ -53,9 +53,9 @@ const actions = {
         
         //var setUrl ='http://127.0.0.1:8000/api/Products/'+cur+'/'+country;
         //X
-        var setUrl ='http://phplaravel-608610-2049275.cloudwaysapps.com/api/Products/'+cur+'/'+country;
+        //var setUrl ='http://phplaravel-608610-2049275.cloudwaysapps.com/api/Products/'+cur+'/'+country;
         //Or
-        //var setUrl= 'https://phplaravel-608610-2037155.cloudwaysapps.com/api/Products/'+cur+'/'+country;
+        var setUrl= 'https://phplaravel-608610-2037155.cloudwaysapps.com/api/Products/'+cur+'/'+country;
           axios.get(setUrl).then(function(response){
     
             if(response.status != 200){
