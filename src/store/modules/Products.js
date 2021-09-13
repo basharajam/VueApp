@@ -51,9 +51,9 @@ const actions = {
         //http://127.0.0.1:8000/api/Products/USD/UAE
         //https://wordpress-608610-2061089.cloudwaysapps.com/
         
-        var setUrl ='http://127.0.0.1:8000/api/Products/'+cur+'/'+country;
+        //var setUrl ='http://127.0.0.1:8000/api/Products/'+cur+'/'+country;
         //X
-        //var setUrl ='https://phplaravel-608610-2049275.cloudwaysapps.com/api/Products/'+cur+'/'+country;
+        var setUrl ='http://phplaravel-608610-2049275.cloudwaysapps.com/api/Products/'+cur+'/'+country;
         //Or
         //var setUrl= 'https://phplaravel-608610-2037155.cloudwaysapps.com/api/Products/'+cur+'/'+country;
           axios.get(setUrl).then(function(response){
@@ -104,7 +104,7 @@ const actions = {
             else{
 
                 //anding Page Layout
-                console.log(response.data)
+                //console.log(response.data)
                
                 // Product By Category
                 var items=response.data

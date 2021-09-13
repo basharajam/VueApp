@@ -1,7 +1,7 @@
 <template>
 
     <div class="container-fluid ProdBoxList" >
-
+        <mq-layout :mq="['md','lg']" >
             <b-skeleton-wrapper :loading="ProdInBox2Loading" >
                 <template #loading>
                 <div class="container-fluid">
@@ -122,6 +122,7 @@
                     </div>
                 </div>
             </b-skeleton-wrapper>
+           </mq-layout>
         </div>
 </template>
 

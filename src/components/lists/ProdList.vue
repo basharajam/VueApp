@@ -14,34 +14,45 @@
       </template>
       <div class="ProdList ">
                 <!-- Desktop Display -->
-                <div class="scrollmenu"  v-if="ProdList.Display ==='list' && $mq === 'md' || $mq === 'lg'">
-                    <ProdCard v-for="Product in ProdList.items" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-2"></ProdCard>
-                </div>
+                <mq-layout :mq="['md','lg']" >
+                  <div class="scrollmenu"  v-if="ProdList.Display ==='list' " >
+                      <ProdCard v-for="Product in ProdList.items" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-2"></ProdCard>
+                  </div>
+                </mq-layout>
 
-                <Flickity ref="flickity" :options="flickityOptions" v-if="ProdList.Display ==='slider' && $mq === 'md' || $mq === 'lg' && ProdList.items.length != 0 ">
-                    <ProdCard  class="carousel-cell" v-for="Product in ProdList.items" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
-                </Flickity>
+
+                <mq-layout :mq="['md','lg']" >
+                  <Flickity ref="flickity" :options="flickityOptions" v-if="ProdList.Display ==='slider' && ProdList.items.length != 0 ">
+                      <ProdCard  class="carousel-cell" v-for="Product in ProdList.items" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+                  </Flickity>
+                </mq-layout>
               <!-- End Desktop Display -->
 
 
               <!-- Mobile Display -->
-              <div  v-if=" ProdList.mobileDisplay ==='grid3' && $mq === 'sm' " >
-                <div class="container-fluid">
-                  <div class="row">
-                      <ProdGridBox v-for="Product in ProdList.items" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-3 GridItem grid-discount"></ProdGridBox>                
-                  </div>
-                </div>
-              </div>
-              <div v-if=" ProdList.mobileDisplay ==='grid' && $mq === 'sm' && FilterArr.length > 0 ">
+              <mq-layout :mq="['sm']" >
+                <div  v-if=" ProdList.mobileDisplay ==='grid3'" :mq="['sm']" >
                   <div class="container-fluid">
                     <div class="row">
-                        <ProdCard v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem hideAddToCart"></ProdCard>                
+                        <ProdGridBox v-for="Product in ProdList.items" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-3 GridItem grid-discount"></ProdGridBox>                
                     </div>
                   </div>
                 </div>
-                <div class="scrollmenu " v-if="ProdList.mobileDisplay ==='slider' && $mq === 'sm'">
+              </mq-layout>
+              <mq-layout :mq="['sm']" >
+                <div v-if=" ProdList.mobileDisplay ==='grid' && FilterArr.length > 0 " :mq="['sm']">
+                    <div class="container-fluid">
+                      <div class="row">
+                          <ProdCard v-for="Product in FilterArr" v-bind:key="Product.id" v-bind:Product="Product" class="col-6 col-sm-3 GridItem hideAddToCart"></ProdCard>                
+                      </div>
+                    </div>
+                  </div>
+              </mq-layout>
+              <mq-layout :mq="['sm']" >
+                <div class="scrollmenu " v-if="ProdList.mobileDisplay ==='slider' " :mq="['sm']">
                   <ProdCard v-for="Product in ProdList.items" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
-              </div>
+                </div>
+              </mq-layout>
               <!-- End Mobile Display -->
       </div>
       </b-skeleton-wrapper>

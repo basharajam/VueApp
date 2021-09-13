@@ -26,7 +26,13 @@ Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
 
-Vue.use(VueMq)
+Vue.use(VueMq,{
+  breakpoints: { // default breakpoints - customize this
+    sm: 450,
+    md: 1250,
+    lg: Infinity,
+  }
+})
 
 // Vue.use(VueI18n);
 // export const i18n = new VueI18n({

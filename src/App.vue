@@ -46,6 +46,7 @@ data: function() {
   },
   mounted(){
 
+    console.log(this.$mq)
     this.getCategories();
 
   },

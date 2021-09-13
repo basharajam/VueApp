@@ -4,37 +4,45 @@
         <carouselWidget></carouselWidget>
         <!-- <homeList></homeList> -->
         <CategorySlide></CategorySlide>
-        <ProdBoxList v-if="$mq === 'md' || $mq === 'lg'" ></ProdBoxList>
+        <mq-layout :mq="['md','lg']" >
+          <ProdBoxList ></ProdBoxList>
+        </mq-layout>
+        
 
         <!--  start mobile  -->
-        <b-skeleton-wrapper :loading="false" v-if="$mq === 'sm'">
+        <mq-layout :mq="['sm']" >
+          <b-skeleton-wrapper :loading="false" >
+            <template #loading>
+              <b-container fluid>
+                <landingLoader></landingLoader>
+              </b-container>
+            </template>
+            <div v-for="item in LandingLayout.mobile" v-bind:key="item.title">
+              <banner v-bind:item="item" v-if="item.type === 'banner' && item.mobileDisplay !== 'hide'" ></banner>
+              <ProdList v-bind:ProdList="item" v-if="item.type === 'ProdList' && item.mobileDisplay !== 'hide'" ></ProdList>
+            </div>
+        </b-skeleton-wrapper>
+        </mq-layout>
+        <!-- End Mobile -->
+
+
+      <mq-layout :mq="['md','lg']" >
+        <b-skeleton-wrapper :loading="landingLoading" >
           <template #loading>
             <b-container fluid>
               <landingLoader></landingLoader>
             </b-container>
           </template>
-          <div v-for="item in LandingLayout.mobile" v-bind:key="item.title">
-            <banner v-bind:item="item" v-if="item.type === 'banner' && item.mobileDisplay !== 'hide'" ></banner>
-            <ProdList v-bind:ProdList="item" v-if="item.type === 'ProdList' && item.mobileDisplay !== 'hide'" ></ProdList>
+          <div v-for="item in LandingLayout.desktop" v-bind:key="item.title">
+            <banner v-bind:item="item" v-if="item.type === 'banner' && item.Display !== 'hide'" ></banner>
+            <ProdList v-bind:ProdList="item" v-if="item.type === 'ProdList' && item.Display !== 'hide'" ></ProdList>
           </div>
-      </b-skeleton-wrapper>
-        <!-- End Mobile -->
+        </b-skeleton-wrapper>
+      </mq-layout>
+      <mq-layout :mq="['md','lg']">
+        <homeList  />
+      </mq-layout>
 
-
-
-      <b-skeleton-wrapper :loading="landingLoading" v-if="$mq === 'md' || $mq === 'lg'">
-        <template #loading>
-          <b-container fluid>
-            <landingLoader></landingLoader>
-          </b-container>
-        </template>
-        <div v-for="item in LandingLayout.desktop" v-bind:key="item.title">
-          <banner v-bind:item="item" v-if="item.type === 'banner' && item.Display !== 'hide'" ></banner>
-          <ProdList v-bind:ProdList="item" v-if="item.type === 'ProdList' && item.Display !== 'hide'" ></ProdList>
-        </div>
-      </b-skeleton-wrapper>
-
-        <homeList v-if="$mq === 'md' || $mq === 'lg'" />
         
 
 
