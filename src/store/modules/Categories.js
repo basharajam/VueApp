@@ -1,4 +1,4 @@
-// import axios from "axios";
+import axios from "axios";
 const state  = {
   Categories:[]
 }
@@ -10,23 +10,23 @@ const getters = {
 const actions = {
 
         //Get Categories
-        // getCategories({commit}){
+        getCategories({commit}){
 
-        //     const SetUrl = process.env.VUE_APP_BASEURL+'products/categories?per_page=12';
-        //     axios.get(SetUrl).then(function(response){
+            const SetUrl = 'http://127.0.0.1:8000/api/Categories';
+            axios.get(SetUrl).then(function(response){
 
-        //         if(response.status != 200){
+                if(response.status != 200){
 
-        //             console.log('Badddddddddd')
+                    console.log('Badddddddddd')
 
-        //         }
-        //         else{
-        //             commit('Categories',response.data)
-        //         }
+                }
+                else{
+                    commit('Categories',response.data)
+                }
                 
 
-        //     })
-        // }
+            })
+        }
         //Done
 
 }

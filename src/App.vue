@@ -13,13 +13,15 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+
 import headerTop from './components/widgets/headerTop.vue';
 import navbar from './components/widgets/navbar.vue';
 import Header from './components/layouts/header.vue';
 import Footer from './components/layouts/footer.vue';
 import Cart from './components/layouts/cart.vue';
 // import Spinner from './components/layouts/spinner.vue';
-import { mapActions } from 'vuex';
+
 
 
 
@@ -35,12 +37,7 @@ export default {
     // Spinner
   },
   methods:{
-    // ...mapActions(['getCategories','getProdByTax','getProdByTax0','getProdByTax1','getProdByTax2','getProdByTax3','getProdByTax4','getProdByTax5','getProdByTax6','getProdByTax7','getProdByTax8','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
-    // ...mapActions(['getCategories','getProdByTax','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
-    // ...mapActions(['getProdByTax','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell','getProdByBox','getProdDecRope','getProdDecTag','getProdDecSticker','getProdDecIns'])
-    // ...mapActions(['getProdByTax','getRecentProd','getProdOffers','getProdMostPopular','getProdBestSell'])
-    //   ...mapActions(['getProdByTax','getProdMostPopular','getProdBestSell'])
-       ...mapActions(['getProdByTax'])
+    ...mapActions(['getCategories'])
   },
 data: function() {
     return {
@@ -48,71 +45,8 @@ data: function() {
     };
   },
   mounted(){
-    this.getProdByTax();
 
-    // //get getRecentProd
-    // this.getRecentProd();
-
-    // //get Offers Prods
-    // this.getProdOffers();
-
-    //get Products Best Sell
-    //this.getProdBestSell();
-
-    //get Product Most Popular
-    //this.getProdMostPopular();
-
-    // //get ProdsByBox
-    // this.getProdByBox();
-
-      // //get ProdDecRope
-      // this.getProdDecRope();
-
-      // //get prodDecSticker
-      // this.getProdDecSticker();
-
-      // //get getProdDecIns
-      // this.getProdDecIns();
-
-      // //get getProdDecTag
-      // this.getProdDecTag();
-
-      // get Categories 
-      // this.getCategories();
-
-
-      // //get Products By Tax
-      // this.getProdByTax0();
-
-
-      //   //get Products By Tax 1
-      //  this.getProdByTax1();
-
-      //   //get Products By Tax 2
-      //  this.getProdByTax2();
-
-      //  //get Products By Tax 3
-      //  this.getProdByTax3();
-
-      //  //get Products By Tax 4
-      //  this.getProdByTax4();
-
-      //  //get Products By Tax 5
-      //  this.getProdByTax5();
-
-      // //get Products By Tax 6
-      //  this.getProdByTax6();
-
-      //  //get Products By Tax 7
-      //  this.getProdByTax7();
-
-      // //get Products By Tax 8
-      // this.getProdByTax8();
-
-      //Disable Spinner
-      setTimeout(() => {
-         this.spinner=false
-      }, 2800);
+    this.getCategories();
 
   },
 
@@ -663,7 +597,7 @@ color: white !important;
 .product-grid .product-image:hover + .product-data {
 
     
-    transform: translateY(-115%) !important;
+    transform: translateY(translateY(calc(5* -1vw))) !important;
     /* color:white !important; */
 
 }

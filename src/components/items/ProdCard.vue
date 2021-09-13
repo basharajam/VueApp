@@ -326,7 +326,7 @@ transition: all 0.4s ease-out;
 .product-grid .product-image:hover + .product-data {
 
     background: white;
-    transform: translateY(-135%);
+    transform: translateY(translateY(calc(5* -1vw)));
     /* color:white !important; */
 
 }

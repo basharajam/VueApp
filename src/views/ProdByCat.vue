@@ -17,20 +17,34 @@
 
             </div>
             <div class="col-sm-10">
-                <div class="container-fluid HomeBanner d-none d-sm-block col-xl-12">
-                    <a href="https://alyaman.com/product-category/%d9%85%d9%88%d8%a7%d9%84%d9%8a%d8%af/">
-                        <img class="d-block w-100" src="@/assets/banners/cat.jpeg" >
-                    </a>
+                <!--  start mobile  -->
+                <b-skeleton-wrapper :loading="ProdByCatLoading" v-if="$mq === 'sm'">
+                <template #loading>
+                    <b-container fluid>
+                    <landingLoader></landingLoader>
+                    </b-container>
+                </template>
+                <div v-for="item in ProdByCatLayout.mobile" v-bind:key="item.title">
+                    <banner v-bind:item="item" v-if="item.type === 'banner' && item.mobileDisplay !== 'hide'" ></banner>
+                    <ProdList v-bind:ProdList="item" v-if="item.type === 'ProdList' && item.mobileDisplay !== 'hide'" ></ProdList>
                 </div>
-                <ProdByTax1></ProdByTax1>
-                <ProdByTax4></ProdByTax4>
-                <div class="container-fluid HomeBanner d-none d-sm-block col-xl-12">
-                    <a href="https://alyaman.com/product-category/%d9%85%d9%88%d8%a7%d9%84%d9%8a%d8%af/">
-                        <img class="d-block w-100" src="@/assets/banners/cat0.jpeg" >
-                    </a>
+            </b-skeleton-wrapper>
+                <!-- End Mobile -->
+
+
+
+            <b-skeleton-wrapper :loading="ProdByCatLoading" v-if="$mq === 'md' || $mq === 'lg'">
+                <template #loading>
+                <b-container fluid>
+                    <landingLoader></landingLoader>
+                </b-container>
+                </template>
+                <div v-for="item in ProdByCatLayout.desktop" v-bind:key="item.title">
+                <banner v-bind:item="item" v-if="item.type === 'banner' && item.Display !== 'hide'" ></banner>
+                <ProdList v-bind:ProdList="item" v-if="item.type === 'ProdList' && item.Display !== 'hide'" ></ProdList>
                 </div>
-                <ProdByTax5></ProdByTax5>
-                <ProdByTax6></ProdByTax6>
+            </b-skeleton-wrapper>
+
 
             </div>
         </div>
@@ -39,23 +53,45 @@
 
 <script>
 
-import { mapGetters } from 'vuex';
-import ProdByTax1 from '../components/lists/old/ProdsByTax1List.vue';
-import ProdByTax4 from '../components/lists/old/ProdsByTax4List.vue';
-import ProdByTax5 from '../components/lists/old/ProdsByTax5List.vue';
-import ProdByTax6 from '../components/lists/old/ProdsByTax6List.vue';
+import { mapActions, mapGetters } from 'vuex';
+import banner from '../components/widgets/Banner.vue';
+import landingLoader from '../components/widgets/landingLoader.vue';
+import ProdList from '../components/lists/ProdList.vue';
+
 export default {
 
     name:'ProdByCat',
     computed:{
-        ...mapGetters(['Categories'])
+        ...mapGetters(['Categories','ProdByCatLayout']),
     },
     components:{
-        ProdByTax1,
-        ProdByTax4,
-        ProdByTax5,
-        ProdByTax6
+      ProdList,
+      banner,
+      landingLoader   
     },
+    methods:{
+        ...mapActions(['getProdByCat','getLanding'])
+    },
+    mounted(){
+
+        this.getLanding();
+        this.getProdByCat();
+
+    },
+    data(){
+      return {
+        ProdByCatLoading:true
+      }
+    },
+    watch:{
+        ProdByCatLayout(newValue){
+            console.log(newValue)
+            if(newValue.desktop.length > 0){
+                this.ProdByCatLoading=false;
+            }
+        },
+    },
+
 
 }
 </script>

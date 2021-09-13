@@ -47,7 +47,7 @@
 
 <script>
 
-import { mapGetters } from 'vuex';
+import { mapGetters,mapActions } from 'vuex';
 
 import ProdList from '../components/lists/ProdList.vue';
 import banner from '../components/widgets/Banner.vue';
@@ -81,6 +81,9 @@ export default {
     computed:{
       ...mapGetters(['LandingLayout'])
     },
+    methods:{
+      ...mapActions(['getLanding'])
+    },
     data(){
       return {
         landingLoading:true
@@ -93,6 +96,9 @@ export default {
                 this.landingLoading=false;
             }
         },
+    },
+    mounted(){
+        this.getLanding();
     }
 }
 </script>
