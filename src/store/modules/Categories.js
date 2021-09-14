@@ -12,7 +12,7 @@ const actions = {
         //Get Categories
         getCategories({commit}){
 
-            const SetUrl = 'http://127.0.0.1:8000/api/Categories';
+            const SetUrl = 'https://phplaravel-608610-2049275.cloudwaysapps.com/api/Categories';
             axios.get(SetUrl).then(function(response){
 
                 if(response.status != 200){

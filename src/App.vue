@@ -602,7 +602,7 @@ color: white !important;
 .product-grid .product-image:hover + .product-data {
 
     
-    transform: translateY(translateY(calc(5* -1vw))) !important;
+    transform: translateY(calc(5* -1vw)) !important;
     /* color:white !important; */
 
 }
