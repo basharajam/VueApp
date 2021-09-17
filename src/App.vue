@@ -81,11 +81,6 @@ background-color: #f5f5f5ec !important ;
   padding: 8px 0;
 
 }
-
-.flickity-viewport{
-      height: 380px !important;
-}
-
 .TitleList{  
     /* padding: 12px 0; */
     padding-top: 6px;

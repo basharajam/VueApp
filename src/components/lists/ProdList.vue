@@ -114,4 +114,8 @@ export default {
  margin:0 2px;
 }
 
+.flickity-viewport{
+      height: 380px !important;
+}
+
 </style>

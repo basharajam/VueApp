@@ -11,7 +11,7 @@
 
         <!--  start mobile  -->
         <mq-layout :mq="['sm']" >
-          <b-skeleton-wrapper :loading="false" >
+          <b-skeleton-wrapper :loading="landingLoading" >
             <template #loading>
               <b-container fluid>
                 <landingLoader></landingLoader>
