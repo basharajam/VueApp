@@ -2,12 +2,12 @@
   <div id="app">
 
     <!-- <Spinner v-if="spinner" /> -->
-    <Cart v-if="['Home','ProdByCat','ProdOne'].includes($route.name)" />
-    <headerTop v-if="['Home','ProdByCat','ProdOne'].includes($route.name)"/>
-    <navbar v-if="['Home','ProdByCat','ProdOne'].includes($route.name)"/>
-    <Header  v-if="['Home','ProdByCat','ProdOne'].includes($route.name)" />
+    <Cart v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat'].includes($route.name)" />
+    <headerTop v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat'].includes($route.name)"/>
+    <navbar v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat'].includes($route.name)"/>
+    <Header  v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat'].includes($route.name)" />
     <router-view />
-    <Footer   v-if="['Home','ProdByCat','ProdOne'].includes($route.name)" />
+    <Footer   v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat'].includes($route.name)" />
 
   </div>
 </template>

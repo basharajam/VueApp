@@ -6,7 +6,7 @@
 
     <div class="" style="background:white;padding:6px 0;margin-bottom:6px " >
       <Flickity ref="flickity" :options="flickityOptions" v-if="$mq === 'sm' && Categories.length != 0">
-        <CatSlideItem v-for="Category in Categories" v-bind:key='Category.id' v-bind:Category='Category' class="carousel-cell col-2"></CatSlideItem>
+        <CatSlideItem v-for="Category in Categories.Categories" v-bind:key='Category.id' v-bind:Category='Category' class="carousel-cell col-2"></CatSlideItem>
       </Flickity>
     </div>
     <!-- <div class="d-sm-block d-none">

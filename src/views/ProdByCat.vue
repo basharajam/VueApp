@@ -7,7 +7,7 @@
                 </div>
                 <div class="CatListBody"> 
                     <ul class="list-unstyled">
-                    <li v-for="Category in Categories" v-bind:key="Category.id" >
+                    <li v-for="Category in Categories.Categories" v-bind:key="Category.id" >
                         <a :href="'https://alyaman.com/product-category/'+Category.slug" >
                             {{ Category.name }}
                         </a>
