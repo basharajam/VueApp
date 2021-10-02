@@ -5,27 +5,32 @@
         <div class="row">
             <!-- Prod Inf  -->
             <div class="col-sm-6">
-              <ImgScrollerProd />
+              <ImgScrollerProd v-bind:gallery='ProdOne.images' />
             </div>
             <div class="col-sm-6" style="text-align: start;">
               <div class="ProdInf">
                 <h3 class="ProdTitle">
-                  توزيعات قناني 14سم*3.6سم
+                  {{ProdOne.name}}
                 </h3>
               </div>
               <div class="starRate">
-                <star-rating  :rating="4" :increment='0.01' :read-only="true" :star-size="18" :show-rating='false' v-bind:rtl='true' active-color='#fe6a00' :glow='1' :animate='true' ></star-rating>
+                <star-rating  :rating="parseInt(ProdOne.avg_rate)" :increment='0.01' :read-only="true" :star-size="18" :show-rating='false' v-bind:rtl='true' active-color='#fe6a00' :glow='1' :animate='true' ></star-rating>
               </div>
               <p>المنتج أو المنتوج هو لفظة عامة تشمل كل ما يصنع أو ينتج بغرض البيع والتسويق والتصدير للأفراد  الصناعية</p>
-              <div class="Price">
+              <div class="Price" v-if="ProdOne.onSale">
                 <div class="SalePrice">
-                  1.5 <span>ر.س</span>
+                  {{ ProdOne.sale_price }} <span>ر.س</span>
                 </div>
                 <div class="regPrice">
                   <del>
-                    2.5 <span>ر.س</span>
+                    {{ ProdOne.regular_price }} <span>ر.س</span>
                   </del>
                   
+                </div>
+              </div>
+              <div class="price" v-else >
+                <div class="SalePrice">
+                  {{ ProdOne.regular_price }} <span>ر.س</span>
                 </div>
               </div>
               <div class="Qty d-flex">
@@ -42,7 +47,7 @@
           <div class="col-sm-12" style="text-align: start;" v-if="$mq === 'md' || $mq === 'lg'">
             <b-tabs content-class="mt-3" fill>
               <b-tab title="وصف المنتج" active>
-                  <h4>:توزيعات قناني 14سم*3.6سم</h4>
+                  <h4>{{ProdOne.name}} :</h4>
                   <p>المنتج أو المنتوج هو لفظة عامة تشمل كل ما يصنع أو ينتج بغرض البيع والتسويق والتصدير للأفراد الصناعية
                     المنتج أو المنتوج هو لفظة عامة تشمل كل ما يصنع أو ينتج بغرض البيع والتسويق والتصدير للأفراد الصناعية
                     المنتج أو المنتوج هو لفظة عامة تشمل كل ما يصنع أو ينتج بغرض البيع والتسويق والتصدير للأفراد الصناعية
@@ -222,7 +227,7 @@
                   </b-card-header>
                   <b-collapse id="accordion-1" visible accordion="my-accordion" role="tabpanel">
                     <b-card-body>
-                      <h4>:توزيعات قناني 14سم*3.6سم</h4>
+                      <h4>{{ProdOne.name}} :</h4>
                       <p>المنتج أو المنتوج هو لفظة عامة تشمل كل ما يصنع أو ينتج بغرض البيع والتسويق والتصدير للأفراد الصناعية
                         المنتج أو المنتوج هو لفظة عامة تشمل كل ما يصنع أو ينتج بغرض البيع والتسويق والتصدير للأفراد الصناعية
                         المنتج أو المنتوج هو لفظة عامة تشمل كل ما يصنع أو ينتج بغرض البيع والتسويق والتصدير للأفراد الصناعية
@@ -423,6 +428,7 @@
 
 import ImgScrollerProd from '../components/widgets/ImgScrollerProd.vue';
 import StarRating from 'vue-star-rating'
+import {mapActions,mapGetters} from 'vuex'
 import { required, minLength } from 'vuelidate/lib/validators'
 
 export default {
@@ -430,6 +436,9 @@ export default {
       components:{
         ImgScrollerProd,
         StarRating,
+      },
+      computed:{
+        ...mapGetters(['ProdOne'])
       },
       data(){
 
@@ -458,6 +467,7 @@ export default {
   },
   methods:{
 
+    ...mapActions(['getProdOne']),
     validateState(name) {
       const { $dirty, $error } = this.$v.form[name];
       return $dirty ? !$error : null;
@@ -467,6 +477,13 @@ export default {
       console.log('Rate Clicked')
 
     }
+
+  },
+  mounted(){
+
+    this.getProdOne(10795);
+
+    console.log(this.ProdOne)
 
   }
 

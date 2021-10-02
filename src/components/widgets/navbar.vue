@@ -53,6 +53,10 @@
               0
              </span> 
             </a>
+            <button @click="toggleCart()">
+              <i class="fal fa-shopping-cart"></i>
+            </button>
+
           </div>
           <div class="SearchResult" v-if="SearchRes">
               <div v-if="innerSpinner" class="innerSpinner">
@@ -208,8 +212,10 @@ export default {
              //Hide Search Result List
              this.SearchRes=false
            }
-         },1000)
-         ,
+         },1000),
+         toggleCart:function(){
+            this.$root.$emit('DisplayCart', true);
+         },
          hideIcon(){
            this.search = false
          },

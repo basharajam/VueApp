@@ -1,17 +1,13 @@
 <template>
 
     
-    <b-container fluid>
-
-
-
-        <b-container>
-            <b-row>
-                <b-col cols="3" class="CatItem" v-for="Category in Categories.Categories"  v-bind:key="Category.id">
-                    <CatSlideItem v-bind:Category='Category'></CatSlideItem>
-                </b-col>
-            </b-row>
-        </b-container>
+    <b-container fluid> 
+        
+        <b-row class="AllCat">
+            <b-col cols="3" class="CatItem d-flex justify-content-center" v-for="Category in Categories.Categories"  v-bind:key="Category.id">
+                <CatSlideItem v-bind:Category='Category' ></CatSlideItem>
+            </b-col>
+        </b-row>
 
         <b-row>
             <b-col sm="12">
@@ -64,7 +60,7 @@ import ProdList from '../components/lists/ProdList.vue';
 export default{
 
     computed:{
-        ...mapGetters(['Categories'])
+        ...mapGetters(['Categories']),
     },
     components:{
         CatSlideItem,
@@ -74,18 +70,24 @@ export default{
     },
     data(){
       return {
-        AllCatLoading:true
+        AllCatLoading:true,
       }
     },
     watch:{
         Categories(newValue){
-            console.log(newValue)
             if(newValue.desktop.length > 0){
                 this.AllCatLoading=false;
             }
         },
     },
+    mounted(){
 
+        // //Only Mobile Devices Condition
+        if(this.$mq === 'md' || this.$mq === 'lg'){
+            this.$router.push({'name':'Home'}) 
+        }
+
+    },
 }
 
 </script>
@@ -94,6 +96,12 @@ export default{
 
 <style scoped>
 
+
+.AllCat{
+    margin: 8px 0;
+    background: white;
+    border-radius: 8px;
+}
 
 .CatItem{
 

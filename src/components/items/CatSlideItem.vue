@@ -21,7 +21,7 @@ export default {
 .Cat-Slide-item{
         bottom: 0 !important;
         display: inline-block;
-        margin: 0 0;
+        margin: 2px 2px;
 }
 
 .Cat-Slide-item a {

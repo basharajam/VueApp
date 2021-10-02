@@ -4,14 +4,16 @@ import cookie from 'vue-cookies'
 const state  = {
 
     LandingLayout:[],
-    ProdByCatLayout:[]    
+    ProdByCatLayout:[],
+    ProdOne:{} 
 }
 
 const getters = {
 
     LandingLayout:state=>state.LandingLayout,
     ProdByCat:state=>state.ProdByCat,
-    ProdByCatLayout:state=>state.ProdByCatLayout
+    ProdByCatLayout:state=>state.ProdByCatLayout,
+    ProdOne:state=>state.ProdOne
 }
 
 const actions = {
@@ -114,13 +116,40 @@ const actions = {
             }
         })
 
+    },
+
+    getProdOne({commit},ProdID){
+
+        var CountryVal= cookie.get('shipCountry');
+        var CurrVal = cookie.get('wmc_current_currency');
+        let cur;
+        let country
+        if(CountryVal && CurrVal){
+            cur=CurrVal;
+            country= CountryVal;
+        }
+        else{
+            cur='SAR';
+            country='SA';
+        }
+
+        var url = 'http://127.0.0.1:8000/api/ProdOne/%D9%85%D8%B2%D9%87%D8%B1%D9%8A%D8%A7%D8%AA/'+ProdID+'/'+cur+'/'+country;
+        axios.get(url).then(function(response){
+
+            commit('ProdOne',response.data)
+
+        })
+
+
     }
+
 }
 
 const mutations = {
 
     LandingLayout:(state,LandingLayout) =>(state.LandingLayout = LandingLayout),
-    ProdByCatLayout:(state,ProdByCatLayout)=>(state.ProdByCatLayout = ProdByCatLayout)
+    ProdByCatLayout:(state,ProdByCatLayout)=>(state.ProdByCatLayout = ProdByCatLayout),
+    ProdOne:(state,ProdOne)=>(state.ProdOne = ProdOne)
 }
 
 export default {

@@ -15,15 +15,17 @@
       <div class="ProdList ">
                 <!-- Desktop Display -->
                 <mq-layout :mq="['md','lg']" >
-                  <div class="scrollmenu"  v-if="ProdList.Display ==='list' " >
-                      <ProdCard v-for="Product in ProdList.items" v-bind:key="Product.id" v-bind:Product="Product" class="col-4 col-sm-2"></ProdCard>
+                  <div class="container-fluid">
+                    <div class="row"  v-if="ProdList.Display ==='list' " >
+                        <ProdCard v-for="Product in DeskList" v-bind:key="Product.id" v-bind:Product="Product" class="col-sm-2 px-1" ></ProdCard>
+                    </div>
                   </div>
                 </mq-layout>
 
 
                 <mq-layout :mq="['md','lg']" >
                   <Flickity ref="flickity" :options="flickityOptions" v-if="ProdList.Display ==='slider' && ProdList.items.length != 0 ">
-                      <ProdCard  class="carousel-cell" v-for="Product in ProdList.items" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+                      <ProdCard  class="carousel-cell" v-for="Product in ProdList.items" v-bind:key="Product.id" v-bind:Product="Product" ></ProdCard>
                   </Flickity>
                 </mq-layout>
               <!-- End Desktop Display -->
@@ -50,7 +52,7 @@
               </mq-layout>
               <mq-layout :mq="['sm']" >
                 <div class="scrollmenu " v-if="ProdList.mobileDisplay ==='slider' " :mq="['sm']">
-                  <ProdCard v-for="Product in ProdList.items" v-bind:key="Product.id" v-bind:Product="Product"></ProdCard>
+                  <ProdCard v-for="Product in ProdList.items" v-bind:key="Product.id" v-bind:Product="Product" class="col-5"></ProdCard>
                 </div>
               </mq-layout>
               <!-- End Mobile Display -->
@@ -81,6 +83,7 @@ export default {
   return {
         ProdListLoading:false,
         FilterArr:this.ProdList.items.slice(0,4),
+        DeskList:this.ProdList.items.slice(0,6),
         flickityOptions: {
           initialIndex: 3,
           pageDots: false,
@@ -111,7 +114,7 @@ export default {
 .carousel-cell{
  padding-left: 0 !important;
  padding-right: 0 !important;
- margin:0 2px;
+margin: 0 4px;
 }
 
 .flickity-viewport{

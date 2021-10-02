@@ -17,14 +17,56 @@
               <div v-if="NotFoundErr" class="NotFoundSearch text-center">
                   <span >عذرا المنتج غير موجود حاليا</span>
               </div> 
-                <!-- <div class="ShowMoreResBtn">
-                  <button >عرض المزيد</button>
-                </div> -->
             </div>
     <div class="CatNavLinks scrollmenu d-flex" style="overflow-y: hidden !important">
-        <a href="https://alyaman.com/shop/"> الكل </a>
+        <a @mouseover="AllCatClicked()" v-if="$mq === 'md' || $mq === 'lg'" > كل التصنيفات </a>
+        <a  v-if="$mq === 'sm'" href="https://www.alyaman.com/shop" > كل التصنيفات </a>
         <a v-for="Category in Categories.Categories" v-bind:key="Category.id" :href="'https://alyaman.com/product-category/'+Category.slug" > {{ Category.name }} </a>
-  </div>
+    </div>
+
+    <!-- Category Dropdown  -->
+    <div class="CatDrp d-flex flex-row position-absolute" style="z-index:996" v-if="CatDrp" @mouseleave="AllCatClicked()" @mousewheel="AllCatClicked()" >
+        <!-- main -->
+        <b-card
+          style="max-width: 20rem;"
+          class="mb-2"
+        >
+          <b-card-text>
+            <ul class="list-unstyled DrpCatList">
+              <li v-for="Category in Categories.Categories" v-bind:key="Category.id" @mouseover="CatDrpSubActivate(Category)" >
+                <a :href="'https://alyaman.com/product-category/'+Category.slug">
+                  {{Category.name}}
+                </a>
+              </li>
+            </ul>
+          </b-card-text>
+        </b-card>
+
+        <!-- Sub  -->
+        <b-card
+          style="max-width: 20rem;"
+          class="mb-2"
+          
+          v-if="CatDrpSub"
+        >
+          <b-card-text>
+            <ul class="list-unstyled DrpCatList">
+              <li v-for="CategorySub in CatDrpSubArr" v-bind:key="CategorySub.name" >
+                <a :href="'https://alyaman.com/product-category/'+CategorySub.slug">
+                  {{CategorySub.name}}
+                </a>
+              </li>
+            </ul>
+          </b-card-text>
+        </b-card>
+
+    </div>
+    <div class="CatDrpOverlay" @mouseover="AllCatClicked()" v-if="CatDrp"></div>
+  <!-- Category Dropdown End -->
+
+
+
+
   </div>
 </template>
 
@@ -100,6 +142,9 @@ export default {
         innerSpinner:true,
         search:true,
         NotFoundErr:false,
+        CatDrp:false,
+        CatDrpSub:false,
+        CatDrpSubArr:[],
         SearchResArr:[],
         elementVisible: false,
         CountryInput:CountryVal0,
@@ -201,6 +246,23 @@ export default {
         //  SetLang(){
         //    window.location.reload()
         //  }
+
+        AllCatClicked:function(){
+
+          //Toggle DropDown Display
+          console.log('All Cat Clicked')
+          this.CatDrp = !this.CatDrp;
+
+        },
+        CatDrpSubActivate:function(Category){
+
+          //Toggle Sub DropDown Display
+          this.CatDrpSub = true;
+
+          //Pass Sub Cats To SubCats Arr 
+          this.CatDrpSubArr=Category.sub
+          
+        }
     }
     
 
@@ -332,6 +394,22 @@ export default {
   /* .stack{
     color: white;
   } */
+
+  .CatDrpOverlay{
+      position: fixed;
+      background: #00000066;
+      width: 100%;
+      height: 100%;
+      z-index: 991;
+  }
+  .DrpCatList li a{
+    color: black;
+
+  }
+  .DrpCatList li a:hover{
+    color: #fa660d;
+    text-decoration: none;
+  }
 
 
 

@@ -6,9 +6,11 @@ import ProdOne from '../views/ProdOne';
 import ProdByCat from '../views/ProdByCat';
 import Login from '../views/Login';
 import AllCat from '../views/AllCat';
-import SubCat from '../views/SubCat';
 // import { i18n } from "../main.js";
 Vue.use(VueRouter)
+
+
+
 
 const routes = [
   
@@ -33,12 +35,7 @@ const routes = [
       {
         path:'/Categories',
         name:'AllCat',
-        component:AllCat
-      },
-      {
-        path:'/Categories/:SubCat',
-        name:'SubCat',
-        component:SubCat
+        component:AllCat,
       },
       {
         path:'/:ProdByCat',

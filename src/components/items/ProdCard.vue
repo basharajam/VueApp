@@ -1,13 +1,13 @@
 <template>
 
-        <div class="ProdCard col-sm-4 col-md-2 col-5">
+        <div class="ProdCard ">
         <div class="product-grid">
              <div class="product-image">
                 <a :href="Product.permalink" class="image" style="min-width:150;">
                     <vue-load-image>
-                        <img slot="image"  class="pic-1"  :src="Product.images[0].src" :alt="Product.name" width="500" height="500" >
-                        <img slot="preloader" src="@/assets/loader.png" />
-                        <img slot="error" src="@/assets/loader.png" />
+                        <img slot="image"  class="pic-1 img-fluid mx-auto"  :src="Product.images[0].src" :alt="Product.name" width="210" height="210" >
+                        <img slot="preloader" class="img-fluid mx-auto" src="@/assets/loader.png"  width="210" height="210" />
+                        <img slot="error" class="img-fluid mx-auto" src="@/assets/loader.png"  width="210" height="210" />
                     </vue-load-image>
                 </a>
                 <span v-if="Product.sale_price" class="discount-lab">% {{ discountPrice(Product)  }}</span>
@@ -29,6 +29,7 @@
                 </div>
                 <!-- addToCart(Product.ID,Product.meta._wc_min_qty_product,Product.meta.al_carton_qty) -->
                 <a class="add-to-cart" :href="Product.permalink"  >عرض تفاصيل المنتج</a>
+                <button class="add-to-cart" @click="AddtoCart(Product)" >Add To Cart</button>
             </div>
          </div>
         </div>
@@ -38,6 +39,7 @@
 
 import StarRating from 'vue-star-rating'
 import VueLoadImage from 'vue-load-image'
+import { mapActions } from 'vuex'
 export default {
 
 
@@ -47,6 +49,7 @@ export default {
             'vue-load-image': VueLoadImage
         },
         methods:{
+            ...mapActions(['AddToCartS']),
             discountPrice(Product){
 
                 var stp1 = Product.regular_price-Product.sale_price;
@@ -54,28 +57,13 @@ export default {
                 var stp3 = stp2 *100;
                 return  parseFloat(stp3).toFixed(0);
             },
-            // AddtoCart(Product){
+            AddtoCart(Product){
 
 
+                console.log(Product);
+                this.AddToCartS(Product)
 
-            //     // var meta = Product.meta;
-            //     // //find _wc_min_qty_product 
-            //     // var minQty = meta.filter(obj => {
-            //     //     return obj.key === '_wc_min_qty_product'
-            //     // })
-
-            //     // //al_carton_qty
-            //     // var CartoonQty = meta.filter(obj => {
-            //     //     return obj.key === 'al_carton_qty'
-            //     // })
-
-            //     // //Set Quantity
-            //     // var minQty1=minQty[0].value;
-            //     // var CartoonQty1=CartoonQty[0].value;
-            //     // var Qty= minQty1*CartoonQty1;
-            //     // var url= "https://alyaman.com/?add-to-cart="+ID+"&quantity="+Qty;
-            //     // return url;
-            // }
+            }
 
         }
 
@@ -107,7 +95,6 @@ export default {
 .product-grid .product-image{ position: relative; }
 .product-grid .product-image a.image{ display: block; }
 .product-grid .product-image img{
-    width: 100%;
     height: auto;
 }
 .product-data.descrition p {

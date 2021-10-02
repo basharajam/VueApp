@@ -1,17 +1,10 @@
 <template>
 <div class="">
-    <flickity ref="flickity" :options="flickityOptions" class="carousel-main">
-        <img src="https://picsum.photos/400/400.jpg" alt="">
-        <img src="https://picsum.photos/400/400.jpg" alt="">
-        <img src="https://picsum.photos/400/400.jpg" alt="">
-        <img src="https://picsum.photos/400/400.jpg" alt="">
+    <flickity ref="flickity" :options="flickityOptions" class="carousel-main" v-if="gallery.length >0">
+        <img :src="img.guid" v-for="img in gallery" v-bind:key="img.ID" alt="">
     </flickity>
-    <flickity ref="flickity2" class="carousel-thumb " :options="flickityOptions2">
-        <img src="https://picsum.photos/100/100.jpg" alt="">
-        <img src="https://picsum.photos/100/100.jpg" alt="">
-        <img src="https://picsum.photos/100/100.jpg" alt="">
-        <img src="https://picsum.photos/100/100.jpg" alt="">
-
+    <flickity ref="flickity2" class="carousel-thumb " v-if="gallery.length >0" :options="flickityOptions2">
+        <img :src="img.guid" v-for="img in gallery" width="100" height="100" v-bind:key="img.ID" alt="">
     </flickity>
 
 </div>
@@ -22,7 +15,7 @@ import Flickity from 'vue-flickity';
 import 'flickity-as-nav-for'
 export default {
     name:'ImgScrollProd',
-    
+    props:['gallery'],
     components: {
         Flickity
     },
