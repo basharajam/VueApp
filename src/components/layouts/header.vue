@@ -21,7 +21,7 @@
     <div class="CatNavLinks scrollmenu d-flex" style="overflow-y: hidden !important">
         <a @mouseover="AllCatClicked()" v-if="$mq === 'md' || $mq === 'lg'" > كل التصنيفات </a>
         <a  v-if="$mq === 'sm'" href="https://www.alyaman.com/shop" > كل التصنيفات </a>
-        <a v-for="Category in Categories.Categories" v-bind:key="Category.id" :href="'https://alyaman.com/product-category/'+Category.slug" > {{ Category.name }} </a>
+        <router-link :to="{ name:'ProdByCat', params:{ ProdByCat:Category.name } }" v-for="Category in Categories.Categories" v-bind:key="Category.id"> {{ Category.name }} </router-link>
     </div>
 
     <!-- Category Dropdown  -->
@@ -34,9 +34,9 @@
           <b-card-text>
             <ul class="list-unstyled DrpCatList">
               <li v-for="Category in Categories.Categories" v-bind:key="Category.id" @mouseover="CatDrpSubActivate(Category)" >
-                <a :href="'https://alyaman.com/product-category/'+Category.slug">
+                <router-link :to="{ name:'ProdByCat' }">
                   {{Category.name}}
-                </a>
+                </router-link>
               </li>
             </ul>
           </b-card-text>
@@ -52,9 +52,9 @@
           <b-card-text>
             <ul class="list-unstyled DrpCatList">
               <li v-for="CategorySub in CatDrpSubArr" v-bind:key="CategorySub.name" >
-                <a :href="'https://alyaman.com/product-category/'+CategorySub.slug">
+                <router-link :to="{ name:'ProdByCat' }" >
                   {{CategorySub.name}}
-                </a>
+                </router-link>
               </li>
             </ul>
           </b-card-text>
@@ -287,13 +287,13 @@ export default {
   .CatNavLinks::-webkit-scrollbar {
       display: none;
   }
-  .CatNavLinks a {
+  .CatNavLinks a{
       padding: 4px;
       margin: 0 2px;
       color: #808080;
-      /* color: white; */
-      
+      /* color: white; */ 
   }
+
   .CatNavLinks a:active {
        color: #fe6a00;
        border-bottom: 12px #fe6a00 solid;

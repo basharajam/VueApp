@@ -16,7 +16,7 @@ const getters = {
 const actions  = {
 
 
-    async AddToCartS({state,commit},Product){
+    AddToCartS({state,commit,getters},Product){
 
 
         var Prod = {
@@ -77,24 +77,33 @@ const actions  = {
 
         }
 
+        let FullPrice;
         //Set Full Price
-        // if(Product.on_sale){
-        //     var FullPrice = Product.sale_price + getters.FullPrice
-        // }
-        // else{
-        //     var FullPrice = Product.regular_price + getters.FullPrice
-        // }
+        //Check Product Type 
+        if(Product.type === 'variable '){
+            console.log('Variable Product')
+        }
+        else if (Product.type === 'simple'){
 
-        // commit('FullPrice',FullPrice)
+            if(Product.on_sale){
+                FullPrice =parseInt(Product.sale_price) + getters.FullPrice
+           }
+           else{
+                FullPrice = parseInt(Product.regular_price) + getters.FullPrice
+           }
+        }
+
+
+
+        commit('FullPrice',FullPrice)
         
     
     },
 
-    async RemoveFromCart({state,commit},ProdId){
+    RemoveFromCart({state,commit},ProdId){
 
         //filter Cart Arr 
         var FilterCartArr = state.Cart.findIndex(item =>{
-
              return item.item.id === ProdId
         })
 
@@ -112,6 +121,46 @@ const actions  = {
         // var FullPrice =getters.FullPrice - res.ProductPrice * itemQty
         console.log(removedItem)
         // commit('FullPrice',FullPrice)
+
+    },
+
+
+    increaseQtyS({state,commit},ProdId){
+
+        
+        //filter Cart Arr 
+        state.Cart.forEach(item =>{
+
+            if(item.item.id === ProdId){
+                var oldQty = item.qty
+                var newQty =item.qty = oldQty + 1;
+                return {item :item.item ,qty : newQty}
+            }
+        })
+        commit('Cart',state.Cart)
+
+    },
+    reduceQtyS({state,commit},ProdId){
+
+        state.Cart.forEach(item =>{
+
+            //reduce item qty by 1
+            if(item.item.id === ProdId && item.qty > 1 ){
+                var oldQty = item.qty
+                var newQty =item.qty = oldQty - 1;
+                return {item :item.item ,qty : newQty}
+            }
+            //remove item if qty === 1
+            else if (item.item.id === ProdId && item.qty === 1 ){
+
+                var FilterCartArr = state.Cart.findIndex(itemx =>{
+                    return itemx.item.id === ProdId
+               })
+                return state.Cart.splice(FilterCartArr,1)
+            }
+        })
+
+        commit('Cart',state.Cart)
 
     }
 

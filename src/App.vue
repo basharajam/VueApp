@@ -306,9 +306,6 @@ color: white !important;
 /*Desktop */
 @media only screen and  (min-width: 1366px ) and (max-width:1440px){
 
-  .navbar-brand{
-      /* margin-left: 240px; */
-  }
   .spinner{
     width:8%!important;
     right: 45% !important;
@@ -331,15 +328,8 @@ color: white !important;
   .flickity-viewport{
         height: 350px !important;
   }
-  .navbar-brand{
-    /* margin-left: 148px; */
-  }
   .HeaderIcons a {
     margin: 0px 10px !important;
-  }
-
-  .navbar-light .navbar-brand{
-      /* margin-left: 30%; */
   }
   .SearchSection{
         position: relative;
@@ -472,11 +462,6 @@ color: white !important;
 .GridItem{
       margin: 23px 0 !important;
 }
-
-.navbar-light .navbar-brand{
-  /* margin-left: 53%; */
-}
-
 }
 
 /* End Tablet */
@@ -690,11 +675,6 @@ min-height: 300px !important;
 
     max-width: 156px !important;
   }
-  .SearchSection{
-    /* width: 40%; */
-  }
-  
-
 }
 
 /*End large Phone */
@@ -716,9 +696,6 @@ min-height: 300px !important;
   .navbar-brand img{
 
     max-width: 105px;
-  }
-  .SearchSection{
-    /* width: 50%; */
   }
   .FooterHeadingContent {
       font-size: 50px !important;

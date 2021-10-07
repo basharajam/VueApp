@@ -3,13 +3,13 @@
         <div class="ProdCard ">
         <div class="product-grid">
              <div class="product-image">
-                <a :href="Product.permalink" class="image" style="min-width:150;">
+                <router-link :to="{ name:'ProdOne', params:{ ProdName:Product.name , ProdByCat:Product.Category.name } }" class="image" style="min-width:150;">
                     <vue-load-image>
                         <img slot="image"  class="pic-1 img-fluid mx-auto"  :src="Product.images[0].src" :alt="Product.name" width="210" height="210" >
                         <img slot="preloader" class="img-fluid mx-auto" src="@/assets/loader.png"  width="210" height="210" />
                         <img slot="error" class="img-fluid mx-auto" src="@/assets/loader.png"  width="210" height="210" />
                     </vue-load-image>
-                </a>
+                </router-link>
                 <span v-if="Product.sale_price" class="discount-lab">% {{ discountPrice(Product)  }}</span>
                 <ul class="product-links">
                     <!-- <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
@@ -18,7 +18,7 @@
                 </ul>
             </div>
             <div class="product-data">
-                <h3 class="title"><a :href="Product.permalink">{{Product.name}}</a></h3>
+                <h3 class="title"><router-link :to="{ name:'ProdOne', params:{ ProdByCat:this.$route.params.ProdByCat , ProdName:this.$route.params.ProdName } }" >{{Product.name}}</router-link></h3>
                 <!-- parseFloat(Product.regular_price).toFixed(2) -->
                 <div class="price"><span v-html="Product.price_html" v-if="Product.price_htm != 0" ></span> </div>
                 <div class="descrition" v-html=" Product.short_description"></div>

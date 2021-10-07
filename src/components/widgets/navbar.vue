@@ -1,45 +1,44 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light p-0 justify-content-start"  style="    border-bottom: 1px #d1d1d1d1 solid;z-index: 988 !important;">
-        <a class="navbar-brand col-sm-3 col-3 px-0"  href="https://alyaman.com" aria-label="Al-yaman">
+        <router-link :to="{ name: 'Home' }" class="navbar-brand col-sm-3 col-3 px-0" aria-label="Al-yaman">
           <img  src="icon.png" class="w-100" alt="" >
-        </a>
+        </router-link>
         
           <div class="SearchSection d-flex align-items-center col-md-4 col-lg-5 col-7 px-0" >
             <i style="position: relative;right: 38px;top:0px;" class="fa fa-search"></i>
             <input class="form-control mr-sm-2 SearchInput pr-5" aria-describedby="basic-addon1" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="search" placeholder="بحث" >
           </div>
           <div class="headerDrp col-sm-2 px-0 " v-if="$mq === 'md' || $mq === 'lg' ">
-                    <b-dropdown id="dropdown-1"  variant="none" class=" ShipBtn " no-flip no-caret>
-                          <template #button-content>
-                              <div class="d-flex align-items-center">
-                                <country-flag country='sa' size='normal' v-if="CountryVal0 ==='SA'"/>
-                                <country-flag country='ye' size='normal' v-if="CountryVal0 ==='YE'"/>
-                                <country-flag country='om' size='normal' v-if="CountryVal0 ==='OM'"/>
-                                <country-flag country='lb' size='normal' v-if="CountryVal0 ==='LB'"/>
-                                <country-flag country='iq' size='normal' v-if="CountryVal0 ==='IQ'"/>
-                                <country-flag country='ae' size='normal' v-if="CountryVal0 ==='AE'"/>
-                                <country-flag country='ps' size='normal' v-if="CountryVal0 ==='PS'"/> 
-                                <div class="stack" style="flex-direction: column;align-items: flex-end; margin-left: 10px;display: flex;">
-                                    <span>الشحن إلى</span>
-                                    <span style="font-weight: bold;font-size: 20px;"> {{SelectedCountryText}}</span>
-                                </div>
-                                <div style="width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
-                              </div>
-                          </template>
-                      <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
-                          <b-form-group label="العملة" class="drpSel" >
-                              <b-form-select v-model="CurrInput" class="dropSelect" size="sm" :options="CurOptions"></b-form-select>
-                          </b-form-group>
+            <b-dropdown id="dropdown-1"  variant="none" class=" ShipBtn " no-flip no-caret>
+                  <template #button-content>
+                      <div class="d-flex align-items-center">
+                        <country-flag country='sa' size='normal' v-if="CountryVal0 ==='SA'"/>
+                        <country-flag country='ye' size='normal' v-if="CountryVal0 ==='YE'"/>
+                        <country-flag country='om' size='normal' v-if="CountryVal0 ==='OM'"/>
+                        <country-flag country='lb' size='normal' v-if="CountryVal0 ==='LB'"/>
+                        <country-flag country='iq' size='normal' v-if="CountryVal0 ==='IQ'"/>
+                        <country-flag country='ae' size='normal' v-if="CountryVal0 ==='AE'"/>
+                        <country-flag country='ps' size='normal' v-if="CountryVal0 ==='PS'"/> 
+                        <div class="stack" style="flex-direction: column;align-items: flex-end; margin-left: 10px;display: flex;">
+                            <span>الشحن إلى</span>
+                            <span style="font-weight: bold;font-size: 20px;"> {{SelectedCountryText}}</span>
+                        </div>
+                        <div style="width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
+                      </div>
+                  </template>
+              <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
+                  <b-form-group label="العملة" class="drpSel" >
+                      <b-form-select v-model="CurrInput" class="dropSelect" size="sm" :options="CurOptions"></b-form-select>
+                  </b-form-group>
 
-                          <b-form-group label="الشحن الى" class="drpSel" >
-                              <b-form-select v-model="CountryInput" class="dropSelect" size="sm" :options="CountryOptions"></b-form-select>
-                          </b-form-group>
-                          <b-form-group>
-                            <b-button type="submit" block pill variant="outline-warning updCurrSubmit " >حفظ</b-button>
-                          </b-form-group>
-                      </b-dropdown-form>
-                    </b-dropdown>
-
+                  <b-form-group label="الشحن الى" class="drpSel" >
+                      <b-form-select v-model="CountryInput" class="dropSelect" size="sm" :options="CountryOptions"></b-form-select>
+                  </b-form-group>
+                  <b-form-group>
+                    <b-button type="submit" block pill variant="outline-warning updCurrSubmit " >حفظ</b-button>
+                  </b-form-group>
+              </b-dropdown-form>
+            </b-dropdown>
           </div>
           <div class="HeaderIcons d-none d-sm-inline-flex" style="position: absolute;left: 16px;">
             <a href="https://alyaman.com/my-account/" aria-label="حسابي"><i class="fal fa-user"></i></a>

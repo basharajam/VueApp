@@ -13,8 +13,6 @@
                 ></TreeList>
             </div>
             <div class="col-sm-10">
-
-
                 <b-container  >
                     <b-row class="SubCat">
                         <b-col cols="3" class="CatItem d-flex justify-content-center" v-for="Category in Categories.Categories"  v-bind:key="Category.id">
@@ -110,8 +108,9 @@ export default {
     },
     mounted(){
 
+        var ProdByCat=this.$route.params.ProdByCat
         this.getLanding();
-        this.getProdByCat();
+        this.getProdByCat(ProdByCat);
 
     },
     data(){
@@ -126,9 +125,10 @@ export default {
                 this.ProdByCatLoading=false;
             }
         },
+        "$route.params.ProdByCat"(){
+            return this.getProdByCat(this.$route.params.ProdByCat)
+        }
     }
-
-
 }
 </script>
 

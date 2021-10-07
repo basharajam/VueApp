@@ -1,9 +1,9 @@
 <template>
     <div class="Cat-Slide-item">
-              <a :href="'https://alyaman.com/product-category/'+Category.slug" class="flex  justify-center">
-                  <img :src="Category.image.src" class="Cat-Slide-item-img" alt="">
-                  <span>{{Category.name}}</span>
-              </a>
+      <router-link :to="{ name:'ProdByCat' }" class="flex justify-center" >
+        <img :src="Category.image.src" class="Cat-Slide-item-img" alt="">
+        <span>{{Category.name}}</span>
+      </router-link>
     </div>
 </template>
 

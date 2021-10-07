@@ -11,30 +11,29 @@
         </div> -->
             
             <div class="headerDrp d-flex align-items-center " v-if="$mq === 'sm'">
-                        <b-dropdown id="dropdown-0"  variant="none" class="ShipBtn" no-flip no-caret>
-                            <template #button-content style="margin-bottom:0 !important">
-                                <div class="d-flex align-items-center">
-                                    <div class="stack" style="color: white; flex-direction:row;align-items: flex-end; margin-left: 10px;display: flex;">
-                                        <span style="font-size: 12px;margin: 0 6px;"> الشحن إلى :</span>
-                                        <span style="font-weight: bold;font-size: 12px"> {{SelectedCountryText}}</span>
-                                    </div>
-                                    <div style="color: white;width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
-                                </div>
-                            </template>
-                        <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
-                            <b-form-group label="العملة" class="drpSel" >
-                                <b-form-select v-model="CurrInput" size="sm" class="dropSelect" :options="CurOptions"></b-form-select>
-                            </b-form-group>
+                <b-dropdown id="dropdown-0"  variant="none" class="ShipBtn" no-flip no-caret>
+                    <template #button-content style="margin-bottom:0 !important">
+                        <div class="d-flex align-items-center">
+                            <div class="stack" style="color: white; flex-direction:row;align-items: flex-end; margin-left: 10px;display: flex;">
+                                <span style="font-size: 12px;margin: 0 6px;"> الشحن إلى :</span>
+                                <span style="font-weight: bold;font-size: 12px"> {{SelectedCountryText}}</span>
+                            </div>
+                            <div style="color: white;width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
+                        </div>
+                    </template>
+                <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
+                    <b-form-group label="العملة" class="drpSel" >
+                        <b-form-select v-model="CurrInput" size="sm" class="dropSelect" :options="CurOptions"></b-form-select>
+                    </b-form-group>
 
-                            <b-form-group label="الشحن الى" class="drpSel" >
-                                <b-form-select v-model="CountryInput" size="sm" class="dropSelect" :options="CountryOptions"></b-form-select>
-                            </b-form-group>
-                            <b-form-group>
-                                <b-button type="submit" block pill variant="outline-warning updCurrSubmit" >حفظ</b-button>
-                            </b-form-group>
-                        </b-dropdown-form>
-                        </b-dropdown>
-                
+                    <b-form-group label="الشحن الى" class="drpSel" >
+                        <b-form-select v-model="CountryInput" size="sm" class="dropSelect" :options="CountryOptions"></b-form-select>
+                    </b-form-group>
+                    <b-form-group>
+                        <b-button type="submit" block pill variant="outline-warning updCurrSubmit" >حفظ</b-button>
+                    </b-form-group>
+                </b-dropdown-form>
+                </b-dropdown>
             </div>
     </div>  
 </template>

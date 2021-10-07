@@ -7,26 +7,24 @@
             >
             <div v-if="isFolder(child)" >
                 <span @click="toggle(child)">[{{ isOpen ? '-' : '+' }}]</span>
-                <a :href="'https://alyaman.com/product-category/'+child.slug">
+                <router-link :to="{ name:'ProdByCat' }">
                   {{ child.name }}
-                </a>
+                </router-link>
             </div>
             <div v-if="isFolder(child) && isOpen" class="TreeSub">
-                <a class="item"
+                <router-link :to="{ name:'ProdByCat' }" class="item"
                     v-for="(childItem, index) in child.sub"
                     :key="index"
-                    :href="'https://alyaman.com/product-category/'+childItem.slug"
-                    
                 >
                 {{ childItem.name }}
-                </a>
+                </router-link>
             </div>
 
             <div v-if="!isFolder(child)">
                 <span>[-]</span>
-                <a :href="'https://alyaman.com/product-category/'+child.slug">
+                <router-link :to="{ name:'ProdByCat' }" >
                   {{ child.name }}            
-                </a>
+                </router-link>
             </div>
                 
                 

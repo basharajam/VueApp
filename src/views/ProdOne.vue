@@ -481,9 +481,8 @@ export default {
   },
   mounted(){
 
-    this.getProdOne(10795);
-
-    console.log(this.ProdOne)
+    var ProdName=this.$route.params.ProdName;
+    this.getProdOne(ProdName)
 
   }
 

@@ -13,42 +13,6 @@
                         <b-row>
                             <h3 class="text-center" style="margin-bottom: 30px;">تسجيل حساب </h3>
                         </b-row>
-                        <b-row class='fullNameInputs'>
-                            <b-col cols="12" sm="6"  >
-                                <b-form-group
-                                    id="input-group-1"
-                                    label="الأسم الأول"
-                                    label-for="firstNameI"
-                                >
-                                    <b-form-input
-                                    id="firstNameI"
-                                    type="text"
-                                    placeholder="الأسم الأول"
-                                    class="rounded-form"
-                                    v-model="$v.form.firstName.$model"
-                                    :state="validateState('firstName')"
-                                    
-                                    ></b-form-input>
-                                </b-form-group>
-                            </b-col>
-                            <b-col cols="12" sm="6">
-                                <b-form-group
-                                    id="lastNameI"
-                                    label="الأسم الأخير"
-                                    label-for="lastNameI"
-                                >
-                                    <b-form-input
-                                    id="lastNameI"
-                                    type="text"
-                                    placeholder="الأسم الأخير"
-                                    class="rounded-form"
-                                    v-model="$v.form.lastName.$model"
-                                    :state="validateState('lastName')"
-                                    
-                                    ></b-form-input>
-                                </b-form-group>
-                            </b-col>
-                        </b-row>
                         <b-form-group
                             id="emailInput"
                             label="الإيميل"
@@ -77,27 +41,6 @@
                             :state="validateState('password')"
                             ></b-form-input>
                         </b-form-group>
-                        <b-form-group
-                            id="emailInput"
-                            label=" كرر كلمة السر "
-                            label-for="password2I"
-                        >
-                            <b-form-input
-                            id="password2I"
-                            type="password"
-                            placeholder="كرر كلمة السر"
-                            class="rounded-form"
-                            v-model="$v.form.password2I.$model"
-                            :state="validateState('password2I')"
-                            ></b-form-input>
-                        </b-form-group>
-                        <b-form-group>
-                                <div class="d-flex" style="align-items: baseline">
-                                    <input type="checkbox" name="terms" id="terms">
-                                    <p>   اوافق على شروط الخصوصية    </p>
-                                </div>
-            
-                        </b-form-group>
 
                         </b-form>
                     </b-col>
@@ -111,7 +54,7 @@
 </template>
 
 <script>
-import { required, minLength, email, sameAs } from 'vuelidate/lib/validators'
+import { required, minLength, email } from 'vuelidate/lib/validators'
 export default {
 
     methods:{
@@ -134,27 +77,14 @@ export default {
     },
     validations: {
         form: {
-          firstName: {
-            required,
-            minLength: minLength(3)
-          },
-          lastName: {
-            required,
-            minLength: minLength(3)
-          },
-          password:{
-            required,
-            minLength:minLength(8)
-          },
-        password2I:{
-            required,
-            minLength:minLength(8),
-            sameAsPassword: sameAs('password')
-          },
-        userMail:{
-            required,
-            email
-        },
+            userMail:{
+                required,
+                email
+            },
+            password:{
+                required,
+                minLength:minLength(8)
+            },
 
         }
   },
@@ -189,7 +119,7 @@ export default {
 
 .LoginWrapper{
     background: #f4f4f4;
-    padding: 10%;
+    padding: 4%;
 }
 
 @media only screen and (min-width: 320px) and (max-width:625px) {

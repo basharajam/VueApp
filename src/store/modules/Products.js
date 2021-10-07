@@ -53,11 +53,11 @@ const actions = {
         //http://127.0.0.1:8000/api/Products/USD/UAE
         //https://wordpress-608610-2061089.cloudwaysapps.com/
         
-        //var setUrl ='http://127.0.0.1:8000/api/Products/'+cur+'/'+country;
+        var setUrl ='http://127.0.0.1:8000/api/Products/'+cur+'/'+country;
         //X
         //var setUrl ='http://phplaravel-608610-2049275.cloudwaysapps.com/api/Products/'+cur+'/'+country;
         //Or
-        var setUrl= 'https://phplaravel-608610-2049275.cloudwaysapps.com/api/Products/'+cur+'/'+country;
+        //var setUrl= 'https://phplaravel-608610-2049275.cloudwaysapps.com/api/Products/'+cur+'/'+country;
           axios.get(setUrl).then(function(response){
     
             if(response.status != 200){
@@ -69,7 +69,7 @@ const actions = {
                 //Category
                 // commit('Categories',response.data.Categories)
                 // //anding Page Layout
-                // console.log(response.data)
+                console.log(response.data)
                
 
                 // landing page 
@@ -82,7 +82,7 @@ const actions = {
     },
     
 
-    getProdByCat({commit}){
+    getProdByCat({commit},ProdByCat){
 
         var CountryVal= cookie.get('shipCountry');
         var CurrVal = cookie.get('wmc_current_currency');
@@ -96,7 +96,7 @@ const actions = {
             cur='SAR';
             country='SA';
         }
-        var setUrl ='http://127.0.0.1:8000/api/ProdByCat/مزهريات/'+cur+'/'+country;
+        var setUrl ='http://127.0.0.1:8000/api/ProdByCat/'+ProdByCat+'/'+cur+'/'+country;
         axios.get(setUrl).then(function(response){
     
             if(response.status != 200){
@@ -118,7 +118,7 @@ const actions = {
 
     },
 
-    getProdOne({commit},ProdID){
+    getProdOne({commit},ProdName){
 
         var CountryVal= cookie.get('shipCountry');
         var CurrVal = cookie.get('wmc_current_currency');
@@ -133,16 +133,11 @@ const actions = {
             country='SA';
         }
 
-        var url = 'http://127.0.0.1:8000/api/ProdOne/%D9%85%D8%B2%D9%87%D8%B1%D9%8A%D8%A7%D8%AA/'+ProdID+'/'+cur+'/'+country;
+        var url = 'http://127.0.0.1:8000/api/ProdOne/'+ProdName+'/'+cur+'/'+country;
         axios.get(url).then(function(response){
-
             commit('ProdOne',response.data)
-
         })
-
-
     }
-
 }
 
 const mutations = {
@@ -157,5 +152,4 @@ export default {
     getters,
     actions,
     mutations
-
 }

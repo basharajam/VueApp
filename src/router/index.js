@@ -5,6 +5,7 @@ import test from '../views/test';
 import ProdOne from '../views/ProdOne';
 import ProdByCat from '../views/ProdByCat';
 import Login from '../views/Login';
+import Register from '../views/Register';
 import AllCat from '../views/AllCat';
 // import { i18n } from "../main.js";
 Vue.use(VueRouter)
@@ -23,6 +24,11 @@ const routes = [
         path:'/Login',
         name:'Login',
         component:Login
+      },
+      {
+        path:'/Register',
+        name:'Register',
+        component:Register
       },
       {
         path: '/about',
