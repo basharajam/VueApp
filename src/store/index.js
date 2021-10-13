@@ -4,6 +4,7 @@ import Products from './modules/Products';
 import Categories from './modules/Categories';
 import Cart from './modules/Cart';
 import User from './modules/User';
+import config from './modules/app';
 
 
 Vue.use(Vuex);
@@ -15,7 +16,7 @@ export default new Vuex.Store({
         Products,
         Categories,
         Cart,
-        User
+        User,
+        config
     }
-
 })

@@ -29,13 +29,20 @@ const actions = {
         
 
     },
+    LoginUser({commit},form){
+        var url = 'http://127.0.0.1:8000/api/LoginByMail';
+        axios.post(url,form).then(function(resp){
 
-    LoginUser(){
+            commit('User',resp.data.item.user)
+            commit('Token',resp.data.item.token)
+        })
+    },
+    LoginWithSocialite({commit},data){
 
-        console.log('Login Working')
+        commit('User',JSON.parse(data.user.replace(/&quot;/g,'"')))
+        commit('Token',data.token)
 
     }
-
 }
 
 const mutations = {

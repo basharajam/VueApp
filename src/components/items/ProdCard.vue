@@ -18,7 +18,7 @@
                 </ul>
             </div>
             <div class="product-data">
-                <h3 class="title"><router-link :to="{ name:'ProdOne', params:{ ProdByCat:this.$route.params.ProdByCat , ProdName:this.$route.params.ProdName } }" >{{Product.name}}</router-link></h3>
+                <h3 class="title"><router-link :to="{ name:'ProdOne', params:{ ProdName:Product.name , ProdByCat:Product.Category.name } }" >{{Product.name}}</router-link></h3>
                 <!-- parseFloat(Product.regular_price).toFixed(2) -->
                 <div class="price"><span v-html="Product.price_html" v-if="Product.price_htm != 0" ></span> </div>
                 <div class="descrition" v-html=" Product.short_description"></div>
@@ -28,7 +28,7 @@
                     <star-rating style="display: flex;flex-direction: column;"  :rating="parseFloat(Product.average_rating)" :increment='0.01' :read-only="true" :star-size="18" :show-rating='false' v-bind:rtl='true' active-color='#fe6a00' :glow='1' :animate='true'></star-rating>
                 </div>
                 <!-- addToCart(Product.ID,Product.meta._wc_min_qty_product,Product.meta.al_carton_qty) -->
-                <a class="add-to-cart" :href="Product.permalink"  >عرض تفاصيل المنتج</a>
+                <router-link class="add-to-cart" :to="{ name:'ProdOne', params:{ ProdName:Product.name , ProdByCat:Product.Category.name } }"  >عرض تفاصيل المنتج</router-link>
                 <button class="add-to-cart" @click="AddtoCart(Product)" >Add To Cart</button>
             </div>
          </div>
@@ -225,12 +225,7 @@ export default {
 .price span {
     color: #fe6a00;
 }
-/* .product-grid .product-data .price span{
-    color: #999;
-    font-weight: 500;
-} */
-/* .product-grid:hover  */
-/* .price{ opacity: 0; } */
+
 .product-content .add-to-cart{
     color: #fe6a00;
     display: block;
@@ -245,23 +240,7 @@ export default {
     padding: 2px;
     margin: 14px auto;
     transition: all 0.4s ease-out;
-    /* height: 40px; */
-    /* bottom: 50px; */
-    /* left: 50%; */
-    /* opacity: 0; */
-    /* transform: translateX(-50%); */
-    /* position: absolute; */
 }
-
-
-/* .product-content .add-to-cart:hover{
-    /* transform: scale(1.1); */
-     /* background-color: #2f2f2f; */
-     
-/* .product-grid:hover .add-to-cart{
-    opacity: 1;
-    bottom: 8px;
-} */
 
 .product-data{
     background-color: white;
@@ -290,9 +269,6 @@ width: 100% !important;
 .product-grid .product-image:hover + .product-data .descrition {
 display: block;
 transition: all 0.4s ease-out;
-    /* 
-    position: relative; */
-
 }
 
 
@@ -307,7 +283,6 @@ transition: all 0.4s ease-out;
 .product-grid .product-image:hover > a > img {
 
     opacity: 0.2;
-   
 }
 
 .product-grid .product-image:hover + .product-data {
@@ -315,15 +290,7 @@ transition: all 0.4s ease-out;
     background: white;
     transform: translateY(calc(5* -1vw));
     /* color:white !important; */
-
 }
-
-
-
-
-
-
-
 .rating li {
     display: inline-block;
 }

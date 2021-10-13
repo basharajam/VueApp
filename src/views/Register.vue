@@ -4,118 +4,126 @@
         <b-container fluid>    
             <div class="RegisterInner">
                 <b-row>
-                    <b-col cols="12" sm="4" class="d-flex" >
+                    <b-col cols="12" sm="7" class="d-flex" >
                         <div class="FormImg"></div>
 
                     </b-col>
-                    <b-col  cols='12' sm="8" >
-                        <b-form style="  margin: 26px 10px;"  >
-                        <b-row>
-                            <h3 class="text-center" style="margin-bottom: 30px;">تسجيل حساب </h3>
-                        </b-row>
-                        <b-row class='fullNameInputs'>
-                            <b-col cols="12" sm="6"  >
-                                <b-form-group
-                                    id="input-group-1"
-                                    label-for="firstNameI"
-                                >
-                                    <b-form-input
-                                        id="firstNameI"
-                                        type="text"
-                                        placeholder="الأسم الأول"
-                                        class="rounded-form"
-                                        v-model.lazy="form.FirstNameI"
-                                        @blur="$v.form.FirstNameI.$touch"
-                                        :state="validateState('FirstNameI')"
-                                    ></b-form-input>
-                                </b-form-group>
-                            </b-col>
-                            <b-col cols="12" sm="6">
-                                <b-form-group
-                                    id="lastNameI"
-                                    label-for="lastNameI"
-                                >
-                                    <b-form-input
-                                    id="lastNameI"
-                                    type="text"
-                                    placeholder="الأسم الأخير"
-                                    class="rounded-form"
-                                    v-model.lazy="form.lastNameI"
-                                    @blur="$v.form.lastNameI.$touch"
-                                    :state="validateState('lastNameI')"
-                                    
-                                    ></b-form-input>
-                                </b-form-group>
-                            </b-col>
-                        </b-row>
-                        <b-form-group
-                            id="emailInput"
-                            label-for="emailInput"
-                        >
-                            <b-form-input
-                            id="emailInput"
-                            type="email"
-                            placeholder="الإيميل"
-                            class="rounded-form"
-                            v-model.lazy="form.MailI"
-                            @blur="$v.form.MailI.$touch"
-                            :state="validateState('MailI')"
-                            ></b-form-input>
-                        </b-form-group>
-                        
-                        <b-form-group
-                            id="usernameInput"
-                            label-for="usernameInput"
-                        >
-                            <b-form-input
-                            id="usernameInput"
-                            type="text"
-                            placeholder="أسم المستخدم"
-                            class="rounded-form"
-                            v-model.lazy="form.UserNameI"
-                            @blur="$v.form.UserNameI.$touch"
-                            :state="validateState('UserNameI')"
-                            ></b-form-input>
-                        </b-form-group>
-                        
-                        <b-form-group
-                            id="emailInput"
-                            label-for="passwordI"
-                        >
-                            <b-form-input
-                            id="passwordI"
-                            type="password"
-                            placeholder="كلمة السر"
-                            class="rounded-form"
-                            v-model.lazy="form.PassI"
-                            @blur="$v.form.PassI.$touch"
-                            :state="validateState('PassI')"
-                            ></b-form-input>
-                        </b-form-group>
-                        <b-form-group
-                            id="emailInput"
-                            label-for="password2I"
-                        >
-                            <b-form-input
-                            id="password2I"
-                            type="password"
-                            placeholder="كرر كلمة السر"
-                            class="rounded-form"
-                            v-model.lazy="form.Pass2I"
-                            @blur="$v.form.Pass2I.$touch"
-                            :state="validateState('Pass2I')"
-                            ></b-form-input>
-                        </b-form-group>
-                        <b-form-group>
-                            <div class="d-flex" style="align-items: baseline">
-                              <input type="checkbox" name="terms" id="terms" v-model.lazy="form.terms">
-                              <p>   اوافق على شروط الخصوصية    </p>
+                    <b-col  cols='12' sm="5" >
+                      <b-row>
+                          <b-col sm='12' cols="12" class="my-5" >
+                            <div class="mx-2">
+                              <b-button pill variant="primary" block  @click="RegisterWithFacebook()"  ><div class="d-flex justify-content-center justify-content-between mx-5"><i class="fab fa-facebook-f"></i>   تسجيل الدخول بفيسبوك </div></b-button>
+                              <b-button pill variant="primary" block  @click="RegisterWithGoogle()" ><div class="d-flex justify-content-center justify-content-between mx-5"><i class="fab fa-google"></i>     تسجيل الدخول بغوغل</div></b-button>
                             </div>
-                        </b-form-group>
-                        <b-form-group>
-                            <b-button variant="outline-primary" @click="Register()">Register</b-button>
-                        </b-form-group>
-                        </b-form>
+                            <div>
+                              <p class="text-center m-4" >التسجيل بأستخدام</p>
+                            </div>
+                            <b-form class="mx-2" >
+                            <b-row class='fullNameInputs'>
+                                <b-col cols="12" sm="6"  >
+                                    <b-form-group
+                                        id="input-group-1"
+                                        label-for="firstNameI"
+                                    >
+                                        <b-form-input
+                                            id="firstNameI"
+                                            type="text"
+                                            placeholder="الأسم الأول"
+                                            class="rounded-form"
+                                            v-model.lazy="form.FirstNameI"
+                                            @blur="$v.form.FirstNameI.$touch"
+                                            :state="validateState('FirstNameI')"
+                                        ></b-form-input>
+                                    </b-form-group>
+                                </b-col>
+                                <b-col cols="12" sm="6">
+                                    <b-form-group
+                                        id="lastNameI"
+                                        label-for="lastNameI"
+                                    >
+                                        <b-form-input
+                                        id="lastNameI"
+                                        type="text"
+                                        placeholder="الأسم الأخير"
+                                        class="rounded-form"
+                                        v-model.lazy="form.lastNameI"
+                                        @blur="$v.form.lastNameI.$touch"
+                                        :state="validateState('lastNameI')"
+                                        
+                                        ></b-form-input>
+                                    </b-form-group>
+                                </b-col>
+                            </b-row>
+                            <b-form-group
+                                id="emailInput"
+                                label-for="emailInput"
+                            >
+                                <b-form-input
+                                id="emailInput"
+                                type="email"
+                                placeholder="الإيميل"
+                                class="rounded-form"
+                                v-model.lazy="form.MailI"
+                                @blur="$v.form.MailI.$touch"
+                                :state="validateState('MailI')"
+                                ></b-form-input>
+                            </b-form-group>
+                            
+                            <b-form-group
+                                id="usernameInput"
+                                label-for="usernameInput"
+                            >
+                                <b-form-input
+                                id="usernameInput"
+                                type="text"
+                                placeholder="أسم المستخدم"
+                                class="rounded-form"
+                                v-model.lazy="form.UserNameI"
+                                @blur="$v.form.UserNameI.$touch"
+                                :state="validateState('UserNameI')"
+                                ></b-form-input>
+                            </b-form-group>
+                            
+                            <b-form-group
+                                id="emailInput"
+                                label-for="passwordI"
+                            >
+                                <b-form-input
+                                id="passwordI"
+                                type="password"
+                                placeholder="كلمة السر"
+                                class="rounded-form"
+                                v-model.lazy="form.PassI"
+                                @blur="$v.form.PassI.$touch"
+                                :state="validateState('PassI')"
+                                ></b-form-input>
+                            </b-form-group>
+                            <b-form-group
+                                id="emailInput"
+                                label-for="password2I"
+                            >
+                                <b-form-input
+                                id="password2I"
+                                type="password"
+                                placeholder="كرر كلمة السر"
+                                class="rounded-form"
+                                v-model.lazy="form.Pass2I"
+                                @blur="$v.form.Pass2I.$touch"
+                                :state="validateState('Pass2I')"
+                                ></b-form-input>
+                            </b-form-group>
+                            <b-form-group>
+                                <div class="d-flex" style="align-items: baseline">
+                                <input type="checkbox" name="terms" id="terms" v-model.lazy="form.terms">
+                                <p>   اوافق على شروط الخصوصية    </p>
+                                </div>
+                            </b-form-group>
+                            <b-form-group>
+                                <b-button variant="outline-primary" @click="Register()">Register</b-button>
+                            </b-form-group>
+                            </b-form>
+                          </b-col>
+                      </b-row>
                     </b-col>
                 </b-row>
             </div>
@@ -127,10 +135,20 @@
 <script>
 import { required, minLength, email, sameAs } from 'vuelidate/lib/validators';
 import axios from 'axios';
-import { mapActions } from 'vuex';
+import { mapActions , mapGetters } from 'vuex';
 
 export default {
-
+    mounted () {
+        window.addEventListener('message', this.onMessage, false)
+        console.log('its Working')
+    },
+    beforeDestroy () {
+        window.removeEventListener('message', this.onMessage)
+        console.log('its Working before destroy')
+    },
+    computed:{
+        ...mapGetters(['config'])
+    },
     methods:{
         validateState(name){
             const { $dirty, $error } = this.$v.form[name];
@@ -139,6 +157,14 @@ export default {
         ...mapActions(['RegisterUser']),
         Register(){
             this.RegisterUser(this.form)
+        },
+        RegisterWithGoogle:function(){
+            const newWindow = openWindow('', 'message')
+            newWindow.location.href = this.config.google;
+        },
+        RegisterWithFacebook:function(){
+            const newWindow = openWindow('', 'message')
+            newWindow.location.href = this.config.facebook;
         }
     },
     data(){
@@ -199,6 +225,35 @@ export default {
 
         }
   },
+}
+function openWindow (url, title, options = {}) {
+      if (typeof url === 'object') {
+        options = url
+        url = ''
+      }
+
+      options = { url, title, width: 600, height: 720, ...options }
+
+      const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : window.screen.left
+      const dualScreenTop = window.screenTop !== undefined ? window.screenTop : window.screen.top
+      const width = window.innerWidth || document.documentElement.clientWidth || window.screen.width
+      const height = window.innerHeight || document.documentElement.clientHeight || window.screen.height
+
+      options.left = ((width / 2) - (options.width / 2)) + dualScreenLeft
+      options.top = ((height / 2) - (options.height / 2)) + dualScreenTop
+
+      const optionsStr = Object.keys(options).reduce((acc, key) => {
+        acc.push(`${key}=${options[key]}`)
+        return acc
+      }, []).join(',')
+
+      const newWindow = window.open(url, title, optionsStr)
+
+      if (window.focus) {
+        newWindow.focus()
+      }
+
+      return newWindow
 }
 </script>
 

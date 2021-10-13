@@ -2,12 +2,12 @@
   <div id="app">
 
     <!-- <Spinner v-if="spinner" /> -->
-    <Cart v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat'].includes($route.name)" />
-    <headerTop v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat'].includes($route.name)"/>
-    <navbar v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat'].includes($route.name)"/>
-    <Header  v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat'].includes($route.name)" />
+    <Cart v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat','User'].includes($route.name)" />
+    <headerTop v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat','User'].includes($route.name)"/>
+    <navbar v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat','User'].includes($route.name)"/>
+    <Header  v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat','User'].includes($route.name)" />
     <router-view />
-    <Footer   v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat'].includes($route.name)" />
+    <Footer   v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat','User'].includes($route.name)" />
 
   </div>
 </template>
@@ -23,8 +23,6 @@ import Cart from './components/layouts/cart.vue';
 // import Spinner from './components/layouts/spinner.vue';
 
 
-
-
 export default {
   name: 'App',
   components: {
@@ -37,7 +35,7 @@ export default {
     // Spinner
   },
   methods:{
-    ...mapActions(['getCategories'])
+    ...mapActions(['getCategories','getConfig'])
   },
 data: function() {
     return {
@@ -46,9 +44,8 @@ data: function() {
   },
   mounted(){
 
-    console.log(this.$mq)
     this.getCategories();
-
+    this.getConfig();
   },
 
 }

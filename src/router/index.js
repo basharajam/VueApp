@@ -7,6 +7,9 @@ import ProdByCat from '../views/ProdByCat';
 import Login from '../views/Login';
 import Register from '../views/Register';
 import AllCat from '../views/AllCat';
+import User from '../views/User';
+import store from '../store/index'
+import _ from 'lodash';
 // import { i18n } from "../main.js";
 Vue.use(VueRouter)
 
@@ -23,20 +26,31 @@ const routes = [
       {
         path:'/Login',
         name:'Login',
-        component:Login
+        component:Login,
+        meta:{
+          requireGuest:true
+        }
       },
       {
         path:'/Register',
         name:'Register',
-        component:Register
+        component:Register,
+        meta:{
+          requireGuest:true
+        }
+      },
+      {
+        path:'/User',
+        name:'User',
+        component:User
       },
       {
         path: '/about',
         name: 'About',
-        // route level code-splitting
-        // this generates a separate chunk (about.[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component:test
+        component:test,
+        meta:{
+          requireAuth:true
+        }
       },
       {
         path:'/Categories',
@@ -63,5 +77,27 @@ const router = new VueRouter({
   routes,
   mode: 'history'
 })
+
+
+//Guest Guard
+router.beforeEach((to, from, next)=>{
+  //Check User
+  var User=store.getters.User;
+  var Token=store.getters.Token;
+  if(to.meta.requireGuest && !_.isEmpty(User) && !_.isEmpty(Token)){
+    router.push({ name:'Home' });
+  }
+
+  //console.log(to.meta.requireAuth)
+  console.log('Getter Check',_.isEmpty(User))
+
+  if(to.meta.requireAuth && _.isEmpty(User) && _.isEmpty(Token)){
+    router.push({ name:'Login' });
+  }
+  next()
+});
+
+//Auth Guard
+
 
 export default router

@@ -4,45 +4,53 @@
         <b-container fluid>    
             <div class="LoginInner">
                 <b-row>
-                    <b-col cols="12" sm="4" class="d-flex" >
+                    <b-col cols="12" sm="7" class="d-flex" >
                         <div class="FormImg"></div>
 
                     </b-col>
-                    <b-col  cols='12' sm="8" >
-                        <b-form style="  margin: 26px 10px;"  >
+                    <b-col  cols='12' sm="5" >
                         <b-row>
-                            <h3 class="text-center" style="margin-bottom: 30px;">تسجيل حساب </h3>
+                            <b-col sm='12' cols="12" class="my-5" >
+                                <div class="mx-2">
+                                    <b-button pill variant="primary" block  @click="LoginWithFacebook()"  ><div class="d-flex justify-content-center justify-content-between mx-5"><i class="fab fa-facebook-f"></i>   تسجيل الدخول بفيسبوك </div></b-button>
+                                    <b-button pill variant="primary" block  @click="LoginWithGoogle()" ><div class="d-flex justify-content-center justify-content-between mx-5"><i class="fab fa-google"></i>     تسجيل الدخول بغوغل</div></b-button>
+                                </div>
+                                <div class="">
+                                    <p class="text-center m-4" >تسجيل الدخول بأستخدام</p>
+                                </div>
+                                <b-form class="mx-2" >
+                                    <b-form-group
+                                        id="emailInput"
+                                        label-for="firstNameI"
+                                    >
+                                        <b-form-input
+                                        id="emailInput"
+                                        type="text"
+                                        placeholder="الإيميل"
+                                        class="rounded-form"
+                                        v-model="form.userMail"
+                                    
+                                        ></b-form-input>
+                                    </b-form-group>
+                                    <b-form-group
+                                        id="emailInput"
+                                        label-for="passwordI"
+                                    >
+                                        <b-form-input
+                                        id="passwordI"
+                                        type="password"
+                                        placeholder="كلمة السر"
+                                        class="rounded-form"
+                                        v-model="form.password"
+                                        
+                                        ></b-form-input>
+                                    </b-form-group>
+                                    <b-form-group>
+                                        <b-button pill variant="primary" block @click="Login()" >تسجيل الدخول</b-button>
+                                    </b-form-group>
+                                </b-form>
+                            </b-col>                                                    
                         </b-row>
-                        <b-form-group
-                            id="emailInput"
-                            label="الإيميل"
-                            label-for="firstNameI"
-                        >
-                            <b-form-input
-                            id="emailInput"
-                            type="email"
-                            placeholder="الإيميل"
-                            class="rounded-form"
-                            v-model="$v.form.userMail.$model"
-                            :state="validateState('userMail')"
-                            ></b-form-input>
-                        </b-form-group>
-                        <b-form-group
-                            id="emailInput"
-                            label="كلمة السر"
-                            label-for="passwordI"
-                        >
-                            <b-form-input
-                            id="passwordI"
-                            type="password"
-                            placeholder="كلمة السر"
-                            class="rounded-form"
-                            v-model="$v.form.password.$model"
-                            :state="validateState('password')"
-                            ></b-form-input>
-                        </b-form-group>
-
-                        </b-form>
                     </b-col>
                 </b-row>
 
@@ -54,42 +62,83 @@
 </template>
 
 <script>
-import { required, minLength, email } from 'vuelidate/lib/validators'
+import { mapActions , mapGetters } from 'vuex';
 export default {
-
-    methods:{
-        validateState(name) {
-        const { $dirty, $error } = this.$v.form[name];
-        return $dirty ? !$error : null;
-        },
+    mounted () {
+        window.addEventListener('message', this.onMessage, false)
+        console.log('its Working')
     },
-    data(){
+    beforeDestroy () {
+        window.removeEventListener('message', this.onMessage)
+        console.log('its Working before destroy')
+    },
+    computed:{
+        ...mapGetters(['config'])
+    },
+    methods:{
+        ...mapActions(['LoginUser','LoginWithSocialite']),
+        Login:function(){
 
+            console.log(this.form)
+            this.LoginUser(this.form)
+        },
+        LoginWithGoogle:function(){
+            const newWindow = openWindow('', 'message')
+            newWindow.location.href = this.config.google;
+        },
+        LoginWithFacebook:function(){
+            const newWindow = openWindow('', 'message')
+            newWindow.location.href = this.config.facebook;
+        },
+        onMessage (e) {
+
+            if(e.data.token && e.data.user){
+                console.log('User Logged-in')
+                this.LoginWithSocialite(e.data)
+
+                //redirect To Home
+                this.$router.push({ name:'Home' })
+            }
+        }
+    },
+
+    data(){
         return  {
           form: {
-            firstName: null,
-            lastName: null,
-            userMail:null,
-            password:null,
-            password2I:null
-          }
+            userMail:'',
+            password:''
+          },
         }
-    },
-    validations: {
-        form: {
-            userMail:{
-                required,
-                email
-            },
-            password:{
-                required,
-                minLength:minLength(8)
-            },
+    }
+}
+function openWindow (url, title, options = {}) {
+      if (typeof url === 'object') {
+        options = url
+        url = ''
+      }
 
-        }
-  },
+      options = { url, title, width: 600, height: 720, ...options }
 
+      const dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : window.screen.left
+      const dualScreenTop = window.screenTop !== undefined ? window.screenTop : window.screen.top
+      const width = window.innerWidth || document.documentElement.clientWidth || window.screen.width
+      const height = window.innerHeight || document.documentElement.clientHeight || window.screen.height
 
+      options.left = ((width / 2) - (options.width / 2)) + dualScreenLeft
+      options.top = ((height / 2) - (options.height / 2)) + dualScreenTop
+
+      const optionsStr = Object.keys(options).reduce((acc, key) => {
+        acc.push(`${key}=${options[key]}`)
+        return acc
+      }, []).join(',')
+
+      const newWindow = window.open(url, title, optionsStr)
+
+      if (window.focus) {
+        newWindow.focus()
+      }
+
+      return newWindow
 }
 </script>
 
@@ -119,7 +168,7 @@ export default {
 
 .LoginWrapper{
     background: #f4f4f4;
-    padding: 4%;
+    padding: 10%;
 }
 
 @media only screen and (min-width: 320px) and (max-width:625px) {

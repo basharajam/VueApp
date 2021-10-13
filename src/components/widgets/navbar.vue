@@ -8,17 +8,11 @@
             <i style="position: relative;right: 38px;top:0px;" class="fa fa-search"></i>
             <input class="form-control mr-sm-2 SearchInput pr-5" aria-describedby="basic-addon1" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="search" placeholder="بحث" >
           </div>
-          <div class="headerDrp col-sm-2 px-0 " v-if="$mq === 'md' || $mq === 'lg' ">
+          <div class="headerDrp px-0 " v-if="$mq === 'md' || $mq === 'lg' ">
             <b-dropdown id="dropdown-1"  variant="none" class=" ShipBtn " no-flip no-caret>
                   <template #button-content>
                       <div class="d-flex align-items-center">
-                        <country-flag country='sa' size='normal' v-if="CountryVal0 ==='SA'"/>
-                        <country-flag country='ye' size='normal' v-if="CountryVal0 ==='YE'"/>
-                        <country-flag country='om' size='normal' v-if="CountryVal0 ==='OM'"/>
-                        <country-flag country='lb' size='normal' v-if="CountryVal0 ==='LB'"/>
-                        <country-flag country='iq' size='normal' v-if="CountryVal0 ==='IQ'"/>
-                        <country-flag country='ae' size='normal' v-if="CountryVal0 ==='AE'"/>
-                        <country-flag country='ps' size='normal' v-if="CountryVal0 ==='PS'"/> 
+                        <country-flag :country='CountrySh' size='normal' />
                         <div class="stack" style="flex-direction: column;align-items: flex-end; margin-left: 10px;display: flex;">
                             <span>الشحن إلى</span>
                             <span style="font-weight: bold;font-size: 20px;"> {{SelectedCountryText}}</span>
@@ -41,9 +35,27 @@
             </b-dropdown>
           </div>
           <div class="HeaderIcons d-none d-sm-inline-flex" style="position: absolute;left: 16px;">
-            <a href="https://alyaman.com/my-account/" aria-label="حسابي"><i class="fal fa-user"></i></a>
+
+            <div v-if="isLoggedIn">
+              <b-dropdown id="dropdown-1" text="Dropdown Button" variant="none" no-flip no-caret>
+                  <template #button-content>
+                    <div class="d-flex align-items-center">
+                      <span class="d-flex flex-column">
+                        <span>مرحبا علي</span>
+                        <span class="font-weight-bold">حسابي</span>
+                      </span>
+                      <div style="width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
+                    </div>
+                  </template>
+                <b-dropdown-item><router-link :to="{name:'User'}" >حسابي</router-link></b-dropdown-item>
+              </b-dropdown>
+            </div>
+            <router-link v-else :to="{ name:'Login'}" ><i class="fal fa-user"></i></router-link>
             <div class="HeaderDivider"></div>
-            <a href="https://alyaman.com/cart/" aria-label="سلة التسوق"> 
+            <b-button variant="none" class="p-0" @click="toggleCart()">
+              <i class="fal fa-shopping-cart"></i>
+            </b-button>
+            <!-- <a href="https://alyaman.com/cart/" aria-label="سلة التسوق"> 
              <i class="fal fa-shopping-cart"></i>
              <span class="CartCountHeading" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >
               <span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span>
@@ -51,11 +63,7 @@
              <span class="CartCountHeading" v-else >
               0
              </span> 
-            </a>
-            <button @click="toggleCart()">
-              <i class="fal fa-shopping-cart"></i>
-            </button>
-
+            </a> -->
           </div>
           <div class="SearchResult" v-if="SearchRes">
               <div v-if="innerSpinner" class="innerSpinner">
@@ -80,8 +88,9 @@
 </template>
 
 <script>
-import CountryFlag from 'vue-country-flag'
-import _ from 'lodash'
+import CountryFlag from 'vue-country-flag';
+import { mapGetters } from 'vuex';
+import _ from 'lodash';
 import axios from 'axios';
 export default {
  components:{
@@ -96,34 +105,6 @@ export default {
           var CurrVal0=CurrVal;
           var CountryVal0=CountryVal;
           var CountryValText;
-          switch(CountryVal) {
-            case "SA":
-               CountryValText='السعودية'
-                break;
-            case "OM":
-               CountryValText='سلطنة عمان'
-                break;
-            case "YE":
-               CountryValText='اليمن'
-                break;
-            case "LB":
-               CountryValText='لبنان'
-                break;
-            case "IQ":
-               CountryValText='العراق'
-                break;
-            case "AE":
-               CountryValText='الامارات'
-                break;
-            case "PS":
-               CountryValText='فلسطين'
-                break;
-            default:
-               CountryValText='السعودية'
-          }
-
-          
-
         }
         else{
            CurrVal0='SAR';
@@ -144,24 +125,54 @@ export default {
         CountryVal0:CountryVal0,
         CurrInput:CurrVal0,
         SelectedCountryText:CountryValText,
-        CountryOptions:{
-            SA:"السعودية",
-            OM:"سلطنة عمان",
-            YE:"اليمن",
-            LB:"لبنان",
-            IQ:"العراق",
-            AE:"الامارات",
-            PS:"فلسطين"
-        },
-        CurOptions:{
-            CNY:"اليوان الصيني",
-            SAR:"الريال السعودي",
-            AED:"الدرهم الاماراتي",
-            OMR:"الريال العماني",
-            USD:"الدولار الاميركي"
-        }
+        CountrySh:'',
+        CountryOptions:Object,
+        CurOptions:Object
       }
 
+    },
+    computed:{
+      ...mapGetters(['config','Token','User']),
+      isLoggedIn(){
+        if(!_.isEmpty(this.User) && !_.isEmpty(this.Token)){
+          return true;
+        }
+        else{
+          return false;
+        }
+      }
+    },
+    watch:{
+      config(newValue){
+
+        //Set Config 
+
+        if(newValue){
+
+          let CountryObj={};
+          let CurrObj={};
+
+          newValue.Shipment.forEach(item => {
+            CountryObj[item.key]=item.name
+          });
+          this.CountryOptions=CountryObj;
+
+          newValue.Currency.forEach(item => {
+            CurrObj[item.key]=item.name
+          });
+          this.CurOptions=CurrObj;
+
+
+          var Countr=newValue.Shipment.filter(obj => {
+            return obj.key === this.CountryVal0
+          })
+
+          this.CountrySh=Countr[0].subValue;
+          console.log(Countr[0].subValue)
+          this.SelectedCountryText =Countr[0].name;
+
+        }
+      }
     },
     methods:{
 
@@ -238,9 +249,6 @@ export default {
             window.location.reload()
             //this.$forceUpdate();
          },
-        //  SetLang(){
-        //    window.location.reload()
-        //  }
     }
 }
 </script>
@@ -291,11 +299,10 @@ export default {
     border-bottom:1px #f6601a  solid;
   } 
 
-  .HeaderIcons a{
-    margin: 0px 16px;
+  .HeaderIcons a,.HeaderIcons button{
     color: #8d8d8d;
-    /* color: white; */
     font-size: 26px;
+    margin:0 12px;
   }
   .HeaderIcons a:hover{
     color: #f6601a;

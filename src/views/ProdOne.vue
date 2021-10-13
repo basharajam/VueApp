@@ -35,7 +35,7 @@
               </div>
               <div class="Qty d-flex">
                 <input type="number" class="form-control col-sm-3" value="60">
-                <b-link >إضافة الى سلة التسوق</b-link>
+                <b-link v-b-modal.modal-lg variant="primary">إضافة الى السلة</b-link>
                 <p>الحد الادنى للطلب 60 قطعة</p>
               </div>
 
@@ -43,6 +43,40 @@
             <!-- Prod Inf End  -->
         </div>
 
+        <!-- Cart Modal -->
+        <b-modal id="modal-lg" size="lg" hide-footer hide-header>
+          <b-row>
+            <b-col cols="12" sm="5" class="pb-4" >
+              <b-img :src="ProdOne.images[0].guid" fluid :alt="ProdOne.name" style="border-bottom-left-radius: 30%;"></b-img>
+            </b-col>
+            <b-col cols="12" sm='3' class="text-right p-1">
+              <div class="PropsList d-flex flex-column">
+                <div v-for="(Prop,index) in DistruProps" v-bind:key="index" class="d-flex flex-column Prop my-2">
+                  <p class="text-center m-0">Test</p>
+                  <div class="d-flex flex-wrap">
+                    <div v-for="(prop,index1) in Prop" v-bind:key="index1" class="PropItem m-1">
+                      <input type="radio">
+                      <label class="p-1 m-1 w-100" ><span>{{prop}}</span></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </b-col>
+            <b-col sm="4" >
+              <h4>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni minus suscipit, aspernatur animi doloremque rem fuga ratione consequatur nam eaque beatae! Voluptatibus animi ut, facere dicta esse optio quos inventore.</h4>
+            </b-col>
+          </b-row>
+          <b-row>
+            <b-col cols="12" sm='6' class="text-right px-4">
+              <h5>Blaxk Blaxk</h5>
+            </b-col>
+            <b-col cols="12" sm="6">
+              <h5>Blaxk Blaxk Blaxk</h5>
+            </b-col>
+          </b-row>
+        </b-modal>
+        <!-- Cart Modal End -->
+        
         <div class="row">
           <div class="col-sm-12" style="text-align: start;" v-if="$mq === 'md' || $mq === 'lg'">
             <b-tabs content-class="mt-3" fill>
@@ -447,7 +481,8 @@ export default {
             name: null,
             food: null,
             desc:null
-          }
+          },
+          DistruProps:[],
         }
       },
       validations: {
@@ -473,16 +508,38 @@ export default {
       return $dirty ? !$error : null;
     },
     onRateSubmit(){
-
       console.log('Rate Clicked')
+    },
+    DistruProp(){
 
+        var arr=['A','B','C','D','E','F','G','H','I','J','K'];
+        var arr1=['Golden','Silver'];
+        var arr2=['Small','Large'];
+        var mainArr=[];
+
+        mainArr.push(arr)
+        mainArr.push(arr1)
+        mainArr.push(arr2)
+
+        //generate Combos
+        // function combos(list, n = 0, result = [], current = []){
+        //   if (n === list.length) result.push(current)
+        //   else list[n].forEach(item => combos(list, n+1, result, [...current, item]))
+      
+        //   return result
+        // }
+        // return combos(mainArr);
+        return mainArr;
     }
 
   },
   mounted(){
 
     var ProdName=this.$route.params.ProdName;
-    this.getProdOne(ProdName)
+    this.getProdOne(ProdName);
+    this.DistruProps=this.DistruProp();
+
+    console.log(this.DistruProps)
 
   }
 
@@ -591,6 +648,34 @@ export default {
   position: absolute;
   left: 10px;
 }
+
+
+.PropsList{
+
+}
+
+.Prop{
+
+}
+.PropItem{
+
+
+}
+.PropItem input{
+  display: none;
+}
+.PropItem label{
+  background: #fff;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 2px solid lightgrey;
+  transition: all 0.3s ease;
+}
+
 
 @media only screen and (min-width:320px) and (max-width: 767px) {
 
