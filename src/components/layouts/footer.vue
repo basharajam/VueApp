@@ -4,7 +4,7 @@
           <div class="al_footer-item">
               <a href="https://alyaman.com/" class="flex  justify-center">
                   <i class="far fa-home" ></i>
-                  <span>الرئيسية</span>
+                  <span>{{ $t("Main") }}</span>
               </a>
           </div>
           <div class="al_footer-item">
@@ -57,49 +57,46 @@
             <div class="">
                 <div class="LinksLists">
                     <div class="LinkList col-sm-3 col-12">
-                    <h3>أبحث في</h3>
-                    <a href="https://alyaman.com/">الصفحة الرئيسية</a>
-                    <a href="https://alyaman.com/shop/">كل الاصناف</a>
-                    <a href="https://alyaman.com/%d8%b1%d8%a7%d8%a6%d8%ac%d8%a9/">رائجة</a>
-                    <a href="https://alyaman.com/%d8%b9%d8%b1%d9%88%d8%b6/"> عروض خاصة</a>
-                    <a href="https://alyaman.com/%d9%82%d8%b1%d9%8a%d8%a8%d8%a7%d9%8b-%d9%81%d9%8a-%d8%a7%d9%84%d8%a3%d8%b3%d9%88%d8%a7%d9%82/">قريبا في اليمان</a>
+                    <h3>{{ $t('SearchIn')}}</h3>
+                    <a href="https://alyaman.com/">{{ $t('Main') }}</a>
+                    <a href="https://alyaman.com/shop/">{{ $t('AlCat') }}</a>
+                    <a href="https://alyaman.com/%d8%b1%d8%a7%d8%a6%d8%ac%d8%a9/">{{ $t('Popular') }}</a>
+                    <a href="https://alyaman.com/%d8%b9%d8%b1%d9%88%d8%b6/"> {{$t('Offers')}} </a>
+                    <a href="https://alyaman.com/%d9%82%d8%b1%d9%8a%d8%a8%d8%a7%d9%8b-%d9%81%d9%8a-%d8%a7%d9%84%d8%a3%d8%b3%d9%88%d8%a7%d9%82/">{{$t('Soon')}}</a>
                 </div>
                 <div class="LinkList col-sm-3 col-12">
-                    <h3>أتصل بنا</h3>
+                    <h3>{{$t('CallUS')}}</h3>
                     <a href="mailto:support@alyaman.com">support@alyaman.com</a>
                     <a href="https://wa.me/8617757971070">tel: +86 17757971070</a>
                     <!-- <a href="https://alyaman.com/%d8%a7%d9%84%d8%aa%d8%a8%d9%84%d9%8a%d8%ba-%d8%b9%d9%86-%d9%85%d8%b4%d9%83%d9%84%d8%a9/">التبليغ عن مشكلة</a> -->
                 </div>
                 <div class="LinkList col-sm-3 col-12">
-                    <h3>خدمة العملاء</h3>
-                    <a href="https://alyaman.com/about-us-arabic/">حول</a>
-                    <a href="https://alyaman.com/%d9%83%d9%8a%d9%81%d9%8a%d8%a9-%d8%aa%d9%82%d8%af%d9%8a%d9%85-%d8%b7%d9%84%d8%a8-%d8%b4%d8%b1%d8%a7%d8%a1/">كيفية الشراء</a>
-                    <a href="https://www.alyaman.com/%d8%a7%d9%84%d8%b4%d8%ad%d9%86-%d9%88%d8%a7%d9%84%d8%aa%d8%b3%d9%84%d9%8a%d9%85-2/">الشحن والتسليم</a>
-                    <a href="https://alyaman.com/my-account/edit-account/">حسابي</a>
-                    <a href="https://alyaman.com/my-account/orders/">طلباتك</a>
-                    <a href="https://www.alyaman.com/remember/">الشروط والأحكام</a>
-                    <a href="https://alyaman.com/privacy-policy/">سياسات الخصوصية</a>
+                    <h3>{{$t('CustSer')}}</h3>
+                    <a href="https://alyaman.com/about-us-arabic/">{{$t('About')}}</a>
+                    <a href="https://alyaman.com/%d9%83%d9%8a%d9%81%d9%8a%d8%a9-%d8%aa%d9%82%d8%af%d9%8a%d9%85-%d8%b7%d9%84%d8%a8-%d8%b4%d8%b1%d8%a7%d8%a1/">{{ $t('HowToBuy') }}</a>
+                    <a href="https://www.alyaman.com/%d8%a7%d9%84%d8%b4%d8%ad%d9%86-%d9%88%d8%a7%d9%84%d8%aa%d8%b3%d9%84%d9%8a%d9%85-2/">{{$t('Ship')}}</a>
+                    <a href="https://alyaman.com/my-account/edit-account/">{{$t('MyAcc')}}</a>
+                    <a href="https://alyaman.com/my-account/orders/">{{$t('YourOrders')}}</a>
+                    <a href="https://www.alyaman.com/remember/">{{$t('Terms&Conds')}}</a>
+                    <a href="https://alyaman.com/privacy-policy/">{{$t('Privacy')}}</a>
                 </div>
                 <div class="LinkList col-sm-3 col-12" >
-                    <h3>اللغات</h3>
-                    <a href="#">العربية</a>
+                    <h3>{{$t('Lang')}}</h3>
+                    <a href="#">{{ $t('Ar') }}</a>
                     <div>
+                    </div>
+                 </div>
+                </div>
+
+                <div class="CopyRightsFooter">
+                    <p>{{$t('CopyRights')}}</p>
+                    <div class="PayMethods" style="text-align: center; width: 100%">
+                      <img height="40" src="https://shoplineimg.com/assets/footer/card_visa.png"/>
+                      <img height="22" src="http:///www.credit-card-logos.com/images/mastercard_credit-card-logos/mastercard_logo_1.gif"  width="37" border="0"/>
+                      <img height="40" src="https://shoplineimg.com/assets/footer/card_paypal.png"/>
                     </div>
                 </div>
             </div>
-
-            <div class="CopyRightsFooter">
-                <p>جميع الحقوق محفوظة 1996-2021©Alyaman.com</p>
-                <div class="PayMethods" style="text-align: center; width: 100%">
-                 <img height="40" src="https://shoplineimg.com/assets/footer/card_visa.png"/>
-                 <img height="22" src="http:///www.credit-card-logos.com/images/mastercard_credit-card-logos/mastercard_logo_1.gif"  width="37" border="0"/>
-                 <img height="40" src="https://shoplineimg.com/assets/footer/card_paypal.png"/>
-                </div>
-            </div>
-
-                </div>
-              
-          
       </div>
   </div>
 </template>

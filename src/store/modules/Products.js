@@ -69,7 +69,7 @@ const actions = {
                 //Category
                 // commit('Categories',response.data.Categories)
                 // //anding Page Layout
-                console.log(response.data)
+         
                
 
                 // landing page 

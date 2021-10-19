@@ -120,7 +120,6 @@ export default {
     },
     watch:{
         ProdByCatLayout(newValue){
-            console.log(newValue)
             if(newValue.desktop.length > 0){
                 this.ProdByCatLoading=false;
             }

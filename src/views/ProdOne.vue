@@ -508,7 +508,7 @@ export default {
       return $dirty ? !$error : null;
     },
     onRateSubmit(){
-      console.log('Rate Clicked')
+
     },
     DistruProp(){
 
@@ -538,8 +538,6 @@ export default {
     var ProdName=this.$route.params.ProdName;
     this.getProdOne(ProdName);
     this.DistruProps=this.DistruProp();
-
-    console.log(this.DistruProps)
 
   }
 

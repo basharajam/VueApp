@@ -3,36 +3,36 @@
         <router-link :to="{ name: 'Home' }" class="navbar-brand col-sm-3 col-3 px-0" aria-label="Al-yaman">
           <img  src="icon.png" class="w-100" alt="" >
         </router-link>
+        <div class="headerDrp px-0 " v-if="$mq === 'md' || $mq === 'lg' &&  Object.keys(CurOptions).length >0 && Object.keys(CountryOptions).length >0 ">
+          <b-dropdown id="dropdown-1"  variant="none" class=" ShipBtn " no-flip no-caret>
+                <template #button-content>
+                    <div class="d-flex align-items-center">
+                      <country-flag :country='CountrySh' size='normal' />
+                      <div class="stack" style="flex-direction: column;align-items: flex-end; margin-left: 10px;display: flex;">
+                          <span>{{$t('ShipTo')}}</span>
+                          <span style="font-weight: bold;font-size: 20px;"> {{SelectedCountryText}}</span>
+                      </div>
+                      <div style="width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
+                    </div>
+                </template>
+            <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
+                <b-form-group :label="$t('Curr')" class="drpSel" >
+                    <b-form-select v-model="CurrInput" class="dropSelect" size="sm" :options="CurOptions"></b-form-select>
+                </b-form-group>
+
+                <b-form-group :label="$t('ShipTo')" class="drpSel" >
+                    <b-form-select v-model="CountryInput" class="dropSelect" size="sm" :options="CountryOptions"></b-form-select>
+                </b-form-group>
+                <b-form-group>
+                  <b-button type="submit" block pill variant="outline-warning updCurrSubmit " >حفظ</b-button>
+                </b-form-group>
+            </b-dropdown-form>
+          </b-dropdown>
+        </div>
         
-          <div class="SearchSection d-flex align-items-center col-md-4 col-lg-5 col-7 px-0" >
+          <div class="SearchSection d-flex align-items-center col-md-3 col-lg-4 col-7 px-0" >
             <i style="position: relative;right: 38px;top:0px;" class="fa fa-search"></i>
             <input class="form-control mr-sm-2 SearchInput pr-5" aria-describedby="basic-addon1" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="search" placeholder="بحث" >
-          </div>
-          <div class="headerDrp px-0 " v-if="$mq === 'md' || $mq === 'lg' ">
-            <b-dropdown id="dropdown-1"  variant="none" class=" ShipBtn " no-flip no-caret>
-                  <template #button-content>
-                      <div class="d-flex align-items-center">
-                        <country-flag :country='CountrySh' size='normal' />
-                        <div class="stack" style="flex-direction: column;align-items: flex-end; margin-left: 10px;display: flex;">
-                            <span>الشحن إلى</span>
-                            <span style="font-weight: bold;font-size: 20px;"> {{SelectedCountryText}}</span>
-                        </div>
-                        <div style="width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
-                      </div>
-                  </template>
-              <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
-                  <b-form-group label="العملة" class="drpSel" >
-                      <b-form-select v-model="CurrInput" class="dropSelect" size="sm" :options="CurOptions"></b-form-select>
-                  </b-form-group>
-
-                  <b-form-group label="الشحن الى" class="drpSel" >
-                      <b-form-select v-model="CountryInput" class="dropSelect" size="sm" :options="CountryOptions"></b-form-select>
-                  </b-form-group>
-                  <b-form-group>
-                    <b-button type="submit" block pill variant="outline-warning updCurrSubmit " >حفظ</b-button>
-                  </b-form-group>
-              </b-dropdown-form>
-            </b-dropdown>
           </div>
           <div class="HeaderIcons d-none d-sm-inline-flex" style="position: absolute;left: 16px;">
 
@@ -48,6 +48,7 @@
                     </div>
                   </template>
                 <b-dropdown-item><router-link :to="{name:'User'}" >حسابي</router-link></b-dropdown-item>
+                <b-dropdown-item><router-link :to="{name:'LogOut'}" >تسجيل الخروج</router-link></b-dropdown-item>
               </b-dropdown>
             </div>
             <router-link v-else :to="{ name:'Login'}" ><i class="fal fa-user"></i></router-link>
@@ -126,8 +127,8 @@ export default {
         CurrInput:CurrVal0,
         SelectedCountryText:CountryValText,
         CountrySh:'',
-        CountryOptions:Object,
-        CurOptions:Object
+        CountryOptions:{},
+        CurOptions:{}
       }
 
     },
@@ -168,7 +169,6 @@ export default {
           })
 
           this.CountrySh=Countr[0].subValue;
-          console.log(Countr[0].subValue)
           this.SelectedCountryText =Countr[0].name;
 
         }
@@ -230,8 +230,6 @@ export default {
            this.search = false
          },
          UpdateCurSubmit(){
-
-           console.log('Clicked')
            
            //Do Request To Get New Data ---later
            //this.getProdByTax();

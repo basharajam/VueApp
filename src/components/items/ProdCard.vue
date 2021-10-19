@@ -59,8 +59,6 @@ export default {
             },
             AddtoCart(Product){
 
-
-                console.log(Product);
                 this.AddToCartS(Product)
 
             }

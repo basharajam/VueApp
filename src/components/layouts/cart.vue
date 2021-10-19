@@ -48,8 +48,8 @@ export default {
         }
     },
     mounted(){
-     this.$root.$on('DisplayCart', (value) => {
-     console.log(value)
+     this.$root.$on('DisplayCart', () => {
+
      this.displaCart = ! this.displaCart;
     })
     },
@@ -62,9 +62,9 @@ export default {
         },
         RemoveItem:function(id){
 
-            console.log('Clicked')
+         
             this.RemoveFromCart(id)
-            console.log('Removed')
+          
         },
         increaseQty:function(id){
             this.increaseQtyS(id)

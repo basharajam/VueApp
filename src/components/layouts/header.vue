@@ -19,8 +19,8 @@
               </div> 
             </div>
     <div class="CatNavLinks scrollmenu d-flex" style="overflow-y: hidden !important">
-        <a @mouseover="AllCatClicked()" v-if="$mq === 'md' || $mq === 'lg'" > كل التصنيفات </a>
-        <a  v-if="$mq === 'sm'" href="https://www.alyaman.com/shop" > كل التصنيفات </a>
+        <a @mouseover="AllCatClicked()" v-if="$mq === 'md' || $mq === 'lg'" > {{$t('AlCat')}} </a>
+        <a  v-if="$mq === 'sm'" href="https://www.alyaman.com/shop" > {{$t('AlCat')}}</a>
         <router-link :to="{ name:'ProdByCat', params:{ ProdByCat:Category.name } }" v-for="Category in Categories.Categories" v-bind:key="Category.id"> {{ Category.name }} </router-link>
     </div>
 
@@ -92,8 +92,6 @@ export default {
 
         var CountryVal= this.$cookies.get('shipCountry');
         var CurrVal = this.$cookies.get('Curr');
-        // console.log(CountryVal)
-        // console.log(CurrVal);
 
         if(CountryVal && CurrVal){
 
@@ -224,7 +222,7 @@ export default {
          },
          UpdateCurSubmit(){
 
-           console.log('Clicked')
+     
            
            //Do Request To Get New Data ---later
            //this.getProdByTax();
@@ -250,7 +248,7 @@ export default {
         AllCatClicked:function(){
 
           //Toggle DropDown Display
-          console.log('All Cat Clicked')
+        
           this.CatDrp = !this.CatDrp;
 
         },

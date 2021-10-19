@@ -44,8 +44,6 @@ data(){
 
         var CountryVal= this.$cookies.get('shipCountry');
         var CurrVal = this.$cookies.get('wmc_current_currency');
-        // console.log(CountryVal)
-        // console.log(CurrVal);
 
         if(CountryVal && CurrVal){
 
@@ -123,7 +121,7 @@ data(){
 
          UpdateCurSubmit(){
 
-           console.log('Clicked')
+        
            
            //Do Request To Get New Data ---later
            //this.getProdByTax();
@@ -135,8 +133,7 @@ data(){
            //Save New Cookie With values 
            this.$cookies.set('shipCountry',this.CountryInput);
            this.$cookies.set('wmc_current_currency',this.CurrInput);
-           this.$cookies.set('wmc_current_currency_old',this.CurrInput);
-           console.log(this.CurrInput)
+           this.$cookies.set('wmc_current_currency_old',this.CurrInput)
 
             // Refresh The Page
             window.location.reload()

@@ -99,7 +99,7 @@ export default {
     },
     watch:{
         LandingLayout(newValue){
-            console.log(newValue)
+ 
             if(newValue.desktop.length > 0){
                 this.landingLoading=false;
             }

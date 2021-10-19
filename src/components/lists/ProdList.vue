@@ -2,7 +2,7 @@
   <div class="">
       <div class="TitleList">
         <div class="float-left ShowMoreBtn" >
-          <a :href="ProdList.link" class="pull-left">عرض المزيد</a>
+          <a :href="ProdList.link" class="pull-left">{{$t('ShowMore')}}</a>
         </div>
         <h3 class="text-right" >{{ProdList.title}}</h3>
         <!-- <h3 class="text-right" >{{ $t('translation1') }}</h3> -->

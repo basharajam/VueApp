@@ -105,7 +105,7 @@
                         <h3 class="ProdBoxTitle ">{{ Box.title }}</h3>
                         <div class="ProdBoxItems">
                             <div class="ProdBoxOne col-sm-6" v-for="Prod in Box.items" v-bind:key="Prod.id">
-                                <router-link :to="{ name:'ProdOne' }">
+                                <router-link :to="{ name:'ProdOne',params:{ ProdName:Prod.name , ProdByCat:Prod.Category.name } }">
                                     <!-- <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" > -->
                                     <vue-load-image>
                                         <img slot="image"  class="pic-1"  :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
@@ -113,11 +113,11 @@
                                         <img slot="error" src="@/assets/loader.png" />
                                     </vue-load-image>
                                 </router-link>
-                                <router-link :to="{ name:'ProdOne' }">
+                                <router-link :to="{ name:'ProdOne',params:{ ProdName:Prod.name , ProdByCat:Prod.Category.name } }">
                                     <p>{{Prod.name}}</p>
                                 </router-link>
                             </div>
-                            <a :href="Box.link" class="ProdBoxBtn">عرض المزيد</a>
+                            <a :href="Box.link" class="ProdBoxBtn">{{$t('ShowMore')}}</a>
                         </div>
                     </div>
                 </div>

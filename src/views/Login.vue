@@ -66,20 +66,18 @@ import { mapActions , mapGetters } from 'vuex';
 export default {
     mounted () {
         window.addEventListener('message', this.onMessage, false)
-        console.log('its Working')
+
     },
     beforeDestroy () {
         window.removeEventListener('message', this.onMessage)
-        console.log('its Working before destroy')
     },
     computed:{
         ...mapGetters(['config'])
     },
     methods:{
-        ...mapActions(['LoginUser','LoginWithSocialite']),
+        ...mapActions(['LoginWithMail','LoginWithSocialite']),
         Login:function(){
 
-            console.log(this.form)
             this.LoginUser(this.form)
         },
         LoginWithGoogle:function(){
@@ -93,7 +91,6 @@ export default {
         onMessage (e) {
 
             if(e.data.token && e.data.user){
-                console.log('User Logged-in')
                 this.LoginWithSocialite(e.data)
 
                 //redirect To Home

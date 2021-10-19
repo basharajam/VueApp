@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-
+ 
     <!-- <Spinner v-if="spinner" /> -->
     <Cart v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat','User'].includes($route.name)" />
     <headerTop v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat','User'].includes($route.name)"/>
@@ -35,7 +35,7 @@ export default {
     // Spinner
   },
   methods:{
-    ...mapActions(['getCategories','getConfig'])
+    ...mapActions(['getCategories','getConfig','LoginWithCookie']),
   },
 data: function() {
     return {
@@ -46,6 +46,7 @@ data: function() {
 
     this.getCategories();
     this.getConfig();
+    this.LoginWithCookie({ UserId:this.$cookies.get('stateCount'),Token:this.$cookies.get('token')});
   },
 
 }

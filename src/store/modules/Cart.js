@@ -27,7 +27,7 @@ const actions  = {
         //Check if Cart is Empty 
         if(state.Cart.length == 0 ){
 
-            console.log("Cart Is Empty")
+          
             
             var newCart0 = state.Cart
             newCart0.push(Prod)
@@ -37,9 +37,9 @@ const actions  = {
 
         }
         else{
-            console.log('Cart Is not Empty')
+           
             var CartArr = state.Cart;
-            console.log(CartArr)
+           
             var FilterCart = CartArr.find(obj => {
                 return obj.item.id == Product.id
             })
@@ -47,8 +47,6 @@ const actions  = {
             if(FilterCart){
 
                 //if Cart Is Not Empty And The Item Is !New 
-                console.log('item Already Exists')
-                console.log('increase Qty')
 
                  state.Cart.forEach(item =>{
 
@@ -67,7 +65,6 @@ const actions  = {
             else{
 
                 //if Cart Is Not Empty And The Item Is New
-                console.log('item Is New ')
 
                 var newCart = state.Cart
                 newCart.push(Prod)
@@ -80,10 +77,7 @@ const actions  = {
         let FullPrice;
         //Set Full Price
         //Check Product Type 
-        if(Product.type === 'variable '){
-            console.log('Variable Product')
-        }
-        else if (Product.type === 'simple'){
+        if (Product.type === 'simple'){
 
             if(Product.on_sale){
                 FullPrice =parseInt(Product.sale_price) + getters.FullPrice
@@ -109,7 +103,7 @@ const actions  = {
 
         //Remove item From Array
 
-        var removedItem =state.Cart.splice(FilterCartArr,1)
+        state.Cart.splice(FilterCartArr,1)
         var newCart = state.Cart
 
         commit('Cart',newCart)
@@ -119,7 +113,7 @@ const actions  = {
         // var itemQty=removedItem[0].qty
 
         // var FullPrice =getters.FullPrice - res.ProductPrice * itemQty
-        console.log(removedItem)
+
         // commit('FullPrice',FullPrice)
 
     },
