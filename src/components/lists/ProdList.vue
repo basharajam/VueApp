@@ -3,7 +3,8 @@
       <div class="TitleList d-flex justify-content-between ">
         <h3 class="text-right" >{{ $t(ProdList.name) }}</h3>
         <div class="ShowMoreBtn" >
-          <a :href="ProdList.link" class="pull-left">{{$t('ShowMore')}}</a>
+          <router-link class='ProdBoxBtn' :to="{ name:'ProdByTag', params:{ProdByTag:ProdList.title}}" >{{$t('ShowMore')}}</router-link>
+          <!-- <a :href="ProdList.link" class="pull-left">{{$t('ShowMore')}}</a> -->
         </div>
         <!-- <h3 class="text-right" >{{ $t('translation1') }}</h3> -->
       </div>

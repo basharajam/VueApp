@@ -8,7 +8,6 @@
           <ProdBoxList ></ProdBoxList>
         </mq-layout>
         
-
         <!--  start mobile  -->
         <mq-layout :mq="['sm']" >
           <b-skeleton-wrapper :loading="landingLoading" >
