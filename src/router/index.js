@@ -9,6 +9,8 @@ import Login from '../views/Login';
 import Register from '../views/Register';
 import AllCat from '../views/AllCat';
 import User from '../views/User';
+import CheckOut from '../views/Checkout';
+import ProdByTag from '../views/ProdByTag';
 import store from '../store/index';
 import _ from 'lodash';
 // import { i18n } from "../main.js";
@@ -50,22 +52,26 @@ const routes = [
         name:'LogOut',
         beforeEnter: () => {
           
-          // to, from, next
-          
           // Remove Cookies
           VueCookies.remove('stateCount');
           VueCookies.remove('token');
-
           //Remove User State 
           store.dispatch('LogOut')
-
-          console.log('Befor Enter LogOut')
-
         },
         meta:{
           requireAuth:true
         }
 
+      },
+      {
+        path:'/category/:ProdByCat',
+        name:'ProdByCat',
+        component:ProdByCat
+      },
+      {
+        path:'/tag/:ProdByTag',
+        name:'ProdByTag',
+        component:ProdByTag
       },
       {
         path: '/about',
@@ -78,15 +84,16 @@ const routes = [
         component:AllCat,
       },
       {
-        path:'/:ProdByCat',
-        name:'ProdByCat',
-        component:ProdByCat
+        path:'/Checkout',
+        name:'Checkout',
+        component:CheckOut
       },
       {
         path:'/:ProdByCat/:ProdName',
         name:'ProdOne',
         component:ProdOne
       },
+      
 
 
 

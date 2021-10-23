@@ -5,7 +5,7 @@
                 <div class="col-sm-6 col-12 homeListItem">
                     <div href="https://alyaman.com/product/%d8%a7%d9%84%d9%8a%d9%88%d9%85-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a-%d9%85%d8%ac%d9%85%d9%88%d8%b9%d8%a9-%d8%b2%d9%8a%d9%86%d8%a9-%d8%a3%d8%b3%d9%82%d9%81-15/"  class="d-flex" >
                         <img src="@/assets/logo/3.png" class="HomeListLogo img-fluid mx-auto" width="64" height="64"  alt="" />
-                        <div class="text-right mx-2">
+                        <div class="mx-2 text-justify">
                             <span class="headingH" >{{ $t('Social') }}</span>
                             <span class="content py-3">
                                 {{ $t('SocialDesc') }}
@@ -16,7 +16,7 @@
                 <div class="col-sm-6 col-12 homeListItem">
                     <div href="https://alyaman.com/product/%d8%a7%d9%84%d9%8a%d9%88%d9%85-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a-%d9%85%d8%ac%d9%85%d9%88%d8%b9%d8%a9-%d8%b2%d9%8a%d9%86%d8%a9-%d8%a3%d8%b3%d9%82%d9%81-15/"  class="d-flex" >
                         <img src="@/assets/logo/1.png" class="HomeListLogo img-fluid mx-auto" width="64" height="64" alt="" />
-                        <div class="text-right mx-2">
+                        <div class=" mx-2 text-justify">
                             <span class="headingH" >{{$t('AirShip&SeaShip')}}</span>
                             <span class="content py-3">
                                 {{$t('AirShip&SeaShipDesc')}}
@@ -29,7 +29,7 @@
                 <div class="col-sm-6 col-12 homeListItem">
                     <div href="https://alyaman.com/product/%d8%a7%d9%84%d9%8a%d9%88%d9%85-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a-%d9%85%d8%ac%d9%85%d9%88%d8%b9%d8%a9-%d8%b2%d9%8a%d9%86%d8%a9-%d8%a3%d8%b3%d9%82%d9%81-15/"  class="d-flex" >
                         <img src="@/assets/logo/2.png"  class="HomeListLogo img-fluid mx-auto" width="64" height="64" alt="" />
-                        <div class="text-right mx-1">
+                        <div class=" mx-1 text-justify">
                             <span class="headingH" >{{$t('SafeShopping')}}</span>
                             <span class="content py-3">
                                 {{$t('SafeShoppingDesc')}}
@@ -41,7 +41,7 @@
                 <div class="col-sm-6 col-12 homeListItem">
                         <div href="https://alyaman.com/product/%d8%a7%d9%84%d9%8a%d9%88%d9%85-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a-%d9%85%d8%ac%d9%85%d9%88%d8%b9%d8%a9-%d8%b2%d9%8a%d9%86%d8%a9-%d8%a3%d8%b3%d9%82%d9%81-15/" class="d-flex" >
                             <img src="@/assets/logo/0.png" class="HomeListLogo img-fluid " width="64" height="64" alt="" />
-                            <div class="text-right mx-2">
+                            <div class="mx-2 text-justify">
                                 <span class="headingH" >{{ $t('CustSer') }}</span>
                                 <span class="content py-3">
                                     {{ $t('CustSerDesc') }}
@@ -52,7 +52,7 @@
                 <div class="col-sm-6 col-12 homeListItem ">
                     <div href="https://alyaman.com/product/%d8%a7%d9%84%d9%8a%d9%88%d9%85-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a-%d9%85%d8%ac%d9%85%d9%88%d8%b9%d8%a9-%d8%b2%d9%8a%d9%86%d8%a9-%d8%a3%d8%b3%d9%82%d9%81-15/" class="d-flex" >
                         <img src="@/assets/logo/4.png" class="HomeListLogo img-fluid " width="64" height="64" alt="" />
-                        <div class="text-right mx-2">
+                        <div class="mx-2 text-justify">
                             <span class="headingH" >{{$t('SpecialOrders')}}</span>
                             <span class="content py-3">
                                 {{$t('SpecialOrdersDesc')}}
@@ -65,7 +65,7 @@
                 <div class="col-sm-6 col-12 homeListItem ">
                     <div href="https://alyaman.com/product/%d8%a7%d9%84%d9%8a%d9%88%d9%85-%d8%a7%d9%84%d9%88%d8%b7%d9%86%d9%8a-%d8%a7%d9%84%d8%b3%d8%b9%d9%88%d8%af%d9%8a-%d9%85%d8%ac%d9%85%d9%88%d8%b9%d8%a9-%d8%b2%d9%8a%d9%86%d8%a9-%d8%a3%d8%b3%d9%82%d9%81-15/" class="d-flex" >
                         <img src="@/assets/logo/5.png" class="HomeListLogo img-fluid " width="64" height="64" alt="" />
-                        <div class="text-right mx-2">
+                        <div class="mx-2 text-justify">
                             <span class="headingH" >{{$t('PayWay')}}</span>
                             <span class="content py-3">
                                 {{$t('PayWayDesc')}}

@@ -2,12 +2,12 @@
   <div id="app">
  
     <!-- <Spinner v-if="spinner" /> -->
-    <Cart v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat','User'].includes($route.name)" />
-    <headerTop v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat','User'].includes($route.name)"/>
-    <navbar v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat','User'].includes($route.name)"/>
-    <Header  v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat','User'].includes($route.name)" />
+    <Cart v-if="this.displayLayouts.includes($route.name)" />
+    <headerTop v-if="this.displayLayouts.includes($route.name)"/>
+    <navbar v-if="this.displayLayouts.includes($route.name)"/>
+    <Header  v-if="this.displayLayouts.includes($route.name)" />
     <router-view />
-    <Footer   v-if="['Home','ProdByCat','ProdOne','AllCat','SubCat','User'].includes($route.name)" />
+    <Footer   v-if="this.displayLayouts.includes($route.name)" />
 
   </div>
 </template>
@@ -40,6 +40,7 @@ export default {
 data: function() {
     return {
       spinner:true,
+      displayLayouts:['Home','ProdByCat','ProdByTag','ProdOne','AllCat','SubCat','User','About','Checkout']
     };
   },
   mounted(){

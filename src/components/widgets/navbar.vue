@@ -1,7 +1,7 @@
 <template>
     <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light p-0 justify-content-start"  style="    border-bottom: 1px #d1d1d1d1 solid;z-index: 988 !important;">
         <router-link :to="{ name: 'Home' }" class="navbar-brand col-sm-3 col-3 px-0" aria-label="Al-yaman">
-          <img  src="icon.png" class="w-100" alt="" >
+          <img  src="@/assets/icon.png" class="w-100" alt="" >
         </router-link>
         <div class="headerDrp px-0 " v-if="$mq === 'md' || $mq === 'lg' &&  Object.keys(CurOptions).length >0 && Object.keys(CountryOptions).length >0 ">
           <b-dropdown id="dropdown-1"  variant="none" class=" ShipBtn " no-flip no-caret>
@@ -31,10 +31,10 @@
         </div>
         
           <div class="SearchSection d-flex align-items-center col-md-3 col-lg-4 col-7 px-0" >
-            <i style="position: relative;right: 38px;top:0px;" class="fa fa-search"></i>
+            <!-- <i style="position: relative;right: 38px;top:0px;" class="fa fa-search"></i> -->
             <input class="form-control mr-sm-2 SearchInput pr-5" aria-describedby="basic-addon1" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="search" placeholder="بحث" >
           </div>
-          <div class="HeaderIcons d-none d-sm-inline-flex" style="position: absolute;left: 16px;">
+          <div class="HeaderIcons d-none d-sm-inline-flex">
 
             <div v-if="isLoggedIn">
               <b-dropdown id="dropdown-1" text="Dropdown Button" variant="none" no-flip no-caret>
@@ -56,6 +56,19 @@
             <b-button variant="none" class="p-0" @click="toggleCart()">
               <i class="fal fa-shopping-cart"></i>
             </b-button>
+            <div class="HeaderDivider"></div>
+            <b-dropdown id="dropdown-1" text="Dropdown Button" variant="none" no-flip no-caret>
+                <template #button-content>
+                  <i class="fal fa-globe" style="color: #8d8d8d;font-size: 26px;"></i>
+                </template>
+                <b-dropdown-item-button variant="link"  v-for="(lang, i) in langs" :key="`Lang${i}`" @click="UpdateLocale(lang)">
+                  <div class="d-flex align-items-center">
+                   <country-flag :country='lang.flag' size='normal' />
+                   {{ lang.name }}
+                  </div>
+                </b-dropdown-item-button>
+            </b-dropdown>
+          
             <!-- <a href="https://alyaman.com/cart/" aria-label="سلة التسوق"> 
              <i class="fal fa-shopping-cart"></i>
              <span class="CartCountHeading" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >
@@ -128,7 +141,8 @@ export default {
         SelectedCountryText:CountryValText,
         CountrySh:'',
         CountryOptions:{},
-        CurOptions:{}
+        CurOptions:{},
+        langs:[{id:1,key:'ar',name:'العربية',flag:'ae'},{id:2,key:'en',name:'English',flag:'us'},{id:3,key:'cn',name:'Chinnes',flag:'cn'}]
       }
 
     },
@@ -247,6 +261,19 @@ export default {
             window.location.reload()
             //this.$forceUpdate();
          },
+         UpdateLocale(lang){
+           
+          //Change Direction
+          if(lang.key === 'ar'){
+            document.body.setAttribute('dir','rtl')
+          }
+          else{
+            document.body.setAttribute('dir','ltr')
+          }
+          //Change Locale 
+          this.$root.$i18n.locale = lang.key
+
+         }
     }
 }
 </script>

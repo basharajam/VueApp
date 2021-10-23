@@ -34,12 +34,32 @@
     "CopyRights":"جميع الحقوق محفوظة 1996-2021©Alyaman.com",
     "ShowMore":"عرض المزيد",
 
-
-
-
-
+    
 
     "AddToCart":"إضافة الى السلة",
-    "FooterTitle":"كن معنا"
+    "FooterTitle":"كن معنا",
+    "BirthDayDistruBanner":"بانر توزيعات علب كرتون",
+    "CartonDistru":"توزيعات علب كرتون",
+    "BirthDayDistru":"توزيعات عيد ميلاد",
+    "BoxDistru":"بانر علب توزيعات",
+    "PlasticDistru":"توزيعات بلاستيك",
+    "RecentProd":"وصلنا حديثا",
+    "GlassDistru":"توزيعات زجاجية",
+    "SocialMediaBanner":"بانر تواصل عبر واتساب",
+    "ProdMostPopular":"الأكثر رواجا",
+    "Wedding":"أعراس",
+    "vasesBanner":"بانر مزهريات",
+    "vases":"مزهريات",
+    "SaudiDay":"العيد لوطني السعودي",
+    "SaudiDayBroush":"بروش العيد لوطني السعودي",
+    "SaudiDayBanner":"بانر العيد الوطني السعودي",
+    "SaudiDayTopper":"تغريسات العيد الوطني السعودي",
+    "SaudiDayDecorations":"زينة اليوم الوطني السعودي",
+    "SaudiDayStickers":"ستيكرات العيد اوطني السعودي",
+    "Decorations":"زينة منوعة",
+    "ProdYouCanBy5":"منتجات يمكنك طلب 5 كرتون منها او اقل",
+    "ProdOffers":"عروض خاصة",
+    "WeddingDistruBanner":"بانر توزيعات أعراس"
+
 
 }

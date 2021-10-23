@@ -102,7 +102,7 @@
                 </template>
                 <div class="ProdsBox col-sm-3" v-for="Box in LandingLayout.ProdInBox" v-bind:key="Box.title">
                     <div class="" style="box-shadow: #88888836 0px 1px 12px 4px">
-                        <h3 class="ProdBoxTitle ">{{ Box.title }}</h3>
+                        <h3 class="ProdBoxTitle ">{{ $t(Box.name) }}</h3>
                         <div class="ProdBoxItems">
                             <div class="ProdBoxOne col-sm-6" v-for="Prod in Box.items" v-bind:key="Prod.id">
                                 <router-link :to="{ name:'ProdOne',params:{ ProdName:Prod.name , ProdByCat:Prod.Category.name } }">
@@ -117,7 +117,8 @@
                                     <p>{{Prod.name}}</p>
                                 </router-link>
                             </div>
-                            <a :href="Box.link" class="ProdBoxBtn">{{$t('ShowMore')}}</a>
+                            <router-link class='ProdBoxBtn' :to="{ name:'ProdByTag', params:{ProdByTag:Box.title}}" >{{$t('ShowMore')}}</router-link>
+                            <!-- <a href="Box.link" class="ProdBoxBtn"></a> -->
                         </div>
                     </div>
                 </div>
@@ -134,7 +135,9 @@ export default {
 
     name:'ProdBoxList',
     computed:{
-        ...mapGetters(['LandingLayout'])
+        ...mapGetters(['LandingLayout']),
+
+        
     },
     data(){
         return{

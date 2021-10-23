@@ -28,8 +28,7 @@
                     <star-rating style="display: flex;flex-direction: column;"  :rating="parseFloat(Product.average_rating)" :increment='0.01' :read-only="true" :star-size="18" :show-rating='false' v-bind:rtl='true' active-color='#fe6a00' :glow='1' :animate='true'></star-rating>
                 </div>
                 <!-- addToCart(Product.ID,Product.meta._wc_min_qty_product,Product.meta.al_carton_qty) -->
-                <router-link class="add-to-cart" :to="{ name:'ProdOne', params:{ ProdName:Product.name , ProdByCat:Product.Category.name } }"  >عرض تفاصيل المنتج</router-link>
-                <button class="add-to-cart" @click="AddtoCart(Product)" >Add To Cart</button>
+                <button class="add-to-cart" @click="AddtoCart(Product)" >{{$t('AddToCart')}}</button>
             </div>
          </div>
         </div>

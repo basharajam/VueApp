@@ -1,10 +1,10 @@
 <template>
   <div class="">
-      <div class="TitleList">
-        <div class="float-left ShowMoreBtn" >
+      <div class="TitleList d-flex justify-content-between ">
+        <h3 class="text-right" >{{ $t(ProdList.name) }}</h3>
+        <div class="ShowMoreBtn" >
           <a :href="ProdList.link" class="pull-left">{{$t('ShowMore')}}</a>
         </div>
-        <h3 class="text-right" >{{ProdList.title}}</h3>
         <!-- <h3 class="text-right" >{{ $t('translation1') }}</h3> -->
       </div>
 
