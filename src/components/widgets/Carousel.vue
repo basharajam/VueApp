@@ -11,7 +11,7 @@
         </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <a href="https://wa.me/8617757971070/">
+            <a href="https://wa.me/8615557979977/">
               <img class="d-block w-100" src="@/assets/Slider/slideNew.jpg"  alt="First slide" height="375"  v-if="$mq === 'md' || $mq === 'lg'"/>
               <img class="d-block w-100" src="@/assets/Slider/slideNew.jpg"  alt="First slide" v-if="$mq === 'sm'"/>
             </a>
