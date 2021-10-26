@@ -10,7 +10,7 @@
                         <img slot="error" class="img-fluid mx-auto" src="@/assets/loader.png"  width="210" height="210" />
                     </vue-load-image>
                 </router-link>
-                <span v-if="Product.sale_price" class="discount-lab">% {{ discountPrice(Product)  }}</span>
+                <span v-if="Product.on_sale" class="discount-lab">% {{ discountPrice(Product)  }}</span>
                 <ul class="product-links">
                     <!-- <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
                     

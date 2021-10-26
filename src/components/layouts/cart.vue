@@ -7,7 +7,7 @@
     <div class="Cart">
         <button @click="hideCart()" >X</button>
         <h3 class="text-center">السلة</h3>
-        <div class="h-75 overflow-auto">
+        <div class="overflow-auto cartBody" >
             <div v-for="(item, index) in Cart" v-bind:key="index" class='CartItem d-flex' >
                 <img :src="item.item.images[0].src" width="100" height="100"/>
                 <div class="flex-grow-1">
@@ -29,9 +29,9 @@
         </div>
         <div class="fixed-bottom position-relative d-flex flex-column">
             <p class="text-center">الأجمالي :{{ Cart.length }} منتجات  - {{ FullPrice }}</p>
-            <a href="#" class="CheckoutBtn mx-2 text-center">
+            <router-link :to="{ name:'Checkout' }" class="CheckoutBtn mx-2 text-center">
                 إتمام الطلب
-            </a>
+            </router-link>
         </div>
     </div>
   </div>
@@ -156,6 +156,10 @@ margin: 0 6px;
     border-radius: 6px;
     padding: 6px;
     color: white;
+}
+
+.cartBody{
+    height: 70%;
 }
 
 </style>
