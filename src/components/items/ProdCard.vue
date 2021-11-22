@@ -28,7 +28,8 @@
                     <star-rating style="display: flex;flex-direction: column;"  :rating="parseFloat(Product.average_rating)" :increment='0.01' :read-only="true" :star-size="18" :show-rating='false' v-bind:rtl='true' active-color='#fe6a00' :glow='1' :animate='true'></star-rating>
                 </div>
                 <!-- addToCart(Product.ID,Product.meta._wc_min_qty_product,Product.meta.al_carton_qty) -->
-                <button class="add-to-cart" @click="AddtoCart(Product)" >{{$t('AddToCart')}}</button>
+                <button v-if="Product.type === 'simple'" class="add-to-cart" @click="AddtoCart(Product)" >{{$t('AddToCart')}}</button>
+                <router-link  v-else-if="Product.type === 'variable'" :to="{ name:'ProdOne', params:{ ProdName:Product.name , ProdByCat:Product.Category.name } }" class="add-to-cart" >عرض تفاصيل المنتج</router-link>
             </div>
          </div>
         </div>

@@ -40,14 +40,29 @@ export default {
 data: function() {
     return {
       spinner:true,
-      displayLayouts:['Home','ProdByCat','ProdByTag','ProdOne','AllCat','SubCat','User','About','Checkout']
+      displayLayouts:['Home','ProdByCat','ProdByTag','ProdOne','AllCat','SubCat','User','About','Checkout','Orders']
     };
   },
   mounted(){
 
+    //init
     this.getCategories();
     this.getConfig();
     this.LoginWithCookie({ UserId:this.$cookies.get('stateCount'),Token:this.$cookies.get('token')});
+
+    //set Default shipment Country
+    var CountryVal= this.$cookies.get('shipCountry');
+    if(!CountryVal){
+      this.$cookies.set('shipCountry','SA');
+    }
+
+    //Set Default curr 
+    var CurrVal = this.$cookies.get('wmc_current_currency');
+    if(!CurrVal){
+      this.$cookies.set('wmc_current_currency','SAR');
+    }
+
+
   },
 
 }
@@ -66,15 +81,9 @@ body{
  font-family: 'font';
  text-align: right;
 background-color: #f5f5f5ec !important ;
-  /* background-image: url('./assets/patt.png');
-  background-repeat: repeat;
-  background-blend-mode: hue; */
-
 }
 
-/* .flickity-viewport{
-  height: 375px !important;
-} */
+
 .Section{
 
   padding: 8px 0;
@@ -243,11 +252,7 @@ position: relative;
   color: #9d3c9a  !important ;
   border-color: #9d3c9a  !important;
 }
-/* .btn-outline-warning:hover{
-    color: #000 !important;
-    background-color: #fe6a00 !important;
-    border-color: #fe6a00 !important;
-} */
+
 .btn-outline-warning:not(:disabled):not(.disabled).active, .btn-outline-warning:not(:disabled):not(.disabled):active, .show>.btn-outline-warning.dropdown-toggle{
   background-color: #9d3c9a !important;
   border-color: #9d3c9a  !important;
@@ -301,6 +306,12 @@ color: white !important;
 
 }
 
+.nav-link, .nav-link:active .nav-link:hover{
+  color:#808080
+}
+.nav-link.active{
+  background-color:#f45e1f !important;
+}
 
 /*Desktop */
 @media only screen and  (min-width: 1366px ) and (max-width:1440px){
@@ -327,9 +338,9 @@ color: white !important;
   .flickity-viewport{
         height: 350px !important;
   }
-  .HeaderIcons a {
+  /* .HeaderIcons a {
     margin: 0px 10px !important;
-  }
+  } */
   .SearchSection{
         position: relative;
     bottom: 8px;

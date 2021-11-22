@@ -30,9 +30,23 @@
               </div>
               <div class="price" v-else >
                 <div class="SalePrice">
-                  {{ ProdOne.regular_price }} <span>ر.س</span>
+                  {{ parseFloat(ProdOne.regular_price).toFixed(3) }} <span>ر.س</span>
                 </div>
               </div>
+              
+
+              <!-- XXXXXXXXXXXXXXXXXXXXXXXXX -->
+              <b-col sm='12' >
+                <DDR></DDR>
+              </b-col>
+
+
+
+
+
+              <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
+
+
               <div class="Qty d-flex">
                 <input type="number" class="form-control col-sm-3" value="60">
                 <b-link v-b-modal.modal-lg variant="primary">إضافة الى السلة</b-link>
@@ -47,7 +61,7 @@
         <b-modal id="modal-lg" size="lg" hide-footer hide-header>
           <b-row>
             <b-col cols="12" sm="5" class="pb-4" >
-              <b-img :src="ProdOne.images[0].guid" fluid :alt="ProdOne.name" style="border-bottom-left-radius: 30%;"></b-img>
+              <!-- <b-img :src="ProdOne.images[0].guid" fluid :alt="ProdOne.name" style="border-bottom-left-radius: 30%;"></b-img> -->
             </b-col>
             <b-col cols="12" sm='3' class="text-right p-1">
               <div class="PropsList d-flex flex-column">
@@ -465,10 +479,14 @@ import StarRating from 'vue-star-rating'
 import {mapActions,mapGetters} from 'vuex'
 import { required, minLength } from 'vuelidate/lib/validators'
 
+
+
+
 export default {
 
       components:{
         ImgScrollerProd,
+       
         StarRating,
       },
       computed:{

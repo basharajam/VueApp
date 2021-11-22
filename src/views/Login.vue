@@ -72,13 +72,16 @@ export default {
         window.removeEventListener('message', this.onMessage)
     },
     computed:{
-        ...mapGetters(['config'])
+        ...mapGetters(['config','authenticated'])
     },
     methods:{
         ...mapActions(['LoginWithMail','LoginWithSocialite']),
         Login:function(){
 
-            this.LoginUser(this.form)
+            this.LoginWithMail(this.form)
+
+            //Check if Authenticated
+
         },
         LoginWithGoogle:function(){
             const newWindow = openWindow('', 'message')

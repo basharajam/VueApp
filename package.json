@@ -28,6 +28,7 @@
     "vue-country-flag": "^2.2.0",
     "vue-crypt": "^1.0.0",
     "vue-cryptojs": "^2.1.6",
+    "vue-feedback-reaction": "^1.2.0",
     "vue-flickity": "^1.2.1",
     "vue-i18n": "^8.24.5",
     "vue-inner-image-zoom": "^1.1.0",
@@ -39,8 +40,11 @@
     "vue-product-zoomer": "^3.0.1",
     "vue-router": "^3.5.1",
     "vue-star-rating": "^1.7.0",
+    "vue-tables-2": "^2.3.4",
+    "vue-toastr": "^2.1.2",
     "vuelidate": "^0.7.6",
-    "vuex": "^3.6.2"
+    "vuex": "^3.6.2",
+    "yoyoo-ddr": "^0.5.5"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",

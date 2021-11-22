@@ -7,17 +7,18 @@ import VueCookie from 'vue-cookies';
 import Vuelidate from 'vuelidate'
 import VueMq from 'vue-mq'
 import VueCryptojs from 'vue-cryptojs'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
 import VueI18n from 'vue-i18n';
 import lang from '../lang/index';
 import axios from 'axios'
 import LoadScript from 'vue-plugin-load-script';
-let username = "ck_dd5dacfe7d6b41892c0cbe192f8a553b264afdd6";
-let password = "cs_a495e0fca65ed92130dddb0633370dd826658a4c";
-let authHeader = `Basic ${window.btoa(`${username}:${password}`)}`;
-axios.defaults.headers.common["Authorization"] = authHeader;
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import { ClientTable, } from 'vue-tables-2';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
+// let username = "ck_dd5dacfe7d6b41892c0cbe192f8a553b264afdd6";
+// let password = "cs_a495e0fca65ed92130dddb0633370dd826658a4c";
+// let authHeader = `Basic ${window.btoa(`${username}:${password}`)}`;
+// axios.defaults.headers.common["Authorization"] = authHeader;
 axios.defaults.httpsAgent = new https.Agent({ rejectUnauthorized: false })
 Vue.config.productionTip = false
 
@@ -29,6 +30,7 @@ Vue.use(Vuelidate)
 Vue.use(BootstrapVue)
 // Optionally install the BootstrapVue icon components plugin
 Vue.use(IconsPlugin)
+Vue.use(ClientTable,{},false,'bootstrap4',{});
 Vue.use(LoadScript);
 Vue.use(VueMq,{
   breakpoints: { // default breakpoints - customize this
@@ -37,6 +39,7 @@ Vue.use(VueMq,{
     lg: Infinity,
   }
 })
+
 
 Vue.use(VueI18n);
 export const i18n = new VueI18n({

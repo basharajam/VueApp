@@ -47,8 +47,9 @@
                       <div style="width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
                     </div>
                   </template>
-                <b-dropdown-item><router-link :to="{name:'User'}" >حسابي</router-link></b-dropdown-item>
-                <b-dropdown-item><router-link :to="{name:'LogOut'}" >تسجيل الخروج</router-link></b-dropdown-item>
+                  <b-dropdown-item :to="{name:'User'}" class="text-center" >حسابي</b-dropdown-item>
+                  <b-dropdown-item :to="{name:'Orders'}"   class="text-center"  >طلباتي</b-dropdown-item>
+                  <b-dropdown-item :to="{name:'LogOut'}" class="text-center" >تسجيل خروج</b-dropdown-item>
               </b-dropdown>
             </div>
             <router-link v-else :to="{ name:'Login'}" ><i class="fal fa-user"></i></router-link>
@@ -112,19 +113,19 @@ export default {
     },
     data(){
 
-        var CountryVal= this.$cookies.get('shipCountry');
-        var CurrVal = this.$cookies.get('wmc_current_currency');
-        if(CountryVal && CurrVal){
+      var CountryVal= this.$cookies.get('shipCountry');
+      var CurrVal = this.$cookies.get('wmc_current_currency');
+      if(CountryVal && CurrVal){
 
-          var CurrVal0=CurrVal;
-          var CountryVal0=CountryVal;
-          var CountryValText;
-        }
-        else{
-           CurrVal0='SAR';
-           CountryVal0='SA';
-           CountryValText='السعودية';
-        }
+        var CurrVal0=CurrVal;
+        var CountryVal0=CountryVal;
+        var CountryValText;
+      }
+      else{
+          CurrVal0='SAR';
+          CountryVal0='SA';
+          CountryValText='السعودية';
+      }
 
       return{
 

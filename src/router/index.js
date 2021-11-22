@@ -11,7 +11,10 @@ import AllCat from '../views/AllCat';
 import User from '../views/User';
 import CheckOut from '../views/Checkout';
 import ProdByTag from '../views/ProdByTag';
+import Rate from '../views/rate';
+import Orders from '../views/Orders.vue';
 import store from '../store/index';
+import test from '../views/test';
 import _ from 'lodash';
 // import { i18n } from "../main.js";
 Vue.use(VueRouter)
@@ -21,78 +24,99 @@ Vue.use(VueRouter)
 
 const routes = [
   
-      {
-        path: '/',
-        name: 'Home',
-        component: Home
-      },
-      {
-        path:'/Login',
-        name:'Login',
-        component:Login,
-        meta:{
-          requireGuest:true
-        }
-      },
-      {
-        path:'/Register',
-        name:'Register',
-        component:Register,
-        meta:{
-          requireGuest:true
-        }
-      },
-      {
-        path:'/User',
-        name:'User',
-        component:User
-      },
-      {
-        path:'/LogOut',
-        name:'LogOut',
-        beforeEnter: () => {
-          
-          // Remove Cookies
-          VueCookies.remove('stateCount');
-          VueCookies.remove('token');
-          //Remove User State 
-          store.dispatch('LogOut')
-        },
-        meta:{
-          requireAuth:true
-        }
+  {
+    path: '/',
+    name: 'Home',
+    component: Home
+  },
+  {
+    path:'/Login',
+    name:'Login',
+    component:Login,
+    meta:{
+      requireGuest:true
+    }
+  },
+  {
+    path:'/Register',
+    name:'Register',
+    component:Register,
+    meta:{
+      requireGuest:true
+    }
+  },
+  {
+    path:'/User',
+    name:'User',
+    component:User
+  },
+  {
+    path:'/LogOut',
+    name:'LogOut',
+    beforeEnter: () => {
+      
+      // Remove Cookies
+      VueCookies.remove('stateCount');
+      VueCookies.remove('token');
+      //Remove User State 
+      store.dispatch('LogOut')
+    },
+    meta:{
+      requireAuth:true
+    }
 
-      },
-      {
-        path:'/category/:ProdByCat',
-        name:'ProdByCat',
-        component:ProdByCat
-      },
-      {
-        path:'/tag/:ProdByTag',
-        name:'ProdByTag',
-        component:ProdByTag
-      },
-      {
-        path: '/about',
-        name: 'About',
-        component:about,
-      },
-      {
-        path:'/Categories',
-        name:'AllCat',
-        component:AllCat,
-      },
-      {
-        path:'/Checkout',
-        name:'Checkout',
-        component:CheckOut
-      },
-      {
-        path:'/:ProdByCat/:ProdName',
-        name:'ProdOne',
-        component:ProdOne
-      },
+  },
+  {
+    path:'/Rate',
+    name:'Rate',
+    component:Rate
+  },
+  {
+    path: '/about',
+    name: 'About',
+    component:about,
+  },
+  {
+    path:'/Categories',
+    name:'AllCat',
+    component:AllCat,
+  },
+  {
+    path:'/Checkout',
+    name:'Checkout',
+    component:CheckOut,
+    meta:{
+      requireAuth:true
+    }
+  },
+  {
+    path:'/Orders',
+    name:'Orders',
+    component:Orders,
+    meta:{
+      requireAuth:true
+    }
+  },
+  {
+    path:'/category/:ProdByCat',
+    name:'ProdByCat',
+    component:ProdByCat
+  },
+  {
+    path:'/tag/:ProdByTag',
+    name:'ProdByTag',
+    component:ProdByTag
+  },
+  {
+    path:'/:ProdByCat/:ProdName',
+    name:'ProdOne',
+    component:ProdOne
+  },
+  {
+    path:'/test',
+    name:'test',
+    component:test
+  }
       
 
 

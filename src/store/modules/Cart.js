@@ -18,17 +18,14 @@ const actions  = {
 
     AddToCartS({state,commit,getters},Product){
 
-
         var Prod = {
             item:Product,
-            qty:1
+            qty:Product.min_qty
         }
 
         //Check if Cart is Empty 
         if(state.Cart.length == 0 ){
 
-          
-            
             var newCart0 = state.Cart
             newCart0.push(Prod)
         
@@ -78,14 +75,16 @@ const actions  = {
         //Set Full Price
         //Check Product Type 
         if (Product.type === 'simple'){
-
+            
             if(Product.on_sale){
-                FullPrice =parseInt(Product.sale_price) + getters.FullPrice
+                FullPrice =parseFloat(Product.sale_price) + parseFloat(getters.FullPrice) 
            }
            else{
-                FullPrice = parseInt(Product.regular_price) + getters.FullPrice
+                FullPrice = parseFloat(Product.regular_price) + parseFloat(getters.FullPrice)
            }
         }
+
+        console.log(FullPrice)
 
 
 
@@ -94,43 +93,102 @@ const actions  = {
     
     },
 
-    RemoveFromCart({state,commit},ProdId){
+    RemoveFromCart({state,commit,getters},ProdId){
 
         //filter Cart Arr 
         var FilterCartArr = state.Cart.findIndex(item =>{
              return item.item.id === ProdId
         })
 
-        //Remove item From Array
+        var Product = state.Cart.find(item=>{
+            return item.item.id === ProdId
+        })
 
+        //Remove item From Array
         state.Cart.splice(FilterCartArr,1)
         var newCart = state.Cart
 
         commit('Cart',newCart)
 
         //Reduce Full Price
+        //let FullPrice;
 
-        // var itemQty=removedItem[0].qty
+        //Set Full Price
+        //Check Product Type 
+        if (Product.item.type === 'simple'){
+            
 
-        // var FullPrice =getters.FullPrice - res.ProductPrice * itemQty
+            let rmProdPrice;
+            if(Product.on_sale){
+                rmProdPrice=parseFloat(Product.item.sale_price) * Product.qty;
+            }
+            else{
+                rmProdPrice=parseFloat(Product.item.regular_price) * Product.qty;
+            }
+           var rmFullPrice=parseFloat(getters.FullPrice) - parseFloat(rmProdPrice);
 
-        // commit('FullPrice',FullPrice)
+        }
+
+        commit('FullPrice',rmFullPrice)
 
     },
 
 
-    increaseQtyS({state,commit},ProdId){
+    increaseQtyS({state,commit,getters},ProdId){
 
-        
+        let Product;
         //filter Cart Arr 
         state.Cart.forEach(item =>{
 
+            
             if(item.item.id === ProdId){
                 var oldQty = item.qty
                 var newQty =item.qty = oldQty + 1;
+                Product=item.item;
                 return {item :item.item ,qty : newQty}
             }
         })
+
+        //Increase Full Price
+        var FullPrice=getters.FullPrice;
+        let IncreasedPrice;
+
+        if(Product.type === 'simple'){
+
+            if(Product.on_sale){
+
+                //console.log(Product.sale_price)
+                IncreasedPrice = parseFloat(Product.sale_price) + parseFloat(FullPrice);
+
+            }   
+            else{
+
+                
+
+                //Increse Full Price
+                IncreasedPrice = parseFloat(Product.regular_price) + parseFloat(FullPrice);
+                
+                commit('FullPrice',IncreasedPrice)
+
+
+            }
+
+
+        }else{
+
+            if(Product.on_sale){
+
+                //increase Qty
+
+                console.log(Product.regular_price)
+            }
+
+
+        }
+
+        console.log(FullPrice)
+        
+
         commit('Cart',state.Cart)
 
     },

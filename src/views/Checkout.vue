@@ -66,7 +66,7 @@
                       >
                           <b-form-input
                           id="mailI"
-                          type="mail"
+                          type="email"
                           placeholder="الايميل"
                           class="rounded-form"
 
@@ -136,6 +136,7 @@
                         id="OrderZipI"
                         class="rounded-form"
                         placeholder="zip"
+                        type="text"
                       >
                       </b-form-input>
                     </b-form-group>

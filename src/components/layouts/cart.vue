@@ -16,8 +16,28 @@
                         <button @click="RemoveItem(item.item.id)" class="align-self-start" >X</button>
                     </div>
                     <div class="CartItemBody d-flex justify-content-between">
-                        <div class="" v-if="item.item.on_sale" ></div>
-                        <p>{{ item.item.regular_price * item.qty }}</p>
+
+                        <div v-if="item.item.type ==='simple'">
+                            <div v-if="item.item.on_sale">
+                                <!-- <p>Product is Simple Has Sale</p> -->
+                                <p> <del><span>{{parseFloat(item.item.regular_price).toFixed(3) *item.qty }}</span></del> {{ parseFloat(item.item.sale_price).toFixed(3) *item.qty }}</p>
+                            </div>
+                            <div v-else>
+                                <p>{{ parseFloat(item.item.regular_price).toFixed(3) *item.qty }}</p>
+                            </div>
+                        </div>
+                        <div v-if="item.item.type ==='variable'">
+                            <div v-if="item.item.on_sale">
+                                <p>Product is variable Has Sale</p>
+                            </div>
+                            <div v-else>
+                                <p>{{ parseFloat(item.item.min_regular_price).toFixed(3) *item.qty }} - {{ parseFloat(item.item.max_regular_price).toFixed(3) *item.qty }}</p>
+                            </div>
+                        </div>
+                        <!-- <p>{{ setPrice(item.item.regular_price) }}</p>
+                        <p>{{ setPrice(item.item.sale_price) }}</p> -->
+                        <!-- <p>{{ item.item.regular_price }}</p> -->
+                        <!-- <p>{{ item.item.sale_price  *item.qty }}</p> -->
                         <div class="d-flex align-self-start qtyCounter">
                             <button class="align-self-start" @click="increaseQty(item.item.id)">+</button>
                             <span>{{ item.qty }}</span>

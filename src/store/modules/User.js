@@ -1,8 +1,8 @@
-
+import Vue from 'vue'
 import axios from "axios"; 
 import VueCookie from 'vue-cookies';
 import CryptoJS from 'crypto-js'
-
+import router from '../../router/index';
 
 const state = {
     User:{},
@@ -11,7 +11,8 @@ const state = {
 
 const getters = {
     User:state=>state.User,
-    Token:state=>state.Token
+    Token:state=>state.Token,
+
 }
 
 const actions = {
@@ -22,37 +23,52 @@ const actions = {
         axios.post(url,form).then(function(response){
             
 
-            commit('User',response.data.item.user)
+            commit('User',response.data.item.user.ID)
             commit('Token',response.data.item.token)
+
         })
         
 
     },
     LoginWithMail({commit},form){
+
+        const vm = new Vue({})
         var url = 'http://127.0.0.1:8000/api/LoginByMail';
         axios.post(url,form).then(function(resp){
 
-            // commit('User',resp.data.item.user)
-            // commit('Token',resp.data.item.token)
+            if(resp.data.status){
 
-            //Encrypt Data 
-            const key = process.env.VUE_APP_ENCKEY //
-            const iv = process.env.VUE_APP_ENCIV // 
-            const txt= resp.data.item.user;
-            
-            const cipher = CryptoJS.AES.encrypt(txt, CryptoJS.enc.Utf8.parse(key), {
-                iv: CryptoJS.enc.Utf8.parse(iv),
-                mode: CryptoJS.mode.CBC
+                console.log('Successfully Logged-In')
+
+                //Encrypt Token 
+                const key = process.env.VUE_APP_ENCKEY //
+                const iv = process.env.VUE_APP_ENCIV // 
+                const txt= resp.data.items.token;
+                
+                const cipher = CryptoJS.AES.encrypt(txt, CryptoJS.enc.Utf8.parse(key), {
+                    iv: CryptoJS.enc.Utf8.parse(iv),
+                    mode: CryptoJS.mode.CBC
+                })
+
+                commit('User',resp.data.items.user)
+                commit('Token',cipher)
+
+                //Save Token in Cookies
+                VueCookie.set('token',cipher.toString())
+
+                //Set Token Auth header Axios
+                axios.defaults.headers.common['Authorization'] = 'Bearer '+txt
+                
+                router.push({ name:'Home' })
+
+
+            }
+        }).catch(()=>{
+            vm.$bvToast.toast('Unable To Login Worng Mail Or Password',{
+                title:'',
+                variant: 'danger',
+                solid:true
             })
-
-            //Save On Cookie
-
-            commit('User',resp.data.item.user.ID)
-            commit('Token',cipher.toString())
-            VueCookie.set('stateCount',resp.data.item.user.ID+22)
-            VueCookie.set('token',cipher.toString())
-            //Save On Cookie
-
         })
     },
     LoginWithSocialite({commit},data){
@@ -73,7 +89,7 @@ const actions = {
 
         commit('User',user.ID)
         commit('Token',cipher.toString())
-        VueCookie.set('stateCount',user.ID+22)
+        VueCookie.set('stateCount',user.ID)
         VueCookie.set('token',cipher.toString())
         
     },
@@ -96,9 +112,7 @@ const actions = {
 const mutations = {
     User:(state,User)=>(state.User = User),
     Token:(state,Token)=>(state.Token = Token)
-
 }
-
 
 export default {
   state,
