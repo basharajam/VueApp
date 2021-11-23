@@ -26,7 +26,7 @@
 
                 <mq-layout :mq="['md','lg']" >
                   <Flickity ref="flickity" :options="flickityOptions" v-if="ProdList.Display ==='slider' && ProdList.items.length != 0 ">
-                      <ProdCard  class="carousel-cell" v-for="Product in ProdList.items" v-bind:key="Product.id" v-bind:Product="Product" ></ProdCard>
+                      <ProdCard  class="col-sm-2 carousel-cell" v-for="Product in ProdList.items" v-bind:key="Product.id" v-bind:Product="Product" ></ProdCard>
                   </Flickity>
                 </mq-layout>
               <!-- End Desktop Display -->

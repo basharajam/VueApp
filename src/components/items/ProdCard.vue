@@ -2,7 +2,8 @@
 
         <div class="ProdCard ">
         <div class="product-grid">
-             <div class="product-image">
+            <div class="product-image">
+            <div class="product-description" v-html=" Product.short_description"></div>
                 <router-link :to="{ name:'ProdOne', params:{ ProdName:Product.name , ProdByCat:Product.Category.name } }" class="image" style="min-width:150;">
                     <vue-load-image>
                         <img slot="image"  class="pic-1 img-fluid mx-auto"  :src="Product.images[0].src" :alt="Product.name" width="210" height="210" >
@@ -11,17 +12,11 @@
                     </vue-load-image>
                 </router-link>
                 <span v-if="Product.on_sale" class="discount-lab">% {{ discountPrice(Product)  }}</span>
-                <ul class="product-links">
-                    <!-- <li><a href="#" data-tip="Add to Wishlist"><i class="fas fa-heart"></i></a></li>
-                    
-                    <li><a href="#" data-tip="Quick View"><i class="fa fa-search"></i></a></li> -->
-                </ul>
             </div>
             <div class="product-data">
                 <h3 class="title"><router-link :to="{ name:'ProdOne', params:{ ProdName:Product.name , ProdByCat:Product.Category.name } }" >{{Product.name}}</router-link></h3>
                 <!-- parseFloat(Product.regular_price).toFixed(2) -->
                 <div class="price"><span v-html="Product.price_html" v-if="Product.price_htm != 0" ></span> </div>
-                <div class="descrition" v-html=" Product.short_description"></div>
             </div>
             <div class="product-content">
                 <div class="rating">
@@ -89,13 +84,22 @@ export default {
     height:auto;
 
 }
+
+.product-description{
+    z-index: 888;
+    position: absolute;
+    background: #ffffff87;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
 .product-grid:hover{ box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.1); }
 .product-grid .product-image{ position: relative; }
 .product-grid .product-image a.image{ display: block; }
 .product-grid .product-image img{
     height: auto;
 }
-.product-data.descrition p {
+.product-grid.descrition p {
         max-width: 20ch;    
         white-space: break-spaces;
 }
@@ -249,7 +253,7 @@ export default {
     position: relative;
 }
 
-.product-data .descrition {
+.product-grid.descrition {
 
 display: none;
 position: absolute;
@@ -264,7 +268,7 @@ width: 100% !important;
 /*  Dsecription Animation When Hover On Img  */
 
 
-.product-grid .product-image:hover + .product-data .descrition {
+.product-grid .product-image:hover + .product-grid.descrition {
 display: block;
 transition: all 0.4s ease-out;
 }
@@ -283,11 +287,8 @@ transition: all 0.4s ease-out;
     opacity: 0.2;
 }
 
-.product-grid .product-image:hover + .product-data {
-
-    background: white;
-    transform: translateY(calc(5* -1vw));
-    /* color:white !important; */
+.product-grid:hover + .product-image .product-description {
+    display: block !important;
 }
 .rating li {
     display: inline-block;

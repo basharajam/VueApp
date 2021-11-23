@@ -48,7 +48,9 @@ data: function() {
     //init
     this.getCategories();
     this.getConfig();
-    this.LoginWithCookie({ UserId:this.$cookies.get('stateCount'),Token:this.$cookies.get('token')});
+    if(this.$cookies.get('token')){
+      this.LoginWithCookie({Token:this.$cookies.get('token')});
+    }
 
     //set Default shipment Country
     var CountryVal= this.$cookies.get('shipCountry');
@@ -70,12 +72,10 @@ data: function() {
 
 <style>
 
-
 @font-face{
     font-family:"font";
     src:url("./assets/fonts/font.ttf");
- }
-
+}
 
 body{
  font-family: 'font';
@@ -309,9 +309,9 @@ color: white !important;
 .nav-link, .nav-link:active .nav-link:hover{
   color:#808080
 }
-.nav-link.active{
+/* .nav-link.active{
   background-color:#f45e1f !important;
-}
+} */
 
 /*Desktop */
 @media only screen and  (min-width: 1366px ) and (max-width:1440px){

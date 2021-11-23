@@ -16,7 +16,7 @@
                 <landingLoader></landingLoader>
               </b-container>
             </template>
-            <div v-for="item in LandingLayout.mobile" v-bind:key="item.title">
+            <div v-for="(item,index) in LandingLayout.mobile" v-bind:key="index">
               <banner v-bind:item="item" v-if="item.type === 'banner' && item.mobileDisplay !== 'hide'" ></banner>
               <ProdList v-bind:ProdList="item" v-if="item.type === 'ProdList' && item.mobileDisplay !== 'hide'" ></ProdList>
             </div>
@@ -32,7 +32,7 @@
               <landingLoader></landingLoader>
             </b-container>
           </template>
-          <div v-for="item in LandingLayout.desktop" v-bind:key="item.title">
+          <div v-for="(item,index) in LandingLayout.desktop" v-bind:key="index">
             <banner v-bind:item="item" v-if="item.type === 'banner' && item.Display !== 'hide'" ></banner>
             <ProdList v-bind:ProdList="item" v-if="item.type === 'ProdList' && item.Display !== 'hide'" ></ProdList>
           </div>

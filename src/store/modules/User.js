@@ -51,7 +51,7 @@ const actions = {
                 })
 
                 commit('User',resp.data.items.user)
-                commit('Token',cipher)
+                commit('Token',cipher.toString())
 
                 //Save Token in Cookies
                 VueCookie.set('token',cipher.toString())
@@ -87,15 +87,28 @@ const actions = {
 
         //Save On Cookie
 
-        commit('User',user.ID)
+        commit('User',user)
         commit('Token',cipher.toString())
-        VueCookie.set('stateCount',user.ID)
         VueCookie.set('token',cipher.toString())
         
     },
-    LoginWithCookie({commit},{UserId,Token}){
+    LoginWithCookie({commit},{Token}){
 
-        commit('User',UserId)
+        //get user inf
+        var url =process.env.VUE_APP_DEVBASEURL+'/GetUser';
+
+        //Dcrypyt Token
+        var key = process.env.VUE_APP_ENCKEY;
+        var decrypted = CryptoJS.AES.decrypt(Token, key).toString(CryptoJS.enc.Utf8);
+
+        axios.get(url,{
+            headers: {
+                'Authorization': 'Bearer '+decrypted
+              }
+        }).then(resp=>{
+            console.log(resp)
+        })
+
         commit('Token',Token)
     },
 
