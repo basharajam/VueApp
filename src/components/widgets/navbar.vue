@@ -15,18 +15,19 @@
                       <div style="width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
                     </div>
                 </template>
-            <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
-                <b-form-group :label="$t('Curr')" class="drpSel" >
-                    <b-form-select v-model="CurrInput" class="dropSelect" size="sm" :options="CurOptions"></b-form-select>
-                </b-form-group>
+                <spinner v-if="Object.keys(CurOptions).length === 0 && Object.keys(CountryOptions).length === 0" ></spinner>
+                <b-dropdown-form v-if="Object.keys(CurOptions).length > 0 && Object.keys(CountryOptions).length > 0" @submit.prevent="UpdateCurSubmit()" >
+                    <b-form-group :label="$t('Curr')" class="drpSel" >
+                        <b-form-select v-model="CurrInput" class="dropSelect" size="sm" :options="CurOptions"></b-form-select>
+                    </b-form-group>
 
-                <b-form-group :label="$t('ShipTo')" class="drpSel" >
-                    <b-form-select v-model="CountryInput" class="dropSelect" size="sm" :options="CountryOptions"></b-form-select>
-                </b-form-group>
-                <b-form-group>
-                  <b-button type="submit" block pill variant="outline-warning updCurrSubmit " >حفظ</b-button>
-                </b-form-group>
-            </b-dropdown-form>
+                    <b-form-group :label="$t('ShipTo')" class="drpSel" >
+                        <b-form-select v-model="CountryInput" class="dropSelect" size="sm" :options="CountryOptions"></b-form-select>
+                    </b-form-group>
+                    <b-form-group>
+                      <b-button type="submit" block pill variant="outline-warning updCurrSubmit " >حفظ</b-button>
+                    </b-form-group>
+                </b-dropdown-form>
           </b-dropdown>
         </div>
         
@@ -107,9 +108,11 @@ import CountryFlag from 'vue-country-flag';
 import { mapGetters } from 'vuex';
 import _ from 'lodash';
 import axios from 'axios';
+import spinner from '../widgets/spinner.vue'
 export default {
  components:{
-      CountryFlag
+      CountryFlag,
+      spinner
     },
     data(){
 

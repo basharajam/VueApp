@@ -13,14 +13,17 @@ import axios from 'axios'
 import LoadScript from 'vue-plugin-load-script';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import { ClientTable, } from 'vue-tables-2';
-// import './assets/custom.scss';
-// import 'bootstrap/dist/css/bootstrap.css';
-// import 'bootstrap-vue/dist/bootstrap-vue.css';
+import VueProgressBar from 'vue-progressbar'
+import './assets/custom.scss';
+import 'bootstrap/dist/css/bootstrap.css';
+import 'bootstrap-vue/dist/bootstrap-vue.css';
 import './assets/custom.scss';
 
 
 axios.defaults.httpsAgent = new https.Agent({ rejectUnauthorized: false })
 Vue.config.productionTip = false
+
+
 
 
 Vue.use(VueCryptojs)
@@ -38,6 +41,11 @@ Vue.use(VueMq,{
     md: 1250,
     lg: Infinity,
   }
+})
+Vue.use(VueProgressBar, {
+  color: '#f6601a',
+  failedColor: 'red',
+  height: '12px'
 })
 
 

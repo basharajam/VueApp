@@ -75,8 +75,8 @@
                     <a href="https://alyaman.com/about-us-arabic/">{{$t('About')}}</a>
                     <a href="https://alyaman.com/%d9%83%d9%8a%d9%81%d9%8a%d8%a9-%d8%aa%d9%82%d8%af%d9%8a%d9%85-%d8%b7%d9%84%d8%a8-%d8%b4%d8%b1%d8%a7%d8%a1/">{{ $t('HowToBuy') }}</a>
                     <a href="https://www.alyaman.com/%d8%a7%d9%84%d8%b4%d8%ad%d9%86-%d9%88%d8%a7%d9%84%d8%aa%d8%b3%d9%84%d9%8a%d9%85-2/">{{$t('Ship')}}</a>
-                    <a href="https://alyaman.com/my-account/edit-account/">{{$t('MyAcc')}}</a>
-                    <a href="https://alyaman.com/my-account/orders/">{{$t('YourOrders')}}</a>
+                    <router-link :to="{name:'User'}" >{{$t('MyAcc')}}</router-link>
+                    <router-link :to="{name:'Orders'}" >{{$t('YourOrders')}}</router-link>
                     <a href="https://www.alyaman.com/remember/">{{$t('Terms&Conds')}}</a>
                     <a href="https://alyaman.com/privacy-policy/">{{$t('Privacy')}}</a>
                 </div>

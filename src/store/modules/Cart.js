@@ -50,7 +50,7 @@ const actions  = {
                     if(item.item.id === Product.id){
 
                         var oldQty = item.qty
-                        var newQty =item.qty = oldQty + 1;
+                        var newQty =item.qty = parseInt(oldQty) + 1;
                         return {item :item.item ,qty : newQty}
 
                     }
@@ -83,10 +83,6 @@ const actions  = {
                 FullPrice = parseFloat(Product.regular_price) + parseFloat(getters.FullPrice)
            }
         }
-
-        console.log(FullPrice)
-
-
 
         commit('FullPrice',FullPrice)
         
@@ -143,7 +139,7 @@ const actions  = {
             
             if(item.item.id === ProdId){
                 var oldQty = item.qty
-                var newQty =item.qty = oldQty + 1;
+                var newQty =item.qty = parseInt(oldQty) + 1;
                 Product=item.item;
                 return {item :item.item ,qty : newQty}
             }
@@ -192,14 +188,22 @@ const actions  = {
         commit('Cart',state.Cart)
 
     },
-    reduceQtyS({state,commit},ProdId){
+    reduceQtyS({state,commit},product){
+
+        var ProdId=product.id;
+        var minQty=parseInt(product.min_qty);
 
         state.Cart.forEach(item =>{
 
+            //Display erro if item qty < minQty
+            if (item.item.id === ProdId && parseInt(item.qty) === minQty){
+
+                console.log('unable To reqduce Qty minQty Error')
+            }
             //reduce item qty by 1
-            if(item.item.id === ProdId && item.qty > 1 ){
+            else if(item.item.id === ProdId && item.qty > 1 ){
                 var oldQty = item.qty
-                var newQty =item.qty = oldQty - 1;
+                var newQty =item.qty = parseInt(oldQty) - 1;
                 return {item :item.item ,qty : newQty}
             }
             //remove item if qty === 1

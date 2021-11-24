@@ -1,5 +1,5 @@
 <template>
-  <div class="ProdOne">
+  <div class="ProdOne container-fluid">
       <h5 style="text-align:start">الرئيسية / التصنيف / تصنيف / اسم المنتج   </h5>
 
         <div class="row">
@@ -34,19 +34,6 @@
                 </div>
               </div>
               
-
-              <!-- XXXXXXXXXXXXXXXXXXXXXXXXX -->
-              <b-col sm='12' >
-                <DDR></DDR>
-              </b-col>
-
-
-
-
-
-              <!-- xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx -->
-
-
               <div class="Qty d-flex">
                 <input type="number" class="form-control col-sm-3" value="60">
                 <b-link v-b-modal.modal-lg variant="primary">إضافة الى السلة</b-link>

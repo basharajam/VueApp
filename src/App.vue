@@ -7,6 +7,7 @@
     <navbar v-if="this.displayLayouts.includes($route.name)"/>
     <Header  v-if="this.displayLayouts.includes($route.name)" />
     <router-view />
+    <vue-progress-bar></vue-progress-bar>
     <Footer   v-if="this.displayLayouts.includes($route.name)" />
 
   </div>
@@ -44,6 +45,8 @@ data: function() {
     };
   },
   mounted(){
+
+ 
 
     //init
     this.getCategories();
@@ -247,6 +250,9 @@ position: relative;
     text-align: center;
 }
 
+.sr-only{
+  display: none;
+}
 
 .btn-outline-warning{
   color: #9d3c9a  !important ;

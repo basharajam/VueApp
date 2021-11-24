@@ -41,7 +41,7 @@
                         <div class="d-flex align-self-start qtyCounter">
                             <button class="align-self-start" @click="increaseQty(item.item.id)">+</button>
                             <span>{{ item.qty }}</span>
-                            <button class="align-self-start" @click="reduceQty(item.item.id)" >-</button>
+                            <button class="align-self-start" @click="reduceQty(item.item)" >-</button>
                         </div>
                     </div>
                 </div>
@@ -89,8 +89,9 @@ export default {
         increaseQty:function(id){
             this.increaseQtyS(id)
         },
-        reduceQty:function(id){
-            this.reduceQtyS(id)
+        reduceQty:function(item){
+
+            this.reduceQtyS(item)
         },
         ...mapActions(['RemoveFromCart','increaseQtyS','reduceQtyS'])
     }

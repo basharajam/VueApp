@@ -41,20 +41,17 @@ const actions = {
                 console.log('Successfully Logged-In')
 
                 //Encrypt Token 
-                const key = process.env.VUE_APP_ENCKEY //
-                const iv = process.env.VUE_APP_ENCIV // 
+                const key = process.env.VUE_APP_ENCKEY // 
                 const txt= resp.data.items.token;
                 
-                const cipher = CryptoJS.AES.encrypt(txt, CryptoJS.enc.Utf8.parse(key), {
-                    iv: CryptoJS.enc.Utf8.parse(iv),
-                    mode: CryptoJS.mode.CBC
-                })
+                const cipher = CryptoJS.AES.encrypt(JSON.stringify(txt),key).toString()
+        
 
                 commit('User',resp.data.items.user)
-                commit('Token',cipher.toString())
+                commit('Token',txt)
 
                 //Save Token in Cookies
-                VueCookie.set('token',cipher.toString())
+                VueCookie.set('token',cipher)
 
                 //Set Token Auth header Axios
                 axios.defaults.headers.common['Authorization'] = 'Bearer '+txt
@@ -75,41 +72,43 @@ const actions = {
 
         //Encrypt Data 
         const key = process.env.VUE_APP_ENCKEY //
-        const iv = process.env.VUE_APP_ENCIV // 
+        //const iv = process.env.VUE_APP_ENCIV // 
         const txt= data.token;
         
-        const cipher = CryptoJS.AES.encrypt(txt, CryptoJS.enc.Utf8.parse(key), {
-            iv: CryptoJS.enc.Utf8.parse(iv),
-            mode: CryptoJS.mode.CBC
-        })
+        const cipher = CryptoJS.AES.encrypt(JSON.stringify(txt),key).toString()
+        let encData = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(cipher))
 
         var user=JSON.parse(data.user.replace(/&quot;/g,'"'));
 
         //Save On Cookie
 
         commit('User',user)
-        commit('Token',cipher.toString())
-        VueCookie.set('token',cipher.toString())
+        commit('Token',txt)
+        VueCookie.set('token',encData)
         
     },
-    LoginWithCookie({commit},{Token}){
+    LoginWithCookie({commit},data){
 
         //get user inf
         var url =process.env.VUE_APP_DEVBASEURL+'/GetUser';
 
         //Dcrypyt Token
         var key = process.env.VUE_APP_ENCKEY;
-        var decrypted = CryptoJS.AES.decrypt(Token, key).toString(CryptoJS.enc.Utf8);
-
+    
+        //Decrypt
+        const dcrypted = CryptoJS.AES.decrypt(data.Token,key).toString(CryptoJS.enc.Utf8);
         axios.get(url,{
             headers: {
-                'Authorization': 'Bearer '+decrypted
+                'Authorization': 'Bearer '+JSON.parse(dcrypted)
               }
         }).then(resp=>{
             console.log(resp)
+            if(resp.data.status){
+                commit('User',resp.data.items.user)
+                commit('Token',dcrypted)
+            }
         })
 
-        commit('Token',Token)
     },
 
     LogOut({commit}){

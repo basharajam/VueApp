@@ -1,23 +1,26 @@
+// import Home from '../views/home';
+// import about from '../views/about';
+// import ProdOne from '../views/ProdOne';
+// import ProdByCat from '../views/ProdByCat';
+// import Login from '../views/Login';
+// import Register from '../views/Register';
+// import AllCat from '../views/AllCat';
+// import User from '../views/User';
+// import CheckOut from '../views/Checkout';
+// import ProdByTag from '../views/ProdByTag';
+// import Rate from '../views/rate';
+// import Orders from '../views/Orders.vue';
+// import test from '../views/test';
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueCookies  from 'vue-cookies';
-import Home from '../views/home';
-import about from '../views/about';
-import ProdOne from '../views/ProdOne';
-import ProdByCat from '../views/ProdByCat';
-import Login from '../views/Login';
-import Register from '../views/Register';
-import AllCat from '../views/AllCat';
-import User from '../views/User';
-import CheckOut from '../views/Checkout';
-import ProdByTag from '../views/ProdByTag';
-import Rate from '../views/rate';
-import Orders from '../views/Orders.vue';
 import store from '../store/index';
-import test from '../views/test';
 import _ from 'lodash';
 // import { i18n } from "../main.js";
 Vue.use(VueRouter)
+function lazyLoad(view){
+  return() => import(`@/views/${view}.vue`)
+}
 
 
 
@@ -27,12 +30,12 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: lazyLoad('home')
   },
   {
     path:'/Login',
     name:'Login',
-    component:Login,
+    component:lazyLoad('Login'),
     meta:{
       requireGuest:true
     }
@@ -40,7 +43,7 @@ const routes = [
   {
     path:'/Register',
     name:'Register',
-    component:Register,
+    component:lazyLoad('Register'),
     meta:{
       requireGuest:true
     }
@@ -48,7 +51,7 @@ const routes = [
   {
     path:'/User',
     name:'User',
-    component:User,
+    component:lazyLoad('User'),
     meta:{
       requireAuth:true
     }
@@ -72,22 +75,22 @@ const routes = [
   {
     path:'/Rate',
     name:'Rate',
-    component:Rate
+    component:lazyLoad('rate')
   },
   {
     path: '/about',
     name: 'About',
-    component:about,
+    component:lazyLoad('about'),
   },
   {
     path:'/Categories',
     name:'AllCat',
-    component:AllCat,
+    component:lazyLoad('AllCat'),
   },
   {
     path:'/Checkout',
     name:'Checkout',
-    component:CheckOut,
+    component:lazyLoad('Checkout'),
     meta:{
       requireAuth:true
     }
@@ -95,7 +98,7 @@ const routes = [
   {
     path:'/Orders',
     name:'Orders',
-    component:Orders,
+    component:lazyLoad('Orders'),
     meta:{
       requireAuth:true
     }
@@ -103,22 +106,22 @@ const routes = [
   {
     path:'/category/:ProdByCat',
     name:'ProdByCat',
-    component:ProdByCat
+    component:lazyLoad('ProdByCat')
   },
   {
     path:'/tag/:ProdByTag',
     name:'ProdByTag',
-    component:ProdByTag
+    component:lazyLoad('ProdByTag')
   },
   {
     path:'/:ProdByCat/:ProdName',
     name:'ProdOne',
-    component:ProdOne
+    component:lazyLoad('ProdOne')
   },
   {
     path:'/test',
     name:'test',
-    component:test
+    component:lazyLoad('test')
   }
       
 

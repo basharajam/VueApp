@@ -1,5 +1,6 @@
 import axios from "axios";
-import cookie from 'vue-cookies'
+import cookie from 'vue-cookies';
+import Vue from 'vue'
 
 const state  = {
 
@@ -23,6 +24,9 @@ const actions = {
 
     getLanding({commit}){
 
+        //Progress Bar
+        Vue.prototype.$Progress.start()
+
         var CountryVal= cookie.get('shipCountry');
         var CurrVal = cookie.get('wmc_current_currency');
         let cur;
@@ -37,30 +41,30 @@ const actions = {
             country='SA';
         }
 
-        
         var setUrl ='http://127.0.0.1:8000/api/Products/'+cur+'/'+country;
 
           axios.get(setUrl).then(function(response){
     
-            if(response.status != 200){
-          
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
+            // landing page 
+            var items=response.data
+            commit('LandingLayout',items)
+            
+            console.log(response)
 
-                // landing page 
-                var items=response.data
-                console.log(items)
-                commit('LandingLayout',items)
-                
-
-            }
+            //Finish Progress
+            Vue.prototype.$Progress.finish()
+        
         })
     },
     
 
     getProdByCat({commit},ProdByCat){
 
+        //Start Progress
+        Vue.prototype.$Progress.start()
+
+        
+        
         var CountryVal= cookie.get('shipCountry');
         var CurrVal = cookie.get('wmc_current_currency');
         let cur;
@@ -75,27 +79,24 @@ const actions = {
         }
         var setUrl ='http://127.0.0.1:8000/api/ProdByCat/'+ProdByCat+'/'+cur+'/'+country;
         axios.get(setUrl).then(function(response){
-    
-            if(response.status != 200){
-          
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
+            
+            
+            // Product By Category
+            var items=response.data
+            commit('ProdByCatLayout',items)
+            
+            //Finish Progress
+            Vue.prototype.$Progress.finish()
 
-                //anding Page Layout
-                //console.log(response.data)
-               
-                // Product By Category
-                var items=response.data
-                commit('ProdByCatLayout',items)
-                
-
-            }
         })
 
     },
     getProdByTag({commit},ProdByTag){
 
+        //Start Progress
+        Vue.prototype.$Progress.start()
+
+        
         var CountryVal= cookie.get('shipCountry');
         var CurrVal = cookie.get('wmc_current_currency');
         let cur;
@@ -110,27 +111,26 @@ const actions = {
         }
         var setUrl ='http://127.0.0.1:8000/api/ProdByTag/'+ProdByTag+'/'+cur+'/'+country;
         axios.get(setUrl).then(function(response){
-    
-            if(response.status != 200){
-          
-                console.log('Badddddddddddddddddddd')
-            }
-            else{
-
-                //anding Page Layout
-                //console.log(response.data)
-               
-                // Product By Category
-                var items=response.data
-                commit('ProdByTagLayout',items)
+            
+            //anding Page Layout
+            //console.log(response.data)
+            
+            // Product By Category
+            var items=response.data
+            commit('ProdByTagLayout',items)
+            
+            //Finish Progress
+            Vue.prototype.$Progress.finish()
                 
-
-            }
+    
         })
 
 
     },
     getProdOne({commit},ProdName){
+
+        //Start Progress
+        Vue.prototype.$Progress.start()
 
         var CountryVal= cookie.get('shipCountry');
         var CurrVal = cookie.get('wmc_current_currency');
@@ -148,6 +148,9 @@ const actions = {
         var url = 'http://127.0.0.1:8000/api/ProdOne/'+ProdName+'/'+cur+'/'+country;
         axios.get(url).then(function(response){
             commit('ProdOne',response.data)
+
+            //Finish Progress
+            Vue.prototype.$Progress.finish()
         })
     }
 }
