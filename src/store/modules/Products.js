@@ -41,7 +41,7 @@ const actions = {
             country='SA';
         }
 
-        var setUrl ='http://127.0.0.1:8000/api/Products/'+cur+'/'+country;
+        var setUrl =process.env.VUE_APP_DEVBASEURL+'/Products/'+cur+'/'+country;
 
           axios.get(setUrl).then(function(response){
     
@@ -77,7 +77,7 @@ const actions = {
             cur='SAR';
             country='SA';
         }
-        var setUrl ='http://127.0.0.1:8000/api/ProdByCat/'+ProdByCat+'/'+cur+'/'+country;
+        var setUrl =process.env.VUE_APP_DEVBASEURL+'/ProdByCat/'+ProdByCat+'/'+cur+'/'+country;
         axios.get(setUrl).then(function(response){
             
             
@@ -109,7 +109,7 @@ const actions = {
             cur='SAR';
             country='SA';
         }
-        var setUrl ='http://127.0.0.1:8000/api/ProdByTag/'+ProdByTag+'/'+cur+'/'+country;
+        var setUrl =process.env.VUE_APP_DEVBASEURL+'/ProdByTag/'+ProdByTag+'/'+cur+'/'+country;
         axios.get(setUrl).then(function(response){
             
             //anding Page Layout
@@ -145,7 +145,7 @@ const actions = {
             country='SA';
         }
 
-        var url = 'http://127.0.0.1:8000/api/ProdOne/'+ProdName+'/'+cur+'/'+country;
+        var url = process.env.VUE_APP_DEVBASEURL+'/ProdOne/'+ProdName+'/'+cur+'/'+country;
         axios.get(url).then(function(response){
             commit('ProdOne',response.data)
 

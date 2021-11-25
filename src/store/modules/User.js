@@ -19,7 +19,7 @@ const actions = {
 
     RegisterUser({commit},form){
 
-        var url = 'http://127.0.0.1:8000/api/RegisterByMail';
+        var url = process.env.VUE_APP_DEVBASEURL+'/api/RegisterByMail';
         axios.post(url,form).then(function(response){
             
 
@@ -33,7 +33,7 @@ const actions = {
     LoginWithMail({commit},form){
 
         const vm = new Vue({})
-        var url = 'http://127.0.0.1:8000/api/LoginByMail';
+        var url = process.env.VUE_APP_DEVBASEURL+'/LoginByMail';
         axios.post(url,form).then(function(resp){
 
             if(resp.data.status){

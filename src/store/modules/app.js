@@ -13,7 +13,7 @@ const getters={
 
 const actions={
     getConfig({commit}){
-      var url='http://127.0.0.1:8000/api/getConfig';
+      var url=process.env.VUE_APP_DEVBASEURL+'/api/getConfig';
       axios.get(url).then(function(resp){
         commit('config',resp.data.item)
       })
