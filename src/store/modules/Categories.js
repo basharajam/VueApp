@@ -31,7 +31,7 @@ const actions = {
                 cur='SAR';
                 country='SA';
             }
-            const SetUrl = 'http://127.0.0.1:8000/api/Categories/'+cur+'/'+country;
+            const SetUrl = 'https://phplaravel-608610-2049275.cloudwaysapps.com/api/Categories/'+cur+'/'+country;
             axios.get(SetUrl).then(function(response){
 
                 if(response.status != 200){
