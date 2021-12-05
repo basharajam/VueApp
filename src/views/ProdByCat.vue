@@ -1,21 +1,11 @@
 <template>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-2 d-sm-block d-none">
-                <div class="CatListHeader">
-                    <p>تصنيفات مميزة</p>
-                </div>
-                <TreeList
-                    class="item"
-                    :item="Categories.Categories"
-                    @make-folder="makeFolder"
-                    @add-item="addItem"
-                ></TreeList>
-            </div>
-            <div class="col-sm-10">
+            <SidePage></SidePage>
+            <div class="col-sm-9">
                 <b-container  >
                     <b-row class="SubCat">
-                        <b-col cols="3" class="CatItem d-flex justify-content-center" v-for="Category in Categories.Categories"  v-bind:key="Category.id">
+                        <b-col cols="3" class="CatItem d-flex justify-content-center" v-for="Category in Categories"  v-bind:key="Category.id">
                             <CatSlideItem v-bind:Category='Category'></CatSlideItem>
                         </b-col>
                     </b-row>
@@ -77,8 +67,7 @@ import landingLoader from '../components/widgets/landingLoader.vue';
 import ProdList from '../components/lists/ProdList.vue';
 import CatSlideItem from '../components/items/CatSlideItem.vue'
 import ProdCard from '../components/items/ProdCard.vue';
-import TreeList from '../components/widgets/TreeList.vue';
-
+import SidePage from '../components/widgets/SidePage.vue';
 
 export default {
 
@@ -92,24 +81,15 @@ export default {
       banner,
       landingLoader,
       CatSlideItem,
-      TreeList
+      SidePage
     },
     methods:{
-        ...mapActions(['getProdByCat','getLanding']),
-        makeFolder: function(item) {
-            this.$set(item, "children", []);
-            this.addItem(item);
-          },
-        addItem: function(item) {
-            item.children.push({
-              name: "new stuff"
-            });
-          }
+        ...mapActions(['getProdByCat']),
+
     },
     mounted(){
 
         var ProdByCat=this.$route.params.ProdByCat
-        this.getLanding();
         this.getProdByCat(ProdByCat);
 
     },

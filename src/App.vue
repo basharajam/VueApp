@@ -36,12 +36,12 @@ export default {
     // Spinner
   },
   methods:{
-    ...mapActions(['getCategories','getConfig','LoginWithCookie']),
+    ...mapActions(['getTerms','getConfig','LoginWithCookie']),
   },
 data: function() {
     return {
       spinner:true,
-      displayLayouts:['Home','ProdByCat','ProdByTag','ProdOne','AllCat','SubCat','User','About','Checkout','Orders']
+      displayLayouts:['Home','ProdByCat','ProdByTag','ProdOne','AllCat','SubCat','User','About','Checkout','Orders','Search','Shipment','Billing']
     };
   },
   mounted(){
@@ -49,9 +49,11 @@ data: function() {
  
 
     //init
-    this.getCategories();
+    this.getTerms();
     this.getConfig();
     if(this.$cookies.get('token')){
+
+      console.log('Cookie Working')
       this.LoginWithCookie({Token:this.$cookies.get('token')});
     }
 
@@ -92,6 +94,13 @@ background-color: #f5f5f5ec !important ;
   padding: 8px 0;
 
 }
+
+
+.text-start{
+    text-align: start;
+}
+
+
 .TitleList{  
     /* padding: 12px 0; */
     padding-top: 6px;
@@ -252,6 +261,10 @@ position: relative;
 
 .sr-only{
   display: none;
+}
+
+.modal-body{
+  padding: 0 !important;
 }
 
 .btn-outline-warning{

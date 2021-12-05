@@ -57,7 +57,7 @@
                             <span class="content py-3">
                                 {{$t('SpecialOrdersDesc')}}
                                 <br>
-                                <span> <a href="https://wa.me/8617757971070">1070 5797 177 0086</a>.  </span>
+                                <span> <a href="https://wa.me/8615557979977"> 9977 5797 155 0086 </a>.  </span>
                             </span>
                         </div>
                     </div>

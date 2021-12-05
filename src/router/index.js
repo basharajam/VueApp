@@ -1,29 +1,14 @@
-// import Home from '../views/home';
-// import about from '../views/about';
-// import ProdOne from '../views/ProdOne';
-// import ProdByCat from '../views/ProdByCat';
-// import Login from '../views/Login';
-// import Register from '../views/Register';
-// import AllCat from '../views/AllCat';
-// import User from '../views/User';
-// import CheckOut from '../views/Checkout';
-// import ProdByTag from '../views/ProdByTag';
-// import Rate from '../views/rate';
-// import Orders from '../views/Orders.vue';
-// import test from '../views/test';
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import VueCookies  from 'vue-cookies';
 import store from '../store/index';
 import _ from 'lodash';
-// import { i18n } from "../main.js";
+
+
 Vue.use(VueRouter)
 function lazyLoad(view){
   return() => import(`@/views/${view}.vue`)
 }
-
-
-
 
 const routes = [
   
@@ -73,6 +58,11 @@ const routes = [
 
   },
   {
+    path:'/Search/:term',
+    name:'Search',
+    component:lazyLoad('search')
+  },
+  {
     path:'/Rate',
     name:'Rate',
     component:lazyLoad('rate')
@@ -104,6 +94,20 @@ const routes = [
     }
   },
   {
+    path:'/Shipment',
+    name:'Shipment',
+    component:lazyLoad('Shipment'),
+    meta:{
+      requireAuth:true
+    }
+  },
+  {
+    path:'/Billing',
+    name:'Billing',
+    component:lazyLoad('Billing')
+
+  },
+  {
     path:'/category/:ProdByCat',
     name:'ProdByCat',
     component:lazyLoad('ProdByCat')
@@ -132,7 +136,7 @@ const routes = [
 
 const router = new VueRouter({
   routes,
-  mode: 'history'
+  mode: 'history',
 })
 
 

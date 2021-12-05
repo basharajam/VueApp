@@ -13,7 +13,7 @@ const getters={
 
 const actions={
     getConfig({commit}){
-      var url=process.env.VUE_APP_DEVBASEURL+'/api/getConfig';
+      var url=process.env.VUE_APP_DEVBASEURL+'/getConfig';
       axios.get(url).then(function(resp){
         commit('config',resp.data.item)
       })
@@ -25,7 +25,8 @@ const actions={
       }
       commit('CurrCountry',CurrCountryObj)
 
-    }
+    },
+
 }
 
 

@@ -21,7 +21,7 @@
     <div class="CatNavLinks scrollmenu d-flex" style="overflow-y: hidden !important">
         <a @mouseover="AllCatClicked()" v-if="$mq === 'md' || $mq === 'lg'" > {{$t('AlCat')}} </a>
         <a  v-if="$mq === 'sm'" href="https://www.alyaman.com/shop" > {{$t('AlCat')}}</a>
-        <router-link :to="{ name:'ProdByCat', params:{ ProdByCat:Category.name } }" v-for="Category in Categories.Categories" v-bind:key="Category.id"> {{ Category.name }} </router-link>
+        <router-link :to="{ name:'ProdByCat', params:{ ProdByCat:Category.name } }" v-for="Category in Categories" v-bind:key="Category.id"> {{ Category.name }} </router-link>
     </div>
 
     <!-- Category Dropdown  -->
@@ -33,7 +33,7 @@
         >
           <b-card-text>
             <ul class="list-unstyled DrpCatList">
-              <li v-for="Category in Categories.Categories" v-bind:key="Category.id" @mouseover="CatDrpSubActivate(Category)" >
+              <li v-for="Category in Categories" v-bind:key="Category.id" @mouseover="CatDrpSubActivate(Category)" >
                 <router-link :to="{ name:'ProdByCat' }">
                   {{Category.name}}
                 </router-link>

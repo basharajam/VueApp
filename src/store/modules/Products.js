@@ -48,8 +48,6 @@ const actions = {
             // landing page 
             var items=response.data
             commit('LandingLayout',items)
-            
-            console.log(response)
 
             //Finish Progress
             Vue.prototype.$Progress.finish()
@@ -148,6 +146,8 @@ const actions = {
         var url = process.env.VUE_APP_DEVBASEURL+'/ProdOne/'+ProdName+'/'+cur+'/'+country;
         axios.get(url).then(function(response){
             commit('ProdOne',response.data)
+
+           
 
             //Finish Progress
             Vue.prototype.$Progress.finish()

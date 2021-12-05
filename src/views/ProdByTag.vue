@@ -1,7 +1,8 @@
 <template>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-10">
+            <SidePage></SidePage>
+            <div class="col-sm-9">
                 <b-container  >
 
                     <b-row>
@@ -58,6 +59,7 @@ import banner from '../components/widgets/Banner.vue';
 import landingLoader from '../components/widgets/landingLoader.vue';
 import ProdList from '../components/lists/ProdList.vue';
 import ProdCard from '../components/items/ProdCard.vue';
+import SidePage from '../components/widgets/SidePage.vue';
 
 export default {  
 
@@ -70,6 +72,7 @@ export default {
       ProdCard,
       banner,
       landingLoader,
+      SidePage
     },
     methods:{
         ...mapActions(['getProdByTag','getLanding']),

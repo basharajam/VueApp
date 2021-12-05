@@ -1,40 +1,30 @@
 <template>
     <div class="headerTop" >
-        <!-- <div class="headerTopLinks d-flex" v-if="$mq === 'md' || $mq === 'lg' ">
-        <a href="https://alyaman.com/my-account/edit-account/"> إنشاء حساب </a>
-        <div class="headerTopDivider"></div>
-        <a href="https://wa.me/8617757971070">خدمة العملاء</a>
-        <div class="headerTopDivider"></div>
-        <a href="https://alyaman.com/%d9%83%d9%8a%d9%81%d9%8a%d8%a9-%d8%aa%d9%82%d8%af%d9%8a%d9%85-%d8%b7%d9%84%d8%a8-%d8%b4%d8%b1%d8%a7%d8%a1/"> كيفية الشراء </a>
-        <div class="headerTopDivider"></div>
-        <a href="https://www.alyaman.com/remember/"> سياسات الخصوصية </a>
-        </div> -->
-            
-            <div class="headerDrp d-flex align-items-center " v-if="$mq === 'sm'">
-                <b-dropdown id="dropdown-0"  variant="none" class="ShipBtn" no-flip no-caret>
-                    <template #button-content style="margin-bottom:0 !important">
-                        <div class="d-flex align-items-center">
-                            <div class="stack" style="color: white; flex-direction:row;align-items: flex-end; margin-left: 10px;display: flex;">
-                                <span style="font-size: 12px;margin: 0 6px;"> الشحن إلى :</span>
-                                <span style="font-weight: bold;font-size: 12px"> {{SelectedCountryText}}</span>
-                            </div>
-                            <div style="color: white;width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
+        <div class="headerDrp d-flex align-items-center " v-if="$mq === 'sm'">
+            <b-dropdown id="dropdown-0"  variant="none" class="ShipBtn" no-flip no-caret>
+                <template #button-content style="margin-bottom:0 !important">
+                    <div class="d-flex align-items-center">
+                        <div class="stack" style="color: white; flex-direction:row;align-items: flex-end; margin-left: 10px;display: flex;">
+                            <span style="font-size: 12px;margin: 0 6px;"> الشحن إلى :</span>
+                            <span style="font-weight: bold;font-size: 12px"> {{SelectedCountryText}}</span>
                         </div>
-                    </template>
-                <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
-                    <b-form-group label="العملة" class="drpSel" >
-                        <b-form-select v-model="CurrInput" size="sm" class="dropSelect" :options="CurOptions"></b-form-select>
-                    </b-form-group>
+                        <div style="color: white;width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
+                    </div>
+                </template>
+            <b-dropdown-form @submit.prevent="UpdateCurSubmit()" >
+                <b-form-group label="العملة" class="drpSel" >
+                    <b-form-select v-model="CurrInput" size="sm" class="dropSelect" :options="CurOptions"></b-form-select>
+                </b-form-group>
 
-                    <b-form-group label="الشحن الى" class="drpSel" >
-                        <b-form-select v-model="CountryInput" size="sm" class="dropSelect" :options="CountryOptions"></b-form-select>
-                    </b-form-group>
-                    <b-form-group>
-                        <b-button type="submit" block pill variant="outline-warning updCurrSubmit" >حفظ</b-button>
-                    </b-form-group>
-                </b-dropdown-form>
-                </b-dropdown>
-            </div>
+                <b-form-group label="الشحن الى" class="drpSel" >
+                    <b-form-select v-model="CountryInput" size="sm" class="dropSelect" :options="CountryOptions"></b-form-select>
+                </b-form-group>
+                <b-form-group>
+                    <b-button type="submit" block pill variant="outline-warning updCurrSubmit" >حفظ</b-button>
+                </b-form-group>
+            </b-dropdown-form>
+            </b-dropdown>
+        </div>
     </div>  
 </template>
 

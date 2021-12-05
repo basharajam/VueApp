@@ -3,8 +3,8 @@
         <div class="ProdCard ">
         <div class="product-grid">
             <div class="product-image">
-            <div class="product-description" v-html=" Product.short_description"></div>
-                <router-link :to="{ name:'ProdOne', params:{ ProdName:Product.name , ProdByCat:Product.Category.name } }" class="image" style="min-width:150;">
+            <div class="product-description" v-if="Product.short_description" v-html="Product.short_description"></div>
+                <router-link :to="{ name:'ProdOne', params:{ProdByCat:Product.Category.name , ProdName:Product.name } }" class="image" style="min-width:150;">
                     <vue-load-image>
                         <img slot="image"  class="pic-1 img-fluid mx-auto"  :src="Product.images[0].src" :alt="Product.name" width="210" height="210" >
                         <img slot="preloader" class="img-fluid mx-auto" src="@/assets/loader.png"  width="210" height="210" />

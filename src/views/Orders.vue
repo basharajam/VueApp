@@ -1,12 +1,19 @@
 <template>
     <b-container>
-        <b-row>
-            <b-col sm="10" >
-                <b-card class="my-4" >
-                <b-tabs pills v-model="OrderTabs" @input="changeTab(OrderTabs)"  >
+        <b-row class="my-3">
+            <b-col sm="3" >
+                <UserLinks></UserLinks>
+            </b-col>
+            <b-col sm="9" >
+                <b-card >
+                 <b-tabs pills v-model="OrderTabs" @input="changeTab(OrderTabs)"  >
                     <b-tab title="الكل" active>
                         <spinner v-if="!this.displayOrderAll" class="m-3"></spinner>
-                        <v-client-table v-if="this.displayOrderAll" :data="AllOrderArr" :columns="tbcolumn" />
+                        <v-client-table v-if="this.displayOrderAll" :data="AllOrderArr" :columns="tbcolumn" >
+                         <span slot="order_detail" slot-scope="{row}" >
+                            <b-button v-b-modal.modal-order-details @click="updateOrderModal(row)" >details</b-button>
+                         </span>
+                        </v-client-table>
                     </b-tab>
                     <b-tab title="المكتملة" >
                         <spinner v-if="!this.displayOrderCompleted" class="m-3"></spinner>
@@ -20,27 +27,38 @@
                         <spinner v-if="!this.displayOrderCancelld" ></spinner>
                         <v-client-table v-if="this.displayOrderCancelld" :data="CancelldOrderArr" :columns="tbcolumn" />
                     </b-tab>
-                </b-tabs>
+                 </b-tabs>
+
+                 <b-modal id="modal-order-details" hide-header hide-footer >
+                    <div class="p-3">
+                        <p>تم تقديم الطلب #18389 في أغسطس 22, 2021 وهو الآن بحالة ملغي.</p>
+                        <b-row>
+                         <!-- <h4>تفاصيل الطلب</h4> -->
+                         <b-col sm="12">
+                           <b-table :items="this.OrderItemsArr" :fields="this.OrderItemsFields" responsive small ></b-table>
+                           <b-table :items="this.OrderInvoiceDetail" :fields="this.OrderInvoiceDetailFields" responsive small stacked label-align="left"></b-table>
+                         </b-col>
+                        </b-row>
+                    </div>
+                 </b-modal>
                 </b-card>
             </b-col>
-            <b-col sm="2" >
-
-            </b-col>
         </b-row>
+
     </b-container>
 </template>
 
 <script>
 
 import axios from 'axios';
-
-
 import spinner from '../components/widgets/spinner.vue';
+import UserLinks from '../components/widgets/UserLinks.vue';
 
 export default {
 
     components:{
         spinner,
+        UserLinks
         
     },
     data(){
@@ -51,11 +69,38 @@ export default {
             CompletedOrdersArr:[],
             OnHoldOrderArr:[],
             CancelldOrderArr:[],
+            OrderItemsArr:[],
+            OrderInvoiceDetail:[],
+            OrderItemsFields:[
+                {
+                    key:'order_item_name',
+                    label:'Product name'
+                }
+            ],
+            OrderInvoiceDetailFields:[
+                {
+                    key: 'total',
+                    label: 'full',
+                    thClass: 'text-left',
+                    tdClass: 'table-text-alignX',
+                },
+                {
+                    key: 'shipping_address.address_1',
+                    label: 'shipment',
+                    thClass: 'text-start',
+                    tdClass: 'table-text-alignX',
+                },
+                {
+                    key:'payment.method',
+                    label:'payment way',
+                    tdClass: 'table-text-alignX'
+                }
+            ],
             displayOrderAll:false,
             displayOrderCompleted:false,
             displayOrderCancelld:false,
             displayOrderOnHold:false,
-            tbcolumn:['ID','post_author','post_title','total']
+            tbcolumn:['ID','post_author','post_title','total','order_detail']
         }
 
     },
@@ -94,10 +139,6 @@ export default {
                      self.displayOrderCancelld=true
                         break;
                 }
-
-                console.log(Ordstatus)
-                console.log(resp.data)
-
               }
 
             })
@@ -107,7 +148,6 @@ export default {
 
             if(this.OrderTabs === 0){
 
-                console.log('All Orders')
                 if(this.AllOrderArr.length === 0){
                     //enable spinner
                     this.displayOrderAll=false;
@@ -118,7 +158,6 @@ export default {
             }
             else if(this.OrderTabs === 1){
 
-                console.log('Completed Orders')
                 if(this.CompletedOrdersArr.length === 0){
 
                     this.displayOrderCompleted=false;
@@ -129,7 +168,6 @@ export default {
             }
             else if(this.OrderTabs === 2){
 
-                console.log('On-Hold Orders')
                 if(this.OnHoldOrderArr.length === 0){
 
                     this.displayOrderOnHold=false;
@@ -140,7 +178,6 @@ export default {
             }
             else if(this.OrderTabs === 3){
 
-                console.log('Cancelld Orders')
                 if(this.CancelldOrderArr.length === 0){
 
                     this.displayOrderCancelld=false;
@@ -150,6 +187,14 @@ export default {
 
             }
 
+        },
+
+        updateOrderModal(order){
+
+            this.OrderInvoiceDetail.push(order)
+
+            this.OrderItemsArr=order.items;
+            console.log(order)
         }
 
     },
@@ -167,6 +212,22 @@ export default {
 
 }
 </script>
+
+
+<style >
+.table-text-alignX{
+ color:red
+}
+
+
+.table-text-alignX div::before {
+    content: attr(data-label);
+    text-align:unset !important;
+}
+.table-text-alignX div{
+    text-align: justify;
+}
+</style>
 
 <style scoped>
 

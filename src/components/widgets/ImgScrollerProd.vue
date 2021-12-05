@@ -1,12 +1,11 @@
 <template>
-<div class="">
-    <flickity ref="flickity" :options="flickityOptions" class="carousel-main" v-if="gallery.length >0">
-        <img :src="img.guid" v-for="img in gallery" v-bind:key="img.ID" alt="">
+<div class="" >
+    <flickity ref="flickity" v-if="displayScroll" :options="flickityOptions" class="carousel-main" >
+        <img :src="img.url" v-for="img in gallery"  height="500" v-bind:key="img.ID" alt="">
     </flickity>
-    <flickity ref="flickity2" class="carousel-thumb " v-if="gallery.length >0" :options="flickityOptions2">
-        <img :src="img.guid" v-for="img in gallery" width="100" height="100" v-bind:key="img.ID" alt="">
+    <flickity ref="flickity2" v-if="displayScroll"  class="carousel-thumb " :options="flickityOptions2">
+        <img :src="img.url" v-for="img in gallery" width="100" height="100" v-bind:key="img.ID" alt="">
     </flickity>
-
 </div>
 </template>
 
@@ -31,16 +30,26 @@ export default {
             // any options from Flickity can be used
          },
          flickityOptions2:{
+                height:500,
                 asNavFor: '.carousel-main',
                 freeScroll: false,
                 contain: true,
-                prevNextButtons: false,
+                prevNextButtons: true,
                 pageDots: false,
                 wrapAround: false,
            
-         }
+         },
+         displayScroll:false
         }
   },
+  watch:{
+      gallery(newValue){
+
+        if(newValue){
+            this.displayScroll=true
+        }
+      }
+  }
 
 }
 </script>

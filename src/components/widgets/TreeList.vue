@@ -1,13 +1,12 @@
 <template>
         <div class="Treelist">
             <div class="item"
-                v-for="(child, index) in item"
-                :key="index"
-                
+              v-for="(child, index) in item"
+              :key="index"
             >
             <div v-if="isFolder(child)" >
                 <span @click="toggle(child)">[{{ isOpen ? '-' : '+' }}]</span>
-                <router-link :to="{ name:'ProdByCat' }">
+                <router-link :to="{ name:'ProdByCat', }">
                   {{ child.name }}
                 </router-link>
             </div>

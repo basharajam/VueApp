@@ -1,41 +1,47 @@
 <template>
-    <nav class="navbar navbar-expand-lg navbar-light sticky-top bg-light p-0 justify-content-start"  style="    border-bottom: 1px #d1d1d1d1 solid;z-index: 988 !important;">
+    <nav class="navbar navbar-expand-lg flex-nowrap navbar-light sticky-top bg-light p-0 justify-content-start"  style="    border-bottom: 1px #d1d1d1d1 solid;z-index: 988 !important;">
         <router-link :to="{ name: 'Home' }" class="navbar-brand col-sm-3 col-3 px-0" aria-label="Al-yaman">
           <img  src="@/assets/icon.png" class="w-100" alt="" >
         </router-link>
-        <div class="headerDrp px-0 " v-if="$mq === 'md' || $mq === 'lg' &&  Object.keys(CurOptions).length >0 && Object.keys(CountryOptions).length >0 ">
-          <b-dropdown id="dropdown-1"  variant="none" class=" ShipBtn " no-flip no-caret>
-                <template #button-content>
-                    <div class="d-flex align-items-center">
-                      <country-flag :country='CountrySh' size='normal' />
-                      <div class="stack" style="flex-direction: column;align-items: flex-end; margin-left: 10px;display: flex;">
-                          <span>{{$t('ShipTo')}}</span>
-                          <span style="font-weight: bold;font-size: 20px;"> {{SelectedCountryText}}</span>
-                      </div>
-                      <div style="width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
-                    </div>
-                </template>
-                <spinner v-if="Object.keys(CurOptions).length === 0 && Object.keys(CountryOptions).length === 0" ></spinner>
-                <b-dropdown-form v-if="Object.keys(CurOptions).length > 0 && Object.keys(CountryOptions).length > 0" @submit.prevent="UpdateCurSubmit()" >
-                    <b-form-group :label="$t('Curr')" class="drpSel" >
-                        <b-form-select v-model="CurrInput" class="dropSelect" size="sm" :options="CurOptions"></b-form-select>
-                    </b-form-group>
 
-                    <b-form-group :label="$t('ShipTo')" class="drpSel" >
-                        <b-form-select v-model="CountryInput" class="dropSelect" size="sm" :options="CountryOptions"></b-form-select>
-                    </b-form-group>
-                    <b-form-group>
-                      <b-button type="submit" block pill variant="outline-warning updCurrSubmit " >حفظ</b-button>
-                    </b-form-group>
-                </b-dropdown-form>
-          </b-dropdown>
-        </div>
-        
-          <div class="SearchSection d-flex align-items-center col-md-3 col-lg-4 col-7 px-0" >
-            <!-- <i style="position: relative;right: 38px;top:0px;" class="fa fa-search"></i> -->
-            <input class="form-control mr-sm-2 SearchInput pr-5" aria-describedby="basic-addon1" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="search" placeholder="بحث" >
+        <b-row class=" px-0 px-sm-3">
+          <div class="headerDrp col-sm-3" v-if="$mq === 'md' || $mq === 'lg' &&  Object.keys(CurOptions).length >0 && Object.keys(CountryOptions).length >0 ">
+            <b-dropdown id="dropdown-1"  variant="none" class=" ShipBtn " no-flip no-caret>
+                  <template #button-content>
+                      <div class="d-flex align-items-center">
+                        <country-flag :country='CountrySh' size='normal' />
+                        <div class="stack" style="flex-direction: column;align-items: flex-end; margin-left: 10px;display: flex;">
+                            <span>{{$t('ShipTo')}}</span>
+                            <span style="font-weight: bold;font-size: 20px;"> {{SelectedCountryText}}</span>
+                        </div>
+                        <div style="width: 0px;height: 0px;border-left: 6px solid transparent;border-right: 6px solid transparent;border-top: 6px solid"></div>
+                      </div>
+                  </template>
+                  <spinner v-if="Object.keys(CurOptions).length === 0 && Object.keys(CountryOptions).length === 0" ></spinner>
+                  <b-dropdown-form v-if="Object.keys(CurOptions).length > 0 && Object.keys(CountryOptions).length > 0" @submit.prevent="UpdateCurSubmit()" >
+                      <b-form-group :label="$t('Curr')" class="drpSel" >
+                          <b-form-select v-model="CurrInput" class="dropSelect" size="sm" :options="CurOptions"></b-form-select>
+                      </b-form-group>
+
+                      <b-form-group :label="$t('ShipTo')" class="drpSel" >
+                          <b-form-select v-model="CountryInput" class="dropSelect" size="sm" :options="CountryOptions"></b-form-select>
+                      </b-form-group>
+                      <b-form-group>
+                        <b-button type="submit" block pill variant="outline-warning updCurrSubmit " >حفظ</b-button>
+                      </b-form-group>
+                  </b-dropdown-form>
+            </b-dropdown>
           </div>
-          <div class="HeaderIcons d-none d-sm-inline-flex">
+          <div class="SearchSection d-flex align-items-center col-sm-6" >
+            <!-- <i style="position: relative;right: 38px;top:0px;" class="fa fa-search"></i> -->
+            <b-form @submit.prevent="onSubmitSearch()" style="flex:1" class="" >
+             <!-- <b-form-input class=" mr-sm-2 SearchInput pr-5" aria-describedby="basic-addon1" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="search" placeholder="بحث" >  --> 
+              <b-form-input class=" mr-sm-2 SearchInput pr-5" type="search" v-model="SearchInput" ></b-form-input>
+            
+            </b-form>
+          </div>
+
+          <div class="HeaderIcons col-sm-2 align-items-center d-none d-sm-inline-flex">
 
             <div v-if="isLoggedIn">
               <b-dropdown id="dropdown-1" text="Dropdown Button" variant="none" no-flip no-caret>
@@ -70,17 +76,10 @@
                   </div>
                 </b-dropdown-item-button>
             </b-dropdown>
-          
-            <!-- <a href="https://alyaman.com/cart/" aria-label="سلة التسوق"> 
-             <i class="fal fa-shopping-cart"></i>
-             <span class="CartCountHeading" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >
-              <span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span>
-             </span>             
-             <span class="CartCountHeading" v-else >
-              0
-             </span> 
-            </a> -->
           </div>
+
+        </b-row>
+        
           <div class="SearchResult" v-if="SearchRes">
               <div v-if="innerSpinner" class="innerSpinner">
                 <img src="spinner.png" class="innerSpinner0"> 
@@ -151,7 +150,7 @@ export default {
 
     },
     computed:{
-      ...mapGetters(['config','Token','User']),
+      ...mapGetters(['config','Token','User','CurrCountry']),
       isLoggedIn(){
         if(!_.isEmpty(this.User) && !_.isEmpty(this.Token)){
           return true;
@@ -190,7 +189,47 @@ export default {
           this.SelectedCountryText =Countr[0].name;
 
         }
+      },
+      $route(){
+
+        console.log('route changed')
+        if(this.CurrCountry && this.config){
+
+
+
+          console.log('has settings')
+          console.log(this.CurrCountry)
+          console.log(this.config)
+
+          var Shipment=this.config.Shipment
+          var Currency =this.config.Currency
+
+
+          let CountryObj={};
+          let CurrObj={};
+
+          Shipment.forEach(item => {
+            CountryObj[item.key]=item.name
+          });
+          this.CountryOptions=CountryObj;
+
+          Currency.forEach(item => {
+            CurrObj[item.key]=item.name
+          });
+          this.CurOptions=CurrObj;
+
+
+          var Countr=Shipment.filter(obj => {
+            return obj.key === this.CountryVal0
+          })
+
+          this.CountrySh=Countr[0].subValue;
+          this.SelectedCountryText =Countr[0].name;
+
+        }
+        
       }
+
     },
     methods:{
 
@@ -277,7 +316,51 @@ export default {
           //Change Locale 
           this.$root.$i18n.locale = lang.key
 
+         },
+         onSubmitSearch:function(){
+
+          this.$router.push({'name':'Search',params:{term: this.SearchInput}}); 
+        
          }
+    },
+    mounted(){
+
+        console.log('mounted')
+        console.log('route changed')
+        if(this.CurrCountry && this.config){
+
+          console.log('has settings')
+          console.log(this.CurrCountry)
+          console.log(this.config)
+
+          var Shipment=this.config.Shipment
+          var Currency =this.config.Currency
+
+
+          let CountryObj={};
+          let CurrObj={};
+
+          Shipment.forEach(item => {
+            CountryObj[item.key]=item.name
+          });
+          this.CountryOptions=CountryObj;
+
+          Currency.forEach(item => {
+            CurrObj[item.key]=item.name
+          });
+          this.CurOptions=CurrObj;
+
+
+          var Countr=Shipment.filter(obj => {
+            return obj.key === this.CountryVal0
+          })
+
+          this.CountrySh=Countr[0].subValue;
+          this.SelectedCountryText =Countr[0].name;
+
+       }
+
+
     }
 }
 </script>

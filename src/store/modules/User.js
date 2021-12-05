@@ -19,7 +19,7 @@ const actions = {
 
     RegisterUser({commit},form){
 
-        var url = process.env.VUE_APP_DEVBASEURL+'/api/RegisterByMail';
+        var url = process.env.VUE_APP_DEVBASEURL+'/RegisterByMail';
         axios.post(url,form).then(function(response){
             
 
@@ -54,7 +54,9 @@ const actions = {
                 VueCookie.set('token',cipher)
 
                 //Set Token Auth header Axios
-                axios.defaults.headers.common['Authorization'] = 'Bearer '+txt
+                axios.defaults.headers.common['Authorization'] = 'Bearer '+txt;
+
+                console.log(txt)
                 
                 router.push({ name:'Home' })
 
@@ -76,15 +78,13 @@ const actions = {
         const txt= data.token;
         
         const cipher = CryptoJS.AES.encrypt(JSON.stringify(txt),key).toString()
-        let encData = CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(cipher))
-
         var user=JSON.parse(data.user.replace(/&quot;/g,'"'));
 
         //Save On Cookie
 
         commit('User',user)
         commit('Token',txt)
-        VueCookie.set('token',encData)
+        VueCookie.set('token',cipher)
         
     },
     LoginWithCookie({commit},data){
@@ -94,18 +94,19 @@ const actions = {
 
         //Dcrypyt Token
         var key = process.env.VUE_APP_ENCKEY;
-    
+        
+        
         //Decrypt
         const dcrypted = CryptoJS.AES.decrypt(data.Token,key).toString(CryptoJS.enc.Utf8);
-        axios.get(url,{
-            headers: {
-                'Authorization': 'Bearer '+JSON.parse(dcrypted)
-              }
-        }).then(resp=>{
+        var replacedToken = dcrypted.replace(/['"]+/g, '');
+        
+        axios.defaults.headers.common['Authorization'] = 'Bearer '+replacedToken;
+
+        axios.get(url).then(resp=>{
             console.log(resp)
             if(resp.data.status){
                 commit('User',resp.data.items.user)
-                commit('Token',dcrypted)
+                commit('Token',replacedToken)
             }
         })
 

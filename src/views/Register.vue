@@ -68,17 +68,17 @@
                                     </b-col>
                                     <b-col cols="12" sm="6">
                                         <b-form-group
-                                            id="lastNameI"
-                                            label-for="lastNameI"
+                                            id="LastNameI"
+                                            label-for="LastNameI"
                                         >
                                             <b-form-input
-                                            id="lastNameI"
+                                            id="LastNameI"
                                             type="text"
                                             placeholder="الأسم الأخير"
                                             class="rounded-form"
-                                            v-model.lazy="form.lastNameI"
-                                            @blur="$v.form.lastNameI.$touch"
-                                            :state="validateState('lastNameI')"
+                                            v-model.lazy="form.LastNameI"
+                                            @blur="$v.form.LastNameI.$touch"
+                                            :state="validateState('LastNameI')"
                                             
                                             ></b-form-input>
                                         </b-form-group>
@@ -212,7 +212,7 @@ export default {
         return {
           form: {
             FirstNameI: null,
-            lastNameI: null,
+            LastNameI: null,
             MailI:null,
             UserNameI:null,
             PassI:null,
@@ -227,7 +227,7 @@ export default {
                 required,
                 minLength: minLength(3)
             },
-            lastNameI: {
+            LastNameI: {
                 required,
                 minLength: minLength(3)
             },

@@ -14,9 +14,7 @@ import LoadScript from 'vue-plugin-load-script';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import { ClientTable, } from 'vue-tables-2';
 import VueProgressBar from 'vue-progressbar'
-import './assets/custom.scss';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap-vue/dist/bootstrap-vue.css';
+
 import './assets/custom.scss';
 
 
@@ -45,7 +43,7 @@ Vue.use(VueMq,{
 Vue.use(VueProgressBar, {
   color: '#f6601a',
   failedColor: 'red',
-  height: '12px'
+  height: '18px'
 })
 
 

@@ -4,7 +4,7 @@
     <b-container fluid> 
         
         <b-row class="AllCat">
-            <b-col cols="3" class="CatItem d-flex justify-content-center" v-for="Category in Categories.Categories"  v-bind:key="Category.id">
+            <b-col cols="3" class="CatItem d-flex justify-content-center" v-for="Category in Categories"  v-bind:key="Category.id">
                 <CatSlideItem v-bind:Category='Category' ></CatSlideItem>
             </b-col>
         </b-row>
