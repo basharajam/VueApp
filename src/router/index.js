@@ -104,7 +104,10 @@ const routes = [
   {
     path:'/Billing',
     name:'Billing',
-    component:lazyLoad('Billing')
+    component:lazyLoad('Billing'),
+    meta:{
+      requireAuth:true
+    }
 
   },
   {

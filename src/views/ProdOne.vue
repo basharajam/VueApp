@@ -53,10 +53,9 @@
                 <img slot="preloader" class="img-fluid mx-auto" src="@/assets/loader.png"  />
                 <img slot="error" class="img-fluid mx-auto" src="@/assets/loader.png" />
               </vue-load-image>
-            
-             <h4 class="py-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni minus suscipit, aspernatur animi doloremque rem fuga ratione consequatur nam eaque beatae! Voluptatibus animi ut, facere dicta esse optio quos inventore.</h4>
             </b-col>
-            <b-col cols="12" sm='4' class="text-right p-1">
+            <b-col cols="12" sm='7' class="text-right p-1">
+             <h5 class="py-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni minus suscipit, </h5>
               <div class="PropsList d-flex flex-column">
                 <div v-for="(Prop,index) in DistruProps" v-bind:key="index" class="d-flex flex-column Prop my-2">
                   <p class="text-center m-0">Test</p>

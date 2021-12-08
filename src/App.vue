@@ -159,9 +159,9 @@ position: relative;
 }
 
 .scrollmenu {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
-          width:100%;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+  width:100%;
 }
 
 .carousel-item{
@@ -266,25 +266,6 @@ position: relative;
 .modal-body{
   padding: 0 !important;
 }
-
-.btn-outline-warning{
-  color: #9d3c9a  !important ;
-  border-color: #9d3c9a  !important;
-}
-
-.btn-outline-warning:not(:disabled):not(.disabled).active, .btn-outline-warning:not(:disabled):not(.disabled):active, .show>.btn-outline-warning.dropdown-toggle{
-  background-color: #9d3c9a !important;
-  border-color: #9d3c9a  !important;
-  color: white !important;
-}
-.btn-outline-warning:hover {
-  background-color: white !important;
-  border-color: #9d3c9a  !important;
-}
-
-.btn-outline-warning:not(:disabled):not(.disabled):active:focus, .btn-outline-warning:not(:disabled):not(.disabled).active:focus, .show > .btn-outline-warning.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.2rem rgb(157 60 154 / 24%) !important;
-}
 .rounded-form {
   border-radius: 20px !important;
 }
@@ -296,13 +277,10 @@ position: relative;
   outline: 0;
   box-shadow: 0 0 0 0.25rem #ff990059;
 }
-
 span.amount {
-
   font-weight: normal !important;
-      color: #fa6810 !important;
+  color: #fa6810 !important;
 }
-
 
 .drpSel{
   text-align: start;
@@ -324,27 +302,16 @@ background: #9d3c9a !important;
 color: white !important;
 
 }
-
 .nav-link, .nav-link:active .nav-link:hover{
   color:#808080
 }
-/* .nav-link.active{
-  background-color:#f45e1f !important;
-} */
+
 
 /*Desktop */
 @media only screen and  (min-width: 1366px ) and (max-width:1440px){
-
-  .spinner{
-    width:8%!important;
-    right: 45% !important;
-  }
-
   .flickity-viewport {
     height: 400px!important;
   }
-
-
 }
 
 @media  only screen and (min-width:1024px) and (max-width:1024px) {

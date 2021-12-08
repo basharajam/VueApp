@@ -144,7 +144,7 @@ export default {
         return  {
           form: {
             name: null,
-            food: null,
+
             desc:null
           },
           DistruProps:[],

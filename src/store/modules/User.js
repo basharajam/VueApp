@@ -112,6 +112,25 @@ const actions = {
 
     },
 
+    UpdateUser({commit},form){
+
+
+        console.log(form)
+        var url =process.env.VUE_APP_DEVBASEURL+'/UpdateUser';
+
+        axios.post(url,form).then((resp)=>{
+
+            var data = resp.data;
+            if(data.state){
+                commit('User',data.items.user)
+
+                //feth Success Error
+            }
+
+
+        })
+
+    },
     LogOut({commit}){
 
         

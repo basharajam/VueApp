@@ -56,6 +56,8 @@
                   </template>
                   <b-dropdown-item :to="{name:'User'}" class="text-center" >حسابي</b-dropdown-item>
                   <b-dropdown-item :to="{name:'Orders'}"   class="text-center"  >طلباتي</b-dropdown-item>
+                  <b-dropdown-item :to="{name:'Billing'}"   class="text-center"  >الفواتير</b-dropdown-item>
+                  <b-dropdown-item :to="{name:'Shipment'}"   class="text-center"  >الشحن</b-dropdown-item>
                   <b-dropdown-item :to="{name:'LogOut'}" class="text-center" >تسجيل خروج</b-dropdown-item>
               </b-dropdown>
             </div>
@@ -63,6 +65,7 @@
             <div class="HeaderDivider"></div>
             <b-button variant="none" class="p-0" @click="toggleCart()">
               <i class="fal fa-shopping-cart"></i>
+
             </b-button>
             <div class="HeaderDivider"></div>
             <b-dropdown id="dropdown-1" text="Dropdown Button" variant="none" no-flip no-caret>
@@ -192,18 +195,10 @@ export default {
       },
       $route(){
 
-        console.log('route changed')
         if(this.CurrCountry && this.config){
-
-
-
-          console.log('has settings')
-          console.log(this.CurrCountry)
-          console.log(this.config)
 
           var Shipment=this.config.Shipment
           var Currency =this.config.Currency
-
 
           let CountryObj={};
           let CurrObj={};
@@ -274,9 +269,6 @@ export default {
            }
            else{
 
-             //Display Search Icon
-             //  this.search = true
-             //Hide Search Result List
              this.SearchRes=false
            }
          },1000),
@@ -286,23 +278,16 @@ export default {
          hideIcon(){
            this.search = false
          },
-         UpdateCurSubmit(){
-           
-           //Do Request To Get New Data ---later
-           //this.getProdByTax();
-           
-            //Display Spinner 
+         UpdateCurSubmit(){ 
 
-           //Hide Spinner 
+          //Save New Cookie With values 
+          this.$cookies.set('shipCountry',this.CountryInput);
+          this.$cookies.set('wmc_current_currency',this.CurrInput);
+          this.$cookies.set('wmc_current_currency_old',this.CurrInput);
 
-           //Save New Cookie With values 
-           this.$cookies.set('shipCountry',this.CountryInput);
-           this.$cookies.set('wmc_current_currency',this.CurrInput);
-           this.$cookies.set('wmc_current_currency_old',this.CurrInput);
-
-            // Refresh The Page
-            window.location.reload()
-            //this.$forceUpdate();
+          // Refresh The Page
+          window.location.reload()
+      
          },
          UpdateLocale(lang){
            
@@ -325,13 +310,8 @@ export default {
     },
     mounted(){
 
-        console.log('mounted')
-        console.log('route changed')
         if(this.CurrCountry && this.config){
 
-          console.log('has settings')
-          console.log(this.CurrCountry)
-          console.log(this.config)
 
           var Shipment=this.config.Shipment
           var Currency =this.config.Currency

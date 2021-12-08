@@ -3,7 +3,7 @@
       <h4>Checkout</h4>
       <b-container fluid>
         <b-row>
-          <b-col sm="8" >
+          <b-col sm="7" >
             <div class="overflow-auto cartBody p-3" >
               <div v-for="(item, index) in Cart" v-bind:key="index" class='CartItem d-flex' >
                 <img :src="item.item.images[0].src" width="100" height="100"/>
@@ -25,8 +25,8 @@
             </div>
            </div>
           </b-col>
-          <b-col sm="4">
-            <div class="CheckoutInfForm bg-white p-4">
+          <b-col sm="5">
+            <div class="CheckoutInfForm bg-white p-3">
               <b-form class="mx-2">
                 <b-row class='fullNameInputs'>
                     <b-col cols="12" sm="6" >
@@ -39,6 +39,8 @@
                               type="text"
                               placeholder="الأسم الأول"
                               class="rounded-form"
+                              v-model="$v.form.FirstNameI.$model"
+                              :state="validateState('FirstNameI')"
                           ></b-form-input>
                         </b-form-group>
                     </b-col>
@@ -52,8 +54,8 @@
                             type="text"
                             placeholder="الأسم الأخير"
                             class="rounded-form"
-
-                            
+                            v-model="$v.form.LastNameI.$model"
+                            :state="validateState('LastNameI')"
                             ></b-form-input>
                         </b-form-group>
                     </b-col>
@@ -69,8 +71,8 @@
                           type="email"
                           placeholder="الايميل"
                           class="rounded-form"
-
-                          
+                          v-model="$v.form.MailI.$model"
+                          :state="validateState('MailI')"
                           ></b-form-input>
                       </b-form-group>
                   </b-col>
@@ -84,10 +86,10 @@
                         <b-form-input
                         id="OrderAddressI"
                         type="text"
-                        placeholder="العنوان"
+                        placeholder="عنوان الشحن"
                         class="rounded-form"
-
-                        
+                        v-model="$v.form.ShipmentAddressI.$model"
+                        :state="validateState('ShipmentAddressI')"
                         ></b-form-input>
                     </b-form-group>
                   </b-col>
@@ -99,33 +101,26 @@
                         <b-form-input
                         id="OrderAddress2I"
                         type="text"
-                        placeholder=" 2 العنوان"
+                        placeholder=" عنوان الفاتورة "
                         class="rounded-form"
-
-                        
+                        v-model="$v.form.BillingAddressI.$model"
+                        :state="validateState('BillingAddressI')"
                         ></b-form-input>
                     </b-form-group>
                   </b-col>
                 </b-row>
                 <b-row>
-                  <b-col cols="12" sm="4">
-                    <b-form-group>
-                      <b-select
-                        id="OrderCountryI"
-                        class="rounded-form"
-                      >
-
-                      </b-select>
-                    </b-form-group>
-                  </b-col>
-                  <b-col cols="12" sm="4">
+                  <b-col cols="12" sm="8">
                     <b-form-group
                         id="OrderAddress2I"
                         label-for="OrderAddress2I"
                     >
                       <b-select
-                        id="OrderStateI"
+                        id="OrderCountryI"
                         class="rounded-form"
+                        :options="CountryOptions"
+                        v-model="$v.form.OrderCountryI.$model"
+                        :state="validateState('OrderCountryI')"
                       >
                       </b-select>
                     </b-form-group>
@@ -137,6 +132,8 @@
                         class="rounded-form"
                         placeholder="zip"
                         type="text"
+                        v-model="$v.form.OrderZipI.$model"
+                        :state="validateState('OrderZipI')"
                       >
                       </b-form-input>
                     </b-form-group>
@@ -163,11 +160,36 @@
 
 import axios from "axios";
 import {mapGetters , mapActions} from 'vuex';
-
+import { required } from 'vuelidate/lib/validators';
 
 export default {
   computed:{
-    ...mapGetters(['Cart','FullPrice'])
+    ...mapGetters(['Cart','FullPrice','config','User'])
+  },
+  validations: {
+      form: {
+        FirstNameI: {
+         required
+        },
+        LastNameI: {
+         required
+        },
+        ShipmentAddressI:{
+         required
+        },
+        BillingAddressI:{
+        required
+        },
+        OrderCountryI:{
+         required
+        },
+        OrderZipI:{
+         required
+        },
+        MailI:{
+         required
+        }
+      }
   },
   methods:{
     setLoaded: function() {
@@ -193,7 +215,7 @@ export default {
               Items:this.Cart,
               Curr:CurrVal,
               Ship:CountryVal,
-              FullPrice:233564
+              FullPrice:this.FullPrice
             }
             // ajax request
             axios.post('http://127.0.0.1:8000/api/SaveOrderPaypal',bdata).then((resp)=>{
@@ -211,27 +233,26 @@ export default {
     },
     SaveOrderBcs:function(){
       
-        var CountryVal= this.$cookies.get('shipCountry');
-        var CurrVal = this.$cookies.get('Curr');
-        var bdata = {
-          Items:this.Cart,
-          Curr:CurrVal,
-          Ship:CountryVal,
-          FullPrice:233564
-        }
+      var CountryVal= this.$cookies.get('shipCountry');
+      var CurrVal = this.$cookies.get('wmc_current_currency');
+      var bdata = {
+        form:this.form,
+        User:this.User,
+        Items:this.Cart,
+        Curr:CurrVal,
+        Ship:CountryVal,
+        FullPrice:this.FullPrice
+      }
 
-        // ajax request
-        axios.post('http://127.0.0.1:8000/api/SaveOrderBcs',bdata).then((resp)=>{
+      // ajax request
+      axios.post('http://127.0.0.1:8000/api/SaveOrderBcs',bdata).then((resp)=>{
 
-          console.log(resp)
+        console.log(resp)
 
-        })
+      })
     },
     RemoveItem:function(id){
-
-         
       this.RemoveFromCart(id)
-          
     },
     increaseQty:function(id){
         this.increaseQtyS(id)
@@ -239,15 +260,56 @@ export default {
     reduceQty:function(id){
         this.reduceQtyS(id)
     },
-    ...mapActions(['RemoveFromCart','increaseQtyS','reduceQtyS'])
+    ...mapActions(['RemoveFromCart','increaseQtyS','reduceQtyS']),
+    validateState(name) {
+      const { $dirty, $error } = this.$v.form[name];
+      return $dirty ? !$error : null;
+    },
   },
   
   mounted(){
+
+    //Paypal
     const script = document.createElement("script");
     const ClientID = "AUj0VOyJiAxCbJhWXXcvMzBa-Itr7ifKCJd6cQRBzDOP6mUPAjCKRjSCL7eh-7di5T4GBDx-feTLS5cm";
     script.src = `https://www.paypal.com/sdk/js?client-id=${ClientID}&disable-funding=giropay,sepa,sofort`;
     script.addEventListener("load", () => { this.setLoaded() });
     document.body.appendChild(script);
+
+    //Country Select Set 
+    let CountryObj={};
+    var Shipment=this.config.Shipment
+    Shipment.forEach(item => {
+      CountryObj[item.key]=item.name
+    });
+    this.CountryOptions=CountryObj;
+
+
+
+    //Fill Checkout form
+    this.form.FirstNameI=this.User.first_name;
+    this.form.LastNameI=this.User.last_name;
+    this.form.ShipmentAddressI=this.User.shipping_address_1;
+    this.form.BillingAddressI=this.User.billing_address_1;
+    this.form.OrderCountryI='sy';
+    this.form.OrderZipI='0036';
+    this.form.MailI=this.User.email
+
+  },
+  data(){
+    return {
+      form:{
+        FirstNameI:'',
+        LastNameI:'',
+        ShipmentAddressI:'',
+        BillingAddressI:'',
+        OrderCountryI:'',
+        OrderZipI:'',
+        MailI:'',
+      },
+      CountryOptions:{}
+    }
+
   }
 
 }
