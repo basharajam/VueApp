@@ -7,8 +7,8 @@
                 <router-link :to="{ name:'ProdOne', params:{ProdByCat:Product.Category.name , ProdName:Product.name } }" class="image" style="min-width:150;">
                     <vue-load-image>
                         <img slot="image"  class="pic-1 img-fluid mx-auto"  :src="Product.images[0].src" :alt="Product.name" width="210" height="210" >
-                        <img slot="preloader" class="img-fluid mx-auto" src="@/assets/loader.png"  width="210" height="210" />
-                        <img slot="error" class="img-fluid mx-auto" src="@/assets/loader.png"  width="210" height="210" />
+                        <img slot="preloader" class="img-fluid mx-auto" src="@/assets/loader.png"  width="210" height="210" :alt="Product.name" />
+                        <img slot="error" class="img-fluid mx-auto" src="@/assets/loader.png"  width="210" height="210" :alt="Product.name" />
                     </vue-load-image>
                 </router-link>
                 <span v-if="Product.on_sale" class="discount-lab">% {{ discountPrice(Product)  }}</span>

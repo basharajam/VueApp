@@ -6,12 +6,12 @@
             >
             <div v-if="isFolder(child)" >
                 <span @click="toggle(child)">[{{ isOpen ? '-' : '+' }}]</span>
-                <router-link :to="{ name:'ProdByCat', }">
+                <router-link :to="{ name:'ProdByCat', params:{ ProdByCat:child.name } }">
                   {{ child.name }}
                 </router-link>
             </div>
             <div v-if="isFolder(child) && isOpen" class="TreeSub">
-                <router-link :to="{ name:'ProdByCat' }" class="item"
+                <router-link :to="{ name:'ProdByCat' , params:{ ProdByCat:child.name } }" class="item"
                     v-for="(childItem, index) in child.sub"
                     :key="index"
                 >
@@ -21,7 +21,7 @@
 
             <div v-if="!isFolder(child)">
                 <span>[-]</span>
-                <router-link :to="{ name:'ProdByCat' }" >
+                <router-link :to="{ name:'ProdByCat' , params:{ ProdByCat:child.name } }" >
                   {{ child.name }}            
                 </router-link>
             </div>

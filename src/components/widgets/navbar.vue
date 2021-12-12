@@ -27,7 +27,7 @@
                           <b-form-select v-model="CountryInput" class="dropSelect" size="sm" :options="CountryOptions"></b-form-select>
                       </b-form-group>
                       <b-form-group>
-                        <b-button type="submit" block pill variant="outline-warning updCurrSubmit " >حفظ</b-button>
+                        <b-button type="submit" block pill variant="outline-secondary updCurrSubmit " >حفظ</b-button>
                       </b-form-group>
                   </b-dropdown-form>
             </b-dropdown>
@@ -310,12 +310,10 @@ export default {
     },
     mounted(){
 
-        if(this.CurrCountry && this.config){
+        var Shipment=this.config.Shipment
+        var Currency=this.config.Currency
 
-
-          var Shipment=this.config.Shipment
-          var Currency =this.config.Currency
-
+        if(Shipment && Currency && Shipment.length > 0 && Currency.length > 0){
 
           let CountryObj={};
           let CurrObj={};

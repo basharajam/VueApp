@@ -190,12 +190,11 @@ position: relative;
 
 .ShowMoreBtn{
 
-    padding: 3px;
-    border:1px #fe6a00 solid;
-    border-radius: 5px;
-    margin-top: 4px;
+  padding: 3px;
+  border:1px #fe6a00 solid;
+  border-radius: 5px;
+  margin-top: 4px;
 
-    
 }
 
 .ShowMoreBtn a {
@@ -209,25 +208,39 @@ position: relative;
 
 }
 
-.discount-lab{
-    color: #fd6906;
-    position: absolute;
-    top: 16px;
-    left: 14px;
-    width: 45px;
-    height: 45px;
-    max-width: 45px;
-    text-align: center;
-    max-height: 45px;
-    border: 1px #fd6906 solid;
-    padding: 12px 0;
-    border-radius: 999px;
+
+/* .discount-lab{
+  color: #fd6906;
+  position: absolute;
+  top: 16px;
+  left: 14px;
+  width: 45px;
+  height: 45px;
+  max-width: 45px;
+  text-align: center;
+  max-height: 45px;
+  border: 1px #fd6906 solid;
+  padding: 12px 0;
+  border-radius: 999px;
+} */
+.discount-lab {
+  color: #fd6906;
+  position: absolute;
+  top: 16px;
+  left: 14px;
+  width: 32px;
+  height: 32px;
+  max-width: 45px;
+  text-align: center;
+  max-height: 45px;
+  border: 1px #fd6906 solid;
+  padding: 2px 0;
+  border-radius: 999px;
 }
 
-
 .HomeBanner{
-    margin-top: 6px;
-    margin-bottom: 6px;
+  margin-top: 6px;
+  margin-bottom: 6px;
 }
 
 
@@ -241,22 +254,23 @@ position: relative;
 }
 
 .CartCount{
-    background-color: #92278f;
-    padding: 4px;
-    position: relative;
-    bottom: 60px;
-    right: 12px;
-    font-size: 11px;
-    padding-left: 2px;
-    padding-right: 2px;
-    opacity: .9;
-    line-height: 17px;
-    letter-spacing: -.5px;
-    height: 17px;
-    min-width: 17px;
-    border-radius: 99px;
-    color: #fff;
-    text-align: center;
+  background-color: #92278f;
+  padding: 4px !important;
+  position: fixed !important;
+  font-size: 12px !important;
+  padding-left: 2px !important;
+  padding-right: 2px !important;
+  opacity: .9;
+  line-height: 17px;
+  letter-spacing: -.5px;
+  height: 22px !important;
+  min-width: 18px !important;
+  border-radius: 99px !important;
+  color: #fff;
+  text-align: center;
+  bottom: 60px;
+  right: 12px;
+
 }
 
 .sr-only{
@@ -270,13 +284,6 @@ position: relative;
   border-radius: 20px !important;
 }
 
-.rounded-form:focus{
-  color: #212529;
-  background-color: #fff;
-  border-color: #ff98006b;
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem #ff990059;
-}
 span.amount {
   font-weight: normal !important;
   color: #fa6810 !important;
@@ -288,66 +295,23 @@ span.amount {
 /*   Query Media */
 
 select.dropSelect:focus{
-    border-color: #f7611894;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgb(250 100 16 / 47%);
+  border-color: #f7611894;
+  outline: 0;
+  box-shadow: 0 0 0 0.2rem rgb(250 100 16 / 47%);
 }
 
-.updCurrSubmit{
-background: white;
-}
-
-.updCurrSubmit:active{
-background: #9d3c9a !important;
-color: white !important;
-
-}
 .nav-link, .nav-link:active .nav-link:hover{
   color:#808080
 }
 
-
 /*Desktop */
-@media only screen and  (min-width: 1366px ) and (max-width:1440px){
-  .flickity-viewport {
-    height: 400px!important;
-  }
-}
+
 
 @media  only screen and (min-width:1024px) and (max-width:1024px) {
 
-  .spinner{
-    width:8%!important;
-    right: 45% !important;
-  }
-
-  .flickity-viewport{
-        height: 350px !important;
-  }
-  /* .HeaderIcons a {
-    margin: 0px 10px !important;
-  } */
-  .SearchSection{
-        position: relative;
-    bottom: 8px;
-  }
   .HeaderIcons {
-        display: flex!important;
+    display: flex!important;
   }
-.discount-lab {
-    color: #fd6906;
-    position: absolute;
-    top: 16px;
-    left: 14px;
-    width: 32px;
-    height: 32px;
-    max-width: 45px;
-    text-align: center;
-    max-height: 45px;
-    border: 1px #fd6906 solid;
-    padding: 2px 0;
-    border-radius: 999px;
-}
 }
 
 /* End Desktop */
@@ -358,9 +322,6 @@ color: white !important;
 /* Start Tablet */
 
 @media only screen and  (min-width:768px) and (max-width: 768px){
-  .spinner{
-    width:8%!important;
-  }
   .LinksLists{
     max-width: 100%!important;
   }
@@ -386,33 +347,10 @@ color: white !important;
         margin:6px !important;
   }
   .SearchInput{
-        /* bottom: 6px !important; */
-        position: relative !important;
-
+    position: relative !important;
   }
 
-
-  .product-content .add-to-cart {
-    font-size: 12px;
-  }
-
-  .discount-lab{
-    color: #fd6906;
-    position: absolute;
-    top: 16px;
-    left: 14px;
-    width: 32px;
-    height: 32px;
-    max-width: 45px;
-    text-align: center;
-    max-height: 45px;
-    border: 1px #fd6906 solid;
-    padding: 2px 0;
-    border-radius: 999px;
-  }
-
-.product-content .add-to-cart{
-
+  .product-content .add-to-cart{
     font-size: 8px !important;
     font-weight: 500;
     text-transform: uppercase;
@@ -421,13 +359,7 @@ color: white !important;
     border-radius: 50px;
     padding: 4px !important;
     margin: 14px auto !important;
-
-}
-
-.SearchSection{
-    bottom: 10px;
-    position: relative;
-}
+  }
 
 } 
 
@@ -435,29 +367,26 @@ color: white !important;
 @media only screen and (min-width: 780px) and (max-width:780px) {
 
   .HomeListLogo{
-
     max-width: 65px!important;
-
   }
   .scrollmenu {
     overflow: hidden;
     white-space: break-spaces;
     margin-bottom: 50px;
-}
-.SearchInput{
-  position: relative;
+  }
+  .SearchInput{
+    position: relative;
     bottom: 6px;
-}
+  }
 
 
-.Cart-Slide-item {
-      margin: 0 50px;
+  .Cart-Slide-item {
+    margin: 0 50px;
+  }
 
-}
-
-.GridItem{
-      margin: 23px 0 !important;
-}
+  .GridItem{
+    margin: 23px 0 !important;
+  }
 }
 
 /* End Tablet */
@@ -465,50 +394,22 @@ color: white !important;
 @media only screen and (min-width:375px) and (max-width: 425px) {
 
 .CartCount{
-    background-color: #92278f;
-    padding: 4px !important;
-    position: fixed !important;
-    bottom: 30px !important;
-    right: 42% !important;
-    font-size: 12px !important;
-    padding-left: 2px !important;
-    padding-right: 2px !important;
-    opacity: .9;
-    line-height: 17px;
-    letter-spacing: -.5px;
-    height: 22px !important;
-    min-width: 18px !important;
-    border-radius: 99px !important;
-    color: #fff;
-    text-align: center;
+  bottom: 30px !important;
+  right: 42% !important;
   }
 }
 
 /*  Start Large Phone */
 @media only screen and (min-width:425px) and (max-width: 425px) {
 
-.CartCount{
-      background-color: #92278f;
-      padding: 4px !important;
-      position: fixed !important;
-      bottom: 30px !important;
-      right: 45% !important;
-      font-size: 12px !important;
-      padding-left: 2px !important;
-      padding-right: 2px !important;
-      opacity: .9;
-      line-height: 17px;
-      letter-spacing: -.5px;
-      height: 22px !important;
-      min-width: 18px !important;
-      border-radius: 99px !important;
-      color: #fff;
-      text-align: center;
-}
+  .CartCount{
+    bottom: 30px !important;
+    right: 45% !important;
+  }
 
 
 
-.grid-discount .card-grid .card-image .card-discount-label{
+  .grid-discount .card-grid .card-image .card-discount-label{
     padding: 10px 0px !important;
     max-width: 45px !important;
     max-height: 45px !important; 
@@ -525,93 +426,51 @@ color: white !important;
   }
   .discount-lab{
     font-size: 12px;
-    color: #fd6906;
-    position: absolute;
     top: 16px;
     left: 14px;
     width: 32px;
     height: 32px;
     max-width: 34px;
-    text-align: center;
     max-height: 34px;
-    border: 1px #fd6906 solid;
     padding: 2px 0;
-    border-radius: 999px;
   }
 
-  /* .Cat-Slide-item{
-        margin: 10px 31px;
-  } */
   .navbar-brand img {
-        max-width: 148px !important;
+    max-width: 148px !important;
   }
 
   .HomeListLogo{
-
-        max-width: 40px !important;
+    max-width: 40px !important;
   }
-  /* .product-grid .product-image img {
-    height: 297px !important;
-} */
+
   .CatNavLinks{
     overflow-y: scroll;
-      -ms-overflow-style: none;  /* IE and Edge */
-      scrollbar-width: none;  /* Firefox */
-  }
-  .SearchSection{
-    /* width: 170px; */
-    position: relative;
-    bottom: 8px !important;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
 
   .homeListItem .content{
-
     font-size: 10px;
-
   }
 
-  /* .card-discount-label{
-      font-size: 12px !important;
-  } */
-
-
-.product-grid .product-image:hover + .product-data {
-
-    
-    transform: translateY(calc(5* -1vw)) !important;
-    /* color:white !important; */
-
-}
 
 .Cat-Slide-item-img {
-    max-width: 42px !important;
-        margin: 0 10px !important;
+  max-width: 42px !important;
+  margin: 0 10px !important;
 }
 
-/* .mobileBanner{
-
-min-height: 300px !important;
-
-} */
-
-.spinner{
-
-  right: 42% !important;
-  top: 45% !important;
-
-}
 
 .GridItem{
-    padding-right: 1px;
-    padding-left: 1px;
-    display: inline-block;
+  padding-right: 1px;
+  padding-left: 1px;
+  display: inline-block;
 }
 
 
 .FooterHeadingContent {
-      font-size: 50px !important;
-    margin-top: 46px !important;
-    text-align: center;
+  font-size: 50px !important;
+  margin-top: 46px !important;
+  text-align: center;
 }
 
 .SocialLinks a i {
@@ -623,14 +482,14 @@ min-height: 300px !important;
 }
 
 .LinkList a{
- font-size: 20px !important;
+  font-size: 20px !important;
 }
 
 .CopyRightsFooter{
 
-    font-size: 13px !important;
-    margin: 20px 0 !important; 
-    text-align: center;
+  font-size: 13px !important;
+  margin: 20px 0 !important; 
+  text-align: center;
 }
 .HeaderIcons {
   display: none !important;
@@ -643,23 +502,16 @@ min-height: 300px !important;
 
 @media only screen and (min-width:412px) and (max-width:428px) {
 
-  .spinner{
-    width: 15% !important;
-  }
-
   .al_footer-item{
-
-          /* margin:2% 3.16% !important */
-          margin:2% 0 !important
-
+    margin:2% 0 !important
   }
 
   .LinkList{
-        margin: 0px 0px !important;
-        padding-bottom:65px ;
+    margin: 0px 0px !important;
+    padding-bottom:65px ;
   }
   .LinksLists {
-  flex-direction: column !important;
+    flex-direction: column !important;
   }
   .SearchResult{
     width: 100% !important;
@@ -668,7 +520,6 @@ min-height: 300px !important;
     padding: 5px !important; 
   }
   .navbar-brand img{
-
     max-width: 156px !important;
   }
 }
@@ -685,16 +536,15 @@ min-height: 300px !important;
     margin: 2% 0 !important;
   }
   .product-content .add-to-cart{
-      font-size: 10px;
-      width:118px !important;
-      font-size: 8px;
+    font-size: 10px;
+    width:118px !important;
+    font-size: 8px;
   } 
   .navbar-brand img{
-
     max-width: 105px;
   }
   .FooterHeadingContent {
-      font-size: 50px !important;
+    font-size: 50px !important;
     margin-top: 46px !important;
     text-align: center;
   }
@@ -709,30 +559,23 @@ min-height: 300px !important;
 
 
   .al_footer-item{
-
-          /* margin:2% 2.5% !important */
-          margin:2% 0% !important
+    margin:2% 0% !important
   }
 
   .discount-lab{
-    color: #fd6906;
-    position: absolute;
     top: 16px;
     left: 14px;
     width: 32px;
     height: 32px;
     font-size: 10px;
     max-width: 35%;
-    text-align: center;
     max-height: 35%;
-    border: 1px #fd6906 solid;
     padding: 8px 0;
-    border-radius: 999px;
-  }
 
+  }
   .product-content .add-to-cart{
-      width:116px !important;
-      font-size:10px !important;
+    width:116px !important;
+    font-size:10px !important;
   }
 
 
@@ -751,22 +594,8 @@ min-height: 300px !important;
   }
 
   .CartCount{
-      background-color: #92278f;
-      padding: 4px !important;
-      position: fixed !important;
-      bottom: 30px !important;
-      right: 42% !important;  
-      font-size: 12px !important;
-      padding-left: 2px !important;
-      padding-right: 2px !important;
-      opacity: .9;
-      line-height: 17px;
-      letter-spacing: -.5px;
-      height: 22px !important;
-      min-width: 18px !important;
-      border-radius: 99px !important;
-      color: #fff;
-      text-align: center;
+  bottom: 30px !important;
+  right: 42% !important;  
 }
 
 
@@ -827,19 +656,11 @@ min-height: 300px !important;
 
 
 .hideAddToCart .product-grid .product-content .add-to-cart{
-
-
-display: none !important;
-
+  display: none !important;
 }
   .navbar-brand img{
 
     max-width: 110px;
-  }
-  .SearchSection{
-    /* width: 56%; */
-    position: relative;
-    bottom: 10px;
   }
   .LinksLists{
     flex-direction: column !important;
@@ -855,23 +676,9 @@ display: none !important;
 @media only screen and (min-width:426px) and (max-width: 570px){
 
 
-  .CartCount{
-      background-color: #92278f;
-      padding: 4px !important;
-      position: fixed !important;
-      bottom: 30px !important;
-      right: 46% !important;  
-      font-size: 12px !important;
-      padding-left: 2px !important;
-      padding-right: 2px !important;
-      opacity: .9;
-      line-height: 17px;
-      letter-spacing: -.5px;
-      height: 22px !important;
-      min-width: 18px !important;
-      border-radius: 99px !important;
-      color: #fff;
-      text-align: center;
+.CartCount{
+  bottom: 30px !important;
+  right: 46% !important;  
 }
 
 
@@ -933,64 +740,33 @@ display: none !important;
 
 .discount-lab{
     font-size: 15px;
-    color: #fd6906;
-    position: absolute;
     top: 4px;
     left: 14px;
     width: 45px;
     height: 45px;
     max-width: 40px;
-    text-align: center;
     max-height: 40px;
-    border: 1px #fd6906 solid;
     padding: 8px 0;
-    border-radius: 999px;
-}
 
+}
 .product-content .add-to-cart{
   width: 92px !important;
   font-size: 8px !important;
 }
 
 .CartCount{
-      background-color: #92278f;
-      padding: 4px !important;
-      position: fixed !important;
-      bottom: 32px !important;
-      right: 40% !important;
-      font-size: 12px !important;
-      padding-left: 2px !important;
-      padding-right: 2px !important;
-      opacity: .9;
-      line-height: 17px;
-      letter-spacing: -.5px;
-      height: 22px !important;
-      min-width: 18px !important;
-      border-radius: 99px !important;
-      color: #fff;
-      text-align: center;
+  bottom: 32px !important;
+  right: 40% !important;
 }
 
 }
-
-
 @media only screen and (min-width:1025px){
 
-
-.SearchSection{
-
-      /* margin-right: 305px; */
-      position: relative;
-      bottom: 8px !important;
+  .HeaderIcons {
+    display: inline-flex!important;
+  }
 
 }
-.HeaderIcons {
-  display: inline-flex!important;
-}
-
-}
-
-
 
 /*End Custom Media Q */
 

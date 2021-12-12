@@ -54,22 +54,34 @@
                 <img slot="error" class="img-fluid mx-auto" src="@/assets/loader.png" />
               </vue-load-image>
             </b-col>
-            <b-col cols="12" sm='7' class="text-right p-1">
+            <b-col cols="12" sm='7'>
              <h5 class="py-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni minus suscipit, </h5>
               <div class="PropsList d-flex flex-column">
                 <div v-for="(Prop,index) in DistruProps" v-bind:key="index" class="d-flex flex-column Prop my-2">
-                  <p class="text-center m-0">Test</p>
-                  <div class="d-flex flex-wrap">
-                    <div v-for="(prop,index1) in Prop" v-bind:key="index1" class="PropItem m-1">
-                      <input type="radio">
-                      <label class="p-1 m-1 w-100" ><span>{{prop}}</span></label>
+                  <div class="d-flex flex-wrap justify-content-around">
+                    <div class="d-flex">
+                      (
+                      <div v-for="(prop,index1) in Prop" v-bind:key="index1">
+                        <p>
+                          <span v-if="index1 > 0">,</span> 
+                          {{prop}}
+                          </p>
+                      </div>
+                      )
                     </div>
+                    <div class="mx-2">
+                        <div class="d-flex align-items-center qtyCounter">
+                          <button class="align-self-start" >+</button>
+                          <b-form-input size="sm" ></b-form-input>
+                          <button class="align-self-start" >-</button>
+                        </div>
+                    </div>
+                    <b-button pill variant="outline-primary" >إضافة</b-button>
                   </div>
                 </div>
               </div>
             </b-col>
           </b-row>
-
         </b-modal>
         <!-- Cart Modal End -->
         <b-row>
@@ -114,6 +126,8 @@ export default {
   methods:{
 
     ...mapActions(['getProdOne']),
+
+
     validateState(name) {
       const { $dirty, $error } = this.$v.form[name];
       return $dirty ? !$error : null;
@@ -133,14 +147,14 @@ export default {
         mainArr.push(arr2)
 
         //generate Combos
-        // function combos(list, n = 0, result = [], current = []){
-        //   if (n === list.length) result.push(current)
-        //   else list[n].forEach(item => combos(list, n+1, result, [...current, item]))
+        function combos(list, n = 0, result = [], current = []){
+          if (n === list.length) result.push(current)
+          else list[n].forEach(item => combos(list, n+1, result, [...current, item]))
       
-        //   return result
-        // }
-        // return combos(mainArr);
-        return mainArr;
+          return result
+        }
+        return combos(mainArr);
+        //return mainArr;
     }
 
   },
@@ -169,6 +183,21 @@ export default {
 
 .starRate{
   margin: 20px 0;
+}
+
+.qtyCounter{
+  border: 1px rgba(0, 0, 0, 0.336) solid;
+  border-radius: 6px;
+}
+.qtyCounter button {
+  background: none;
+  border: none;
+  padding: 6px;
+}
+
+.qtyCounter span{
+  padding: 6px;
+  margin: auto;
 }
 
 /* .Price{

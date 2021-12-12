@@ -18,6 +18,7 @@ const actions  = {
 
     AddToCartS({state,commit,getters},Product){
 
+        console.log(Product)
         var Prod = {
             item:Product,
             qty:Product.min_qty
@@ -68,6 +69,22 @@ const actions  = {
                 commit('Cart',newCart)
 
             }
+
+
+            //Update Cookie cart 
+            
+
+
+
+
+
+
+
+
+
+
+
+
 
         }
 

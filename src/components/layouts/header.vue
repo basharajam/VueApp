@@ -19,7 +19,7 @@
               </div> 
             </div>
     <div class="CatNavLinks scrollmenu d-flex" style="overflow-y: hidden !important">
-        <a @mouseover="AllCatClicked()" v-if="$mq === 'md' || $mq === 'lg'" > {{$t('AlCat')}} </a>
+        <a @mouseover="AllCatClicked()" v-if="$mq === 'md' || $mq === 'lg'" href="#" > {{$t('AlCat')}} </a>
         <a  v-if="$mq === 'sm'" href="https://www.alyaman.com/shop" > {{$t('AlCat')}}</a>
         <router-link :to="{ name:'ProdByCat', params:{ ProdByCat:Category.name } }" v-for="Category in Categories" v-bind:key="Category.id"> {{ Category.name }} </router-link>
     </div>

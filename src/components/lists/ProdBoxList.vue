@@ -109,8 +109,8 @@
                                     <!-- <img :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" > -->
                                     <vue-load-image>
                                         <img slot="image"  class="pic-1"  :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" >
-                                        <img slot="preloader" src="@/assets/loader.png" />
-                                        <img slot="error" src="@/assets/loader.png" />
+                                        <img slot="preloader" src="@/assets/loader.png" :alt="Prod.name" />
+                                        <img slot="error" src="@/assets/loader.png" :alt="Prod.name" />
                                     </vue-load-image>
                                 </router-link>
                                 <router-link :to="{ name:'ProdOne',params:{ ProdName:Prod.name , ProdByCat:Prod.Category.name } }">

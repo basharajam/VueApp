@@ -91,9 +91,9 @@
                 <div class="CopyRightsFooter">
                     <p>{{$t('CopyRights')}}</p>
                     <div class="PayMethods" style="text-align: center; width: 100%">
-                      <img height="40" src="https://shoplineimg.com/assets/footer/card_visa.png"/>
-                      <img height="22" src="http:///www.credit-card-logos.com/images/mastercard_credit-card-logos/mastercard_logo_1.gif"  width="37" border="0"/>
-                      <img height="40" src="https://shoplineimg.com/assets/footer/card_paypal.png"/>
+                      <img height="40" src="https://shoplineimg.com/assets/footer/card_visa.png" alt="pay using visa credit card"/>
+                      <img height="22" src="http:///www.credit-card-logos.com/images/mastercard_credit-card-logos/mastercard_logo_1.gif"  width="37" border="0" alt="pay using master card credit card"/>
+                      <img height="40" src="https://shoplineimg.com/assets/footer/card_paypal.png" alt="pay using paypal" />
                     </div>
                 </div>
             </div>

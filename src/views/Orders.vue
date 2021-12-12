@@ -27,6 +27,18 @@
                         <spinner v-if="!this.displayOrderCancelld" ></spinner>
                         <v-client-table v-if="this.displayOrderCancelld" :data="CancelldOrderArr" :columns="tbcolumn" />
                     </b-tab>
+                    <b-tab title="قيد التحضير">
+                        <spinner v-if="!this.displayOrderProcessing" ></spinner>
+                        <v-client-table v-if="this.displayOrderProcessing" :data="ProcessingOrderArr" :columns="tbcolumn" />
+                    </b-tab>
+                    <b-tab title="معلّقة">
+                        <spinner v-if="!this.displayOrderPending" ></spinner>
+                        <v-client-table v-if="this.displayOrderPending" :data="PendingOrderArr" :columns="tbcolumn" />
+                    </b-tab>
+                    <b-tab title="فاشلة">
+                        <spinner v-if="!this.displayOrderFaild" ></spinner>
+                        <v-client-table v-if="this.displayOrderFaild" :data="FaildOrderArr" :columns="tbcolumn" />
+                    </b-tab>
                  </b-tabs>
 
                  <b-modal id="modal-order-details" hide-header hide-footer >
@@ -69,6 +81,11 @@ export default {
             CompletedOrdersArr:[],
             OnHoldOrderArr:[],
             CancelldOrderArr:[],
+            ProcessingOrderArr:[],
+            PendingOrderArr:[],
+            RefundOrderArr:[],
+            FaildOrderArr:[],
+
             OrderItemsArr:[],
             OrderInvoiceDetail:[],
             OrderItemsFields:[
@@ -100,6 +117,10 @@ export default {
             displayOrderCompleted:false,
             displayOrderCancelld:false,
             displayOrderOnHold:false,
+            displayOrderProcessing:false,
+            displayOrderPending:false,
+            displayOrderFaild:false,
+
             tbcolumn:['ID','post_author','post_title','total','order_detail']
         }
 
@@ -138,6 +159,20 @@ export default {
                      self.CancelldOrderArr=resp.data.items
                      self.displayOrderCancelld=true
                         break;
+                    case 'processing':
+                     //
+                     self.ProcessingOrderArr=resp.data.items
+                     self.displayOrderProcessing=true;
+                        break;
+                    case 'pending':
+                     self.PendingOrderArr=resp.data.items
+                     self.displayOrderPending=true;
+                        break
+                    case 'failed':
+                     self.FaildOrderArr=resp.data.items
+                     self.displayOrderFaild=true;
+                        break
+                    
                 }
               }
 
@@ -167,28 +202,39 @@ export default {
                 
             }
             else if(this.OrderTabs === 2){
-
                 if(this.OnHoldOrderArr.length === 0){
 
                     this.displayOrderOnHold=false;
-
                     this.getOrders('onHold')
                 }
-
             }
             else if(this.OrderTabs === 3){
 
                 if(this.CancelldOrderArr.length === 0){
 
                     this.displayOrderCancelld=false;
-
                     this.getOrders('cancelld')
                 }
+            }
+            else if(this.OrderTabs === 4){
+
+                this.displayOrderProcessing=false;
+                this.getOrders('processing')
 
             }
+            else if(this.OrderTabs === 5){
 
+                this.displayOrderPending=false;
+                this.getOrders('pending')
+
+            }
+            else if(this.OrderTabs === 6){
+
+                this.displayOrderFaild=false;
+                this.getOrders('failed')
+
+            }
         },
-
         updateOrderModal(order){
 
             this.OrderInvoiceDetail.push(order)

@@ -18,7 +18,7 @@
                         <div class="d-flex align-self-start qtyCounter">
                             <button class="align-self-start" @click="increaseQty(item.item.id)">+</button>
                             <span>{{ item.qty }}</span>
-                            <button class="align-self-start" @click="reduceQty(item.item.id)" >-</button>
+                            <button class="align-self-start" @click="reduceQty(item.item)" >-</button>
                         </div>
                     </div>
                 </div>
@@ -373,18 +373,18 @@ margin: 0 6px;
 }
 
 .qtyCounter{
-    border: 1px rgba(0, 0, 0, 0.336) solid;
-    border-radius: 6px;
+  border: 1px rgba(0, 0, 0, 0.336) solid;
+  border-radius: 6px;
 }
 .qtyCounter button {
-    background: none;
-    border: none;
-    padding: 6px;
+  background: none;
+  border: none;
+  padding: 6px;
 }
 
 .qtyCounter span{
-    padding: 6px;
-    margin: auto;
+  padding: 6px;
+  margin: auto;
 }
 
 .cartBody{
