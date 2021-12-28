@@ -220,7 +220,7 @@ export default {
 
             var self=this;
             // ajax request
-            axios.post('http://127.0.0.1:8000/api/SaveOrderPaypal',bdata).then((resp)=>{
+            axios.post(process.env.VUE_APP_DEVBASEURL+'/SaveOrderPaypal',bdata).then((resp)=>{
 
               if(resp.data.success){
 
@@ -256,7 +256,7 @@ export default {
 
       var self=this;
       // ajax request
-      axios.post('http://127.0.0.1:8000/api/SaveOrderBcs',bdata).then((resp)=>{
+      axios.post(process.env.VUE_APP_DEVBASEURL+'/SaveOrderBcs',bdata).then((resp)=>{
 
         if(resp.data.success){
 
