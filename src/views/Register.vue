@@ -52,7 +52,7 @@
                     </b-form-group>
                 </b-col>
             </b-row>
-            <!-- <b-form-group
+            <b-form-group
                 id="emailInput"
                 label-for="emailInput"
             >
@@ -66,7 +66,7 @@
                 :state="validateState('MailI')"
                 ></b-form-input>
                 <span>Register Using mobile</span>
-            </b-form-group> -->
+            </b-form-group>
             <b-form-group
                 id="phoneNumberI"
                 label-for="phoneNumberI"
