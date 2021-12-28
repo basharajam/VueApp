@@ -1,10 +1,10 @@
 <template>
     <nav class="navbar navbar-expand-lg flex-nowrap navbar-light sticky-top bg-light p-0 justify-content-start"  style="    border-bottom: 1px #d1d1d1d1 solid;z-index: 988 !important;">
         <router-link :to="{ name: 'Home' }" class="navbar-brand col-sm-3 col-3 px-0" aria-label="Al-yaman">
-          <img  src="@/assets/icon.png" class="w-100" alt="" >
+          <img  src="@/assets/icon.png" class="w-100" width="280" height="60" alt="logo" >
         </router-link>
 
-        <b-row class=" px-0 px-sm-3">
+        <b-row class=" px-0 mx-0 px-sm-3">
           <div class="headerDrp col-sm-3" v-if="$mq === 'md' || $mq === 'lg' &&  Object.keys(CurOptions).length >0 && Object.keys(CountryOptions).length >0 ">
             <b-dropdown id="dropdown-1"  variant="none" class=" ShipBtn " no-flip no-caret>
                   <template #button-content>
@@ -56,8 +56,8 @@
                   </template>
                   <b-dropdown-item :to="{name:'User'}" class="text-center" >حسابي</b-dropdown-item>
                   <b-dropdown-item :to="{name:'Orders'}"   class="text-center"  >طلباتي</b-dropdown-item>
-                  <b-dropdown-item :to="{name:'Billing'}"   class="text-center"  >الفواتير</b-dropdown-item>
                   <b-dropdown-item :to="{name:'Shipment'}"   class="text-center"  >الشحن</b-dropdown-item>
+                  <b-dropdown-item :to="{name:'Billing'}"   class="text-center"  >الفواتير</b-dropdown-item>
                   <b-dropdown-item :to="{name:'LogOut'}" class="text-center" >تسجيل خروج</b-dropdown-item>
               </b-dropdown>
             </div>
@@ -65,7 +65,10 @@
             <div class="HeaderDivider"></div>
             <b-button variant="none" class="p-0" @click="toggleCart()">
               <i class="fal fa-shopping-cart"></i>
-
+              <span class="CartCount" style="bottom:unset;right:unset;">
+                {{ this.Cart.length }}
+              </span>
+                
             </b-button>
             <div class="HeaderDivider"></div>
             <b-dropdown id="dropdown-1" text="Dropdown Button" variant="none" no-flip no-caret>
@@ -153,7 +156,7 @@ export default {
 
     },
     computed:{
-      ...mapGetters(['config','Token','User','CurrCountry']),
+      ...mapGetters(['config','Token','User','CurrCountry','Cart']),
       isLoggedIn(){
         if(!_.isEmpty(this.User) && !_.isEmpty(this.Token)){
           return true;

@@ -16,15 +16,15 @@
                 <landingLoader></landingLoader>
               </b-container>
             </template>
+            
             <div v-for="(item,index) in LandingLayout.mobile" v-bind:key="index">
-              <banner v-bind:item="item" v-if="item.type === 'banner' && item.mobileDisplay !== 'hide'" ></banner>
-              <ProdList v-bind:ProdList="item" v-if="item.type === 'ProdList' && item.mobileDisplay !== 'hide'" ></ProdList>
+             <banner v-bind:item="item" v-if="item.type === 'banner' && item.mobileDisplay !== 'hide'" ></banner>
+             <ProdList v-bind:ProdList="item" v-if="item.type === 'ProdList' && item.mobileDisplay !== 'hide'" ></ProdList>
             </div>
         </b-skeleton-wrapper>
         </mq-layout>
         <!-- End Mobile -->
-
-
+    
       <mq-layout :mq="['md','lg']" >
         <b-skeleton-wrapper :loading="landingLoading" >
           <template #loading>
@@ -40,15 +40,7 @@
       </mq-layout>
       <mq-layout :mq="['md','lg']">
         <homeList  />
-      </mq-layout>
-
-        
-
-
-
-
-
-  
+      </mq-layout>  
   </div>
 </template>
 
@@ -58,16 +50,12 @@ import { mapGetters,mapActions } from 'vuex';
 
 import ProdList from '../components/lists/ProdList.vue';
 import banner from '../components/widgets/Banner.vue';
-
 import CategorySlide from '../components/widgets/Category.vue';
 import ProdBoxList from '../components/lists/ProdBoxList.vue';
 import carouselWidget from '../components/widgets/Carousel.vue';
-
 import homeList from '../components/lists/HomeList.vue';
 import Banner from '../components/widgets/Banner.vue';
-
 import landingLoader from '../components/widgets/landingLoader.vue';
-
 
 export default {
     name:'home',
@@ -105,7 +93,12 @@ export default {
         },
     },
     mounted(){
-        this.getLanding();
+
+      //console.log('landing home mounted',this.$mq)
+      var obj={
+        breakpoint:this.$mq
+      }
+      this.getLanding(obj);
     }
 }
 </script>

@@ -1,5 +1,6 @@
 // import axios from "axios";
-// import cookie from 'vue-cookies'
+import cookie from 'vue-cookies'
+import CryptoJS from 'crypto-js'
 
 const state = {
     Cart:[],
@@ -18,11 +19,13 @@ const actions  = {
 
     AddToCartS({state,commit,getters},Product){
 
-        console.log(Product)
         var Prod = {
             item:Product,
             qty:Product.min_qty
         }
+
+        
+
 
         //Check if Cart is Empty 
         if(state.Cart.length == 0 ){
@@ -30,9 +33,11 @@ const actions  = {
             var newCart0 = state.Cart
             newCart0.push(Prod)
         
-            //Add New Item 
+            //add new item to cookie
+    
+            //Add New Item to state 
             commit('Cart',newCart0)
-
+            
         }
         else{
            
@@ -50,14 +55,11 @@ const actions  = {
 
                     if(item.item.id === Product.id){
 
-                        var oldQty = item.qty
-                        var newQty =item.qty = parseInt(oldQty) + 1;
+                        var oldQty = item.qty;
+                        var newQty =item.qty = parseInt(oldQty) + parseInt(Product.min_qty);
                         return {item :item.item ,qty : newQty}
-
                     }
                 })
-
-                commit('Cart',state.Cart)
  
             }
             else{
@@ -67,26 +69,16 @@ const actions  = {
                 var newCart = state.Cart
                 newCart.push(Prod)
                 commit('Cart',newCart)
-
             }
 
-
-            //Update Cookie cart 
-            
-
-
-
-
-
-
-
-
-
-
-
-
-
         }
+
+        //Update Cookie cart 
+        //console.log(state.Cart)
+        //const key = process.env.VUE_APP_ENCKEY // 
+        //const cipher = CryptoJS.AES.encrypt(JSON.stringify(state.Cart),key).toString()
+        //cookie.set('vcart',cipher)
+
 
         let FullPrice;
         //Set Full Price
@@ -94,10 +86,10 @@ const actions  = {
         if (Product.type === 'simple'){
             
             if(Product.on_sale){
-                FullPrice =parseFloat(Product.sale_price) + parseFloat(getters.FullPrice) 
+                FullPrice =parseFloat(Product.sale_price) * parseFloat(Product.min_qty) + parseFloat(getters.FullPrice) 
            }
            else{
-                FullPrice = parseFloat(Product.regular_price) + parseFloat(getters.FullPrice)
+                FullPrice = parseFloat(Product.regular_price) * parseFloat(Product.min_qty) + parseFloat(getters.FullPrice)
            }
         }
 
@@ -122,12 +114,13 @@ const actions  = {
         var newCart = state.Cart
 
         commit('Cart',newCart)
+        
+        //Update Cookie cart 
+        const key = process.env.VUE_APP_ENCKEY // 
+        const cipher = CryptoJS.AES.encrypt(JSON.stringify(newCart),key).toString()
+        cookie.set('vcart',cipher)
 
-        //Reduce Full Price
-        //let FullPrice;
 
-        //Set Full Price
-        //Check Product Type 
         if (Product.item.type === 'simple'){
             
 
@@ -175,14 +168,10 @@ const actions  = {
 
             }   
             else{
-
-                
-
+            
                 //Increse Full Price
                 IncreasedPrice = parseFloat(Product.regular_price) + parseFloat(FullPrice);
-                
                 commit('FullPrice',IncreasedPrice)
-
 
             }
 
@@ -235,6 +224,22 @@ const actions  = {
 
         commit('Cart',state.Cart)
 
+    },
+    AddToCartCookie({commit},cartArr){
+
+        let newCart=[];
+        cartArr.forEach((item)=>{
+            newCart.push(item);
+        })
+
+        commit('Cart',newCart)
+    },
+
+    emptyCart({commit}){
+
+      commit('Cart',[])
+      commit('FullPrice',0)
+      
     }
 
 

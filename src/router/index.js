@@ -49,8 +49,15 @@ const routes = [
       // Remove Cookies
       VueCookies.remove('stateCount');
       VueCookies.remove('token');
+
       //Remove User State 
       store.dispatch('LogOut')
+   
+      //redirect to home if route ! home
+      if(router.currentRoute.name != 'Home' ){
+        router.push({ name:'Home' })
+      }
+   
     },
     meta:{
       requireAuth:true
@@ -121,7 +128,7 @@ const routes = [
     component:lazyLoad('ProdByTag')
   },
   {
-    path:'/:ProdByCat/:ProdName',
+    path:'/product/:ProdName',
     name:'ProdOne',
     component:lazyLoad('ProdOne')
   },
@@ -188,8 +195,6 @@ router.beforeEach((to, from, next)=>{
   next()
 
 });
-
-
 
 
 //Auth Guard

@@ -4,7 +4,6 @@
             <SidePage></SidePage>
             <div class="col-sm-9">
                 <b-container  >
-
                     <b-row>
                         <div class="ProdList container">
                             <mq-layout :mq="['md','lg']" >
@@ -75,13 +74,17 @@ export default {
       SidePage
     },
     methods:{
-        ...mapActions(['getProdByTag','getLanding']),
+        ...mapActions(['getProdByTag']),
     },
     mounted(){
 
         var ProdByTag=this.$route.params.ProdByTag
-        this.getLanding();
-        this.getProdByTag(ProdByTag);
+        var obj={
+         tag:ProdByTag,
+         breakpoint:this.$mq
+        };
+        //this.getLanding(obj);
+        this.getProdByTag(obj);
 
     },
     data(){

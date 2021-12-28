@@ -72,15 +72,13 @@ export default {
         window.removeEventListener('message', this.onMessage)
     },
     computed:{
-        ...mapGetters(['config','authenticated'])
+        ...mapGetters(['config'])
     },
     methods:{
         ...mapActions(['LoginWithMail','LoginWithSocialite']),
         Login:function(){
 
             this.LoginWithMail(this.form)
-
-            //Check if Authenticated
 
         },
         LoginWithGoogle:function(){

@@ -89,8 +89,12 @@ export default {
     },
     mounted(){
 
-        var ProdByCat=this.$route.params.ProdByCat
-        this.getProdByCat(ProdByCat);
+        //var ProdByCat=
+        var obj = {
+            Cat:this.$route.params.ProdByCat,
+            breakpoint:this.$mq
+        }
+        this.getProdByCat(obj);
 
     },
     data(){
@@ -134,6 +138,9 @@ export default {
     margin: 8px 0;
     background: white;
     border-radius: 8px;
+    border-color: #e7e7e7;
+    border-width: 1px;
+    border-style: solid;
 }
 
 </style>

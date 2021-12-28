@@ -16,28 +16,52 @@
                         </v-client-table>
                     </b-tab>
                     <b-tab title="المكتملة" >
-                        <spinner v-if="!this.displayOrderCompleted" class="m-3"></spinner>
-                        <v-client-table v-if="this.displayOrderCompleted" :data="CompletedOrdersArr" :columns="tbcolumn" />
+                     <spinner v-if="!this.displayOrderCompleted" class="m-3"></spinner>
+                     <v-client-table v-if="this.displayOrderCompleted" :data="CompletedOrdersArr" :columns="tbcolumn">
+                      <span slot="order_detail" slot-scope="{row}" >
+                        <b-button v-b-modal.modal-order-details @click="updateOrderModal(row)" >details</b-button>
+                      </span>
+                     </v-client-table>
                     </b-tab>
                     <b-tab title="بالأنتظار" >
-                        <spinner v-if="!this.displayOrderOnHold" class="m-3"></spinner>
-                        <v-client-table v-if="this.displayOrderOnHold" :data="OnHoldOrderArr" :columns="tbcolumn" />
+                     <spinner v-if="!this.displayOrderOnHold" class="m-3"></spinner>
+                     <v-client-table v-if="this.displayOrderOnHold" :data="OnHoldOrderArr" :columns="tbcolumn" >
+                      <span slot="order_detail" slot-scope="{row}" >
+                        <b-button v-b-modal.modal-order-details @click="updateOrderModal(row)" >details</b-button>
+                      </span>
+                     </v-client-table>
                     </b-tab>
                     <b-tab title="ملغية">
-                        <spinner v-if="!this.displayOrderCancelld" ></spinner>
-                        <v-client-table v-if="this.displayOrderCancelld" :data="CancelldOrderArr" :columns="tbcolumn" />
+                     <spinner v-if="!this.displayOrderCancelld" ></spinner>
+                     <v-client-table v-if="this.displayOrderCancelld" :data="CancelldOrderArr" :columns="tbcolumn" >
+                      <span slot="order_detail" slot-scope="{row}" >
+                        <b-button v-b-modal.modal-order-details @click="updateOrderModal(row)" >details</b-button>
+                      </span>
+                     </v-client-table>
                     </b-tab>
                     <b-tab title="قيد التحضير">
-                        <spinner v-if="!this.displayOrderProcessing" ></spinner>
-                        <v-client-table v-if="this.displayOrderProcessing" :data="ProcessingOrderArr" :columns="tbcolumn" />
+                     <spinner v-if="!this.displayOrderProcessing" ></spinner>
+                     <v-client-table v-if="this.displayOrderProcessing" :data="ProcessingOrderArr" :columns="tbcolumn">
+                      <span slot="order_detail" slot-scope="{row}" >
+                        <b-button v-b-modal.modal-order-details @click="updateOrderModal(row)" >details</b-button>
+                      </span>
+                     </v-client-table>
                     </b-tab>
                     <b-tab title="معلّقة">
-                        <spinner v-if="!this.displayOrderPending" ></spinner>
-                        <v-client-table v-if="this.displayOrderPending" :data="PendingOrderArr" :columns="tbcolumn" />
+                     <spinner v-if="!this.displayOrderPending" ></spinner>
+                     <v-client-table v-if="this.displayOrderPending" :data="PendingOrderArr" :columns="tbcolumn" >
+                      <span slot="order_detail" slot-scope="{row}" >
+                        <b-button v-b-modal.modal-order-details @click="updateOrderModal(row)" >details</b-button>
+                      </span>
+                     </v-client-table>
                     </b-tab>
                     <b-tab title="فاشلة">
-                        <spinner v-if="!this.displayOrderFaild" ></spinner>
-                        <v-client-table v-if="this.displayOrderFaild" :data="FaildOrderArr" :columns="tbcolumn" />
+                     <spinner v-if="!this.displayOrderFaild" ></spinner>
+                     <v-client-table v-if="this.displayOrderFaild" :data="FaildOrderArr" :columns="tbcolumn">
+                      <span slot="order_detail" slot-scope="{row}" >
+                       <b-button v-b-modal.modal-order-details @click="updateOrderModal(row)" >details</b-button>
+                      </span>
+                     </v-client-table>
                     </b-tab>
                  </b-tabs>
 
@@ -47,7 +71,9 @@
                         <b-row>
                          <!-- <h4>تفاصيل الطلب</h4> -->
                          <b-col sm="12">
-                           <b-table :items="this.OrderItemsArr" :fields="this.OrderItemsFields" responsive small ></b-table>
+                           <b-table :items="this.OrderItemsArr" :fields="this.OrderItemsFields" responsive small >
+                 
+                           </b-table>
                            <b-table :items="this.OrderInvoiceDetail" :fields="this.OrderInvoiceDetailFields" responsive small stacked label-align="left"></b-table>
                          </b-col>
                         </b-row>
@@ -264,8 +290,6 @@ export default {
 .table-text-alignX{
  color:red
 }
-
-
 .table-text-alignX div::before {
     content: attr(data-label);
     text-align:unset !important;

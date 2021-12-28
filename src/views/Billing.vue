@@ -205,7 +205,7 @@ export default {
         }
     },
     computed:{
-        ...mapGetters(['User','config'])
+        ...mapGetters(['User','config','CurrCountry'])
     },
     methods:{
         validateState(name) {
@@ -230,7 +230,7 @@ export default {
         this.form.MailI=this.User.user_email
         this.form.BillingAddressI=this.User.billing_address_1;
         this.form.BillingAddress2I=this.User.billing_address_2;
-
+        this.form.BillingCountryI=this.$cookies.get('shipCountry');
         let CountryObj={};
 
         var Shipment=this.config.Shipment
@@ -244,7 +244,3 @@ export default {
 
 }
 </script>
-
-<style>
-
-</style>

@@ -15,14 +15,12 @@
             </div>
             <div class="product-data">
                 <h3 class="title"><router-link :to="{ name:'ProdOne', params:{ ProdName:Product.name , ProdByCat:Product.Category.name } }" >{{Product.name}}</router-link></h3>
-                <!-- parseFloat(Product.regular_price).toFixed(2) -->
                 <div class="price"><span v-html="Product.price_html" v-if="Product.price_htm != 0" ></span> </div>
             </div>
             <div class="product-content">
                 <div class="rating">
                     <star-rating style="display: flex;flex-direction: column;"  :rating="parseFloat(Product.average_rating)" :increment='0.01' :read-only="true" :star-size="18" :show-rating='false' v-bind:rtl='true' active-color='#fe6a00' :glow='1' :animate='true'></star-rating>
                 </div>
-                <!-- addToCart(Product.ID,Product.meta._wc_min_qty_product,Product.meta.al_carton_qty) -->
                 <button v-if="Product.type === 'simple'" class="add-to-cart" @click="AddtoCart(Product)" >{{$t('AddToCart')}}</button>
                 <router-link  v-else-if="Product.type === 'variable'" :to="{ name:'ProdOne', params:{ ProdName:Product.name , ProdByCat:Product.Category.name } }" class="add-to-cart" >عرض تفاصيل المنتج</router-link>
             </div>

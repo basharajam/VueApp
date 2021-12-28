@@ -232,7 +232,7 @@ export default {
         this.form.MailI=this.User.email;
         this.form.ShipmentAddressI=this.User.shipping_address_1;
         this.form.ShipmentAddress2I=this.User.shipping_address_2;
-        // this.form.ShipmentCountryI='',
+        this.form.ShipmentCountryI=this.$cookies.get('shipCountry');
         // this.form.ShipmentZipCodeI=,
 
         let CountryObj={};

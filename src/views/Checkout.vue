@@ -217,10 +217,20 @@ export default {
               Ship:CountryVal,
               FullPrice:this.FullPrice
             }
+
+            var self=this;
             // ajax request
             axios.post('http://127.0.0.1:8000/api/SaveOrderPaypal',bdata).then((resp)=>{
 
-              console.log(resp)
+              if(resp.data.success){
+
+                //remove items on cart & full price
+                this.emptyCart()
+
+                //redirect to orders 
+                self.$router.push('Orders')
+
+              }
 
             })
 
@@ -244,10 +254,19 @@ export default {
         FullPrice:this.FullPrice
       }
 
+      var self=this;
       // ajax request
       axios.post('http://127.0.0.1:8000/api/SaveOrderBcs',bdata).then((resp)=>{
 
-        console.log(resp)
+        if(resp.data.success){
+
+          //remove items on cart & full price
+          this.emptyCart()
+
+          //redirect to orders 
+          self.$router.push('Orders')
+
+        }
 
       })
     },
@@ -260,7 +279,7 @@ export default {
     reduceQty:function(id){
         this.reduceQtyS(id)
     },
-    ...mapActions(['RemoveFromCart','increaseQtyS','reduceQtyS']),
+    ...mapActions(['emptyCart','RemoveFromCart','increaseQtyS','reduceQtyS']),
     validateState(name) {
       const { $dirty, $error } = this.$v.form[name];
       return $dirty ? !$error : null;
@@ -291,7 +310,7 @@ export default {
     this.form.LastNameI=this.User.last_name;
     this.form.ShipmentAddressI=this.User.shipping_address_1;
     this.form.BillingAddressI=this.User.billing_address_1;
-    this.form.OrderCountryI='sy';
+    this.form.OrderCountryI=this.$cookies.get('shipCountry');
     this.form.OrderZipI='0036';
     this.form.MailI=this.User.email
 

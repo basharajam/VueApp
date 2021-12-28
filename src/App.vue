@@ -15,6 +15,7 @@
 
 <script>
 import { mapActions } from 'vuex';
+import CryptoJS from 'crypto-js'
 
 import headerTop from './components/widgets/headerTop.vue';
 import navbar from './components/widgets/navbar.vue';
@@ -36,7 +37,7 @@ export default {
     // Spinner
   },
   methods:{
-    ...mapActions(['getTerms','getConfig','LoginWithCookie']),
+    ...mapActions(['getTerms','getConfig','LoginWithCookie','AddToCartCookie']),
   },
 data: function() {
     return {
@@ -46,14 +47,11 @@ data: function() {
   },
   mounted(){
 
- 
 
     //init
     this.getTerms();
     this.getConfig();
     if(this.$cookies.get('token')){
-
-      console.log('Cookie Working')
       this.LoginWithCookie({Token:this.$cookies.get('token')});
     }
 
@@ -67,6 +65,21 @@ data: function() {
     var CurrVal = this.$cookies.get('wmc_current_currency');
     if(!CurrVal){
       this.$cookies.set('wmc_current_currency','SAR');
+    }
+
+    //Check Cart In Cookie And Fill 
+    var vcart = this.$cookies.get('vcart');
+
+    if(vcart){
+
+      console.log('has cart in cookie')
+
+      const key = process.env.VUE_APP_ENCKEY // 
+      const dcrypted = CryptoJS.AES.decrypt(vcart,key).toString(CryptoJS.enc.Utf8);
+      this.AddToCartCookie(JSON.parse(dcrypted))
+      // console.log(JSON.parse(dcrypted))
+
+
     }
 
 
@@ -209,20 +222,6 @@ position: relative;
 }
 
 
-/* .discount-lab{
-  color: #fd6906;
-  position: absolute;
-  top: 16px;
-  left: 14px;
-  width: 45px;
-  height: 45px;
-  max-width: 45px;
-  text-align: center;
-  max-height: 45px;
-  border: 1px #fd6906 solid;
-  padding: 12px 0;
-  border-radius: 999px;
-} */
 .discount-lab {
   color: #fd6906;
   position: absolute;

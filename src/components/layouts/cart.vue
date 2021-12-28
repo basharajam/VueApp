@@ -1,15 +1,20 @@
 <template>
   
   <div :class="{displayC: displaCart} " >
-    <div class="CartOverlay">
+    <div class="CartOverlay" @click="hideCart()">
 
     </div>
     <div class="Cart">
         <button @click="hideCart()" >X</button>
         <h3 class="text-center">السلة</h3>
-        <div class="overflow-auto cartBody" >
+        <div class="overflow-auto cartBody"  >
             <div v-for="(item, index) in Cart" v-bind:key="index" class='CartItem d-flex' >
-                <img :src="item.item.images[0].src" width="100" height="100"/>
+                <vue-load-image>
+                  <!-- <img slot="image"  class="pic-1"  :src="Prod.images[0].src" :alt="Prod.name" width="500" height="500" > -->
+                  <img slot="image" :src="item.item.images[0].src" :alt="item.item.name" width="80" height="80" />
+                  <img slot="preloader" src="@/assets/loader.png" :alt="item.item.name" width="80" height="80" />
+                  <img slot="error" src="@/assets/loader.png" :alt="item.item.name" width="80" height="80" />
+                </vue-load-image>
                 <div class="flex-grow-1">
                     <div class="CartItemHeading d-flex justify-content-between">
                         <p>{{ item.item.name }}</p>
@@ -60,6 +65,7 @@
 <script>
 
 import {mapActions,mapGetters} from 'vuex';
+import VueLoadImage from 'vue-load-image';
 export default {
 
     data(){
@@ -69,9 +75,11 @@ export default {
     },
     mounted(){
      this.$root.$on('DisplayCart', () => {
-
-     this.displaCart = ! this.displaCart;
-    })
+       this.displaCart = ! this.displaCart;
+     })
+    },
+    components:{
+        VueLoadImage
     },
     computed:{
         ...mapGetters(['Cart','FullPrice'])
@@ -92,6 +100,9 @@ export default {
         reduceQty:function(item){
 
             this.reduceQtyS(item)
+        },
+        OverlayClicked:function(){
+            console.log('overlay clicked')
         },
         ...mapActions(['RemoveFromCart','increaseQtyS','reduceQtyS'])
     }
@@ -116,7 +127,7 @@ export default {
 }
 
 .CartOverlay{
-    width: 80%;
+    width: 100%;
     height: 100%;
     background: #00000034;
     position: fixed;

@@ -16,8 +16,7 @@
           <div class="al_footer-item al_footer-item-cart">
               <a href="https://alyaman.com/cart/" class="flex  justify-center">
                   <i class="fal fa-shopping-cart" ></i>
-                  <span class="CartCount" v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" ><span v-if="this.$cookies.get('gift_cart_counter') !=null && this.$cookies.get('gift_cart_counter') > 0" >{{ this.$cookies.get('gift_cart_counter') }}</span></span>
-                  <span class="CartCount" v-else >0</span>
+                  <span class="CartCount" >{{ this.Cart.length }}</span>
                   <span>السلة</span>
               </a>
           </div>
@@ -91,9 +90,9 @@
                 <div class="CopyRightsFooter">
                     <p>{{$t('CopyRights')}}</p>
                     <div class="PayMethods" style="text-align: center; width: 100%">
-                      <img height="40" src="https://shoplineimg.com/assets/footer/card_visa.png" alt="pay using visa credit card"/>
-                      <img height="22" src="http:///www.credit-card-logos.com/images/mastercard_credit-card-logos/mastercard_logo_1.gif"  width="37" border="0" alt="pay using master card credit card"/>
-                      <img height="40" src="https://shoplineimg.com/assets/footer/card_paypal.png" alt="pay using paypal" />
+                      <img width="38" height="40" src="https://shoplineimg.com/assets/footer/card_visa.png" alt="pay using visa credit card"/>
+                      <img width="38" height="22" src="http:///www.credit-card-logos.com/images/mastercard_credit-card-logos/mastercard_logo_1.gif" border="0" alt="pay using master card credit card"/>
+                      <img width="38" height="40" src="https://shoplineimg.com/assets/footer/card_paypal.png" alt="pay using paypal" />
                     </div>
                 </div>
             </div>
@@ -101,6 +100,10 @@
   </div>
 </template>
 <script>
+
+import { mapGetters } from 'vuex';
+
+
 export default {
 
     data(){
@@ -113,6 +116,9 @@ export default {
     created() {
         setTimeout(() => { this.elementVisible = true },6000);
         setTimeout(() => this.elementVisible = false, 15000)
+    },
+    computed:{
+     ...mapGetters(['Cart'])
     }
     
 

@@ -2,6 +2,7 @@ import axios from "axios";
 import cookie from 'vue-cookies';
 import Vue from 'vue'
 
+
 const state  = {
 
     LandingLayout:[],
@@ -22,7 +23,7 @@ const getters = {
 const actions = {
 
 
-    getLanding({commit}){
+    getLanding({commit},obj){
 
         //Progress Bar
         Vue.prototype.$Progress.start()
@@ -41,7 +42,9 @@ const actions = {
             country='SA';
         }
 
-        var setUrl =process.env.VUE_APP_DEVBASEURL+'/Products/'+cur+'/'+country;
+        
+
+        var setUrl =process.env.VUE_APP_DEVBASEURL+'/Products/'+cur+'/'+country+'/'+obj.breakpoint;
 
           axios.get(setUrl).then(function(response){
     
@@ -56,7 +59,7 @@ const actions = {
     },
     
 
-    getProdByCat({commit},ProdByCat){
+    getProdByCat({commit},obj){
 
         //Start Progress
         Vue.prototype.$Progress.start()
@@ -75,7 +78,7 @@ const actions = {
             cur='SAR';
             country='SA';
         }
-        var setUrl =process.env.VUE_APP_DEVBASEURL+'/ProdByCat/'+ProdByCat+'/'+cur+'/'+country;
+        var setUrl =process.env.VUE_APP_DEVBASEURL+'/ProdByCat/'+obj.Cat+'/'+cur+'/'+country+'/'+obj.breakpoint;
         axios.get(setUrl).then(function(response){
             
             
@@ -89,12 +92,11 @@ const actions = {
         })
 
     },
-    getProdByTag({commit},ProdByTag){
+    getProdByTag({commit},obj){
 
         //Start Progress
         Vue.prototype.$Progress.start()
 
-        
         var CountryVal= cookie.get('shipCountry');
         var CurrVal = cookie.get('wmc_current_currency');
         let cur;
@@ -107,7 +109,7 @@ const actions = {
             cur='SAR';
             country='SA';
         }
-        var setUrl =process.env.VUE_APP_DEVBASEURL+'/ProdByTag/'+ProdByTag+'/'+cur+'/'+country;
+        var setUrl =process.env.VUE_APP_DEVBASEURL+'/ProdByTag/'+obj.tag+'/'+cur+'/'+country+'/'+obj.breakpoint;
         axios.get(setUrl).then(function(response){
             
             //anding Page Layout
@@ -120,7 +122,6 @@ const actions = {
             //Finish Progress
             Vue.prototype.$Progress.finish()
                 
-    
         })
 
 
