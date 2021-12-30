@@ -32,11 +32,11 @@
                   </b-dropdown-form>
             </b-dropdown>
           </div>
-          <div class="SearchSection d-flex align-items-center col-sm-6" >
+          <div class="SearchSection d-flex align-items-center col-sm-5" >
             <!-- <i style="position: relative;right: 38px;top:0px;" class="fa fa-search"></i> -->
             <b-form @submit.prevent="onSubmitSearch()" style="flex:1" class="" >
              <!-- <b-form-input class=" mr-sm-2 SearchInput pr-5" aria-describedby="basic-addon1" v-on:input="SearchRequest" v-on:focus="hideIcon()" v-on:focusout='search=true' v-model="SearchInput" type="search" placeholder="بحث" >  --> 
-              <b-form-input class=" mr-sm-2 SearchInput pr-5" type="search" v-model="SearchInput" ></b-form-input>
+              <b-form-input id="searchFormInput" class=" mr-sm-2 SearchInput pr-5" type="search" v-model="SearchInput" ></b-form-input>
             
             </b-form>
           </div>
@@ -75,7 +75,7 @@
                 <template #button-content>
                   <i class="fal fa-globe" style="color: #8d8d8d;font-size: 26px;"></i>
                 </template>
-                <b-dropdown-item-button variant="link"  v-for="(lang, i) in langs" :key="`Lang${i}`" @click="UpdateLocale(lang)">
+                <b-dropdown-item-button variant="link" name="langBtn" v-for="(lang, i) in langs" :key="`Lang${i}`" @click="UpdateLocale(lang)">
                   <div class="d-flex align-items-center">
                    <country-flag :country='lang.flag' size='normal' />
                    {{ lang.name }}

@@ -7,8 +7,8 @@
                 <router-link :to="{ name:'ProdOne', params:{ProdByCat:Product.Category.name , ProdName:Product.name } }" class="image" style="min-width:150;">
                     <vue-load-image>
                         <img slot="image"  class="pic-1 img-fluid mx-auto"  :src="Product.images[0].src" :alt="Product.name" width="210" height="210" >
-                        <img slot="preloader" class="img-fluid mx-auto" src="@/assets/loader.png"  width="210" height="210" :alt="Product.name" />
-                        <img slot="error" class="img-fluid mx-auto" src="@/assets/loader.png"  width="210" height="210" :alt="Product.name" />
+                        <img slot="preloader" class="pic-1 img-fluid mx-auto" src="@/assets/loader.png"  width="210" height="210" :alt="Product.name" />
+                        <img slot="error" class="pic-1 img-fluid mx-auto" src="@/assets/loader.png"  width="210" height="210" :alt="Product.name" />
                     </vue-load-image>
                 </router-link>
                 <span v-if="Product.on_sale" class="discount-lab">% {{ discountPrice(Product)  }}</span>
@@ -89,9 +89,10 @@ export default {
     background: #ffffff87;
     width: 100%;
     height: 100%;
-    display: block;
+    display: none;
 }
 .product-grid:hover{ box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.1); }
+.pic-1:hover + .product-description{ display: block; }
 .product-grid .product-image{ position: relative; }
 .product-grid .product-image a.image{ display: block; }
 .product-grid .product-image img{

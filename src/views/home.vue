@@ -87,8 +87,12 @@ export default {
     watch:{
         LandingLayout(newValue){
  
-            if(newValue.desktop.length > 0){
-                this.landingLoading=false;
+            if(newValue.desktop){
+              this.landingLoading=false;
+            }
+
+            if(newValue.mobile){
+              this.landingLoading=false;
             }
         },
     },

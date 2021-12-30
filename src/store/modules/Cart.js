@@ -2,6 +2,9 @@
 import cookie from 'vue-cookies'
 import CryptoJS from 'crypto-js'
 
+import cartdb from '../cartdb';
+
+
 const state = {
     Cart:[],
     FullPrice:0
@@ -23,21 +26,24 @@ const actions  = {
             item:Product,
             qty:Product.min_qty
         }
-
         
-
-
+        
+        
+        
+        
         //Check if Cart is Empty 
         if(state.Cart.length == 0 ){
-
+            
             var newCart0 = state.Cart
             newCart0.push(Prod)
-        
+            
             //add new item to cookie
-    
+            
             //Add New Item to state 
             commit('Cart',newCart0)
             
+            //save item to indexeddb
+            cartdb.saveCartItem(Prod)
         }
         else{
            
@@ -57,7 +63,12 @@ const actions  = {
 
                         var oldQty = item.qty;
                         var newQty =item.qty = parseInt(oldQty) + parseInt(Product.min_qty);
-                        return {item :item.item ,qty : newQty}
+
+                        //update indexeddb
+                        var newItem={item :item.item ,qty : newQty}; 
+                        cartdb.updateQty(newItem)
+
+                        return newItem;
                     }
                 })
  
@@ -69,6 +80,9 @@ const actions  = {
                 var newCart = state.Cart
                 newCart.push(Prod)
                 commit('Cart',newCart)
+
+                //save item to indexeddb
+                cartdb.saveCartItem(Prod)
             }
 
         }

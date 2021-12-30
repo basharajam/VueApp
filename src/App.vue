@@ -79,10 +79,7 @@ data: function() {
       this.AddToCartCookie(JSON.parse(dcrypted))
       // console.log(JSON.parse(dcrypted))
 
-
     }
-
-
   },
 
 }
